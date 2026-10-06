@@ -1,0 +1,8 @@
+require "spec"
+require "../src/sunstone/version"
+require "../src/sunstone/models/deck"
+require "../src/sunstone/models/slide"
+require "../src/sunstone/models/palette"
+require "../src/sunstone/layouts/router"
+require "../src/sunstone/generator"
+require "../src/sunstone/scaffold"

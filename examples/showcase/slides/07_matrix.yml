@@ -1,0 +1,20 @@
+id: "matrix"
+layout: "matrix"
+badge: "LAYOUT: MATRIX"
+badge_color: "cyber"
+palette: "cyber_neon"
+title: "Presentation Engine Comparison"
+subtitle: "Evaluating architectures across styling, ergonomics, and reproducibility"
+headers:
+  - "Feature"
+  - "Traditional Slideware"
+  - "Marp / Markdown"
+  - "Sunstone"
+rows:
+  - ["Inline Styles", "Pervasive inline styles", "Limited styling control", "Strictly Zero Inline Styles"]
+  - ["Theme Scoping", "Manual theme hunting", "Single global theme", "Theme-Scoped Palettes per Slide"]
+  - ["Git Diffs", "Opaque binary XML", "Flat markdown only", "Line-by-line semantic YAML"]
+  - ["Chrome Controls", "Bloated HTML elements", "Minimal / None", "CSS Pseudo-Elements (::before/::after)"]
+summary: "Sunstone provides uncompromised styling freedom with rock-solid semantic architecture."
+notes: |
+  Walk through the row-by-row matrix comparison with other tools.

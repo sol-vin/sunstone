@@ -1,0 +1,49 @@
+id: "quickstart"
+title: "Quickstart Guide"
+summary: "Get started building and presenting slides with Sunstone in minutes."
+sections:
+  - id: "installation"
+    title: "Installation & Setup"
+    summary: "How to install Sunstone or compile it from source."
+    content: |
+      Clone the Sunstone repository or install via shards:
+
+      ```bash
+      git clone https://github.com/sol-vin/sunstone.git
+      cd sunstone
+      shards install
+      crystal build src/sunstone.cr -o bin/sunstone
+      ```
+
+  - id: "creating_deck"
+    title: "Creating Your First Presentation"
+    summary: "Scaffolding a new presentation project with sunstone new."
+    content: |
+      To scaffold a new presentation deck:
+
+      ```bash
+      sunstone new my-talk --title "High-Performance Systems" --author "Jane Doe"
+      cd my-talk
+      ```
+
+      This creates:
+      - `deck.yml`: Deck configuration and slide order.
+      - `slides/`: Starter slides showcasing intro, two-column code, and closing layouts.
+      - `custom.css`: Optional custom styling overrides.
+      - `.github/workflows/deploy.yml`: Ready-to-go GitHub Pages automated deployment.
+
+  - id: "preview_and_build"
+    title: "Previewing and Building Slides"
+    summary: "Live local preview and static production compilation."
+    content: |
+      To launch a live local preview server with automatic browser launch:
+
+      ```bash
+      sunstone serve
+      ```
+
+      To compile static production HTML and Markdown files:
+
+      ```bash
+      sunstone build --out dist
+      ```

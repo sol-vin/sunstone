@@ -1,0 +1,30 @@
+id: "themes"
+title: "Themes & Theme-Scoped Palettes"
+summary: "How Sunstone themes, palettes, and CSS custom properties work."
+sections:
+  - id: "themes_overview"
+    title: "Built-In Themes"
+    summary: "Differences between the generic and sol.vin themes."
+    content: |
+      Sunstone ships with two built-in themes:
+
+      - **`generic` (Default):** Clean, modern, high-contrast engineering aesthetic. Employs 8 modern dark and light palettes (`slate_dark`, `clean_light`, `emerald_matrix`, `midnight_indigo`, `crimson_obsidian`, `sunset_amber`, `nordic_ice`, `cyber_neon`). Completely free of extraneous visual elements.
+      - **`sol.vin`:** Retro terminal and desktop-inspired theme. Employs 46 retro palettes (`spaces_98`, `warm_paper`, `neon_cyber`, `monokai`, etc.), renders an interactive 3D spinning isometric wireframe cube (`cube.js`), and includes SVG chromatic color-matrix filters for emojis.
+
+  - id: "palette_per_slide"
+    title: "Palette per Slide"
+    summary: "Switching palettes per slide without styling conflicts."
+    content: |
+      Every slide can specify `palette: <id>`.
+      Sunstone compiles CSS definitions for each palette in the theme:
+
+      ```css
+      .slide[data-palette="slate_dark"] {
+        --sunstone-bg: #0f172a;
+        --sunstone-surface: #1e293b;
+        --sunstone-accent: #38bdf8;
+        --sunstone-text-primary: #f8fafc;
+      }
+      ```
+
+      When Reveal.js navigates between slides, the browser transitions colors instantly and smoothly without any DOM rewriting.

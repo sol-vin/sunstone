@@ -1,0 +1,29 @@
+name: sunstone
+version: 0.1.1
+
+authors:
+  - sol-vin <sol@sol.vin>
+
+description: |
+  Modular, generic YAML-driven slide presentation engine with customizable themes
+  and zero-inline-style semantic HTML.
+
+dependencies:
+  opal:
+    github: sol-vin/opal
+    branch: main
+
+development_dependencies:
+  carbon:
+    github: sol-vin/carbon
+    branch: main
+  jasper:
+    github: sol-vin/jasper
+    branch: main
+
+targets:
+  sunstone:
+    main: src/sunstone.cr
+
+license: MIT
+crystal: ">= 1.10.0"

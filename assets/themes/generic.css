@@ -1,0 +1,319 @@
+/**
+ * Sunstone Generic Theme (Modern Clean)
+ * Fully Customizable via Semantic CSS Custom Properties
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Typography */
+  --sunstone-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --sunstone-font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  /* Geometry & Radii */
+  --sunstone-radius-sm: 6px;
+  --sunstone-radius-md: 10px;
+  --sunstone-radius-lg: 16px;
+  --sunstone-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+
+  /* Default Palette: Slate Dark */
+  --sunstone-bg: #0f172a;
+  --sunstone-surface: #1e293b;
+  --sunstone-surface-hover: #273549;
+  --sunstone-text-primary: #f8fafc;
+  --sunstone-text-secondary: #cbd5e1;
+  --sunstone-text-muted: #94a3b8;
+  --sunstone-accent: #38bdf8;
+  --sunstone-accent-secondary: #818cf8;
+  --sunstone-accent-tertiary: #34d399;
+  --sunstone-border: #334155;
+  --sunstone-border-active: #38bdf8;
+  --sunstone-code-bg: #090d16;
+}
+
+/* Base Reveal Typography */
+.reveal {
+  font-family: var(--sunstone-font-sans);
+  color: var(--sunstone-text-secondary);
+  background-color: var(--sunstone-bg);
+}
+
+/* ==============================================================================
+   Theme Palette Scoping (Palette per Slide)
+   ============================================================================== */
+
+/* Slate Dark (Default) */
+.slide[data-palette="slate_dark"] {
+  --sunstone-bg: #0f172a;
+  --sunstone-surface: #1e293b;
+  --sunstone-surface-hover: #273549;
+  --sunstone-text-primary: #f8fafc;
+  --sunstone-text-secondary: #cbd5e1;
+  --sunstone-text-muted: #94a3b8;
+  --sunstone-accent: #38bdf8;
+  --sunstone-accent-secondary: #818cf8;
+  --sunstone-accent-tertiary: #34d399;
+  --sunstone-border: #334155;
+  --sunstone-border-active: #38bdf8;
+  --sunstone-code-bg: #090d16;
+}
+
+/* Clean Light */
+.slide[data-palette="clean_light"] {
+  --sunstone-bg: #f8fafc;
+  --sunstone-surface: #ffffff;
+  --sunstone-surface-hover: #f1f5f9;
+  --sunstone-text-primary: #0f172a;
+  --sunstone-text-secondary: #334155;
+  --sunstone-text-muted: #64748b;
+  --sunstone-accent: #2563eb;
+  --sunstone-accent-secondary: #4f46e5;
+  --sunstone-accent-tertiary: #059669;
+  --sunstone-border: #e2e8f0;
+  --sunstone-border-active: #2563eb;
+  --sunstone-code-bg: #1e293b;
+}
+
+/* Emerald Matrix */
+.slide[data-palette="emerald_matrix"] {
+  --sunstone-bg: #061a14;
+  --sunstone-surface: #0d2b22;
+  --sunstone-surface-hover: #133d30;
+  --sunstone-text-primary: #ecfdf5;
+  --sunstone-text-secondary: #a7f3d0;
+  --sunstone-text-muted: #6ee7b7;
+  --sunstone-accent: #10b981;
+  --sunstone-accent-secondary: #34d399;
+  --sunstone-accent-tertiary: #6ee7b7;
+  --sunstone-border: #134e3a;
+  --sunstone-border-active: #10b981;
+  --sunstone-code-bg: #030f0b;
+}
+
+/* Midnight Indigo */
+.slide[data-palette="midnight_indigo"] {
+  --sunstone-bg: #0b0f19;
+  --sunstone-surface: #161d31;
+  --sunstone-surface-hover: #1f2a47;
+  --sunstone-text-primary: #f1f5f9;
+  --sunstone-text-secondary: #cbd5e1;
+  --sunstone-text-muted: #94a3b8;
+  --sunstone-accent: #818cf8;
+  --sunstone-accent-secondary: #a78bfa;
+  --sunstone-accent-tertiary: #38bdf8;
+  --sunstone-border: #263354;
+  --sunstone-border-active: #818cf8;
+  --sunstone-code-bg: #070a12;
+}
+
+/* Crimson Obsidian */
+.slide[data-palette="crimson_obsidian"] {
+  --sunstone-bg: #121113;
+  --sunstone-surface: #211f24;
+  --sunstone-surface-hover: #2d2a32;
+  --sunstone-text-primary: #fafafa;
+  --sunstone-text-secondary: #e4e4e7;
+  --sunstone-text-muted: #a1a1aa;
+  --sunstone-accent: #f43f5e;
+  --sunstone-accent-secondary: #fb7185;
+  --sunstone-accent-tertiary: #f59e0b;
+  --sunstone-border: #3a353f;
+  --sunstone-border-active: #f43f5e;
+  --sunstone-code-bg: #0a090b;
+}
+
+/* Sunset Amber */
+.slide[data-palette="sunset_amber"] {
+  --sunstone-bg: #171412;
+  --sunstone-surface: #27221d;
+  --sunstone-surface-hover: #362f28;
+  --sunstone-text-primary: #fef3c7;
+  --sunstone-text-secondary: #fde68a;
+  --sunstone-text-muted: #d97706;
+  --sunstone-accent: #f59e0b;
+  --sunstone-accent-secondary: #fbbf24;
+  --sunstone-accent-tertiary: #10b981;
+  --sunstone-border: #453a2f;
+  --sunstone-border-active: #f59e0b;
+  --sunstone-code-bg: #0d0b0a;
+}
+
+/* Nordic Ice */
+.slide[data-palette="nordic_ice"] {
+  --sunstone-bg: #101622;
+  --sunstone-surface: #1a2336;
+  --sunstone-surface-hover: #24314c;
+  --sunstone-text-primary: #f0fdfa;
+  --sunstone-text-secondary: #ccfbf1;
+  --sunstone-text-muted: #5eead4;
+  --sunstone-accent: #06b6d4;
+  --sunstone-accent-secondary: #22d3ee;
+  --sunstone-accent-tertiary: #38bdf8;
+  --sunstone-border: #24334f;
+  --sunstone-border-active: #06b6d4;
+  --sunstone-code-bg: #0a0e17;
+}
+
+/* Cyber Neon */
+.slide[data-palette="cyber_neon"] {
+  --sunstone-bg: #050508;
+  --sunstone-surface: #11111b;
+  --sunstone-surface-hover: #191928;
+  --sunstone-text-primary: #ffffff;
+  --sunstone-text-secondary: #e2e8f0;
+  --sunstone-text-muted: #94a3b8;
+  --sunstone-accent: #00f5d4;
+  --sunstone-accent-secondary: #f72585;
+  --sunstone-accent-tertiary: #7209b7;
+  --sunstone-border: #27273a;
+  --sunstone-border-active: #00f5d4;
+  --sunstone-code-bg: #000000;
+}
+
+/* Slide Background & Colors Applied Dynamically */
+.slide {
+  background-color: var(--sunstone-bg);
+  color: var(--sunstone-text-secondary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Header & Text Styling */
+.slide-header {
+  border-bottom: 1px solid var(--sunstone-border);
+}
+
+.slide-title {
+  color: var(--sunstone-text-primary) !important;
+  letter-spacing: -0.02em;
+}
+
+.slide-subtitle {
+  color: var(--sunstone-text-muted) !important;
+}
+
+.slide-footer {
+  border-top: 1px solid var(--sunstone-border);
+  color: var(--sunstone-text-muted);
+}
+
+/* Badges */
+.badge {
+  background: var(--sunstone-surface);
+  color: var(--sunstone-accent);
+  border: 1px solid var(--sunstone-border);
+}
+
+/* Window Containers (Code & Terminal) */
+.code-window, .terminal-window {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  box-shadow: var(--sunstone-shadow);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.code-window:hover, .terminal-window:hover {
+  border-color: var(--sunstone-border-active);
+}
+
+.window-header {
+  background: var(--sunstone-code-bg);
+  border-bottom: 1px solid var(--sunstone-border);
+  color: var(--sunstone-text-muted);
+}
+
+.lang-tag {
+  background: var(--sunstone-surface);
+  color: var(--sunstone-accent);
+  border: 1px solid var(--sunstone-border);
+}
+
+.code-window pre, .terminal-window pre {
+  background: var(--sunstone-code-bg) !important;
+  color: var(--sunstone-text-primary) !important;
+}
+
+/* Cards */
+.card {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  box-shadow: var(--sunstone-shadow);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--sunstone-border-active);
+  transform: translateY(-2px);
+}
+
+.card-title {
+  color: var(--sunstone-text-primary);
+}
+
+.card-list li {
+  color: var(--sunstone-text-secondary);
+}
+
+.card-list strong {
+  color: var(--sunstone-text-primary);
+}
+
+/* Takeaway Banner */
+.takeaway-banner {
+  background: var(--sunstone-surface);
+  border-left: 4px solid var(--sunstone-accent);
+  color: var(--sunstone-text-primary);
+  box-shadow: var(--sunstone-shadow);
+}
+
+/* Matrix Tables */
+.matrix-table {
+  background: var(--sunstone-surface);
+  border-radius: var(--sunstone-radius-md);
+  overflow: hidden;
+  box-shadow: var(--sunstone-shadow);
+}
+
+.matrix-table thead tr {
+  background: var(--sunstone-code-bg);
+  color: var(--sunstone-text-primary);
+  border-bottom: 2px solid var(--sunstone-border);
+}
+
+.matrix-table tbody tr {
+  border-bottom: 1px solid var(--sunstone-border);
+  transition: background 0.1s ease;
+}
+
+.matrix-table tbody tr:hover {
+  background: var(--sunstone-surface-hover);
+}
+
+/* Architecture Tiers */
+.arch-tier {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  box-shadow: var(--sunstone-shadow);
+}
+
+.arch-block {
+  background: var(--sunstone-code-bg);
+  border: 1px solid var(--sunstone-border);
+}
+
+.arch-block-title {
+  color: var(--sunstone-accent);
+}
+
+/* Chapter & Hero Pillars */
+.chapter-pillar-card, .intro-pill {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  color: var(--sunstone-text-primary);
+  box-shadow: var(--sunstone-shadow);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.chapter-pillar-card:hover, .intro-pill:hover {
+  border-color: var(--sunstone-accent);
+  transform: translateY(-2px);
+}

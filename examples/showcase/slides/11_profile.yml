@@ -1,0 +1,34 @@
+id: "profile"
+layout: "profile"
+badge: "LAYOUT: PROFILE"
+badge_color: "accent"
+palette: "slate_dark"
+title: "Presenter Profile & Credentials"
+subtitle: "Speaker biography, key career metrics, and core areas of focus"
+stats:
+  - icon: "code"
+    value: "15+"
+    label: "Years in Systems"
+  - icon: "terminal"
+    value: "500k+"
+    label: "Lines of Crystal"
+  - icon: "shield"
+    value: "100%"
+    label: "Type Safety"
+cards:
+  - title: "Core Focus Areas"
+    color: "accent"
+    badge: "EXPERTISE"
+    items:
+      - "High-performance systems programming"
+      - "Compiler design and AST transformations"
+      - "Developer tooling and command-line interfaces"
+  - title: "Community & Open Source"
+    color: "emerald"
+    badge: "COMMUNITY"
+    items:
+      - "Author of Opal, Carbon, and Jasper"
+      - "Active contributor across Crystal ecosystem"
+      - "Passionate about zero-dependency tooling"
+notes: |
+  Introduce the presenter and outline background experience.

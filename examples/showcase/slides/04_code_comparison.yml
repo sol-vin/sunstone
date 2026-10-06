@@ -1,0 +1,37 @@
+id: "code_comparison"
+layout: "code-comparison"
+badge: "LAYOUT: COMPARISON"
+badge_color: "crimson"
+palette: "crimson_obsidian"
+title: "Imperative vs Declarative Slides"
+subtitle: "Two-step progressive disclosure: raw code first, then critique analysis"
+before:
+  title: "Imperative HTML Strings"
+  lang: "html"
+  code: |
+    <div style="display:flex;background:#111;padding:12px;">
+      <h2 style="font-size:24px;color:#38bdf8;">Title</h2>
+      <p style="margin:0;color:#aaa;">Subtitle</p>
+    </div>
+  points:
+    - "Hardcoded inline style tags everywhere"
+    - "Zero reusability across slides or themes"
+    - "High cognitive overhead in git diffs"
+after:
+  title: "Sunstone Semantic YAML"
+  lang: "yaml"
+  code: |
+    id: "overview"
+    layout: "intro"
+    badge: "MODULAR"
+    title: "Title"
+    subtitle: "Subtitle"
+    palette: "slate_dark"
+  points:
+    - "Clean, human-readable data definitions"
+    - "Palette switching is automatic and decoupled"
+    - "Predictable, strictly semantic HTML output"
+notes: |
+  Notice how this layout automatically expands to 2 slides:
+  1. Side-by-side code blocks.
+  2. Side-by-side critique cards analyzing strengths & weaknesses.

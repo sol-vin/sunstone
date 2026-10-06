@@ -1,0 +1,66 @@
+---
+settings:
+  title: CARBON CHANGELOG
+  output_file: CHANGELOG.md
+  auto_link_github: true
+  categories:
+    breaking:
+      title: "\U0001F4A5 Breaking Changes"
+      bullet: ▲
+    features:
+      title: ✨ Features & Improvements
+      bullet: ✦
+    fixes:
+      title: "\U0001F41B Bug Fixes"
+      bullet: ✓
+    perf:
+      title: ⚡ Performance Optimizations
+      bullet: "\U0001F680"
+    docs:
+      title: "\U0001F4DA Documentation"
+      bullet: "\U0001F4D6"
+    maintenance:
+      title: "\U0001F6E0️ Chores & Tooling"
+      bullet: •
+releases:
+- version: 0.1.1
+  date: "2026-10-06"
+  status: active
+  entries: []
+- version: 0.1.0
+  date: "2026-10-06"
+  status: released
+  summary: Initial release of Sunstone — Generic YAML-driven slide presentation engine
+    with zero-inline-style semantic HTML.
+  entries:
+  - type: features
+    description: Strict Zero-Inline-Styles architecture using semantic classes and
+      data-* attributes (data-layout, data-ratio, data-density, data-palette, data-cols).
+  - type: features
+    description: '15 semantic layouts: intro, chapter, two-column, code-comparison
+      (2-step critique), three-column, four-column, matrix, timeline, architecture,
+      media, profile, dual-mode, demo-roadmap, closing, quote.'
+  - type: features
+    description: 'Theme-scoped palettes supporting per-slide palette switching: generic
+      (8 modern palettes) and sol.vin (46 retro palettes).'
+  - type: features
+    description: Terminal window chrome and architectural flow arrows rendered purely
+      via CSS pseudo-elements (::before, ::after).
+  - type: features
+    description: Opal CLI application with build, serve, validate, new, init, add-slide,
+      and discovery commands.
+  - type: features
+    description: Live HTTP static preview server with port hunting (8000..8020) and
+      automatic OS browser launching.
+  - type: features
+    description: Jasper structured multi-track documentation books in docs_src/ integrated
+      with crystal docs.
+  - type: features
+    description: Carbon changelog, release management, README badges, and repo doctor
+      audit integration.
+  - type: features
+    description: Scaffolded user presentation CI workflow (.github/workflows/deploy.yml)
+      for one-click GitHub Pages deployment.
+  - type: docs
+    description: Comprehensive showcase deck in examples/showcase demonstrating all
+      15 layouts and palettes.

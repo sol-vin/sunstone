@@ -1,0 +1,42 @@
+id: "zero_inline_styles"
+title: "Zero Inline Styles Architecture"
+summary: "Technical guide to how Sunstone implements zero inline styles using semantic CSS and pseudo-elements."
+sections:
+  - id: "architecture"
+    title: "How Zero-Inline-Styles Works"
+    summary: "Mapping semantic attributes to CSS grid and flex rules."
+    content: |
+      Rather than injecting `style="grid-template-columns: 3fr 2fr;"` into HTML tags, Sunstone emits semantic data attributes:
+
+      ```html
+      <div class="slide-body" data-ratio="3:2" data-density="compact">
+      ```
+
+      In `sunstone-base.css`, attribute selectors map directly to CSS grid definitions:
+
+      ```css
+      [data-ratio="3:2"] {
+        grid-template-columns: 3fr 2fr;
+      }
+      ```
+
+  - id: "pseudo_elements"
+    title: "Chrome via CSS Pseudo-Elements"
+    summary: "Rendering window controls and arrows without extra HTML."
+    content: |
+      Terminal dots and window controls are rendered purely with `::before` and box shadows:
+
+      ```css
+      .window-header::before {
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ff5f56;
+        box-shadow: 15px 0 0 #ffbd2e, 30px 0 0 #27c93f;
+        margin-right: 40px;
+      }
+      ```
+
+      Flow arrows between architectural tiers use `.arch-tier + .arch-tier::before { content: "▼"; }`.

@@ -1,0 +1,80 @@
+name: CI & GitHub Pages Deployment
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  test-and-build:
+    name: Test, Build & Verify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Crystal
+        uses: crystal-lang/install-crystal@v1
+        with:
+          crystal: 1.12.0
+
+      - name: Install Shards Dependencies
+        run: shards install
+
+      - name: Run Specs
+        run: crystal spec
+
+      - name: Build Sunstone CLI Binary
+        run: crystal build src/sunstone.cr -o bin/sunstone --release
+
+      - name: Test CLI Commands
+        run: |
+          bin/sunstone --help
+          bin/sunstone list-layouts
+          bin/sunstone list-themes
+          bin/sunstone list-palettes --theme generic
+          bin/sunstone list-palettes --theme sol.vin
+          bin/sunstone validate --deck examples/showcase/deck.yml
+
+      - name: Build Jasper Documentation
+        run: |
+          crystal build lib/jasper/src/jasper_cli.cr -o bin/jasper
+          bin/jasper build
+          crystal docs
+
+      - name: Compile Showcase Presentation
+        run: |
+          bin/sunstone build --deck examples/showcase/deck.yml --out dist
+
+      - name: Upload Showcase Presentation Artifact
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+
+  deploy-showcase:
+    name: Deploy Demo Slideshow to GitHub Pages
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: test-and-build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

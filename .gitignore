@@ -1,0 +1,20 @@
+# Shards & Dependencies
+/lib/
+/bin/
+*.dwarf
+*.pdb
+*.exe
+*.o
+
+# Documentation & Distribution Output
+/docs/
+/dist/
+
+# Crystal Cache
+/.crystal/
+/.shards/
+
+# Temporary Test & Presentation Builds
+test_generic_deck/
+test_solvin_deck/
+test_deck/

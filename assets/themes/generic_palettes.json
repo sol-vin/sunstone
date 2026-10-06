@@ -1,0 +1,146 @@
+[
+  {
+    "id": "slate_dark",
+    "name": "Slate Dark (Default)",
+    "colors": {
+      "bg_color": "#0f172a",
+      "surface_color": "#1e293b",
+      "surface_hover": "#273549",
+      "text_primary": "#f8fafc",
+      "text_secondary": "#cbd5e1",
+      "text_muted": "#94a3b8",
+      "accent_color": "#38bdf8",
+      "accent_secondary": "#818cf8",
+      "accent_tertiary": "#34d399",
+      "border_color": "#334155",
+      "border_active": "#38bdf8",
+      "code_bg": "#090d16"
+    }
+  },
+  {
+    "id": "clean_light",
+    "name": "Clean Light",
+    "colors": {
+      "bg_color": "#f8fafc",
+      "surface_color": "#ffffff",
+      "surface_hover": "#f1f5f9",
+      "text_primary": "#0f172a",
+      "text_secondary": "#334155",
+      "text_muted": "#64748b",
+      "accent_color": "#2563eb",
+      "accent_secondary": "#4f46e5",
+      "accent_tertiary": "#059669",
+      "border_color": "#e2e8f0",
+      "border_active": "#2563eb",
+      "code_bg": "#1e293b"
+    }
+  },
+  {
+    "id": "emerald_matrix",
+    "name": "Emerald Matrix",
+    "colors": {
+      "bg_color": "#061a14",
+      "surface_color": "#0d2b22",
+      "surface_hover": "#133d30",
+      "text_primary": "#ecfdf5",
+      "text_secondary": "#a7f3d0",
+      "text_muted": "#6ee7b7",
+      "accent_color": "#10b981",
+      "accent_secondary": "#34d399",
+      "accent_tertiary": "#6ee7b7",
+      "border_color": "#134e3a",
+      "border_active": "#10b981",
+      "code_bg": "#030f0b"
+    }
+  },
+  {
+    "id": "midnight_indigo",
+    "name": "Midnight Indigo",
+    "colors": {
+      "bg_color": "#0b0f19",
+      "surface_color": "#161d31",
+      "surface_hover": "#1f2a47",
+      "text_primary": "#f1f5f9",
+      "text_secondary": "#cbd5e1",
+      "text_muted": "#94a3b8",
+      "accent_color": "#818cf8",
+      "accent_secondary": "#a78bfa",
+      "accent_tertiary": "#38bdf8",
+      "border_color": "#263354",
+      "border_active": "#818cf8",
+      "code_bg": "#070a12"
+    }
+  },
+  {
+    "id": "crimson_obsidian",
+    "name": "Crimson Obsidian",
+    "colors": {
+      "bg_color": "#121113",
+      "surface_color": "#211f24",
+      "surface_hover": "#2d2a32",
+      "text_primary": "#fafafa",
+      "text_secondary": "#e4e4e7",
+      "text_muted": "#a1a1aa",
+      "accent_color": "#f43f5e",
+      "accent_secondary": "#fb7185",
+      "accent_tertiary": "#f59e0b",
+      "border_color": "#3a353f",
+      "border_active": "#f43f5e",
+      "code_bg": "#0a090b"
+    }
+  },
+  {
+    "id": "sunset_amber",
+    "name": "Sunset Amber",
+    "colors": {
+      "bg_color": "#171412",
+      "surface_color": "#27221d",
+      "surface_hover": "#362f28",
+      "text_primary": "#fef3c7",
+      "text_secondary": "#fde68a",
+      "text_muted": "#d97706",
+      "accent_color": "#f59e0b",
+      "accent_secondary": "#fbbf24",
+      "accent_tertiary": "#10b981",
+      "border_color": "#453a2f",
+      "border_active": "#f59e0b",
+      "code_bg": "#0d0b0a"
+    }
+  },
+  {
+    "id": "nordic_ice",
+    "name": "Nordic Ice",
+    "colors": {
+      "bg_color": "#101622",
+      "surface_color": "#1a2336",
+      "surface_hover": "#24314c",
+      "text_primary": "#f0fdfa",
+      "text_secondary": "#ccfbf1",
+      "text_muted": "#5eead4",
+      "accent_color": "#06b6d4",
+      "accent_secondary": "#22d3ee",
+      "accent_tertiary": "#38bdf8",
+      "border_color": "#24334f",
+      "border_active": "#06b6d4",
+      "code_bg": "#0a0e17"
+    }
+  },
+  {
+    "id": "cyber_neon",
+    "name": "Cyber Neon",
+    "colors": {
+      "bg_color": "#050508",
+      "surface_color": "#11111b",
+      "surface_hover": "#191928",
+      "text_primary": "#ffffff",
+      "text_secondary": "#e2e8f0",
+      "text_muted": "#94a3b8",
+      "accent_color": "#00f5d4",
+      "accent_secondary": "#f72585",
+      "accent_tertiary": "#7209b7",
+      "border_color": "#27273a",
+      "border_active": "#00f5d4",
+      "code_bg": "#000000"
+    }
+  }
+]

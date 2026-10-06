@@ -1,0 +1,31 @@
+id: "three_column"
+layout: "three-column"
+badge: "LAYOUT: THREE-COLUMN"
+badge_color: "nordic"
+palette: "nordic_ice"
+title: "Tri-Pillar Analysis"
+subtitle: "Three equal cards or code snippets side by side"
+columns:
+  - title: "1. Declarative YAML"
+    color: "accent"
+    badge: "INPUT"
+    items:
+      - "Human-authored slide decks"
+      - "Git-friendly line-by-line diffs"
+      - "Zero markup boilerplate"
+  - title: "2. Crystal Engine"
+    color: "emerald"
+    badge: "PROCESS"
+    items:
+      - "Blazing-fast native execution"
+      - "Strong type validation"
+      - "Zero runtime dependencies"
+  - title: "3. Semantic HTML & CSS"
+    color: "amber"
+    badge: "OUTPUT"
+    items:
+      - "Zero inline style attributes"
+      - "Theme-scoped CSS variables"
+      - "Clean Reveal.js presentations"
+notes: |
+  Highlight how cleanly three columns fit in standard 16:9 viewports.

@@ -1,0 +1,55 @@
+name: Deploy Slide Deck to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Presentation Repository
+        uses: actions/checkout@v4
+
+      - name: Install Crystal
+        uses: crystal-lang/install-crystal@v1
+        with:
+          crystal: "latest"
+
+      - name: Install Sunstone CLI
+        run: |
+          git clone --depth 1 https://github.com/sol-vin/sunstone.git /tmp/sunstone
+          cd /tmp/sunstone
+          shards install
+          shards build sunstone --release
+          sudo cp bin/sunstone /usr/local/bin/sunstone
+
+      - name: Validate & Build Presentation
+        run: |
+          sunstone validate
+          sunstone build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

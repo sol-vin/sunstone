@@ -1,0 +1,33 @@
+id: "two_column"
+layout: "two-column"
+badge: "LAYOUT: TWO-COLUMN"
+badge_color: "indigo"
+palette: "midnight_indigo"
+ratio: "3:2"
+title: "Split Code & Informational Cards"
+subtitle: "Configurable column ratios (1:1, 3:2, 2:3, 1:2, 2:1) via data-ratio"
+code_title: "deck.yml"
+code_lang: "yaml"
+code: |
+  title: "Modern Slides"
+  theme: "generic"
+  resolution:
+    width: 1920
+    height: 1080
+  slides:
+    - slides/01_intro.yml
+    - slides/02_features.yml
+cards:
+  - title: "Pure Separation of Concerns"
+    color: "accent"
+    items:
+      - "No style='...' attributes generated anywhere in DOM"
+      - "Grid proportions computed through CSS data-ratio rules"
+      - "Terminal window chrome provided by CSS ::before dots"
+  - title: "Developer Velocity"
+    color: "emerald"
+    items:
+      - "Live preview server with automatic browser launch"
+      - "Full Crystal type safety across models and layouts"
+notes: |
+  Point out how code blocks and cards are aligned in a 3:2 ratio.

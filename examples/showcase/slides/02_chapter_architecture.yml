@@ -1,0 +1,14 @@
+id: "chapter_architecture"
+layout: "chapter"
+badge: "SECTION 01"
+badge_color: "emerald"
+palette: "emerald_matrix"
+chapter_number: "01"
+title: "Semantic Layout Architecture"
+subtitle: "Separating content structure from presentation styles"
+pillars:
+  - "Zero Inline Styles"
+  - "CSS Pseudo Chrome"
+  - "Theme Variable Cascading"
+notes: |
+  Introduce the design principles behind Sunstone's semantic HTML engine.

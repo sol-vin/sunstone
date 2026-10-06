@@ -1,0 +1,513 @@
+/**
+ * Sunstone Base Layout Engine (Structural Mechanics)
+ * Zero Inline Styles • Pure Semantic Classes & Data Attributes
+ */
+
+/* Box sizing and reset for presentation container */
+.reveal, .reveal * {
+  box-sizing: border-box;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+/* Slide Base Section: 16:9 full viewport scaling */
+.reveal .slides section.slide {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 1.6rem 2.4rem 1.2rem 2.4rem !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.reveal:not(.overview) .slides section.slide:not(.present) {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.reveal:not(.overview) .slides section.slide.present {
+  display: flex !important;
+  opacity: 1 !important;
+  z-index: 10;
+}
+
+.reveal.overview .slides section.slide {
+  display: flex !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* Master Slide Container */
+.slide-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Slide Header */
+.slide-header {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+}
+
+.slide-header[data-align="split"] {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.slide-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.slide-title {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 1.9rem !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+}
+
+.slide-subtitle {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 1.05rem !important;
+  font-weight: 400 !important;
+  opacity: 0.85;
+  line-height: 1.35 !important;
+}
+
+/* Slide Body */
+.slide-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+/* Slide Footer */
+.slide-footer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  user-select: none;
+}
+
+/* Window Chrome (Code & Terminal) via Pseudo-elements */
+.code-window, .terminal-window {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--sunstone-radius-md, 8px);
+}
+
+.window-header {
+  display: flex;
+  align-items: center;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  user-select: none;
+  position: relative;
+}
+
+/* Window dots rendered purely via CSS pseudo-elements (Zero extra HTML tags!) */
+.window-header::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow: 15px 0 0 #ffbd2e, 30px 0 0 #27c93f;
+  margin-right: 40px;
+  flex-shrink: 0;
+}
+
+.window-title {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lang-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.window-body, .code-window pre {
+  flex: 1 1 auto;
+  margin: 0 !important;
+  padding: 0.75rem 1rem !important;
+  overflow: auto !important;
+}
+
+.code-window pre code {
+  padding: 0 !important;
+  background: transparent !important;
+  font-family: var(--sunstone-font-mono, monospace) !important;
+  font-size: 0.85rem !important;
+  line-height: 1.4 !important;
+}
+
+/* Density overrides via data-density */
+[data-density="compact"] pre code {
+  font-size: 0.75rem !important;
+  line-height: 1.25 !important;
+}
+
+[data-density="dense"] pre code {
+  font-size: 0.68rem !important;
+  line-height: 1.2 !important;
+}
+
+/* Cards & Lists */
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--sunstone-radius-md, 8px);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.card-list {
+  margin: 0 !important;
+  padding: 0 0 0 1.2rem !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+/* Two-Column Layout Grid Ratios */
+[data-layout="two-column"] .slide-body {
+  display: grid;
+  gap: 1.2rem;
+  align-items: stretch;
+}
+
+[data-layout="two-column"][data-ratio="1:1"] .slide-body {
+  grid-template-columns: 1fr 1fr;
+}
+
+[data-layout="two-column"][data-ratio="3:2"] .slide-body {
+  grid-template-columns: 3fr 2fr;
+}
+
+[data-layout="two-column"][data-ratio="2:3"] .slide-body {
+  grid-template-columns: 2fr 3fr;
+}
+
+[data-layout="two-column"][data-ratio="2:1"] .slide-body {
+  grid-template-columns: 2fr 1fr;
+}
+
+[data-layout="two-column"][data-ratio="1:2"] .slide-body {
+  grid-template-columns: 1fr 2fr;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  min-height: 0;
+}
+
+/* Three-Column & Four-Column Layouts */
+[data-layout="three-column"] .slide-body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+[data-layout="four-column"] .slide-body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+}
+
+/* Code Comparison Layout */
+[data-layout="code-comparison"] .slide-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  min-height: 0;
+}
+
+.comparison-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-height: 0;
+}
+
+.critique-overlay {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.8rem;
+  border-radius: var(--sunstone-radius-sm, 6px);
+}
+
+.takeaway-banner {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem 1rem;
+  border-radius: var(--sunstone-radius-sm, 6px);
+  font-size: 0.88rem;
+}
+
+/* Matrix Layout */
+[data-layout="matrix"] .matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  text-align: left;
+}
+
+[data-layout="matrix"] .matrix-table th,
+[data-layout="matrix"] .matrix-table td {
+  padding: 0.6rem 0.9rem;
+}
+
+/* Timeline Layout (Rail & Dots via CSS Pseudo-elements) */
+[data-layout="timeline"] .timeline-track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin: 1.5rem 2rem 2rem 2rem;
+}
+
+/* Horizontal connecting rail */
+[data-layout="timeline"] .timeline-track::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--sunstone-border, #334155);
+  z-index: 1;
+}
+
+.timeline-step {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Milestone Dot */
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--sunstone-accent, #38bdf8);
+  border: 3px solid var(--sunstone-bg, #0f172a);
+}
+
+.timeline-cards {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 0.8rem;
+}
+
+/* Architecture Layout */
+.arch-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  height: 100%;
+  justify-content: center;
+}
+
+.arch-tier {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 1rem;
+  border-radius: var(--sunstone-radius-sm, 6px);
+}
+
+/* Flow arrow between tiers rendered via CSS */
+.arch-tier + .arch-tier {
+  margin-top: 0.6rem;
+  position: relative;
+}
+
+.arch-tier + .arch-tier::before {
+  content: "▼";
+  position: absolute;
+  top: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: var(--sunstone-accent, #38bdf8);
+}
+
+.arch-tier-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.arch-grid {
+  display: grid;
+  gap: 0.6rem;
+}
+
+[data-cols="1"] { grid-template-columns: 1fr; }
+[data-cols="2"] { grid-template-columns: repeat(2, 1fr); }
+[data-cols="3"] { grid-template-columns: repeat(3, 1fr); }
+[data-cols="4"] { grid-template-columns: repeat(4, 1fr); }
+[data-cols="5"] { grid-template-columns: repeat(5, 1fr); }
+[data-cols="6"] { grid-template-columns: repeat(6, 1fr); }
+
+.arch-block {
+  padding: 0.45rem 0.6rem;
+  border-radius: 4px;
+}
+
+.arch-block-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.arch-block-desc {
+  font-size: 0.72rem;
+  opacity: 0.85;
+}
+
+/* Chapter & Hero Layouts */
+.chapter-content, .intro-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  gap: 1.5rem;
+}
+
+.chapter-pillars-row, .intro-pills-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.intro-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+}
+
+/* Quote Layout */
+.quote-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  padding: 2rem 4rem;
+}
+
+.quote-text {
+  font-size: 2rem;
+  font-style: italic;
+  line-height: 1.35;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.quote-author {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.quote-role {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* SVG Icon alignment */
+.fa-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  fill: currentColor;
+}

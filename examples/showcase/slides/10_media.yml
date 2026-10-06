@@ -1,0 +1,26 @@
+id: "media"
+layout: "media"
+badge: "LAYOUT: MEDIA"
+badge_color: "indigo"
+palette: "midnight_indigo"
+title: "Rich Media & Visual Assets"
+subtitle: "Embedded images, video, and Asciinema terminal recordings"
+media:
+  type: "image"
+  src: "vendor/reveal/reveal.min.css"
+  title: "Architecture Visualizer"
+  tag: "DIAGRAM"
+  caption:
+    speaker: "Presenter"
+    quote: "Rich visual diagrams provide instant structural clarity."
+card:
+  title: "Supported Formats"
+  color: "accent"
+  badge: "MEDIA"
+  items:
+    - "PNG, JPEG, WebP, and SVG images"
+    - "MP4 and WebM video streams"
+    - "Asciinema .cast terminal session recordings"
+    - "Synchronized playback on slide focus"
+notes: |
+  Explain how Asciinema terminal casts play automatically when advancing to the slide.

@@ -1,0 +1,42 @@
+id: "deck_manifest"
+title: "Deck Manifest Specification"
+summary: "Comprehensive guide to authoring deck.yml and configuring presentation-wide settings."
+sections:
+  - id: "manifest_structure"
+    title: "Structure of deck.yml"
+    summary: "Root fields and global options in deck manifests."
+    content: |
+      The `deck.yml` file defines your presentation's identity, resolution, footer templates, theme, and slide sequence:
+
+      ```yaml
+      title: "Building Microservices in Crystal"
+      subtitle: "Concurrency, Fiber Scheduling & Performance"
+      author: "Alex Morgan"
+      theme: "generic"
+      width: 1920
+      height: 1080
+
+      footer_left: "☀️ {title}"
+      footer_center: "{author} • {palette}"
+      footer_right: "Slide {slide_num} / {total_slides}"
+
+      slides:
+        - slides/01_intro.yml
+        - slides/02_architecture.yml
+        - slides/03_benchmarks.yml
+        - slides/04_closing.yml
+      ```
+
+  - id: "template_tags"
+    title: "Footer Template Tags"
+    summary: "Dynamic placeholders available in footer strings."
+    content: |
+      Footers support dynamic variable interpolation:
+      - `{title}`: Presentation title.
+      - `{subtitle}`: Presentation subtitle.
+      - `{author}`: Deck author name.
+      - `{palette}`: Human-readable name of the slide's active palette.
+      - `{palette_id}`: Technical identifier of the active palette.
+      - `{slide_num}`: Current slide number (1-indexed).
+      - `{total_slides}`: Total slide count in the entire presentation.
+      - `{slide_title}`: Current slide title.

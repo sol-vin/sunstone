@@ -1,0 +1,14 @@
+version: 2.0
+shards:
+  carbon:
+    git: https://github.com/sol-vin/carbon.git
+    version: 0.1.14+git.commit.5aa9727e76850daec397f83d5ccc0a97746c6278
+
+  jasper:
+    git: https://github.com/sol-vin/jasper.git
+    version: 0.1.0+git.commit.84f01e6ca1cf9bbbd5333faba30a823eddea7cec
+
+  opal:
+    git: https://github.com/sol-vin/opal.git
+    version: 0.1.59+git.commit.977a1c38fdfc4a30177fb6839c1b812475c9b7be
+

@@ -1,0 +1,32 @@
+id: "introduction"
+title: "Introduction to Sunstone"
+summary: "An overview of Sunstone, its architecture, and the philosophy of zero-inline-style presentations."
+sections:
+  - id: "philosophy"
+    title: "The Sunstone Philosophy"
+    summary: "Why presentation slides should have zero inline style attributes."
+    content: |
+      Most presentation generators emit messy HTML bloated with inline `style="..."` attributes.
+      This introduces severe maintenance headaches:
+
+      1. **Brittle Customization:** To tweak a font, color, or layout spacing, authors are forced to override inline styles with `!important`.
+      2. **Inconsistent Branding:** Design systems cannot be cleanly enforced when presentation layers hardcode CSS values inside HTML tags.
+      3. **Poor Diffing:** Slide decks version-controlled in Git suffer from noisy diffs whenever dimensions or colors change.
+
+      Sunstone solves this by strictly separating content from presentation:
+      - **Content & Structure:** Defined purely in clean YAML (`deck.yml` and `slides/*.yml`).
+      - **Layout & Geometry:** Governed by semantic HTML and `data-*` attributes (`data-layout`, `data-ratio`, `data-density`, `data-cols`, `data-palette`).
+      - **Styling & Palettes:** Governed exclusively by CSS classes and CSS Custom Properties (`--sunstone-*`).
+      - **Decorations & Chrome:** Rendered via CSS pseudo-elements (`::before`, `::after`) for terminal window buttons, flow arrows, and milestone indicators.
+
+  - id: "architecture"
+    title: "Architecture & Tech Stack"
+    summary: "How Sunstone leverages Crystal, Reveal.js, Opal, Carbon, and Jasper."
+    content: |
+      Sunstone is built in **Crystal** for blazing-fast native performance and type safety.
+      
+      - **Opal CLI:** Powers the command-line interface with subcommands, validation, and ANSI color formatting.
+      - **Carbon:** Manages semantic versioning, changelog generation, README badges, and repo doctor audits.
+      - **Jasper:** Compiles structured documentation books and guides into Crystal doc modules.
+      - **Reveal.js & Highlight.js:** Provide rock-solid browser presentation rendering and syntax highlighting.
+      - **Asciinema Player:** Synchronizes embedded terminal session playback seamlessly with Reveal slide transitions.

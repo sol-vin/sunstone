@@ -1,0 +1,42 @@
+id: OVERVIEW
+title: Getting Started & System Overview
+summary: Complete introduction to the architecture and core concepts.
+track: 01_getting_started
+overview: |
+  Welcome to the documentation guide. This project utilizes Jasper to author
+  structured guides and compile them into native Crystal API documentation.
+
+related_sources:
+  - "shard.yml"
+  - "src/"
+
+sections:
+  - id: topic_01_introduction
+    title: Introduction & Architecture
+    summary: Fundamental architectural principles and layout.
+    content: |
+      This section introduces the foundational concepts of the codebase.
+
+      | Component | Location | Role |
+      | :--- | :--- | :--- |
+      | Core | `src/` | Main application logic |
+      | Specs | `spec/` | Test suites |
+      | Docs | `docs_src/` | Jasper source guides |
+
+    options:
+      "--release": "Enables release optimizations."
+      "--verbose": "Enables verbose logging."
+
+    examples:
+      - |
+        ```crystal
+        # Basic usage example
+        puts "Hello from Jasper-documented shard!"
+        ```
+
+    pitfalls:
+      - "Always keep docs_src updated when modifying public APIs."
+
+    faqs:
+      - q: "How do I build the documentation site?"
+        a: "Run 'jasper build' followed by 'crystal docs'."

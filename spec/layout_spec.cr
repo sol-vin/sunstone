@@ -1,0 +1,36 @@
+require "./spec_helper"
+
+describe "Sunstone Layouts (Strict Zero-Inline-Styles)" do
+  deck = Sunstone::Deck.load("examples/showcase/deck.yml")
+  palettes = Sunstone::Palette.load_for_theme(deck.theme)
+
+  Sunstone::LayoutRouter::AVAILABLE_LAYOUTS.each do |layout_name|
+    it "renders '#{layout_name}' layout with zero inline style attributes on HTML tags" do
+      slide = deck.slides.find { |s| s.layout == layout_name } || deck.slides.first
+      renderer = Sunstone::LayoutRouter.resolve(layout_name)
+      palette = palettes[slide.palette]? || palettes.values.first
+
+      html = renderer.render_html(slide, deck, palette, 1, 10)
+
+      # Check for semantic data attributes
+      html.should contain("data-layout=")
+      html.should contain("data-palette=")
+
+      # Verify that no presentation HTML tag has an inline style attribute
+      # (Ignore any raw code snippets that might be printed inside <code>)
+      clean_html = html.gsub(/<code[^>]*>.*?<\/code>/m, "")
+      clean_html.should_not contain(" style=")
+      clean_html.should_not contain(" style =")
+    end
+  end
+
+  it "resolves aliases correctly in LayoutRouter" do
+    Sunstone::LayoutRouter.resolve("split").should be_a(Sunstone::TwoColumnLayout)
+    Sunstone::LayoutRouter.resolve("critique").should be_a(Sunstone::CodeComparisonLayout)
+    Sunstone::LayoutRouter.resolve("hero").should be_a(Sunstone::IntroLayout)
+    Sunstone::LayoutRouter.resolve("divider").should be_a(Sunstone::ChapterLayout)
+    Sunstone::LayoutRouter.resolve("quadrant").should be_a(Sunstone::MatrixLayout)
+    Sunstone::LayoutRouter.resolve("roadmap").should be_a(Sunstone::TimelineLayout)
+    Sunstone::LayoutRouter.resolve("stack").should be_a(Sunstone::ArchitectureLayout)
+  end
+end

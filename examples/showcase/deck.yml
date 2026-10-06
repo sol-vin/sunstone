@@ -1,0 +1,33 @@
+title: "Sunstone Showcase"
+subtitle: "Interactive Tour of Modern Semantic Slides"
+author: "Sol.vin Team"
+author_url: "https://github.com/sol-vin/sunstone"
+theme: "generic"
+width: 1920
+height: 1080
+
+header:
+  enabled: true
+  label: "SUNSTONE // FEATURE TOUR"
+  cube: false
+
+footer_left: "☀️ {title} • {subtitle}"
+footer_center: "{author} ({palette})"
+footer_right: "Slide {slide_num} / {total_slides}"
+
+slides:
+  - slides/01_intro.yml
+  - slides/02_chapter_architecture.yml
+  - slides/03_two_column.yml
+  - slides/04_code_comparison.yml
+  - slides/05_three_column.yml
+  - slides/06_four_column.yml
+  - slides/07_matrix.yml
+  - slides/08_timeline.yml
+  - slides/09_architecture.yml
+  - slides/10_media.yml
+  - slides/11_profile.yml
+  - slides/12_dual_mode.yml
+  - slides/13_demo_roadmap.yml
+  - slides/14_quote.yml
+  - slides/15_closing.yml

@@ -1,0 +1,38 @@
+id: "four_column"
+layout: "four-column"
+badge: "LAYOUT: FOUR-COLUMN"
+badge_color: "amber"
+palette: "sunset_amber"
+title: "Four Architectural Tiers"
+subtitle: "Compact quadrant or multi-column layout for comprehensive overviews"
+columns:
+  - title: "CLI / UX"
+    color: "amber"
+    badge: "TIER 1"
+    items:
+      - "Opal command DSL"
+      - "Interactive flags"
+      - "Terminal preview server"
+  - title: "Parser & Router"
+    color: "accent"
+    badge: "TIER 2"
+    items:
+      - "YAML serialization"
+      - "15 semantic layouts"
+      - "Palette resolver"
+  - title: "Compiler"
+    color: "emerald"
+    badge: "TIER 3"
+    items:
+      - "Zero-inline HTML generator"
+      - "Markdown generator"
+      - "Asset bundling"
+  - title: "Runtime"
+    color: "crimson"
+    badge: "TIER 4"
+    items:
+      - "Reveal.js engine"
+      - "Asciinema sync"
+      - "Speaker notes view"
+notes: |
+  Discuss how each tier cleanly maps to a separate responsibility in the codebase.

@@ -1,0 +1,42 @@
+id: "timeline"
+layout: "timeline"
+badge: "LAYOUT: TIMELINE"
+badge_color: "accent"
+palette: "slate_dark"
+title: "Project Evolution Roadmap"
+subtitle: "Horizontal milestone rail with status indicators and delivery phases"
+cards:
+  - year: "Q1 2026"
+    title: "v0.1 Genesis"
+    phase: "COMPLETED"
+    color: "emerald"
+    items:
+      - "Extract engine from prototype"
+      - "15 semantic layouts"
+      - "Zero inline style constraint"
+  - year: "Q2 2026"
+    title: "v0.2 Tooling"
+    phase: "ACTIVE"
+    color: "accent"
+    items:
+      - "Opal CLI integration"
+      - "Live HTTP preview server"
+      - "Theme-scoped palettes"
+  - year: "Q3 2026"
+    title: "v0.3 Ecosystem"
+    phase: "PLANNED"
+    color: "amber"
+    items:
+      - "Jasper docs compiler"
+      - "Carbon doctor and badges"
+      - "GitHub Pages automated CI"
+  - year: "Q4 2026"
+    title: "v1.0 Release"
+    phase: "FUTURE"
+    color: "indigo"
+    items:
+      - "Community theme registry"
+      - "PDF / PNG export pipeline"
+      - "Interactive terminal plugins"
+notes: |
+  Review past achievements and upcoming milestones on the timeline track.

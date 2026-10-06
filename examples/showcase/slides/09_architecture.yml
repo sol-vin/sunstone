@@ -1,0 +1,46 @@
+id: "architecture"
+layout: "architecture"
+badge: "LAYOUT: ARCHITECTURE"
+badge_color: "emerald"
+palette: "emerald_matrix"
+title: "Multi-Tier Sunstone Engine"
+subtitle: "Structured technology layers with CSS pseudo-element flow indicators"
+tiers:
+  - title: "Presentation Layer"
+    label: "Client Browser"
+    badge: "FRONTEND"
+    color: "accent"
+    columns: 3
+    blocks:
+      - title: "Reveal.js"
+        desc: "Deck orchestration & transitions"
+      - title: "Highlight.js"
+        desc: "Syntax highlighting engine"
+      - title: "Theme CSS"
+        desc: "Strict zero-inline styles"
+  - title: "Compiler Layer"
+    label: "Native Crystal Pipeline"
+    badge: "CORE"
+    color: "emerald"
+    columns: 3
+    blocks:
+      - title: "YAML Parser"
+        desc: "Type-safe deck loading"
+      - title: "Layout Router"
+        desc: "15 semantic renderers"
+      - title: "Assets Manager"
+        desc: "Embedded vendor & themes"
+  - title: "Tooling & Infrastructure"
+    label: "Ecosystem Shards"
+    badge: "ECOSYSTEM"
+    color: "amber"
+    columns: 3
+    blocks:
+      - title: "Opal CLI"
+        desc: "Terminal DSL & live server"
+      - title: "Jasper Docs"
+        desc: "Multi-track guide compiler"
+      - title: "Carbon Engine"
+        desc: "Changelog, doctor & badges"
+notes: |
+  Explain how information flows downward from Presentation through Compiler to Ecosystem shards.
