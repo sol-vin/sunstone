@@ -36,9 +36,9 @@ module Sunstone
       #       <td>Targeting layout states and density without inline styles.</td>
       #     </tr>
       #     <tr>
-      #       <td><strong>4. Rendering Chrome via CSS Pseudo-Elements</strong></td>
+      #       <td><strong>4. Window Header Chrome & Visual Flow</strong></td>
       #       <td><code>.topic_04_pseudo_chrome</code></td>
-      #       <td>Drawing window controls and flow arrows purely in CSS.</td>
+      #       <td>Styling semantic window dots and architectural flow arrows in CSS.</td>
       #     </tr>
       #   </tbody>
       # </table>
@@ -113,24 +113,21 @@ module Sunstone
         #
         def self.topic_03_data_attributes : Nil; end
 
-        # **4 Rendering Chrome via CSS Pseudo-Elements**: Drawing window controls and flow arrows purely in CSS.
+        # **4 Window Header Chrome & Visual Flow**: Styling semantic window dots and architectural flow arrows in CSS.
         #
-        # Rather than requiring nested `<div>` tags for window buttons, Sunstone themes style `.window-header::before`:
+        # Sunstone code and terminal windows emit semantic `.terminal-dots` that can be shaped, tinted, or hidden per theme:
         #
         # ```css
-        # .window-header::before {
-        #   content: "";
-        #   display: inline-block;
-        #   width: 10px;
-        #   height: 10px;
-        #   border-radius: 50%;
-        #   background: #ff5f56;
-        #   box-shadow: 15px 0 0 #ffbd2e, 30px 0 0 #27c93f;
-        #   margin-right: 40px;
+        # .terminal-dots {
+        #   display: inline-flex;
+        #   gap: 6px;
         # }
+        # .terminal-dot.red    { background-color: #ff5f56; }
+        # .terminal-dot.yellow { background-color: #ffbd2e; }
+        # .terminal-dot.green  { background-color: #27c93f; }
         # ```
         #
-        # Similarly, flow arrows between architectural tiers use `.arch-tier + .arch-tier::before { content: "▼"; }`.
+        # Flow arrows between architectural tiers use `.arch-tier + .arch-tier::before { content: "▼"; }`.
         #
         def self.topic_04_pseudo_chrome : Nil; end
       end

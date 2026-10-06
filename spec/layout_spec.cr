@@ -33,4 +33,21 @@ describe "Sunstone Layouts (Strict Zero-Inline-Styles)" do
     Sunstone::LayoutRouter.resolve("roadmap").should be_a(Sunstone::TimelineLayout)
     Sunstone::LayoutRouter.resolve("stack").should be_a(Sunstone::ArchitectureLayout)
   end
+
+  it "renders window headers with exactly one set of terminal dots and suppresses pseudo-element duplicate dots" do
+    slide = deck.slides.find { |s| s.layout == "two-column" } || deck.slides.first
+    renderer = Sunstone::LayoutRouter.resolve("two-column")
+    palette = palettes[slide.palette]? || palettes.values.first
+    html = renderer.render_html(slide, deck, palette, 1, 10)
+
+    # Must contain semantic terminal-dots
+    html.should contain("terminal-dots")
+    html.should contain("terminal-dot dot-1 red")
+    html.should contain("terminal-dot dot-2 yellow")
+    html.should contain("terminal-dot dot-3 green")
+
+    # Base CSS must suppress .window-header::before so no pseudo-element duplicate dots exist
+    Sunstone::Assets::BASE_CSS.should contain(".window-header::before")
+    Sunstone::Assets::BASE_CSS.should contain("content: none !important;")
+  end
 end

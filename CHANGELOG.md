@@ -1,4 +1,18 @@
 # CARBON CHANGELOG
+## [0.1.10] - 2026-10-06
+### ✨ Features & Improvements
+- ✦ **[THEMES]** add nordic, brutalist, academic, and tokyo-night themes with custom theme authoring and developer pressure points guides ([`6e31826`](https://github.com/sol-vin/sunstone/commit/6e31826))
+- ✦ **[GALLERY]** add interactive multi-theme landing page and --all-themes build support ([`1e87150`](https://github.com/sol-vin/sunstone/commit/1e87150))
+
+### 🐛 Bug Fixes
+- ✓ **[THEMES]** eliminate duplicate window dots in generic and base themes, ensuring consistent single-instance semantic window controls across all layouts
+- ✓ **[THEME]** restore authentic sol.vin theme aesthetic and harmonize multi-theme layouts ([`448030a`](https://github.com/sol-vin/sunstone/commit/448030a))
+- ✓ **[THEME]** complete overhaul of authentic sol.vin styling and multi-theme rendering ([`4c62c5e`](https://github.com/sol-vin/sunstone/commit/4c62c5e))
+
+### 🛠️ Chores & Tooling
+- ✦ **[GALLERY]** simplify homepage to clean minimal list linking directly to theme demos ([`fd3b7ac`](https://github.com/sol-vin/sunstone/commit/fd3b7ac))
+
+---
 ## [0.1.9] - 2026-10-06
 ### ✨ Features & Improvements
 - ✦ **[THEMES]** add nordic, brutalist, academic, and tokyo-night themes with custom theme authoring and developer pressure points guides ([`6e31826`](https://github.com/sol-vin/sunstone/commit/6e31826))

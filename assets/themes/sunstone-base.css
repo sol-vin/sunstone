@@ -187,6 +187,7 @@
 .window-header {
   display: flex;
   align-items: center;
+  gap: 0.6rem;
   padding: 0.45rem 0.8rem;
   font-size: 0.75rem;
   font-weight: 600;
@@ -194,24 +195,48 @@
   position: relative;
 }
 
-/* Window dots rendered purely via CSS pseudo-elements (Zero extra HTML tags!) */
+/* Ensure no pseudo-element generates duplicate window dots */
 .window-header::before {
-  content: "";
-  display: inline-block;
+  content: none !important;
+  display: none !important;
+}
+
+/* Semantic Window Header Dots */
+.terminal-dots {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.terminal-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #ff5f56;
-  box-shadow: 15px 0 0 #ffbd2e, 30px 0 0 #27c93f;
-  margin-right: 40px;
+  display: inline-block;
   flex-shrink: 0;
 }
+
+.terminal-dot.red { background-color: #ff5f56; }
+.terminal-dot.yellow { background-color: #ffbd2e; }
+.terminal-dot.green { background-color: #27c93f; }
 
 .window-title {
   flex: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.window-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.window-btn {
+  display: none;
 }
 
 .lang-tag {

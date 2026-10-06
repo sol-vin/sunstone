@@ -26,9 +26,9 @@ module Sunstone
       #       <td>Mapping semantic attributes to CSS grid and flex rules.</td>
       #     </tr>
       #     <tr>
-      #       <td><strong>Chrome via CSS Pseudo-Elements</strong></td>
+      #       <td><strong>Chrome and Indicators via CSS</strong></td>
       #       <td><code>.topic_02_pseudo_elements</code></td>
-      #       <td>Rendering window controls and arrows without extra HTML.</td>
+      #       <td>Styling semantic window dots and arrows without inline styles.</td>
       #     </tr>
       #   </tbody>
       # </table>
@@ -52,21 +52,18 @@ module Sunstone
         #
         def self.topic_01_architecture : Nil; end
 
-        # **Chrome via CSS Pseudo-Elements**: Rendering window controls and arrows without extra HTML.
+        # **Chrome and Indicators via CSS**: Styling semantic window dots and arrows without inline styles.
         #
-        # Terminal dots and window controls are rendered purely with `::before` and box shadows:
+        # Terminal dots and indicators are styled cleanly through semantic selectors without inline styles:
         #
         # ```css
-        # .window-header::before {
-        #   content: "";
-        #   display: inline-block;
-        #   width: 10px;
-        #   height: 10px;
-        #   border-radius: 50%;
-        #   background: #ff5f56;
-        #   box-shadow: 15px 0 0 #ffbd2e, 30px 0 0 #27c93f;
-        #   margin-right: 40px;
+        # .terminal-dots {
+        #   display: inline-flex;
+        #   gap: 6px;
         # }
+        # .terminal-dot.red    { background-color: #ff5f56; }
+        # .terminal-dot.yellow { background-color: #ffbd2e; }
+        # .terminal-dot.green  { background-color: #27c93f; }
         # ```
         #
         # Flow arrows between architectural tiers use `.arch-tier + .arch-tier::before { content: "▼"; }`.

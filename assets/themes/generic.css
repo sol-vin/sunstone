@@ -236,6 +236,11 @@
   color: var(--sunstone-text-muted);
 }
 
+.window-header::before {
+  content: none !important;
+  display: none !important;
+}
+
 .window-header .terminal-dots {
   display: inline-flex;
   gap: 6px;

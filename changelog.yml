@@ -23,9 +23,51 @@ settings:
       title: "\U0001F6E0️ Chores & Tooling"
       bullet: •
 releases:
-- version: 0.1.9
+- version: 0.1.10
   date: "2026-10-06"
   status: active
+  entries:
+  - type: fix
+    description: eliminate duplicate window dots in generic and base themes, ensuring
+      consistent single-instance semantic window controls across all layouts
+    bullet: ✓
+    badge: '[THEMES]'
+  - type: feat
+    description: add nordic, brutalist, academic, and tokyo-night themes with custom
+      theme authoring and developer pressure points guides
+    bullet: ✦
+    badge: '[THEMES]'
+    hash: 6e31826
+    author: Ian Rash
+  - type: feat
+    description: add interactive multi-theme landing page and --all-themes build support
+    bullet: ✦
+    badge: '[GALLERY]'
+    hash: 1e87150
+    author: Ian Rash
+  - type: refactor
+    description: simplify homepage to clean minimal list linking directly to theme
+      demos
+    bullet: ✦
+    badge: '[GALLERY]'
+    hash: fd3b7ac
+    author: Ian Rash
+  - type: fix
+    description: restore authentic sol.vin theme aesthetic and harmonize multi-theme
+      layouts
+    bullet: ✓
+    badge: '[THEME]'
+    hash: 448030a
+    author: Ian Rash
+  - type: fix
+    description: complete overhaul of authentic sol.vin styling and multi-theme rendering
+    bullet: ✓
+    badge: '[THEME]'
+    hash: 4c62c5e
+    author: Ian Rash
+- version: 0.1.9
+  date: "2026-10-06"
+  status: released
   entries:
   - type: fix
     description: restore authentic sol.vin theme aesthetic matching original deck
