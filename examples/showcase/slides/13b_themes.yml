@@ -1,0 +1,38 @@
+id: "theme_ecosystem"
+layout: "three-column"
+badge: "THEME ECOSYSTEM"
+badge_color: "accent"
+palette: "slate_dark"
+title: "Six Production Themes & Custom Theming"
+subtitle: "From minimalist Scandi palettes to cyberpunk terminal aesthetics"
+columns:
+  - title: "Built-In Themes"
+    color: "accent"
+    badge: "6 THEMES"
+    items:
+      - "generic: Sleek modern corporate"
+      - "sol.vin: Retro 90s with 3D cube"
+      - "nordic: Scandinavian minimalism"
+      - "brutalist: Neo-brutalist high-contrast"
+      - "academic: Formal LaTeX typography"
+      - "tokyo-night: Cyberpunk dark IDE"
+  - title: "Palette Architecture"
+    color: "emerald"
+    badge: "36+ PALETTES"
+    items:
+      - "Strict Zero-Inline-Styles"
+      - "Theme-scoped CSS custom properties"
+      - "Per-slide palette switching"
+      - "data-palette attribute selectors"
+      - "Custom JSON companion palettes"
+  - title: "Custom Themes"
+    color: "amber"
+    badge: "SCAFFOLD"
+    items:
+      - "sunstone new-theme brand"
+      - "Generates starter CSS & JSON"
+      - "Reference via theme: ./brand.css"
+      - "Zero runtime compile overhead"
+      - "Self-contained offline assets"
+notes: |
+  Walk through the 6 built-in themes and show how developers can scaffold custom brand themes in seconds.

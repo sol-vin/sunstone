@@ -69,13 +69,23 @@ module Sunstone
   #   <tbody>
   #     <tr>
   #       <td><code>Themes</code></td>
-  #       <td><strong>Themes & Theme-Scoped Palettes</strong></td>
-  #       <td>How Sunstone themes, palettes, and CSS custom properties work.</td>
+  #       <td><strong>Built-In Themes & Theme-Scoped Palettes</strong></td>
+  #       <td>Comprehensive guide to Sunstone's built-in themes and per-slide palette catalogs.</td>
   #     </tr>
   #     <tr>
   #       <td><code>ZeroInlineStyles</code></td>
   #       <td><strong>Zero Inline Styles Architecture</strong></td>
   #       <td>Technical guide to how Sunstone implements zero inline styles using semantic CSS and pseudo-elements.</td>
+  #     </tr>
+  #     <tr>
+  #       <td><code>AuthoringCustomThemes</code></td>
+  #       <td><strong>Authoring Custom Themes</strong></td>
+  #       <td>Step-by-step guide to designing, structuring, and packaging custom presentation themes.</td>
+  #     </tr>
+  #     <tr>
+  #       <td><code>DeveloperPressurePoints</code></td>
+  #       <td><strong>Developer Pressure Points & Best Practices</strong></td>
+  #       <td>Analysis of the 6 major friction points developers face when building slide presentations, and how Sunstone resolves them.</td>
   #     </tr>
   #   </tbody>
   # </table>
@@ -123,8 +133,10 @@ module Sunstone
     # - `B_AUTHORING::Layouts`: **Semantic Slide Layouts** &mdash; Catalog of all 15 semantic slide layouts supported by Sunstone.
     #
     # ##### 3. Theming (`C_THEMING`)
-    # - `C_THEMING::Themes`: **Themes & Theme-Scoped Palettes** &mdash; How Sunstone themes, palettes, and CSS custom properties work.
+    # - `C_THEMING::Themes`: **Built-In Themes & Theme-Scoped Palettes** &mdash; Comprehensive guide to Sunstone's built-in themes and per-slide palette catalogs.
     # - `C_THEMING::ZeroInlineStyles`: **Zero Inline Styles Architecture** &mdash; Technical guide to how Sunstone implements zero inline styles using semantic CSS and pseudo-elements.
+    # - `C_THEMING::AuthoringCustomThemes`: **Authoring Custom Themes** &mdash; Step-by-step guide to designing, structuring, and packaging custom presentation themes.
+    # - `C_THEMING::DeveloperPressurePoints`: **Developer Pressure Points & Best Practices** &mdash; Analysis of the 6 major friction points developers face when building slide presentations, and how Sunstone resolves them.
     #
     # ##### 4. Deployment (`D_DEPLOYMENT`)
     # - `D_DEPLOYMENT::CiCd`: **Continuous Integration & GitHub Pages** &mdash; Automating slide compilation and web publishing via GitHub Actions.
@@ -144,8 +156,10 @@ module Sunstone
     # - `B_AUTHORING::Layouts`: **Semantic Slide Layouts** &mdash; Catalog of all 15 semantic slide layouts supported by Sunstone.
     #
     # ##### `C_THEMING`
-    # - `C_THEMING::Themes`: **Themes & Theme-Scoped Palettes** &mdash; How Sunstone themes, palettes, and CSS custom properties work.
+    # - `C_THEMING::Themes`: **Built-In Themes & Theme-Scoped Palettes** &mdash; Comprehensive guide to Sunstone's built-in themes and per-slide palette catalogs.
     # - `C_THEMING::ZeroInlineStyles`: **Zero Inline Styles Architecture** &mdash; Technical guide to how Sunstone implements zero inline styles using semantic CSS and pseudo-elements.
+    # - `C_THEMING::AuthoringCustomThemes`: **Authoring Custom Themes** &mdash; Step-by-step guide to designing, structuring, and packaging custom presentation themes.
+    # - `C_THEMING::DeveloperPressurePoints`: **Developer Pressure Points & Best Practices** &mdash; Analysis of the 6 major friction points developers face when building slide presentations, and how Sunstone resolves them.
     #
     # ##### `D_DEPLOYMENT`
     # - `D_DEPLOYMENT::CiCd`: **Continuous Integration & GitHub Pages** &mdash; Automating slide compilation and web publishing via GitHub Actions.
@@ -167,5 +181,7 @@ require "./docs/b_authoring/deckmanifest"
 require "./docs/b_authoring/layouts"
 require "./docs/c_theming/themes"
 require "./docs/c_theming/zeroinlinestyles"
+require "./docs/c_theming/authoringcustomthemes"
+require "./docs/c_theming/developerpressurepoints"
 require "./docs/d_deployment/cicd"
 {% end %}

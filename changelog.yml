@@ -23,10 +23,36 @@ settings:
       title: "\U0001F6E0️ Chores & Tooling"
       bullet: •
 releases:
-- version: 0.1.4
+- version: 0.1.5
   date: "2026-10-06"
   status: active
+  entries: []
+- version: 0.1.4
+  date: "2026-10-06"
+  status: released
   entries:
+  - type: features
+    description: 'Added 4 new production themes: nordic (Scandinavian minimalism),
+      brutalist (Swiss neo-brutalism), academic (formal LaTeX/Computer Modern), and
+      tokyo-night (cyberpunk developer IDE).'
+  - type: features
+    description: Added 24 theme-scoped palettes across the new themes with high-contrast
+      accessibility and dark/light modes.
+  - type: features
+    description: Added 'sunstone new-theme <name>' command to scaffold starter theme
+      CSS and companion palettes JSON.
+  - type: features
+    description: 'Supported direct custom theme file loading (e.g. ''theme: ./themes/brand.css'')
+      with companion palette resolution.'
+  - type: features
+    description: Consolidated dynamic palette CSS rules directly into theme.css, eliminating
+      embedded style tags in HTML.
+  - type: features
+    description: Supported inline slide definitions in deck.yml in addition to modular
+      external files.
+  - type: docs
+    description: Added comprehensive Jasper guides for Authoring Custom Themes and
+      Resolving Developer Pressure Points in docs_src/03_theming/.
   - type: fix
     description: use latest Crystal and shards build for jasper
     bullet: ✓

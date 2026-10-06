@@ -276,5 +276,139 @@ module Sunstone
       File.write(file_path, content)
       file_path
     end
+
+    def self.new_theme(name : String, directory : String = "themes") : Tuple(String, String)
+      Dir.mkdir_p(directory)
+      clean_name = name.downcase.gsub(/[^a-z0-9_-]/, "_")
+      css_file = File.join(directory, "#{clean_name}.css")
+      json_file = File.join(directory, "#{clean_name}_palettes.json")
+
+      css_content = <<-CSS
+      /**
+       * Sunstone Custom Theme: #{clean_name.capitalize}
+       *
+       * Sunstone uses a strict Zero-Inline-Styles architecture.
+       * All geometry, layout, and colors are governed via CSS classes,
+       * data-* attributes, and the CSS custom properties below.
+       */
+
+      :root {
+        /* 1. Typography */
+        --sunstone-font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        --sunstone-font-mono: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+
+        /* 2. Geometry & Radii */
+        --sunstone-radius-sm: 6px;
+        --sunstone-radius-md: 10px;
+        --sunstone-radius-lg: 16px;
+        --sunstone-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+
+        /* 3. Default Palette Colors (Overridden per slide via data-palette) */
+        --sunstone-bg: #0f172a;
+        --sunstone-surface: #1e293b;
+        --sunstone-surface-hover: #273549;
+        --sunstone-text-primary: #f8fafc;
+        --sunstone-text-secondary: #cbd5e1;
+        --sunstone-text-muted: #94a3b8;
+        --sunstone-accent: #38bdf8;
+        --sunstone-accent-secondary: #818cf8;
+        --sunstone-accent-tertiary: #34d399;
+        --sunstone-border: #334155;
+        --sunstone-border-active: #38bdf8;
+        --sunstone-code-bg: #090d16;
+      }
+
+      /* Base Presentation Container */
+      .reveal {
+        font-family: var(--sunstone-font-sans);
+        color: var(--sunstone-text-secondary);
+        background-color: var(--sunstone-bg);
+      }
+
+      /* Slide Headers */
+      .slide-title {
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      /* Cards & Containers */
+      .card {
+        background: var(--sunstone-surface);
+        border: 1px solid var(--sunstone-border);
+        border-radius: var(--sunstone-radius-md);
+        box-shadow: var(--sunstone-shadow);
+        transition: border-color 0.2s ease;
+      }
+
+      .card:hover {
+        border-color: var(--sunstone-border-active);
+      }
+
+      /* Code Windows */
+      .code-window {
+        background: var(--sunstone-code-bg);
+        border: 1px solid var(--sunstone-border);
+        border-radius: var(--sunstone-radius-md);
+      }
+
+      .code-window .window-header {
+        background: var(--sunstone-surface);
+        border-bottom: 1px solid var(--sunstone-border);
+      }
+
+      /* Badges */
+      .badge {
+        border-radius: var(--sunstone-radius-sm);
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      CSS
+
+      json_content = <<-JSON
+      [
+        {
+          "id": "#{clean_name}_dark",
+          "name": "#{clean_name.capitalize} Dark (Default)",
+          "colors": {
+            "bg_color": "#0f172a",
+            "surface_color": "#1e293b",
+            "surface_hover": "#273549",
+            "text_primary": "#f8fafc",
+            "text_secondary": "#cbd5e1",
+            "text_muted": "#94a3b8",
+            "accent_color": "#38bdf8",
+            "accent_secondary": "#818cf8",
+            "accent_tertiary": "#34d399",
+            "border_color": "#334155",
+            "border_active": "#38bdf8",
+            "code_bg": "#090d16"
+          }
+        },
+        {
+          "id": "#{clean_name}_light",
+          "name": "#{clean_name.capitalize} Light",
+          "colors": {
+            "bg_color": "#f8fafc",
+            "surface_color": "#ffffff",
+            "surface_hover": "#f1f5f9",
+            "text_primary": "#0f172a",
+            "text_secondary": "#334155",
+            "text_muted": "#64748b",
+            "accent_color": "#2563eb",
+            "accent_secondary": "#4f46e5",
+            "accent_tertiary": "#059669",
+            "border_color": "#e2e8f0",
+            "border_active": "#2563eb",
+            "code_bg": "#1e293b"
+          }
+        }
+      ]
+      JSON
+
+      File.write(css_file, css_content)
+      File.write(json_file, json_content)
+
+      {css_file, json_file}
+    end
   end
 end

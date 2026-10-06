@@ -28,7 +28,7 @@ module Sunstone
         Assets.scaffold_vendor(output_dir)
       end
 
-      # Write consolidated theme.css (base structural layout + chosen theme styling)
+      # Write consolidated theme.css (base structural layout + chosen theme styling + palette CSS rules)
       theme_file = File.join(output_dir, "theme.css")
       theme_css_content = String.build do |str|
         str << Assets::BASE_CSS << "\n\n"
@@ -36,6 +36,10 @@ module Sunstone
         if !@deck.theme_css.strip.empty? && File.exists?(@deck.theme_css)
           str << "\n/* Custom User Deck CSS */\n"
           str << File.read(@deck.theme_css) << "\n"
+        end
+        str << "\n/* Theme-Scoped Palette CSS Rules */\n"
+        @palettes.each_value do |pal|
+          str << pal.css_rule(@deck.theme) << "\n"
         end
       end
       File.write(theme_file, theme_css_content)
@@ -69,12 +73,6 @@ module Sunstone
         end
       end
 
-      # Theme-Scoped Palette CSS variables
-      palette_css = String.build do |str|
-        @palettes.each_value do |pal|
-          str << "    " << pal.css_rule(@deck.theme).gsub("\n", "\n    ") << "\n"
-        end
-      end
 
       is_solvin = @deck.theme.downcase.includes?("sol.vin")
 
@@ -133,10 +131,6 @@ module Sunstone
 
         <!-- Sunstone Base & Theme CSS -->
         <link rel="stylesheet" href="theme.css">
-
-        <style>
-      #{palette_css.rstrip}
-        </style>
       </head>
 
       <body>

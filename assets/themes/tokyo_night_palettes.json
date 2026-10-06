@@ -1,0 +1,110 @@
+[
+  {
+    "id": "tokyo_night",
+    "name": "Tokyo Night (Default)",
+    "colors": {
+      "bg_color": "#1a1b26",
+      "surface_color": "#24283b",
+      "surface_hover": "#2f354f",
+      "text_primary": "#c0caf5",
+      "text_secondary": "#a9b1d6",
+      "text_muted": "#565f89",
+      "accent_color": "#7dcfff",
+      "accent_secondary": "#bb9af7",
+      "accent_tertiary": "#f7768e",
+      "border_color": "#414868",
+      "border_active": "#7dcfff",
+      "code_bg": "#16161e"
+    }
+  },
+  {
+    "id": "tokyo_storm",
+    "name": "Tokyo Storm",
+    "colors": {
+      "bg_color": "#24283b",
+      "surface_color": "#2f354f",
+      "surface_hover": "#3a4263",
+      "text_primary": "#c0caf5",
+      "text_secondary": "#a9b1d6",
+      "text_muted": "#787c99",
+      "accent_color": "#2ac3de",
+      "accent_secondary": "#73daca",
+      "accent_tertiary": "#e0af68",
+      "border_color": "#414868",
+      "border_active": "#2ac3de",
+      "code_bg": "#1f2335"
+    }
+  },
+  {
+    "id": "cyber_pulse",
+    "name": "Cyber Pulse",
+    "colors": {
+      "bg_color": "#0f0f17",
+      "surface_color": "#181825",
+      "surface_hover": "#222234",
+      "text_primary": "#ffffff",
+      "text_secondary": "#e2e8f0",
+      "text_muted": "#94a3b8",
+      "accent_color": "#ff007f",
+      "accent_secondary": "#00f5d4",
+      "accent_tertiary": "#7928ca",
+      "border_color": "#2d2d42",
+      "border_active": "#ff007f",
+      "code_bg": "#0a0a10"
+    }
+  },
+  {
+    "id": "catppuccin_mocha",
+    "name": "Catppuccin Mocha",
+    "colors": {
+      "bg_color": "#181825",
+      "surface_color": "#1e1e2e",
+      "surface_hover": "#313244",
+      "text_primary": "#cdd6f4",
+      "text_secondary": "#bac2de",
+      "text_muted": "#6c7086",
+      "accent_color": "#cba6f7",
+      "accent_secondary": "#74c7ec",
+      "accent_tertiary": "#a6e3a1",
+      "border_color": "#45475a",
+      "border_active": "#cba6f7",
+      "code_bg": "#11111b"
+    }
+  },
+  {
+    "id": "dracula_vampire",
+    "name": "Dracula Vampire",
+    "colors": {
+      "bg_color": "#282a36",
+      "surface_color": "#343746",
+      "surface_hover": "#44475a",
+      "text_primary": "#f8f8f2",
+      "text_secondary": "#e2e8f0",
+      "text_muted": "#6272a4",
+      "accent_color": "#ff79c6",
+      "accent_secondary": "#bd93f9",
+      "accent_tertiary": "#50fa7b",
+      "border_color": "#44475a",
+      "border_active": "#ff79c6",
+      "code_bg": "#21222c"
+    }
+  },
+  {
+    "id": "monokai_pro",
+    "name": "Monokai Pro",
+    "colors": {
+      "bg_color": "#221f22",
+      "surface_color": "#2d2a2e",
+      "surface_hover": "#3a363b",
+      "text_primary": "#fcfcfa",
+      "text_secondary": "#c1c0c0",
+      "text_muted": "#727072",
+      "accent_color": "#ffd866",
+      "accent_secondary": "#ff6188",
+      "accent_tertiary": "#78dce8",
+      "border_color": "#403e41",
+      "border_active": "#ffd866",
+      "code_bg": "#19181a"
+    }
+  }
+]

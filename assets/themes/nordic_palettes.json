@@ -1,0 +1,110 @@
+[
+  {
+    "id": "fjord_deep",
+    "name": "Fjord Deep (Default)",
+    "colors": {
+      "bg_color": "#090d16",
+      "surface_color": "#111827",
+      "surface_hover": "#172238",
+      "text_primary": "#f0fdfa",
+      "text_secondary": "#ccfbf1",
+      "text_muted": "#5eead4",
+      "accent_color": "#38bdf8",
+      "accent_secondary": "#2dd4bf",
+      "accent_tertiary": "#818cf8",
+      "border_color": "#1f293d",
+      "border_active": "#38bdf8",
+      "code_bg": "#060910"
+    }
+  },
+  {
+    "id": "aurora_night",
+    "name": "Aurora Night",
+    "colors": {
+      "bg_color": "#0a0f18",
+      "surface_color": "#131d2e",
+      "surface_hover": "#1c2b45",
+      "text_primary": "#f8fafc",
+      "text_secondary": "#e2e8f0",
+      "text_muted": "#94a3b8",
+      "accent_color": "#10b981",
+      "accent_secondary": "#a78bfa",
+      "accent_tertiary": "#38bdf8",
+      "border_color": "#1e2e4a",
+      "border_active": "#10b981",
+      "code_bg": "#070b12"
+    }
+  },
+  {
+    "id": "glacier_frost",
+    "name": "Glacier Frost (Light)",
+    "colors": {
+      "bg_color": "#f0f4f8",
+      "surface_color": "#ffffff",
+      "surface_hover": "#e2e8f0",
+      "text_primary": "#0f172a",
+      "text_secondary": "#334155",
+      "text_muted": "#64748b",
+      "accent_color": "#0284c7",
+      "accent_secondary": "#0d9488",
+      "accent_tertiary": "#6366f1",
+      "border_color": "#cbd5e1",
+      "border_active": "#0284c7",
+      "code_bg": "#1e293b"
+    }
+  },
+  {
+    "id": "arctic_twilight",
+    "name": "Arctic Twilight",
+    "colors": {
+      "bg_color": "#0d1117",
+      "surface_color": "#161b22",
+      "surface_hover": "#21262d",
+      "text_primary": "#f0f6fc",
+      "text_secondary": "#c9d1d9",
+      "text_muted": "#8b949e",
+      "accent_color": "#93c5fd",
+      "accent_secondary": "#fbbf24",
+      "accent_tertiary": "#34d399",
+      "border_color": "#30363d",
+      "border_active": "#93c5fd",
+      "code_bg": "#080b0f"
+    }
+  },
+  {
+    "id": "lichen_moss",
+    "name": "Lichen Moss",
+    "colors": {
+      "bg_color": "#0a1410",
+      "surface_color": "#12231c",
+      "surface_hover": "#1a3329",
+      "text_primary": "#f0fdf4",
+      "text_secondary": "#bbf7d0",
+      "text_muted": "#86efac",
+      "accent_color": "#4ade80",
+      "accent_secondary": "#2dd4bf",
+      "accent_tertiary": "#a3e635",
+      "border_color": "#1c3d2e",
+      "border_active": "#4ade80",
+      "code_bg": "#050b08"
+    }
+  },
+  {
+    "id": "polar_monochrome",
+    "name": "Polar Monochrome",
+    "colors": {
+      "bg_color": "#121418",
+      "surface_color": "#1c2026",
+      "surface_hover": "#262c35",
+      "text_primary": "#f8fafc",
+      "text_secondary": "#cbd5e1",
+      "text_muted": "#94a3b8",
+      "accent_color": "#e2e8f0",
+      "accent_secondary": "#38bdf8",
+      "accent_tertiary": "#94a3b8",
+      "border_color": "#2d3540",
+      "border_active": "#e2e8f0",
+      "code_bg": "#0c0d10"
+    }
+  }
+]

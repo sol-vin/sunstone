@@ -1,0 +1,84 @@
+/**
+ * Sunstone Nordic Theme (Scandinavian Minimalism)
+ * Airy, refined typography, frosted glass surfaces, and arctic accents.
+ */
+
+:root {
+  /* Typography - Clean Scandinavian Sans Stack with System Fallbacks */
+  --sunstone-font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --sunstone-font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* Geometry & Radii - Elegant subtle curves */
+  --sunstone-radius-sm: 4px;
+  --sunstone-radius-md: 8px;
+  --sunstone-radius-lg: 12px;
+  --sunstone-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+
+  /* Default Palette: Fjord Deep */
+  --sunstone-bg: #090d16;
+  --sunstone-surface: #111827;
+  --sunstone-surface-hover: #172238;
+  --sunstone-text-primary: #f0fdfa;
+  --sunstone-text-secondary: #ccfbf1;
+  --sunstone-text-muted: #5eead4;
+  --sunstone-accent: #38bdf8;
+  --sunstone-accent-secondary: #2dd4bf;
+  --sunstone-accent-tertiary: #818cf8;
+  --sunstone-border: #1f293d;
+  --sunstone-border-active: #38bdf8;
+  --sunstone-code-bg: #060910;
+}
+
+/* Base Reveal Typography */
+.reveal {
+  font-family: var(--sunstone-font-sans);
+  color: var(--sunstone-text-secondary);
+  background-color: var(--sunstone-bg);
+  letter-spacing: -0.01em;
+}
+
+.slide-title {
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+/* Frosted glass effect for cards */
+.card {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--sunstone-border-active);
+}
+
+/* Icy Code Windows */
+.code-window {
+  border: 1px solid var(--sunstone-border);
+  background: var(--sunstone-code-bg);
+}
+
+.code-window .window-header {
+  background: var(--sunstone-surface);
+  border-bottom: 1px solid var(--sunstone-border);
+}
+
+/* Badges with airy rounded-pill aesthetic */
+.badge {
+  border-radius: 9999px;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+}
+
+/* Timeline & Architecture Nordic refinement */
+.timeline-dot {
+  box-shadow: 0 0 10px var(--sunstone-accent);
+}
+
+.arch-tier {
+  border: 1px solid var(--sunstone-border);
+}

@@ -1,0 +1,94 @@
+id: AuthoringCustomThemes
+track: 03_theming
+title: "Authoring Custom Themes"
+summary: "Step-by-step guide to designing, structuring, and packaging custom presentation themes."
+sections:
+  - id: "scaffolding"
+    title: "1. Scaffolding a Custom Theme"
+    summary: "Generating boilerplate theme files with sunstone new-theme."
+    content: |
+      To create a new custom theme for your company or brand, run:
+
+      ```bash
+      sunstone new-theme corporate --dir themes
+      ```
+
+      This creates two companion files:
+      - `themes/corporate.css`: Base stylesheet implementing the `--sunstone-*` variable contract and component rules.
+      - `themes/corporate_palettes.json`: Palette catalog providing dark and light variants for per-slide switching.
+
+      To activate your custom theme, update `deck.yml`:
+
+      ```yaml
+      title: "Quarterly Strategy Review"
+      theme: "./themes/corporate.css"
+      ```
+
+  - id: "variable_contract"
+    title: "2. The CSS Custom Properties Contract"
+    summary: "The core design tokens that all Sunstone themes must implement."
+    content: |
+      Sunstone layouts communicate with themes through a flat CSS Custom Properties contract.
+      Your theme stylesheet should define these variables inside `:root`:
+
+      ```css
+      :root {
+        /* Typography */
+        --sunstone-font-sans: 'Inter', system-ui, sans-serif;
+        --sunstone-font-mono: 'JetBrains Mono', Consolas, monospace;
+
+        /* Geometry & Radii */
+        --sunstone-radius-sm: 6px;
+        --sunstone-radius-md: 10px;
+        --sunstone-radius-lg: 16px;
+        --sunstone-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+
+        /* Default Palette Tokens */
+        --sunstone-bg: #0f172a;
+        --sunstone-surface: #1e293b;
+        --sunstone-surface-hover: #273549;
+        --sunstone-text-primary: #f8fafc;
+        --sunstone-text-secondary: #cbd5e1;
+        --sunstone-text-muted: #94a3b8;
+        --sunstone-accent: #38bdf8;
+        --sunstone-accent-secondary: #818cf8;
+        --sunstone-accent-tertiary: #34d399;
+        --sunstone-border: #334155;
+        --sunstone-border-active: #38bdf8;
+        --sunstone-code-bg: #090d16;
+      }
+      ```
+
+  - id: "data_attributes"
+    title: "3. Semantic Data-Attribute Selectors"
+    summary: "Targeting layout states and density without inline styles."
+    content: |
+      Sunstone never injects `style="..."` on HTML elements.
+      Instead, themes style different states using data attributes:
+
+      - `[data-layout="two-column"]`: Target specific layout structures.
+      - `[data-ratio="3:2"]`: Control grid proportions between columns.
+      - `[data-density="compact"]`: Reduce paddings, font sizes, and line heights for content-dense slides.
+      - `[data-color="accent|emerald|amber|crimson"]`: Style card accent colors dynamically.
+      - `[data-slot="left|right"]`: Style specific column positions.
+
+  - id: "pseudo_chrome"
+    title: "4. Rendering Chrome via CSS Pseudo-Elements"
+    summary: "Drawing window controls and flow arrows purely in CSS."
+    content: |
+      Rather than requiring nested `<div>` tags for window buttons, Sunstone themes style `.window-header::before`:
+
+      ```css
+      .window-header::before {
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ff5f56;
+        box-shadow: 15px 0 0 #ffbd2e, 30px 0 0 #27c93f;
+        margin-right: 40px;
+      }
+      ```
+
+      Similarly, flow arrows between architectural tiers use `.arch-tier + .arch-tier::before { content: "▼"; }`.

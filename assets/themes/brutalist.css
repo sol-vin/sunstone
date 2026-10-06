@@ -1,0 +1,114 @@
+/**
+ * Sunstone Brutalist Theme (Swiss Neo-Brutalism)
+ * Heavyweight borders, hard offset shadows, zero radii, stark contrast.
+ */
+
+:root {
+  /* Typography - Bold Grotesque Sans and Monospace */
+  --sunstone-font-sans: 'Archivo Black', 'Arial Black', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Impact, sans-serif;
+  --sunstone-font-mono: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+
+  /* Geometry & Radii - Pure angular sharpness with hard offset shadows */
+  --sunstone-radius-sm: 0px;
+  --sunstone-radius-md: 0px;
+  --sunstone-radius-lg: 0px;
+  --sunstone-shadow: 5px 5px 0px var(--sunstone-border);
+
+  /* Default Palette: Yellow Hazard */
+  --sunstone-bg: #0a0a0a;
+  --sunstone-surface: #181818;
+  --sunstone-surface-hover: #222222;
+  --sunstone-text-primary: #ffffff;
+  --sunstone-text-secondary: #e5e5e5;
+  --sunstone-text-muted: #a3a3a3;
+  --sunstone-accent: #ffde00;
+  --sunstone-accent-secondary: #ff5500;
+  --sunstone-accent-tertiary: #00ff66;
+  --sunstone-border: #ffde00;
+  --sunstone-border-active: #ffffff;
+  --sunstone-code-bg: #000000;
+}
+
+/* Base Reveal Typography */
+.reveal {
+  font-family: var(--sunstone-font-mono);
+  color: var(--sunstone-text-secondary);
+  background-color: var(--sunstone-bg);
+}
+
+.slide-title {
+  font-family: var(--sunstone-font-sans);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.slide-subtitle {
+  font-family: var(--sunstone-font-mono);
+  font-weight: 500;
+}
+
+/* Sharp Neo-Brutalist Cards with Hard Offset Shadows */
+.card {
+  background: var(--sunstone-surface);
+  border: 2.5px solid var(--sunstone-border);
+  box-shadow: 4px 4px 0px var(--sunstone-border);
+  border-radius: 0px !important;
+  transform: translate(-2px, -2px);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px var(--sunstone-border-active);
+}
+
+/* Angular Code Windows */
+.code-window {
+  border: 2.5px solid var(--sunstone-border);
+  box-shadow: 4px 4px 0px var(--sunstone-border);
+  border-radius: 0px !important;
+  background: var(--sunstone-code-bg);
+}
+
+.code-window .window-header {
+  background: var(--sunstone-surface);
+  border-bottom: 2px solid var(--sunstone-border);
+  border-radius: 0px !important;
+  font-family: var(--sunstone-font-mono);
+}
+
+/* Monospace Stark Badges */
+.badge {
+  border: 1.5px solid currentColor;
+  border-radius: 0px !important;
+  font-family: var(--sunstone-font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+}
+
+/* Architecture & Matrix Brutalist Hard Borders */
+.arch-tier {
+  border: 2px solid var(--sunstone-border);
+  border-radius: 0px !important;
+}
+
+.arch-block {
+  border: 1px solid var(--sunstone-border);
+  border-radius: 0px !important;
+}
+
+.matrix-table {
+  border: 2.5px solid var(--sunstone-border);
+  border-collapse: collapse;
+}
+
+.matrix-table th, .matrix-table td {
+  border: 1.5px solid var(--sunstone-border);
+}
+
+.timeline-dot {
+  border-radius: 0px !important;
+  transform: rotate(45deg);
+}

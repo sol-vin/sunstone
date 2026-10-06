@@ -27,6 +27,70 @@ describe Sunstone::Palette do
     p.emoji_color_matrix.should_not be_empty
   end
 
+  it "loads palettes for the nordic theme" do
+    palettes = Sunstone::Palette.load_for_theme("nordic")
+    palettes.size.should eq(6)
+    palettes.has_key?("fjord_deep").should be_true
+    palettes.has_key?("aurora_night").should be_true
+    palettes.has_key?("glacier_frost").should be_true
+    palettes.has_key?("arctic_twilight").should be_true
+    palettes.has_key?("lichen_moss").should be_true
+    palettes.has_key?("polar_monochrome").should be_true
+
+    p = palettes["fjord_deep"]
+    p.name.should eq("Fjord Deep (Default)")
+    p.bg_color.should eq("#090d16")
+    p.accent_color.should eq("#38bdf8")
+  end
+
+  it "loads palettes for the brutalist theme" do
+    palettes = Sunstone::Palette.load_for_theme("brutalist")
+    palettes.size.should eq(6)
+    palettes.has_key?("yellow_hazard").should be_true
+    palettes.has_key?("paper_ink").should be_true
+    palettes.has_key?("electric_lime").should be_true
+    palettes.has_key?("orange_warning").should be_true
+    palettes.has_key?("cobalt_blueprint").should be_true
+    palettes.has_key?("hot_magenta").should be_true
+
+    p = palettes["yellow_hazard"]
+    p.name.should eq("Yellow Hazard (Default)")
+    p.bg_color.should eq("#0a0a0a")
+    p.accent_color.should eq("#ffde00")
+  end
+
+  it "loads palettes for the academic theme" do
+    palettes = Sunstone::Palette.load_for_theme("academic")
+    palettes.size.should eq(6)
+    palettes.has_key?("computer_modern").should be_true
+    palettes.has_key?("cambridge_blue").should be_true
+    palettes.has_key?("oxford_crimson").should be_true
+    palettes.has_key?("gothic_dark").should be_true
+    palettes.has_key?("emerald_manuscript").should be_true
+    palettes.has_key?("blackboard_latex").should be_true
+
+    p = palettes["computer_modern"]
+    p.name.should eq("Computer Modern (Default)")
+    p.bg_color.should eq("#faf9f5")
+    p.accent_color.should eq("#1e3a8a")
+  end
+
+  it "loads palettes for the tokyo-night theme" do
+    palettes = Sunstone::Palette.load_for_theme("tokyo-night")
+    palettes.size.should eq(6)
+    palettes.has_key?("tokyo_night").should be_true
+    palettes.has_key?("tokyo_storm").should be_true
+    palettes.has_key?("cyber_pulse").should be_true
+    palettes.has_key?("catppuccin_mocha").should be_true
+    palettes.has_key?("dracula_vampire").should be_true
+    palettes.has_key?("monokai_pro").should be_true
+
+    p = palettes["tokyo_night"]
+    p.name.should eq("Tokyo Night (Default)")
+    p.bg_color.should eq("#1a1b26")
+    p.accent_color.should eq("#7dcfff")
+  end
+
   it "generates clean CSS variables for themes" do
     palettes = Sunstone::Palette.load_for_theme("generic")
     p = palettes["slate_dark"]
@@ -37,3 +101,4 @@ describe Sunstone::Palette do
     css.should contain("--sunstone-accent: #38bdf8;")
   end
 end
+

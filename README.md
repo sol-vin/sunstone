@@ -3,7 +3,7 @@
 <!-- carbon:badges -->
 [![CI](https://github.com/sol-vin/sunstone/actions/workflows/ci.yml/badge.svg)](https://github.com/sol-vin/sunstone/actions/workflows/ci.yml)
 [![Crystal](https://img.shields.io/badge/crystal-%3E%3D%201.10.0-black.svg)](https://crystal-lang.org)
-[![Version](https://img.shields.io/badge/version-0.1.4-blue.svg)](https://github.com/sol-vin/sunstone/releases)
+[![Version](https://img.shields.io/badge/version-0.1.5-blue.svg)](https://github.com/sol-vin/sunstone/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://sol-vin.github.io/sunstone/)
 <!-- /carbon:badges -->
@@ -130,20 +130,43 @@ notes: |
 
 ## 🎨 Themes & Palettes
 
-Sunstone cleanly separates themes from palettes:
+Sunstone cleanly separates themes from palettes. Themes provide layout geometry, typography, and container structures, while palettes provide per-slide color schemes.
 
 | Theme | Aesthetic | Palettes Included | Special Features |
 | :--- | :--- | :--- | :--- |
 | **`generic`** (Default) | Modern, clean, high-contrast engineering | 8 modern palettes (`slate_dark`, `clean_light`, `emerald_matrix`, `midnight_indigo`, `nordic_ice`, `cyber_neon`, `sunset_amber`, `crimson_obsidian`) | Zero extraneous elements, pure semantic CSS |
 | **`sol.vin`** | Retro terminal & desktop engineering | 46 retro palettes (`spaces_98`, `warm_paper`, `neon_cyber`, `monokai`, `candy`, etc.) | 3D spinning isometric wireframe cube (`cube.js`), SVG chromatic filters |
+| **`nordic`** | Scandinavian minimalism | 6 cool palettes (`fjord_deep`, `aurora_night`, `glacier_frost`, `arctic_twilight`, `lichen_moss`, `polar_monochrome`) | Clean lines, cool blues and slate surfaces, high clarity |
+| **`brutalist`** | Swiss neo-brutalism | 6 high-contrast palettes (`yellow_hazard`, `paper_ink`, `electric_lime`, `orange_warning`, `cobalt_blueprint`, `hot_magenta`) | 2.5px solid high-contrast borders, hard 4px offset drop shadows, 0px border radii |
+| **`academic`** | LaTeX / Computer Modern formal typography | 6 scholarly palettes (`computer_modern`, `cambridge_blue`, `oxford_crimson`, `gothic_dark`, `emerald_manuscript`, `blackboard_latex`) | Serif headings, understated hairlines, formal mathematical presentation |
+| **`tokyo-night`** | Cyberpunk dark IDE developer styling | 6 luminous palettes (`tokyo_night`, `tokyo_storm`, `cyber_pulse`, `catppuccin_mocha`, `dracula_vampire`, `monokai_pro`) | Neon luminous accents, dark editor surfaces, syntax-aligned borders |
 
-Discover available layouts and palettes anytime:
+Discover available layouts, themes, and palettes anytime:
 
 ```bash
 sunstone list-layouts
 sunstone list-themes
-sunstone list-palettes --theme generic
-sunstone list-palettes --theme sol.vin
+sunstone list-palettes --theme nordic
+sunstone list-palettes --theme brutalist
+```
+
+### Authoring Custom Themes
+
+Create your own organization or conference theme in seconds:
+
+```bash
+sunstone new-theme brand --dir themes
+```
+
+This scaffolds:
+- `themes/brand.css`: Theme stylesheet adhering to Sunstone's Zero-Inline-Styles contract
+- `themes/brand_palettes.json`: Companion JSON defining slide-switchable color schemes
+
+Reference your custom theme directly in `deck.yml`:
+
+```yaml
+title: "Quarterly Review"
+theme: ./themes/brand.css
 ```
 
 ---
@@ -156,6 +179,7 @@ sunstone list-palettes --theme sol.vin
 | `sunstone serve [options]` | Build deck and launch local preview server with auto-browser launch |
 | `sunstone validate [options]` | Verify syntax, slide references, layouts, and palettes |
 | `sunstone new <name>` | Create a new slide presentation project |
+| `sunstone new-theme <name>` | Scaffold a custom theme CSS and companion palettes JSON |
 | `sunstone init` | Initialize a Sunstone presentation in the current directory |
 | `sunstone add-slide <id>` | Generate a boilerplate slide YAML file |
 | `sunstone list-layouts` | Display all 15 supported semantic layouts |

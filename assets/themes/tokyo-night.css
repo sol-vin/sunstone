@@ -1,0 +1,84 @@
+/**
+ * Sunstone Tokyo Night Theme (Modern Developer IDE & Cyberpunk)
+ * Velvety midnight backgrounds, luminous neon borders, modern developer aesthetics.
+ */
+
+:root {
+  /* Typography - Developer Sans & Mono Stack with System Fallbacks */
+  --sunstone-font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --sunstone-font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+
+  /* Geometry & Radii */
+  --sunstone-radius-sm: 6px;
+  --sunstone-radius-md: 10px;
+  --sunstone-radius-lg: 14px;
+  --sunstone-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(125, 207, 255, 0.1);
+
+  /* Default Palette: Tokyo Night */
+  --sunstone-bg: #1a1b26;
+  --sunstone-surface: #24283b;
+  --sunstone-surface-hover: #2f354f;
+  --sunstone-text-primary: #c0caf5;
+  --sunstone-text-secondary: #a9b1d6;
+  --sunstone-text-muted: #565f89;
+  --sunstone-accent: #7dcfff;
+  --sunstone-accent-secondary: #bb9af7;
+  --sunstone-accent-tertiary: #f7768e;
+  --sunstone-border: #414868;
+  --sunstone-border-active: #7dcfff;
+  --sunstone-code-bg: #16161e;
+}
+
+/* Base Reveal Typography */
+.reveal {
+  font-family: var(--sunstone-font-sans);
+  color: var(--sunstone-text-secondary);
+  background-color: var(--sunstone-bg);
+}
+
+.slide-title {
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  text-shadow: 0 0 25px rgba(125, 207, 255, 0.2);
+}
+
+/* Luminous Cyberpunk Cards */
+.card {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--sunstone-border-active);
+  box-shadow: 0 0 15px rgba(125, 207, 255, 0.25);
+}
+
+/* Developer IDE Code Windows */
+.code-window {
+  border: 1px solid var(--sunstone-border);
+  background: var(--sunstone-code-bg);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.code-window .window-header {
+  background: var(--sunstone-surface);
+  border-bottom: 1px solid var(--sunstone-border);
+}
+
+/* Luminous Badges */
+.badge {
+  border-radius: 6px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.6rem;
+}
+
+.timeline-dot {
+  box-shadow: 0 0 12px var(--sunstone-accent);
+}
+
+.arch-tier {
+  border: 1px solid var(--sunstone-border);
+}

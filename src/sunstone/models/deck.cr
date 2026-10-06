@@ -9,7 +9,8 @@ module Sunstone
     getter subtitle : String
     getter author : String
     getter author_url : String
-    getter theme : String
+    property theme : String
+    getter deck_dir : String
     getter width : Int32
     getter height : Int32
     getter header_enabled : Bool
@@ -24,12 +25,19 @@ module Sunstone
     getter custom_palettes : Hash(String, Palette)
     getter slides : Array(Slide)
 
-    def initialize(@raw : YAML::Any, @slides : Array(Slide))
+    def initialize(@raw : YAML::Any, @slides : Array(Slide), @deck_dir : String = ".")
       @title = @raw["title"]?.try(&.as_s) || "Sunstone Presentation"
       @subtitle = @raw["subtitle"]?.try(&.as_s) || ""
       @author = @raw["author"]?.try(&.as_s) || ""
       @author_url = @raw["author_url"]?.try(&.as_s) || ""
-      @theme = @raw["theme"]?.try(&.as_s) || "generic"
+
+      theme_candidate = @raw["theme"]?.try(&.as_s) || "generic"
+      local_theme_path = File.join(@deck_dir, theme_candidate)
+      if (theme_candidate.ends_with?(".css") || File.exists?(local_theme_path)) && File.file?(local_theme_path)
+        @theme = File.expand_path(local_theme_path)
+      else
+        @theme = theme_candidate
+      end
 
       res = @raw["resolution"]?
       @width = res.try(&.["width"]?.try(&.as_i)) || @raw["width"]?.try(&.as_i) || 1920
@@ -92,20 +100,24 @@ module Sunstone
       effective_slides_dir = slides_dir || File.join(deck_dir, "slides")
 
       if order = raw["slides"]?.try(&.as_a)
-        order.each do |item|
-          name = item.as_s
-          candidates = [
-            File.join(deck_dir, name),
-            File.join(deck_dir, name.ends_with?(".yml") ? name : "#{name}.yml"),
-            File.join(effective_slides_dir, name),
-            File.join(effective_slides_dir, name.ends_with?(".yml") ? name : "#{name}.yml"),
-          ]
+        order.each_with_index do |item, idx|
+          if item.raw.is_a?(Hash)
+            slides << Slide.new(item, "inline_slide_#{idx + 1}")
+          elsif str = item.as_s?
+            name = str
+            candidates = [
+              File.join(deck_dir, name),
+              File.join(deck_dir, name.ends_with?(".yml") ? name : "#{name}.yml"),
+              File.join(effective_slides_dir, name),
+              File.join(effective_slides_dir, name.ends_with?(".yml") ? name : "#{name}.yml"),
+            ]
 
-          found = candidates.find { |c| File.exists?(c) }
-          if found
-            slides << Slide.from_file(found)
-          else
-            STDERR.puts "[WARN] Slide file not found: #{name} (searched #{candidates.join(", ")})"
+            found = candidates.find { |c| File.exists?(c) }
+            if found
+              slides << Slide.from_file(found)
+            else
+              STDERR.puts "[WARN] Slide file not found: #{name} (searched #{candidates.join(", ")})"
+            end
           end
         end
       elsif Dir.exists?(effective_slides_dir)
@@ -114,7 +126,7 @@ module Sunstone
         end
       end
 
-      Deck.new(raw, slides)
+      Deck.new(raw, slides, deck_dir)
     end
   end
 end

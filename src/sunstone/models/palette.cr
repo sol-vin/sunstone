@@ -10,19 +10,41 @@ module Sunstone
     end
 
     def self.load_all(json_content : String) : Hash(String, Palette)
-      parsed = JSON.parse(json_content).as_a
+      parsed = JSON.parse(json_content)
       result = Hash(String, Palette).new
 
-      parsed.each do |item|
-        id = item["id"].as_s
-        name = item["name"].as_s
-        colors_map = Hash(String, String).new
-        if colors = item["colors"]?.try(&.as_h)
-          colors.each do |k, v|
-            colors_map[k] = v.as_s
+      if items = parsed.as_a?
+        items.each do |item|
+          id = item["id"].as_s
+          name = item["name"]?.try(&.as_s) || id
+          colors_map = Hash(String, String).new
+          if colors = item["colors"]?.try(&.as_h)
+            colors.each do |k, v|
+              colors_map[k] = v.as_s
+            end
+          else
+            item.as_h.each do |k, v|
+              colors_map[k] = v.as_s if v.as_s? && k != "id" && k != "name"
+            end
           end
+          result[id] = Palette.new(id, name, colors_map)
         end
-        result[id] = Palette.new(id, name, colors_map)
+      elsif hash = parsed.as_h?
+        hash.each do |key, val|
+          id = val["id"]?.try(&.as_s) || key
+          name = val["name"]?.try(&.as_s) || id
+          colors_map = Hash(String, String).new
+          if colors = val["colors"]?.try(&.as_h)
+            colors.each do |k, v|
+              colors_map[k] = v.as_s
+            end
+          else
+            val.as_h.each do |k, v|
+              colors_map[k] = v.as_s if v.as_s? && k != "id" && k != "name"
+            end
+          end
+          result[id] = Palette.new(id, name, colors_map)
+        end
       end
 
       result

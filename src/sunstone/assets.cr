@@ -3,13 +3,23 @@ require "file_utils"
 
 module Sunstone
   module Assets
-    BASE_CSS              = {{ read_file("#{__DIR__}/../../assets/themes/sunstone-base.css") }}
-    GENERIC_CSS           = {{ read_file("#{__DIR__}/../../assets/themes/generic.css") }}
-    SOLVIN_CSS            = {{ read_file("#{__DIR__}/../../assets/themes/sol.vin.css") }}
-    GENERIC_PALETTES_JSON = {{ read_file("#{__DIR__}/../../assets/themes/generic_palettes.json") }}
-    SOLVIN_PALETTES_JSON  = {{ read_file("#{__DIR__}/../../assets/themes/solvin_palettes.json") }}
-    SOLVIN_CUBE_JS        = {{ read_file("#{__DIR__}/../../assets/themes/sol.vin/cube.js") }}
-    USER_CI_YML           = {{ read_file("#{__DIR__}/../../assets/user_ci.yml") }}
+    BASE_CSS                 = {{ read_file("#{__DIR__}/../../assets/themes/sunstone-base.css") }}
+    GENERIC_CSS              = {{ read_file("#{__DIR__}/../../assets/themes/generic.css") }}
+    SOLVIN_CSS               = {{ read_file("#{__DIR__}/../../assets/themes/sol.vin.css") }}
+    NORDIC_CSS               = {{ read_file("#{__DIR__}/../../assets/themes/nordic.css") }}
+    BRUTALIST_CSS            = {{ read_file("#{__DIR__}/../../assets/themes/brutalist.css") }}
+    ACADEMIC_CSS             = {{ read_file("#{__DIR__}/../../assets/themes/academic.css") }}
+    TOKYO_NIGHT_CSS          = {{ read_file("#{__DIR__}/../../assets/themes/tokyo-night.css") }}
+
+    GENERIC_PALETTES_JSON     = {{ read_file("#{__DIR__}/../../assets/themes/generic_palettes.json") }}
+    SOLVIN_PALETTES_JSON      = {{ read_file("#{__DIR__}/../../assets/themes/solvin_palettes.json") }}
+    NORDIC_PALETTES_JSON      = {{ read_file("#{__DIR__}/../../assets/themes/nordic_palettes.json") }}
+    BRUTALIST_PALETTES_JSON   = {{ read_file("#{__DIR__}/../../assets/themes/brutalist_palettes.json") }}
+    ACADEMIC_PALETTES_JSON    = {{ read_file("#{__DIR__}/../../assets/themes/academic_palettes.json") }}
+    TOKYO_NIGHT_PALETTES_JSON = {{ read_file("#{__DIR__}/../../assets/themes/tokyo_night_palettes.json") }}
+
+    SOLVIN_CUBE_JS           = {{ read_file("#{__DIR__}/../../assets/themes/sol.vin/cube.js") }}
+    USER_CI_YML              = {{ read_file("#{__DIR__}/../../assets/user_ci.yml") }}
 
     # Reveal.js assets
     REVEAL_CSS       = {{ read_file("#{__DIR__}/../../assets/vendor/reveal/reveal.min.css") }}
@@ -28,6 +38,19 @@ module Sunstone
     # Asciinema player assets
     ASCIINEMA_CSS = {{ read_file("#{__DIR__}/../../assets/vendor/asciinema/asciinema-player.css") }}
     ASCIINEMA_JS  = {{ read_file("#{__DIR__}/../../assets/vendor/asciinema/asciinema-player.min.js") }}
+
+    BUILTIN_THEMES = [
+      "generic",
+      "sol.vin",
+      "nordic",
+      "brutalist",
+      "academic",
+      "tokyo-night",
+    ]
+
+    def self.available_themes : Array(String)
+      BUILTIN_THEMES
+    end
 
     def self.scaffold_vendor(target_dir : String)
       vendor_dir = File.join(target_dir, "vendor")
@@ -60,18 +83,47 @@ module Sunstone
     end
 
     def self.theme_css_for(theme_name : String) : String
-      case theme_name.downcase
+      # Support direct local CSS file path (e.g. "./custom_theme.css")
+      if (theme_name.ends_with?(".css") || File.exists?(theme_name)) && File.file?(theme_name)
+        return File.read(theme_name)
+      end
+
+      case theme_name.downcase.gsub("_", "-")
       when "sol.vin", "solvin", "retro"
         SOLVIN_CSS
+      when "nordic", "scandinavian", "ice"
+        NORDIC_CSS
+      when "brutalist", "neo-brutalist", "swiss"
+        BRUTALIST_CSS
+      when "academic", "latex", "beamer", "scholarly"
+        ACADEMIC_CSS
+      when "tokyo-night", "tokyonight", "cyberpunk", "ide"
+        TOKYO_NIGHT_CSS
       else
         GENERIC_CSS
       end
     end
 
     def self.palettes_json_for(theme_name : String) : String
-      case theme_name.downcase
+      # If theme is a direct CSS file, check if a companion .json exists (e.g. theme.json)
+      if (theme_name.ends_with?(".css") || File.exists?(theme_name)) && File.file?(theme_name)
+        companion_json = theme_name.sub(/\.css\z/, ".json")
+        if File.exists?(companion_json)
+          return File.read(companion_json)
+        end
+      end
+
+      case theme_name.downcase.gsub("_", "-")
       when "sol.vin", "solvin", "retro"
         SOLVIN_PALETTES_JSON
+      when "nordic", "scandinavian", "ice"
+        NORDIC_PALETTES_JSON
+      when "brutalist", "neo-brutalist", "swiss"
+        BRUTALIST_PALETTES_JSON
+      when "academic", "latex", "beamer", "scholarly"
+        ACADEMIC_PALETTES_JSON
+      when "tokyo-night", "tokyonight", "cyberpunk", "ide"
+        TOKYO_NIGHT_PALETTES_JSON
       else
         GENERIC_PALETTES_JSON
       end

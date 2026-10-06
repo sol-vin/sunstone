@@ -1,0 +1,110 @@
+[
+  {
+    "id": "computer_modern",
+    "name": "Computer Modern (Default)",
+    "colors": {
+      "bg_color": "#faf9f5",
+      "surface_color": "#ffffff",
+      "surface_hover": "#f2eee3",
+      "text_primary": "#1f2937",
+      "text_secondary": "#374151",
+      "text_muted": "#6b7280",
+      "accent_color": "#1e3a8a",
+      "accent_secondary": "#047857",
+      "accent_tertiary": "#b45309",
+      "border_color": "#e5e2d9",
+      "border_active": "#1e3a8a",
+      "code_bg": "#f3f0e6"
+    }
+  },
+  {
+    "id": "cambridge_blue",
+    "name": "Cambridge Blue",
+    "colors": {
+      "bg_color": "#f8fafc",
+      "surface_color": "#ffffff",
+      "surface_hover": "#f1f5f9",
+      "text_primary": "#0f172a",
+      "text_secondary": "#334155",
+      "text_muted": "#64748b",
+      "accent_color": "#0369a1",
+      "accent_secondary": "#0d9488",
+      "accent_tertiary": "#4338ca",
+      "border_color": "#cbd5e1",
+      "border_active": "#0369a1",
+      "code_bg": "#f1f5f9"
+    }
+  },
+  {
+    "id": "oxford_crimson",
+    "name": "Oxford Crimson",
+    "colors": {
+      "bg_color": "#fdfbf7",
+      "surface_color": "#ffffff",
+      "surface_hover": "#f7f2ea",
+      "text_primary": "#262626",
+      "text_secondary": "#404040",
+      "text_muted": "#737373",
+      "accent_color": "#881337",
+      "accent_secondary": "#9a3412",
+      "accent_tertiary": "#15803d",
+      "border_color": "#e7dfd5",
+      "border_active": "#881337",
+      "code_bg": "#f5efe6"
+    }
+  },
+  {
+    "id": "gothic_dark",
+    "name": "Gothic Dark",
+    "colors": {
+      "bg_color": "#181a1b",
+      "surface_color": "#232629",
+      "surface_hover": "#2d3135",
+      "text_primary": "#f3f4f6",
+      "text_secondary": "#d1d5db",
+      "text_muted": "#9ca3af",
+      "accent_color": "#d97706",
+      "accent_secondary": "#38bdf8",
+      "accent_tertiary": "#a855f7",
+      "border_color": "#374151",
+      "border_active": "#d97706",
+      "code_bg": "#121314"
+    }
+  },
+  {
+    "id": "emerald_manuscript",
+    "name": "Emerald Manuscript",
+    "colors": {
+      "bg_color": "#f7f8f6",
+      "surface_color": "#ffffff",
+      "surface_hover": "#eff1ed",
+      "text_primary": "#1c1917",
+      "text_secondary": "#292524",
+      "text_muted": "#78716c",
+      "accent_color": "#065f46",
+      "accent_secondary": "#92400e",
+      "accent_tertiary": "#1e40af",
+      "border_color": "#d6dbd2",
+      "border_active": "#065f46",
+      "code_bg": "#edf0eb"
+    }
+  },
+  {
+    "id": "blackboard_latex",
+    "name": "Blackboard LaTeX",
+    "colors": {
+      "bg_color": "#151c18",
+      "surface_color": "#1e2823",
+      "surface_hover": "#27342e",
+      "text_primary": "#f9fafb",
+      "text_secondary": "#e5e7eb",
+      "text_muted": "#9ca3af",
+      "accent_color": "#86efac",
+      "accent_secondary": "#fde047",
+      "accent_tertiary": "#67e8f9",
+      "border_color": "#2c3d35",
+      "border_active": "#86efac",
+      "code_bg": "#0f1411"
+    }
+  }
+]

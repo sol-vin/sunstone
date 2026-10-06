@@ -222,18 +222,59 @@ module Sunstone
       end
 
       # -------------------------------------------------------------
+      # Command: new-theme
+      # -------------------------------------------------------------
+      command "new-theme", "Scaffold a starter custom theme and palette catalog" do |cmd|
+        cmd.argument :name, "Theme name (e.g. corporate, synthwave, minimal)"
+        cmd.option :dir, "--dir", "-d", "Directory to write theme files", default: "themes"
+
+        cmd.run do |ctx|
+          name = ctx.args.first?
+          unless name
+            STDERR.puts "\e[31mError:\e[0m Theme name is required. Example: sunstone new-theme corporate"
+            exit 1
+          end
+
+          target_dir = ctx.string(:dir)
+          css_path, json_path = Scaffold.new_theme(name, directory: target_dir)
+
+          puts "\e[32m✓ Created custom theme in '#{target_dir}':\e[0m"
+          puts "  • Stylesheet: #{css_path}"
+          puts "  • Palettes:   #{json_path}"
+          puts ""
+          puts "  To use this theme in your presentation, update deck.yml:"
+          puts "    \e[36mtheme: #{css_path.gsub("\\", "/")}\e[0m"
+          0
+        end
+      end
+
+      # -------------------------------------------------------------
       # Command: list-themes
       # -------------------------------------------------------------
       command "list-themes", "List available presentation themes" do |cmd|
         cmd.run do |_ctx|
           puts "\e[1mAvailable Sunstone Presentation Themes:\e[0m\n"
-          puts "  • \e[32mgeneric\e[0m (Default)  Modern, clean, high-contrast engineering aesthetic."
-          puts "                     Includes 8 modern palettes (slate_dark, emerald_matrix, clean_light, etc.)."
-          puts "                     Zero inline styles, pure semantic CSS classes and variables."
+          puts "  • \e[32mgeneric\e[0m (Default)   Modern, clean, high-contrast engineering aesthetic."
+          puts "                      Includes 8 modern palettes (slate_dark, emerald_matrix, clean_light, etc.)."
+          puts "                      Zero inline styles, pure semantic CSS classes and variables."
           puts ""
-          puts "  • \e[33msol.vin\e[0m            Retro Sol.vin aesthetic inspired by terminal engineering."
-          puts "                     Includes 46 retro palettes (spaces_98, warm_paper, neon_cyber, etc.)."
-          puts "                     Embeds 3D spinning isometric wireframe cube (cube.js) and SVG chromatic filters."
+          puts "  • \e[33msol.vin\e[0m             Retro Sol.vin aesthetic inspired by terminal engineering."
+          puts "                      Includes 46 retro palettes (spaces_98, warm_paper, neon_cyber, etc.)."
+          puts "                      Embeds 3D spinning isometric wireframe cube (cube.js) and SVG chromatic filters."
+          puts ""
+          puts "  • \e[36mnordic\e[0m              Airy Scandinavian minimalism with cool slate, frosted glass, and arctic cyan/teal."
+          puts "                      Includes 6 palettes (fjord_deep, aurora_night, glacier_frost, etc.)."
+          puts ""
+          puts "  • \e[31mbrutalist\e[0m           Swiss neo-brutalist aesthetic with 2.5px solid borders, offset drop shadows, and high contrast."
+          puts "                      Includes 6 palettes (yellow_hazard, paper_ink, electric_lime, orange_warning, etc.)."
+          puts ""
+          puts "  • \e[35macademic\e[0m            Formal publication & LaTeX / Computer Modern styling with serif headings and hairlines."
+          puts "                      Includes 6 palettes (computer_modern, cambridge_blue, oxford_crimson, etc.)."
+          puts ""
+          puts "  • \e[34mtokyo-night\e[0m         Sleek developer IDE & cyberpunk aesthetic with glowing neon borders and dark editor styling."
+          puts "                      Includes 6 palettes (tokyo_night, tokyo_storm, catppuccin_mocha, dracula_vampire, etc.)."
+          puts ""
+          puts "  • \e[90mCustom Theme\e[0m        Point 'theme:' in deck.yml directly to any CSS file (e.g. theme: ./themes/brand.css)."
           0
         end
       end
@@ -242,7 +283,7 @@ module Sunstone
       # Command: list-palettes
       # -------------------------------------------------------------
       command "list-palettes", "List available palettes for a theme" do |cmd|
-        cmd.option :theme, "--theme", "-t", "Theme name (generic or sol.vin)", default: "generic"
+        cmd.option :theme, "--theme", "-t", "Theme name (generic, sol.vin, nordic, brutalist, academic, tokyo-night)", default: "generic"
 
         cmd.run do |ctx|
           theme = ctx.string(:theme)
@@ -252,7 +293,7 @@ module Sunstone
           palettes.each_value do |p|
             accent = p.accent_color
             bg = p.bg_color
-            puts "  • \e[36m%-20s\e[0m %s (bg: %s, accent: %s)" % [p.id, p.name, bg, accent]
+            puts "  • \e[36m%-22s\e[0m %s (bg: %s, accent: %s)" % [p.id, p.name, bg, accent]
           end
           0
         end

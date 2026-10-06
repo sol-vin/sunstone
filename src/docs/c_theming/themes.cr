@@ -7,7 +7,7 @@
 module Sunstone
   module Docs
     module C_THEMING
-      # # Themes & Theme-Scoped Palettes
+      # # Built-In Themes & Theme-Scoped Palettes
       #
       # ### Executive Summary & Key Topics
       #
@@ -21,43 +21,78 @@ module Sunstone
       #   </thead>
       #   <tbody>
       #     <tr>
-      #       <td><strong>Built-In Themes</strong></td>
+      #       <td><strong>Catalog of Built-In Themes</strong></td>
       #       <td><code>.topic_01_themes_overview</code></td>
-      #       <td>Differences between the generic and sol.vin themes.</td>
+      #       <td>Overview of the 6 production themes included with Sunstone.</td>
       #     </tr>
       #     <tr>
-      #       <td><strong>Palette per Slide</strong></td>
+      #       <td><strong>Theme-Scoped Palettes per Slide</strong></td>
       #       <td><code>.topic_02_palette_per_slide</code></td>
-      #       <td>Switching palettes per slide without styling conflicts.</td>
+      #       <td>How slides seamlessly transition colors on slide focus.</td>
       #     </tr>
       #   </tbody>
       # </table>
       #
       module Themes
-        # **Built-In Themes**: Differences between the generic and sol.vin themes.
+        # **Catalog of Built-In Themes**: Overview of the 6 production themes included with Sunstone.
         #
-        # Sunstone ships with two built-in themes:
+        # Sunstone includes 6 production-grade presentation themes designed for specific presentation formats and audience expectations:
         #
-        # - **`generic` (Default):** Clean, modern, high-contrast engineering aesthetic. Employs 8 modern dark and light palettes (`slate_dark`, `clean_light`, `emerald_matrix`, `midnight_indigo`, `crimson_obsidian`, `sunset_amber`, `nordic_ice`, `cyber_neon`). Completely free of extraneous visual elements.
-        # - **`sol.vin`:** Retro terminal and desktop-inspired theme. Employs 46 retro palettes (`spaces_98`, `warm_paper`, `neon_cyber`, `monokai`, etc.), renders an interactive 3D spinning isometric wireframe cube (`cube.js`), and includes SVG chromatic color-matrix filters for emojis.
+        # 1. **`generic` (Default):**
+        #    - Modern, clean, high-contrast engineering aesthetic.
+        #    - 8 modern dark and light palettes (`slate_dark`, `clean_light`, `emerald_matrix`, `midnight_indigo`, `nordic_ice`, `cyber_neon`, `sunset_amber`, `crimson_obsidian`).
+        #    - Pure semantic CSS without extraneous decorative elements.
+        #
+        # 2. **`sol.vin`:**
+        #    - Retro terminal engineering aesthetic inspired by early computing and retro desktop OS environments.
+        #    - 46 retro palettes (`spaces_98`, `warm_paper`, `neon_cyber`, `monokai`, `candy`, etc.).
+        #    - Interactive 3D spinning isometric wireframe cube (`cube.js`) and SVG chromatic color-matrix filters.
+        #
+        # 3. **`nordic`:**
+        #    - Scandinavian engineering minimalism with airy letter spacing, cool slate backgrounds, and frosted glass cards.
+        #    - 6 curated palettes (`fjord_deep`, `aurora_night`, `glacier_frost`, `arctic_twilight`, `lichen_moss`, `polar_monochrome`).
+        #    - Subtle 1px icy cyan borders and serene, balanced typography.
+        #
+        # 4. **`brutalist`:**
+        #    - Swiss neo-brutalist aesthetic with heavy 2.5px solid borders, hard 4px offset drop shadows, and sharp 0px angular corners.
+        #    - 6 high-contrast palettes (`yellow_hazard`, `paper_ink`, `electric_lime`, `orange_warning`, `cobalt_blueprint`, `hot_magenta`).
+        #    - Engineered specifically to overcome washed-out conference room projectors and harsh ambient lighting.
+        #
+        # 5. **`academic`:**
+        #    - Formal publication and LaTeX / Computer Modern styling featuring classical serif headings and delicate hairline borders.
+        #    - 6 scholarly palettes (`computer_modern`, `cambridge_blue`, `oxford_crimson`, `gothic_dark`, `emerald_manuscript`, `blackboard_latex`).
+        #    - Ideal for scientific papers, thesis defenses, algorithm walkthroughs, and technical lectures.
+        #
+        # 6. **`tokyo-night`:**
+        #    - Sleek developer IDE and cyberpunk aesthetic with velvety midnight backgrounds and luminous neon borders.
+        #    - 6 code-editor palettes (`tokyo_night`, `tokyo_storm`, `cyber_pulse`, `catppuccin_mocha`, `dracula_vampire`, `monokai_pro`).
+        #    - Highly popular for developer tool demonstrations, live-coding sessions, and technical conference keynotes.
         #
         def self.topic_01_themes_overview : Nil; end
 
-        # **Palette per Slide**: Switching palettes per slide without styling conflicts.
+        # **Theme-Scoped Palettes per Slide**: How slides seamlessly transition colors on slide focus.
         #
-        # Every slide can specify `palette: <id>`.
-        # Sunstone compiles CSS definitions for each palette in the theme:
+        # In Sunstone, each theme maintains its own curated catalog of palettes.
+        # Any individual slide can declare a palette using:
+        #
+        # ```yaml
+        # palette: "aurora_night"
+        # ```
+        #
+        # During compilation, Sunstone generates scoped CSS variables for every palette in the theme:
         #
         # ```css
-        # .slide[data-palette="slate_dark"] {
-        #   --sunstone-bg: #0f172a;
-        #   --sunstone-surface: #1e293b;
-        #   --sunstone-accent: #38bdf8;
+        # .slide[data-palette="aurora_night"] {
+        #   --sunstone-bg: #0a0f18;
+        #   --sunstone-surface: #131d2e;
+        #   --sunstone-accent: #10b981;
         #   --sunstone-text-primary: #f8fafc;
+        #   --sunstone-border: #1e2e4a;
+        #   --sunstone-code-bg: #070b12;
         # }
         # ```
         #
-        # When Reveal.js navigates between slides, the browser transitions colors instantly and smoothly without any DOM rewriting.
+        # When Reveal.js transitions between slides, all child elements, cards, and code containers instantly inherit the slide's active palette without DOM manipulation.
         #
         def self.topic_02_palette_per_slide : Nil; end
       end

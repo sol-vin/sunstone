@@ -1,0 +1,110 @@
+[
+  {
+    "id": "yellow_hazard",
+    "name": "Yellow Hazard (Default)",
+    "colors": {
+      "bg_color": "#0a0a0a",
+      "surface_color": "#181818",
+      "surface_hover": "#222222",
+      "text_primary": "#ffffff",
+      "text_secondary": "#e5e5e5",
+      "text_muted": "#a3a3a3",
+      "accent_color": "#ffde00",
+      "accent_secondary": "#ff5500",
+      "accent_tertiary": "#00ff66",
+      "border_color": "#ffde00",
+      "border_active": "#ffffff",
+      "code_bg": "#000000"
+    }
+  },
+  {
+    "id": "paper_ink",
+    "name": "Paper & Ink (Light Brutalist)",
+    "colors": {
+      "bg_color": "#f4f1ea",
+      "surface_color": "#ffffff",
+      "surface_hover": "#ede8dd",
+      "text_primary": "#000000",
+      "text_secondary": "#1a1a1a",
+      "text_muted": "#4a4a4a",
+      "accent_color": "#000000",
+      "accent_secondary": "#ff3300",
+      "accent_tertiary": "#0055ff",
+      "border_color": "#000000",
+      "border_active": "#ff3300",
+      "code_bg": "#ffffff"
+    }
+  },
+  {
+    "id": "electric_lime",
+    "name": "Electric Lime",
+    "colors": {
+      "bg_color": "#0c0d0c",
+      "surface_color": "#161816",
+      "surface_hover": "#1e221e",
+      "text_primary": "#ffffff",
+      "text_secondary": "#dcfce7",
+      "text_muted": "#86efac",
+      "accent_color": "#22c55e",
+      "accent_secondary": "#a3e635",
+      "accent_tertiary": "#38bdf8",
+      "border_color": "#22c55e",
+      "border_active": "#ffffff",
+      "code_bg": "#050605"
+    }
+  },
+  {
+    "id": "orange_warning",
+    "name": "Orange Warning",
+    "colors": {
+      "bg_color": "#121214",
+      "surface_color": "#1c1c20",
+      "surface_hover": "#26262c",
+      "text_primary": "#ffffff",
+      "text_secondary": "#ffedd5",
+      "text_muted": "#fdba74",
+      "accent_color": "#ff6b00",
+      "accent_secondary": "#ffaa00",
+      "accent_tertiary": "#ff0055",
+      "border_color": "#ff6b00",
+      "border_active": "#ffffff",
+      "code_bg": "#0a0a0c"
+    }
+  },
+  {
+    "id": "cobalt_blueprint",
+    "name": "Cobalt Blueprint",
+    "colors": {
+      "bg_color": "#0b1528",
+      "surface_color": "#12203a",
+      "surface_hover": "#1a2c4e",
+      "text_primary": "#ffffff",
+      "text_secondary": "#e0f2fe",
+      "text_muted": "#7dd3fc",
+      "accent_color": "#00e5ff",
+      "accent_secondary": "#38bdf8",
+      "accent_tertiary": "#818cf8",
+      "border_color": "#00e5ff",
+      "border_active": "#ffffff",
+      "code_bg": "#070e1c"
+    }
+  },
+  {
+    "id": "hot_magenta",
+    "name": "Hot Magenta",
+    "colors": {
+      "bg_color": "#121014",
+      "surface_color": "#1c1820",
+      "surface_hover": "#28222e",
+      "text_primary": "#ffffff",
+      "text_secondary": "#fce7f3",
+      "text_muted": "#f472b6",
+      "accent_color": "#ff007f",
+      "accent_secondary": "#ffbd2e",
+      "accent_tertiary": "#00f5d4",
+      "border_color": "#ff007f",
+      "border_active": "#ffffff",
+      "code_bg": "#0a080c"
+    }
+  }
+]

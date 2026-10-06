@@ -1,8 +1,21 @@
 # CARBON CHANGELOG
+## [0.1.5] - 2026-10-06
+---
 ## [0.1.4] - 2026-10-06
 ### 🐛 Bug Fixes
 - ✓ **[CI]** use latest Crystal and shards build for jasper ([`90db9a8`](https://github.com/sol-vin/sunstone/commit/90db9a8))
 - ✓ **[CI]** ensure bin directory exists before crystal build ([`239e8e7`](https://github.com/sol-vin/sunstone/commit/239e8e7))
+
+### 📚 Documentation
+- 📖 Added comprehensive Jasper guides for Authoring Custom Themes and Resolving Developer Pressure Points in docs_src/03_theming/.
+
+### 🛠️ Chores & Tooling
+- • Added 4 new production themes: nordic (Scandinavian minimalism), brutalist (Swiss neo-brutalism), academic (formal LaTeX/Computer Modern), and tokyo-night (cyberpunk developer IDE).
+- • Added 24 theme-scoped palettes across the new themes with high-contrast accessibility and dark/light modes.
+- • Added 'sunstone new-theme <name>' command to scaffold starter theme CSS and companion palettes JSON.
+- • Supported direct custom theme file loading (e.g. 'theme: ./themes/brand.css') with companion palette resolution.
+- • Consolidated dynamic palette CSS rules directly into theme.css, eliminating embedded style tags in HTML.
+- • Supported inline slide definitions in deck.yml in addition to modular external files.
 
 ---
 ## [0.1.3] - 2026-10-06

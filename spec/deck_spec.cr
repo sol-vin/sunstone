@@ -7,7 +7,7 @@ describe Sunstone::Deck do
     deck.theme.should eq("generic")
     deck.width.should eq(1920)
     deck.height.should eq(1080)
-    deck.slides.size.should eq(15)
+    deck.slides.size.should eq(16)
 
     intro = deck.slides.first
     intro.id.should eq("intro")
@@ -22,7 +22,7 @@ describe Sunstone::Deck do
     palette = palettes[slide.palette]? || palettes.values.first
 
     renderer = Sunstone::LayoutRouter.resolve(slide.layout)
-    footer = renderer.format_footer_template(deck.footer_right, slide, deck, palette, 1, 16)
-    footer.should eq("Slide 1 / 16")
+    footer = renderer.format_footer_template(deck.footer_right, slide, deck, palette, 1, 17)
+    footer.should eq("Slide 1 / 17")
   end
 end

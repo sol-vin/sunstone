@@ -1,0 +1,85 @@
+/**
+ * Sunstone Academic Theme (LaTeX / Computer Modern / Research Papers)
+ * Elegant serif typography, delicate hairline rules, scholarly contrast.
+ */
+
+:root {
+  /* Typography - Classical Academic Serif Stack with System Fallbacks */
+  --sunstone-font-sans: 'Latin Modern Roman', 'Computer Modern Serif', 'Cambria', 'Georgia', 'Times New Roman', serif;
+  --sunstone-font-mono: 'Latin Modern Mono', 'Computer Modern Typewriter', 'Courier New', Consolas, monospace;
+
+  /* Geometry & Radii - Minimal formal curves */
+  --sunstone-radius-sm: 2px;
+  --sunstone-radius-md: 4px;
+  --sunstone-radius-lg: 6px;
+  --sunstone-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+  /* Default Palette: Computer Modern */
+  --sunstone-bg: #faf9f5;
+  --sunstone-surface: #ffffff;
+  --sunstone-surface-hover: #f2eee3;
+  --sunstone-text-primary: #1f2937;
+  --sunstone-text-secondary: #374151;
+  --sunstone-text-muted: #6b7280;
+  --sunstone-accent: #1e3a8a;
+  --sunstone-accent-secondary: #047857;
+  --sunstone-accent-tertiary: #b45309;
+  --sunstone-border: #e5e2d9;
+  --sunstone-border-active: #1e3a8a;
+  --sunstone-code-bg: #f3f0e6;
+}
+
+/* Base Reveal Typography */
+.reveal {
+  font-family: var(--sunstone-font-sans);
+  color: var(--sunstone-text-secondary);
+  background-color: var(--sunstone-bg);
+  line-height: 1.6;
+}
+
+.slide-title {
+  font-family: var(--sunstone-font-sans);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.slide-subtitle {
+  font-style: italic;
+}
+
+/* Scholarly Cards & Theorems */
+.card {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  border-left: 4px solid var(--sunstone-accent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Publication Hairline Code Windows */
+.code-window {
+  border: 1px solid var(--sunstone-border);
+  background: var(--sunstone-code-bg);
+}
+
+.code-window .window-header {
+  background: var(--sunstone-surface);
+  border-bottom: 1px solid var(--sunstone-border);
+  font-family: var(--sunstone-font-mono);
+  font-size: 0.72rem;
+}
+
+/* Classical Formal Badges */
+.badge {
+  border-radius: 3px;
+  font-family: var(--sunstone-font-sans);
+  font-variant: small-caps;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.5rem;
+}
+
+/* Academic Blockquote */
+.quote-text {
+  font-style: italic;
+  font-family: var(--sunstone-font-sans);
+}

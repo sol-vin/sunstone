@@ -1,0 +1,94 @@
+id: DeveloperPressurePoints
+track: 03_theming
+title: "Developer Pressure Points & Best Practices"
+summary: "Analysis of the 6 major friction points developers face when building slide presentations, and how Sunstone resolves them."
+sections:
+  - id: "code_overflow"
+    title: "1. Code Overflow & Viewport Sizing"
+    summary: "Managing code snippet density in fixed 16:9 presentation coordinate spaces."
+    content: |
+      **The Problem:**
+      Unlike scrollable web pages, presentations operate within a fixed 16:9 coordinate canvas (e.g. 1920x1080).
+      Pasting a 25-line function or wide 100-character line inevitably overflows the slide boundary, collides with the footer, or shrinks into illegibility.
+
+      **The Sunstone Solution:**
+      1. **Density Overrides:** Use `density: "compact"` or `density: "dense"` on code blocks to automatically adjust font sizes and line heights via CSS.
+      2. **The 12-Line Rule:** Keep code snippets between 8 and 14 lines per slide.
+      3. **Two-Step Progressive Critique:** Use the `code-comparison` layout (`layout: "code-comparison"`). Sunstone will automatically expand the slide into two steps:
+         - *Step 1:* Side-by-side full-height code comparison without distractions.
+         - *Step 2:* Side-by-side critique cards analyzing tradeoffs and strengths.
+
+  - id: "offline_venues"
+    title: "2. Offline Venues & Zero-FOUT Font Stacks"
+    summary: "Ensuring presentations render identically without internet connectivity."
+    content: |
+      **The Problem:**
+      Conference Wi-Fi is notoriously unreliable. Presenters who rely on `@import url('https://fonts.googleapis.com/...')` face Flash of Unstyled Text (FOUT), slow slide initialization, or outright styling failures when captive portals block external font downloads.
+
+      **The Sunstone Solution:**
+      All built-in Sunstone themes (`generic`, `nordic`, `brutalist`, `academic`, `tokyo-night`) prioritize multi-platform native system font stacks:
+
+      ```css
+      /* Sans Stack: Instant rendering on Windows, macOS, Linux, and Android */
+      --sunstone-font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+      /* Mono Stack: Razor-sharp code rendering across all operating systems */
+      --sunstone-font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, Menlo, Monaco, monospace;
+      ```
+
+      Your presentations load in under 10 milliseconds, look stunning offline, and never depend on external network availability.
+
+  - id: "projector_contrast"
+    title: "3. Projector Contrast & Stage Visibility"
+    summary: "Calibrating slide palettes for washed-out conference room projectors."
+    content: |
+      **The Problem:**
+      A slide deck that looks sleek on a high-DPI calibrated laptop screen often becomes completely illegible when projected onto a conference room screen with ambient fluorescent lighting. Subtle gray borders and low-contrast background cards disappear.
+
+      **The Sunstone Solution:**
+      1. **Contrast Standards:** All Sunstone palettes are engineered to meet or exceed WCAG AA contrast standards (minimum 4.5:1 ratio for text).
+      2. **High-Contrast Themes:** In venues with bright stage lighting or aging projectors, switch to the `brutalist`, `clean_light`, or `academic` themes.
+      3. **Solid Border Outlines:** Sunstone cards utilize explicit `--sunstone-border` outlines instead of relying solely on subtle drop shadows.
+
+  - id: "specificity_wars"
+    title: "4. Eliminating the !important Cascade War"
+    summary: "Why traditional slide theme overrides devolve into specificity conflicts."
+    content: |
+      **The Problem:**
+      In traditional frameworks, slide generators emit nested HTML with inline styles or complex selectors like `.reveal .slides section.present div.card`. When developers attempt to customize card colors or margins, they are forced to use `!important` to override specificity.
+
+      **The Sunstone Solution:**
+      Sunstone enforces a completely flat design token architecture using CSS Custom Properties (`--sunstone-*`).
+      To change an accent color or card surface for a specific slide or deck, you never touch specificity:
+
+      ```css
+      .slide[data-palette="custom_accent"] {
+        --sunstone-accent: #ff007f;
+        --sunstone-border-active: #ff007f;
+      }
+      ```
+
+      Zero `!important` declarations are required.
+
+  - id: "card_crowding"
+    title: "5. Card Crowding & Aspect Ratio Collapse"
+    summary: "Preventing vertical overflow when displaying multiple columns."
+    content: |
+      **The Problem:**
+      In multi-column layouts (`three-column`, `four-column`, `matrix`), adding 6 bullet points with multiple lines per bullet causes cards to stretch vertically past the slide footer.
+
+      **The Sunstone Solution:**
+      1. **Automatic Compact Detection:** Sunstone layout renderers automatically check item counts: if a card contains 4 or more items, it emits `data-density="compact"` automatically.
+      2. **Scoping Content:** Limit card bullets to 3-4 succinct takeaways. Use `timeline` or `demo-roadmap` if presenting sequential multi-step items.
+
+  - id: "git_merges"
+    title: "6. Git Ergonomics & Slide Reordering"
+    summary: "Why multi-file YAML architectures minimize team merge conflicts."
+    content: |
+      **The Problem:**
+      In single-file presentation formats (like 2,000-line Markdown or giant JSON files), two teammates editing different slides simultaneously will create massive Git merge conflicts.
+
+      **The Sunstone Solution:**
+      Sunstone slides are separate, modular YAML files in `slides/` (`01_intro.yml`, `02_architecture.yml`).
+      The presentation manifest (`deck.yml`) merely references slide paths.
+      Reordering, adding, or deleting slides is a clean 1-line diff in `deck.yml`, making pull request code reviews effortless.
