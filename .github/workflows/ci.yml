@@ -30,7 +30,7 @@ jobs:
       - name: Install Crystal
         uses: crystal-lang/install-crystal@v1
         with:
-          crystal: 1.12.0
+          crystal: "latest"
 
       - name: Install Shards Dependencies
         run: shards install
@@ -52,13 +52,17 @@ jobs:
 
       - name: Build Jasper Documentation
         run: |
-          crystal build lib/jasper/src/jasper_cli.cr -o bin/jasper
+          shards build jasper
           bin/jasper build
           crystal docs
 
       - name: Compile Showcase Presentation
         run: |
           bin/sunstone build --deck examples/showcase/deck.yml --out dist
+
+      - name: Configure GitHub Pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
 
       - name: Upload Showcase Presentation Artifact
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'

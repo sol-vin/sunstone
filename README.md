@@ -1,10 +1,11 @@
 # ☀️ Sunstone
 
 <!-- carbon:badges -->
+[![CI](https://github.com/sol-vin/sunstone/actions/workflows/ci.yml/badge.svg)](https://github.com/sol-vin/sunstone/actions/workflows/ci.yml)
 [![Crystal](https://img.shields.io/badge/crystal-%3E%3D%201.10.0-black.svg)](https://crystal-lang.org)
-[![Version](https://img.shields.io/badge/version-0.1.1-blue.svg)](shard.yml)
+[![Version](https://img.shields.io/badge/version-0.1.2-blue.svg)](https://github.com/sol-vin/sunstone/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Docs](https://img.shields.io/badge/docs-available-blue.svg)](#)
+[![Docs](https://img.shields.io/badge/docs-available-blue.svg)](https://sol-vin.github.io/sunstone/)
 <!-- /carbon:badges -->
 
 > **Modular, generic YAML-driven slide presentation engine with zero-inline-style semantic HTML and theme-scoped palettes.**
