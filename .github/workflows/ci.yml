@@ -39,7 +39,9 @@ jobs:
         run: crystal spec
 
       - name: Build Sunstone CLI Binary
-        run: crystal build src/sunstone.cr -o bin/sunstone --release
+        run: |
+          mkdir -p bin
+          crystal build src/sunstone.cr -o bin/sunstone --release
 
       - name: Test CLI Commands
         run: |
@@ -52,9 +54,14 @@ jobs:
 
       - name: Build Jasper Documentation
         run: |
-          shards build jasper
+          crystal build lib/jasper/src/jasper_cli.cr -o bin/jasper
           bin/jasper build
           crystal docs
+
+      - name: Run Carbon Doctor Audit
+        run: |
+          crystal build lib/carbon/src/carbon/cli.cr -o bin/carbon
+          bin/carbon doctor
 
       - name: Compile Showcase Presentation
         run: |

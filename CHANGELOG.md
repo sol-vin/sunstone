@@ -1,4 +1,9 @@
 # CARBON CHANGELOG
+## [0.1.3] - 2026-10-06
+### 🐛 Bug Fixes
+- ✓ **[CI]** use latest Crystal and shards build for jasper ([`90db9a8`](https://github.com/sol-vin/sunstone/commit/90db9a8))
+
+---
 ## [0.1.2] - 2026-10-06
 ---
 ## [0.1.1] - 2026-10-06
