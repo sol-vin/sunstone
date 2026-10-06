@@ -2669,7 +2669,9 @@ ul.card-list li strong {
 /* ==========================================================================
    Profile & Bento Grid Layout (Slide 2 / Author Presentation)
    ========================================================================== */
-.profile-layout-body {
+.profile-layout-body,
+.slide-body[data-layout*="profile"],
+[data-layout*="profile"] .slide-body {
   display: flex !important;
   flex-direction: column !important;
   gap: 0.75rem !important;
@@ -2951,14 +2953,17 @@ ul.card-list li strong {
    Dual Mode Layout (Mode A vs Mode B)
    ========================================================================== */
 
-.dual-mode-body {
+.dual-mode-body,
+.slide-body[data-layout*="dual-mode"],
+[data-layout*="dual-mode"] .slide-body {
   display: flex !important;
   flex-direction: column !important;
   gap: 0.6rem !important;
   flex: 1 !important;
 }
 
-.self-hosted-banner {
+.self-hosted-banner,
+.dual-mode-banner {
   display: flex !important;
   align-items: center !important;
   gap: 0.6rem !important;
@@ -3108,7 +3113,9 @@ ul.card-list li strong {
    Demo Roadmap Layout (Step 1 -> Step 4)
    ========================================================================== */
 
-.demo-roadmap-body {
+.demo-roadmap-body,
+.slide-body[data-layout*="demo-roadmap"],
+[data-layout*="demo-roadmap"] .slide-body {
   display: flex !important;
   flex-direction: column !important;
   gap: 0.5rem !important;
@@ -3887,6 +3894,126 @@ ul.card-list li strong {
   background: var(--bg-color, rgba(20, 20, 20, 0.95)) !important;
   border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.1)) !important;
   color: var(--text-color) !important;
+}
+
+/* ==========================================================================
+   Sol.vin Styles for New Layouts (Stats, Feature-Grid, Process-Flow, Table, FAQ)
+   ========================================================================== */
+
+/* Sol.vin KPI Stat Cards */
+.solvin-slide .stat-kpi-card {
+  background: var(--bg-window) !important;
+  border: 1.5px solid var(--border-color) !important;
+  box-shadow: 3px 3px 0px var(--shadow-color) !important;
+  border-radius: 8px !important;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.solvin-slide .stat-kpi-card:hover {
+  border-color: var(--border-active) !important;
+  box-shadow: 4px 4px 0px var(--border-active) !important;
+  transform: translateY(-2px) !important;
+}
+
+.solvin-slide .stat-kpi-badge {
+  background: var(--border-color) !important;
+  color: var(--bg-color) !important;
+}
+
+.solvin-slide .stat-kpi-value {
+  color: var(--accent-color, var(--border-active)) !important;
+  font-family: var(--code-font, monospace) !important;
+}
+
+.solvin-slide .stat-kpi-label {
+  color: var(--text-color) !important;
+  font-weight: 700 !important;
+}
+
+.solvin-slide .stat-kpi-desc {
+  color: var(--text-dim, #94a3b8) !important;
+}
+
+/* Sol.vin Feature Bento Grid */
+.solvin-slide .bento-hero-card,
+.solvin-slide .bento-subcard {
+  background: var(--bg-window) !important;
+  border: 1.5px solid var(--border-color) !important;
+  box-shadow: 3px 3px 0px var(--shadow-color) !important;
+  border-radius: 8px !important;
+}
+
+.solvin-slide .bento-hero-card:hover,
+.solvin-slide .bento-subcard:hover {
+  border-color: var(--border-active) !important;
+}
+
+/* Sol.vin Process Flow */
+.solvin-slide .process-step-card {
+  background: var(--bg-window) !important;
+  border: 1.5px solid var(--border-color) !important;
+  box-shadow: 3px 3px 0px var(--shadow-color) !important;
+  border-radius: 8px !important;
+  border-top: 3.5px solid var(--border-active) !important;
+}
+
+.solvin-slide .process-step-badge {
+  background: var(--border-color) !important;
+  color: var(--bg-color) !important;
+  font-family: var(--code-font, monospace) !important;
+}
+
+.solvin-slide .process-step-title {
+  color: var(--text-color) !important;
+}
+
+.solvin-slide .process-step-desc {
+  color: var(--text-dim, #94a3b8) !important;
+}
+
+/* Sol.vin Table Layout */
+.solvin-slide .data-table-container {
+  background: var(--bg-window) !important;
+  border: 1.5px solid var(--border-color) !important;
+  box-shadow: 3px 3px 0px var(--shadow-color) !important;
+  border-radius: 8px !important;
+}
+
+.solvin-slide .sunstone-table th {
+  background: rgba(0, 0, 0, 0.25) !important;
+  border-bottom: 2px solid var(--border-color) !important;
+  color: var(--text-color) !important;
+  font-family: var(--code-font, monospace) !important;
+}
+
+.solvin-slide .sunstone-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: var(--text-color) !important;
+}
+
+.solvin-slide .sunstone-table tr.highlight-row {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Sol.vin FAQ Grid */
+.solvin-slide .faq-card {
+  background: var(--bg-window) !important;
+  border: 1.5px solid var(--border-color) !important;
+  box-shadow: 3px 3px 0px var(--shadow-color) !important;
+  border-radius: 8px !important;
+}
+
+.solvin-slide .faq-q-badge {
+  background: var(--accent-color, var(--border-active)) !important;
+  color: var(--bg-color) !important;
+}
+
+.solvin-slide .faq-question {
+  color: var(--text-color) !important;
+}
+
+.solvin-slide .faq-answer {
+  color: var(--text-dim, #94a3b8) !important;
 }
 
 .asciinema-player-mount:hover .ap-control-bar {

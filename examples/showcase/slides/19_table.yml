@@ -1,0 +1,24 @@
+id: "table"
+layout: "table"
+badge: "LAYOUT: TABLE"
+badge_color: "accent"
+palette: "slate_dark"
+title: "Runtime & Language Benchmark Comparison"
+subtitle: "Empirical comparison across execution velocity, binary weight, and safety models"
+headers:
+  - "Ecosystem"
+  - "Compilation"
+  - "Type Safety"
+  - "Binary Size"
+  - "Throughput (RPS)"
+  - "GC Latency"
+rows:
+  - ["Crystal (Sunstone)", "Native AOT (LLVM)", "Flow-Sensitive Static", "18 MB", "185,000", "Deterministic"]
+  - ["Rust", "Native AOT (LLVM)", "Affine / Borrow Checker", "16 MB", "192,000", "Zero GC (Manual)"]
+  - ["Go", "Native AOT (Custom)", "Structural Static", "22 MB", "142,000", "Concurrent (< 1ms)"]
+  - ["Node.js (V8)", "Dynamic JIT", "Dynamic (TypeScript Erasure)", "85 MB+", "54,000", "Stop-the-World"]
+  - ["Python (CPython)", "Bytecode Interpreted", "Dynamic Optional Checks", "N/A", "9,500", "Reference Counting"]
+highlight_row: 0
+footnote: "Benchmarks executed on Linux 6.8 x86_64, isolated 4-core container, 10,000 concurrent HTTP keep-alive requests."
+notes: |
+  Review the empirical benchmarks highlighting the performance and memory footprint advantages of Crystal.

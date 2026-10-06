@@ -14,6 +14,11 @@ require "./dual_mode_layout"
 require "./demo_roadmap_layout"
 require "./closing_layout"
 require "./quote_layout"
+require "./stats_layout"
+require "./feature_grid_layout"
+require "./process_flow_layout"
+require "./table_layout"
+require "./faq_layout"
 
 module Sunstone
   module LayoutRouter
@@ -33,6 +38,11 @@ module Sunstone
     DEMO_ROADMAP    = DemoRoadmapLayout.new
     CLOSING         = ClosingLayout.new
     QUOTE           = QuoteLayout.new
+    STATS           = StatsLayout.new
+    FEATURE_GRID    = FeatureGridLayout.new
+    PROCESS_FLOW    = ProcessFlowLayout.new
+    TABLE           = TableLayout.new
+    FAQ             = FaqLayout.new
 
     AVAILABLE_LAYOUTS = [
       "two-column",
@@ -50,6 +60,11 @@ module Sunstone
       "demo-roadmap",
       "closing",
       "quote",
+      "stats",
+      "feature-grid",
+      "process-flow",
+      "table",
+      "faq",
     ]
 
     def self.resolve(layout_name : String) : LayoutRenderer
@@ -86,6 +101,16 @@ module Sunstone
         CLOSING
       when "quote", "testimonial", "callout", "statement"
         QUOTE
+      when "stats", "kpi", "numbers", "dashboard", "metrics", "key-metrics"
+        STATS
+      when "feature-grid", "bento", "bento-box", "showcase"
+        FEATURE_GRID
+      when "process-flow", "workflow", "pipeline", "steps", "funnel"
+        PROCESS_FLOW
+      when "table", "benchmark", "comparison-table", "spec-sheet", "data-table"
+        TABLE
+      when "faq", "q-and-a", "questions", "accordion"
+        FAQ
       else
         # Fallback to two-column layout for unknown names
         TWO_COLUMN

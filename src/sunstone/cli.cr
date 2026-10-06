@@ -258,6 +258,11 @@ module Sunstone
           puts "  • \e[36mdemo-roadmap\e[0m     Interactive live-demo task list and checklist"
           puts "  • \e[36mclosing\e[0m          Outro slide with takeaways, key quote, and contact links"
           puts "  • \e[36mquote\e[0m            High-impact typographic quote / testimonial slide"
+          puts "  • \e[36mstats\e[0m            Key metrics / KPI dashboard with large numbers, badges, and deltas"
+          puts "  • \e[36mfeature-grid\e[0m     Asymmetrical Bento Grid showcasing primary feature + side cards"
+          puts "  • \e[36mprocess-flow\e[0m     Step-by-step pipeline with directional chevron connectors"
+          puts "  • \e[36mtable\e[0m            Comparative data and benchmark table with highlighted rows"
+          puts "  • \e[36mfaq\e[0m              Two-column Q&A grid cards for questions and clarifications"
           0
         end
       end

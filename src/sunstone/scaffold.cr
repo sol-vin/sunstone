@@ -246,6 +246,130 @@ module Sunstone
         notes: |
           Speaker notes.
         YAML
+      when "stats", "kpi", "numbers", "dashboard"
+        <<-YAML
+        id: "#{id}"
+        layout: "stats"
+        badge: "METRICS"
+        badge_color: "accent"
+        palette: "slate_dark"
+        title: "#{slide_title}"
+        subtitle: "Key Performance Indicators"
+        metrics:
+          - value: "10x"
+            label: "Throughput"
+            delta: "+950%"
+            color: "accent"
+            desc: "Native AOT execution speed"
+          - value: "0ms"
+            label: "GC Pause"
+            delta: "DETERMINISTIC"
+            color: "emerald"
+            desc: "Zero stop-the-world latency"
+          - value: "100%"
+            label: "Type Safety"
+            delta: "VERIFIED"
+            color: "amber"
+            desc: "Compile-time nil safety guarantees"
+        notes: |
+          Key metrics overview.
+        YAML
+      when "feature-grid", "bento"
+        <<-YAML
+        id: "#{id}"
+        layout: "feature-grid"
+        badge: "ARCHITECTURE"
+        badge_color: "accent"
+        palette: "slate_dark"
+        title: "#{slide_title}"
+        subtitle: "Asymmetrical Feature Showcase"
+        hero_feature:
+          title: "Core Engine"
+          badge: "PRIMARY"
+          color: "accent"
+          desc: "Main architectural component breakdown"
+        features:
+          - title: "Feature Alpha"
+            badge: "MODULE A"
+            color: "emerald"
+            items:
+              - "High-throughput processing"
+              - "Sub-millisecond response"
+          - title: "Feature Beta"
+            badge: "MODULE B"
+            color: "amber"
+            items:
+              - "Zero-allocation pathways"
+              - "Cross-platform portability"
+        notes: |
+          Feature grid walkthrough.
+        YAML
+      when "process-flow", "pipeline", "workflow"
+        <<-YAML
+        id: "#{id}"
+        layout: "process-flow"
+        badge: "PIPELINE"
+        badge_color: "accent"
+        palette: "slate_dark"
+        title: "#{slide_title}"
+        subtitle: "Sequential Workflow Steps"
+        steps:
+          - step: "01"
+            title: "Ingest"
+            badge: "INPUT"
+            color: "accent"
+            desc: "Receive and validate raw events"
+          - step: "02"
+            title: "Transform"
+            badge: "PROCESS"
+            color: "emerald"
+            desc: "Normalize and enrich payload"
+          - step: "03"
+            title: "Emit"
+            badge: "OUTPUT"
+            color: "amber"
+            desc: "Deliver to subscribers with ack"
+        notes: |
+          Step-by-step pipeline discussion.
+        YAML
+      when "table", "benchmark"
+        <<-YAML
+        id: "#{id}"
+        layout: "table"
+        badge: "BENCHMARK"
+        badge_color: "accent"
+        palette: "slate_dark"
+        title: "#{slide_title}"
+        subtitle: "Comparative Benchmark Matrix"
+        headers: ["System", "Language", "Latency", "Memory"]
+        rows:
+          - ["Engine A", "Crystal", "1.2 ms", "14 MB"]
+          - ["Engine B", "Rust", "1.1 ms", "12 MB"]
+          - ["Engine C", "Go", "2.8 ms", "28 MB"]
+        highlight_row: 0
+        footnote: "Tests conducted on standard 4-core container."
+        notes: |
+          Comparative benchmark matrix.
+        YAML
+      when "faq", "q-and-a"
+        <<-YAML
+        id: "#{id}"
+        layout: "faq"
+        badge: "FAQ"
+        badge_color: "accent"
+        palette: "slate_dark"
+        title: "#{slide_title}"
+        subtitle: "Frequently Addressed Questions"
+        questions:
+          - q: "What is the primary architectural differentiator?"
+            a: "Zero runtime dependencies paired with strict semantic zero-inline-style HTML."
+            color: "accent"
+          - q: "How is styling isolated across decks?"
+            a: "Scoped CSS variables bound dynamically per slide section."
+            color: "emerald"
+        notes: |
+          Q&A discussion.
+        YAML
       else
         <<-YAML
         id: "#{id}"

@@ -31,4 +31,9 @@ slides:
   - slides/13_demo_roadmap.yml
   - slides/13b_themes.yml
   - slides/14_quote.yml
+  - slides/16_stats.yml
+  - slides/17_feature_grid.yml
+  - slides/18_process_flow.yml
+  - slides/19_table.yml
+  - slides/20_faq.yml
   - slides/15_closing.yml

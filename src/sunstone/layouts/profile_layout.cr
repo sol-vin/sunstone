@@ -28,7 +28,8 @@ module Sunstone
         end
 
         if cards && !cards.empty?
-          str << "            <div class=\"profile-bento-grid\">\n"
+          grid_cols = cards.size.to_s
+          str << "            <div class=\"profile-bento-grid\" data-cols=\"" << grid_cols << "\">\n"
           cards.each do |c|
             title = c["title"]?.try(&.as_s) || ""
             color = c["color"]?.try(&.as_s) || "accent"
@@ -37,7 +38,7 @@ module Sunstone
             if raw_items = c["items"]?.try(&.as_a)
               raw_items.each { |it| items << LayoutRenderer.extract_item_text(it) }
             end
-            str << render_card(title, color, items, badge) << "\n"
+            str << render_profile_card(title, color, items, badge) << "\n"
           end
           str << "            </div>\n"
         end
@@ -72,6 +73,24 @@ module Sunstone
           str << "\n**Presenter Notes**:\n> " << slide.notes.strip.gsub("\n", "\n> ") << "\n"
         end
         str << "\n---\n\n"
+      end
+    end
+
+    def render_profile_card(title : String, color : String, items : Array(String), badge : String? = nil) : String
+      String.build do |str|
+        str << "              <div class=\"card profile-card col " << color << "\" data-color=\"" << color << "\">\n"
+        str << "                <div class=\"card-header card-title " << color << "\">\n"
+        str << "                  <span>" << LayoutRenderer.tint_emojis(HTML.escape(title)) << "</span>\n"
+        if badge
+          str << "                  <span class=\"badge " << color << "\" data-color=\"" << color << "\">" << HTML.escape(badge) << "</span>\n"
+        end
+        str << "                </div>\n"
+        str << "                <ul class=\"card-list\">\n"
+        items.each do |item|
+          str << "                  <li>" << LayoutRenderer.tint_emojis(item) << "</li>\n"
+        end
+        str << "                </ul>\n"
+        str << "              </div>"
       end
     end
   end

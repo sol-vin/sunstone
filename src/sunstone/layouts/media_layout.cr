@@ -8,7 +8,7 @@ module Sunstone
 
       body = String.build do |str|
         str << render_slide_header(slide) << "\n"
-        str << "          <div class=\"slide-body\" data-layout=\"two-column\" data-ratio=\"2:1\">\n"
+        str << "          <div class=\"slide-body\" data-layout=\"two-column media\" data-ratio=\"2:1\">\n"
 
         if media
           m_src = media["src"]?.try(&.as_s) || ""

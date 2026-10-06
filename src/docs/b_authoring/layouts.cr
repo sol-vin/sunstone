@@ -36,7 +36,7 @@ module Sunstone
       module Layouts
         # **Layout Gallery**: Overview of layout types and their use cases.
         #
-        # Sunstone provides 15 specialized layout renderers:
+        # Sunstone provides 20 specialized layout renderers:
         #
         # 1. **intro:** Hero title slide with large badges, subtitle, author credentials, and strategic pillar pills.
         # 2. **chapter:** Section divider featuring a chapter number and topic pillars.
@@ -48,11 +48,16 @@ module Sunstone
         # 8. **timeline:** Horizontal milestone rail with status indicators and dates.
         # 9. **architecture:** Multi-tier technology stack with CSS flow indicators.
         # 10. **media:** Images, video, or embedded Asciinema terminal recordings.
-        # 11. **profile:** Speaker or team bio with avatar, social links, and credentials.
-        # 12. **dual-mode:** Interactive tabbed comparison.
-        # 13. **demo-roadmap:** Interactive live-demo checklist.
-        # 14. **closing:** Outro slide with takeaways, key quote, and contact links.
+        # 11. **profile:** Speaker or team bio with avatar, stats ribbon, and bento card grid.
+        # 12. **dual-mode:** Comparison between two architectural modes or toolchains.
+        # 13. **demo-roadmap:** Step-by-step live-demo roadmap and execution track.
+        # 14. **closing:** Outro slide with takeaways, quickstart terminal bar, and signature.
         # 15. **quote:** High-impact typographic quote or testimonial slide.
+        # 16. **stats:** KPI dashboard with prominent metric values, delta badges, and labels.
+        # 17. **feature-grid:** Asymmetrical Bento Grid showcasing a primary hero feature alongside supporting capabilities.
+        # 18. **process-flow:** Sequential multi-stage pipeline connected with directional chevrons.
+        # 19. **table:** Comparative benchmark data table with highlighted rows and sticky headers.
+        # 20. **faq:** Two-column Q&A grid cards for addressable audience clarifications.
         #
         def self.topic_01_layout_gallery : Nil; end
 

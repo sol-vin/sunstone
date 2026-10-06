@@ -601,4 +601,548 @@
   fill: currentColor;
 }
 
+/* ==========================================================================
+   Comprehensive Spatial Layout Engine (CSS Grid & Flexbox Foundation)
+   ========================================================================== */
+
+/* Universal Layout Body: Strict flex column taking remaining vertical space */
+.slide-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 1. Profile / Speaker Layout */
+.slide-body[data-layout*="profile"],
+[data-layout*="profile"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.profile-stats-ribbon {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+  gap: 0.75rem;
+  width: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.profile-stat-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--sunstone-radius-sm, 6px);
+  background: var(--sunstone-surface, #1e293b);
+  border: 1px solid var(--sunstone-border, #334155);
+  box-shadow: var(--sunstone-shadow, 0 2px 4px rgba(0,0,0,0.1));
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.profile-stat-chip .stat-icon {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profile-stat-chip .stat-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 0.1rem;
+}
+
+.profile-stat-chip .stat-value {
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.profile-stat-chip .stat-label {
+  font-size: 0.68rem;
+  opacity: 0.8;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-bento-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--sunstone-radius-md, 8px);
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+/* 2. Dual Mode / Comparison Layout */
+.slide-body[data-layout*="dual-mode"],
+[data-layout*="dual-mode"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.dual-mode-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--sunstone-radius-sm, 6px);
+  background: var(--sunstone-surface, #1e293b);
+  border: 1px solid var(--sunstone-border, #334155);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.dual-mode-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1rem;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+
+.dual-mode-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0.85rem 1.1rem;
+  gap: 0.55rem;
+  border-radius: var(--sunstone-radius-md, 8px);
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.dual-mode-flow code {
+  font-family: var(--sunstone-font-mono, monospace);
+  font-size: 0.78rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.dual-mode-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.dual-mode-spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  padding: 0.25rem 0;
+  border-bottom: 1px dashed var(--sunstone-border, #334155);
+}
+
+.dual-mode-summary {
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--sunstone-radius-sm, 6px);
+  font-size: 0.82rem;
+  flex-shrink: 0;
+}
+
+/* 3. Demo Roadmap Layout */
+.slide-body[data-layout*="demo-roadmap"],
+[data-layout*="demo-roadmap"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.demo-steps-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+
+.demo-steps-grid[data-cols="2"] { grid-template-columns: repeat(2, 1fr) !important; }
+.demo-steps-grid[data-cols="3"] { grid-template-columns: repeat(3, 1fr) !important; }
+.demo-steps-grid[data-cols="4"] { grid-template-columns: repeat(4, 1fr) !important; }
+
+.demo-step-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--sunstone-radius-md, 8px);
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.demo-step-highlight {
+  font-size: 0.78rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  margin-top: auto;
+}
+
+.demo-roadmap-summary {
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--sunstone-radius-sm, 6px);
+  font-size: 0.82rem;
+  flex-shrink: 0;
+}
+
+/* 4. Closing Layout */
+.slide-body[data-layout*="closing"],
+[data-layout*="closing"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.closing-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+
+.closing-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--sunstone-radius-md, 8px);
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.closing-link {
+  font-size: 0.82rem;
+}
+
+.closing-desc {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.closing-quickstart-bar {
+  flex-shrink: 0;
+  max-height: 120px;
+}
+
+.closing-signature {
+  text-align: center;
+  font-size: 0.85rem;
+  font-style: italic;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+/* 5. Key Metrics / Stats Dashboard Layout (NEW) */
+.slide-body[data-layout*="stats"],
+[data-layout*="stats"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.stats-grid {
+  display: grid !important;
+  gap: 1rem;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+
+.stats-grid[data-cols="2"] { grid-template-columns: repeat(2, 1fr) !important; }
+.stats-grid[data-cols="3"] { grid-template-columns: repeat(3, 1fr) !important; }
+.stats-grid[data-cols="4"] { grid-template-columns: repeat(4, 1fr) !important; }
+
+.stat-kpi-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.1rem 1.3rem;
+  border-radius: var(--sunstone-radius-md, 8px);
+  background: var(--sunstone-surface, #1e293b);
+  border: 1px solid var(--sunstone-border, #334155);
+  box-shadow: var(--sunstone-shadow, 0 4px 6px rgba(0,0,0,0.1));
+  box-sizing: border-box;
+  min-height: 0;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-kpi-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.stat-kpi-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.18rem 0.55rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.stat-kpi-value {
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1;
+  margin: 0.2rem 0 0.5rem 0;
+  letter-spacing: -0.03em;
+}
+
+.stat-kpi-label {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+}
+
+.stat-kpi-desc {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  line-height: 1.35;
+}
+
+/* 6. Asymmetrical Feature Bento Grid Layout (NEW) */
+.slide-body[data-layout*="feature-grid"],
+[data-layout*="feature-grid"] .slide-body {
+  display: grid !important;
+  grid-template-columns: 1.25fr 1fr !important;
+  gap: 1.2rem;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+
+.bento-hero-column {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.bento-side-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 0;
+}
+
+.bento-hero-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.1rem 1.3rem;
+  border-radius: var(--sunstone-radius-md, 8px);
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.bento-subcard {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0.95rem 1.15rem;
+  border-radius: var(--sunstone-radius-md, 8px);
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+/* 7. Process Flow / Pipeline Layout (NEW) */
+.slide-body[data-layout*="process-flow"],
+[data-layout*="process-flow"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem;
+  flex: 1;
+  min-height: 0;
+  justify-content: center;
+}
+
+.process-pipeline {
+  display: grid !important;
+  gap: 0.9rem;
+  width: 100%;
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
+}
+
+.process-pipeline[data-steps="3"] { grid-template-columns: repeat(3, 1fr) !important; }
+.process-pipeline[data-steps="4"] { grid-template-columns: repeat(4, 1fr) !important; }
+.process-pipeline[data-steps="5"] { grid-template-columns: repeat(5, 1fr) !important; }
+
+.process-step-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1.15rem;
+  border-radius: var(--sunstone-radius-md, 8px);
+  position: relative;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.process-step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 0.82rem;
+  margin-bottom: 0.2rem;
+}
+
+.process-step-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.process-step-desc {
+  font-size: 0.82rem;
+  opacity: 0.85;
+  line-height: 1.35;
+}
+
+/* 8. Comparison / Benchmark Data Table Layout (NEW) */
+.slide-body[data-layout*="table"],
+[data-layout*="table"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.data-table-container {
+  flex: 1;
+  overflow: auto;
+  border-radius: var(--sunstone-radius-md, 8px);
+  border: 1px solid var(--sunstone-border, #334155);
+  background: var(--sunstone-surface, #1e293b);
+  box-shadow: var(--sunstone-shadow, 0 4px 6px rgba(0,0,0,0.1));
+}
+
+.sunstone-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  text-align: left;
+}
+
+.sunstone-table th {
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  border-bottom: 2px solid var(--sunstone-border, #334155);
+  background: var(--sunstone-code-bg, #090d16);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.sunstone-table td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--sunstone-border, #334155);
+}
+
+.sunstone-table tr.highlight-row {
+  background: rgba(56, 189, 248, 0.12);
+  font-weight: 700;
+}
+
+.table-footnote {
+  font-size: 0.75rem;
+  font-style: italic;
+  opacity: 0.75;
+  margin-top: 0.25rem;
+}
+
+/* 9. Q&A / FAQ Grid Layout (NEW) */
+.slide-body[data-layout*="faq"],
+[data-layout*="faq"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.faq-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 0.95rem;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+
+.faq-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.95rem 1.15rem;
+  border-radius: var(--sunstone-radius-md, 8px);
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.faq-question {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.faq-q-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.faq-answer {
+  font-size: 0.82rem;
+  opacity: 0.88;
+  line-height: 1.4;
+}
+
 

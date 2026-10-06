@@ -32,6 +32,11 @@ describe "Sunstone Layouts (Strict Zero-Inline-Styles)" do
     Sunstone::LayoutRouter.resolve("quadrant").should be_a(Sunstone::MatrixLayout)
     Sunstone::LayoutRouter.resolve("roadmap").should be_a(Sunstone::TimelineLayout)
     Sunstone::LayoutRouter.resolve("stack").should be_a(Sunstone::ArchitectureLayout)
+    Sunstone::LayoutRouter.resolve("kpi").should be_a(Sunstone::StatsLayout)
+    Sunstone::LayoutRouter.resolve("bento").should be_a(Sunstone::FeatureGridLayout)
+    Sunstone::LayoutRouter.resolve("pipeline").should be_a(Sunstone::ProcessFlowLayout)
+    Sunstone::LayoutRouter.resolve("benchmark").should be_a(Sunstone::TableLayout)
+    Sunstone::LayoutRouter.resolve("q-and-a").should be_a(Sunstone::FaqLayout)
   end
 
   it "renders window headers with exactly one set of terminal dots and suppresses pseudo-element duplicate dots" do

@@ -109,3 +109,19 @@
   font-style: italic;
   font-family: var(--sunstone-font-sans);
 }
+
+/* Academic Stat Counters & Tables */
+.stat-kpi-card {
+  border-left: 4px solid var(--sunstone-accent);
+}
+
+.stat-kpi-value {
+  font-family: var(--sunstone-font-mono);
+  color: var(--sunstone-accent);
+}
+
+.sunstone-table th {
+  font-family: var(--sunstone-font-sans);
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
