@@ -37,6 +37,26 @@
   letter-spacing: -0.01em;
 }
 
+.slide {
+  background-color: var(--sunstone-bg);
+  color: var(--sunstone-text-secondary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.palette-corner-badge {
+  background: rgba(17, 24, 39, 0.75);
+  backdrop-filter: blur(12px);
+  color: var(--sunstone-text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  font-family: var(--sunstone-font-sans);
+}
+
+.palette-corner-dot {
+  background: var(--sunstone-accent);
+  box-shadow: 0 0 8px var(--sunstone-accent);
+}
+
 .slide-title {
   letter-spacing: -0.03em;
   font-weight: 700;
@@ -44,9 +64,11 @@
 
 /* Frosted glass effect for cards */
 .card {
-  background: var(--sunstone-surface);
-  border: 1px solid var(--sunstone-border);
+  background: rgba(17, 24, 39, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.2);
+  border-radius: var(--sunstone-radius-md, 8px);
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
@@ -58,11 +80,34 @@
 .code-window {
   border: 1px solid var(--sunstone-border);
   background: var(--sunstone-code-bg);
+  border-radius: var(--sunstone-radius-md, 8px);
+  overflow: hidden;
 }
 
 .code-window .window-header {
   background: var(--sunstone-surface);
   border-bottom: 1px solid var(--sunstone-border);
+}
+
+.code-window .terminal-dots {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.code-window .terminal-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--sunstone-border);
+}
+
+.code-window .terminal-dot.green {
+  background: var(--sunstone-accent);
+}
+
+.code-window .window-btn {
+  display: none;
 }
 
 /* Badges with airy rounded-pill aesthetic */

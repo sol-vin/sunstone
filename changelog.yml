@@ -23,7 +23,7 @@ settings:
       title: "\U0001F6E0️ Chores & Tooling"
       bullet: •
 releases:
-- version: 0.1.7
+- version: 0.1.8
   date: "2026-10-06"
   status: active
   entries:
@@ -39,6 +39,61 @@ releases:
     bullet: ✦
     badge: '[GALLERY]'
     hash: 1e87150
+    author: Ian Rash
+  - type: refactor
+    description: simplify homepage to clean minimal list linking directly to theme
+      demos
+    bullet: ✦
+    badge: '[GALLERY]'
+    hash: fd3b7ac
+    author: Ian Rash
+- version: 0.1.7
+  date: "2026-10-06"
+  status: released
+  entries:
+  - type: feat
+    description: add nordic, brutalist, academic, and tokyo-night themes with custom
+      theme authoring and developer pressure points guides
+    bullet: ✦
+    badge: '[THEMES]'
+    hash: 6e31826
+    author: Ian Rash
+  - type: feat
+    description: add interactive multi-theme landing page and --all-themes build support
+    bullet: ✦
+    badge: '[GALLERY]'
+    hash: 1e87150
+    author: Ian Rash
+  - type: fix
+    description: restore authentic sol.vin theme styling with Quicksand typography,
+      dashed headers, hard drop shadows, retro terminal chrome, and upper-right palette
+      badge
+    bullet: ✓
+    badge: '[THEMING]'
+    author: Ian Rash
+  - type: fix
+    description: resolve two-column, three-column, and four-column layout grid styling
+      and top-level code/cards fallbacks
+    bullet: ✓
+    badge: '[LAYOUTS]'
+    author: Ian Rash
+  - type: feat
+    description: universal dual-variable CSS emission for both sol.vin and modern
+      sunstone themes
+    bullet: ✦
+    badge: '[PALETTES]'
+    author: Ian Rash
+  - type: feat
+    description: refine generic, nordic, brutalist, academic, and tokyo-night themes
+      with distinct visual identities
+    bullet: ✦
+    badge: '[THEMES]'
+    author: Ian Rash
+  - type: docs
+    description: update showcase slide 03 to feature iconic Ruby expression returns
+      demo matching original sol.vin presentation
+    bullet: ✦
+    badge: '[SHOWCASE]'
     author: Ian Rash
 - version: 0.1.6
   date: "2026-10-06"

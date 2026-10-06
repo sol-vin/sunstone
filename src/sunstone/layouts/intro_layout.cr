@@ -9,14 +9,16 @@ module Sunstone
       cube_size = slide.raw["cube_size"]?.try(&.as_i) || 280
 
       body = String.build do |str|
-        if deck.header_cube
-          str << "          <div class=\"hero-cube\" data-size=\"" << cube_size << "\" title=\"3D Wireframe Cube\"></div>\n"
+        if deck.theme.downcase.includes?("sol.vin") || deck.header_cube
+          str << "          <div class=\"hero-cube intro-cube\" data-size=\"" << cube_size << "\" title=\"Spinning 3D Isometric Cube • Click or Drag to Spin!\"></div>\n"
         end
 
         str << "          <div class=\"intro-content\">\n"
         str << "            <div class=\"intro-top-block\">\n"
         if !slide.badge.strip.empty?
-          str << "              <span class=\"badge\" data-color=\"" << slide.badge_color << "\">" << LayoutRenderer.tint_emojis(HTML.escape(slide.badge)) << "</span>\n"
+          str << "              <div class=\"intro-topic-wrap\">\n"
+          str << "                <span class=\"badge badge-pill " << slide.badge_color << " intro-topic-badge\" data-color=\"" << slide.badge_color << "\">" << LayoutRenderer.tint_emojis(HTML.escape(slide.badge)) << "</span>\n"
+          str << "              </div>\n"
         end
         str << "              <h1 class=\"slide-title intro-title\">" << LayoutRenderer.tint_emojis(HTML.escape(slide.title)) << "</h1>\n"
         if !slide.subtitle.strip.empty?
@@ -24,12 +26,18 @@ module Sunstone
         end
         str << "            </div>\n"
 
+        if deck.theme.downcase.includes?("sol.vin") || deck.header_cube
+          str << "            <div class=\"intro-cube-spacer\" data-spacer-height=\"" << cube_size << "\"></div>\n"
+        end
+
         str << "            <div class=\"intro-bottom-block\">\n"
         if !author_name.strip.empty?
-          str << "              <div class=\"intro-author-name\">" << HTML.escape(author_name) << "</div>\n"
-        end
-        if !author_role.strip.empty?
-          str << "              <div class=\"intro-author-role\">" << LayoutRenderer.tint_emojis(HTML.escape(author_role)) << "</div>\n"
+          str << "              <div class=\"intro-author-wrap\">\n"
+          str << "                <div class=\"intro-author-name\">" << HTML.escape(author_name) << "</div>\n"
+          if !author_role.strip.empty?
+            str << "                <div class=\"intro-author-role\">" << LayoutRenderer.tint_emojis(HTML.escape(author_role)) << "</div>\n"
+          end
+          str << "              </div>\n"
         end
 
         if pills && !pills.empty?

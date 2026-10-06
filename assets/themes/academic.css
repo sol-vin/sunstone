@@ -37,6 +37,30 @@
   line-height: 1.6;
 }
 
+.slide {
+  background-color: var(--sunstone-bg);
+  color: var(--sunstone-text-secondary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.palette-corner-badge {
+  background: var(--sunstone-surface);
+  color: var(--sunstone-text-primary);
+  border: 1px solid var(--sunstone-border);
+  font-family: var(--sunstone-font-sans);
+  font-variant: small-caps;
+  border-radius: 4px;
+}
+
+.palette-corner-dot {
+  background: var(--sunstone-accent);
+}
+
+.code-window .window-header .terminal-dots,
+.code-window .window-header .window-btn {
+  display: none;
+}
+
 .slide-title {
   font-family: var(--sunstone-font-sans);
   font-weight: 700;

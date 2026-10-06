@@ -63,6 +63,26 @@ module Sunstone
       palettes
     end
 
+    @@all_palettes_cache : Hash(String, Palette)? = nil
+
+    # Finds a palette by ID across all built-in theme catalogs
+    def self.find_palette(id : String) : Palette?
+      cache = @@all_palettes_cache ||= begin
+        map = Hash(String, Palette).new
+        Assets.available_themes.each do |theme_name|
+          begin
+            json = Assets.palettes_json_for(theme_name)
+            load_all(json).each do |k, v|
+              map[k] = v unless map.has_key?(k)
+            end
+          rescue
+          end
+        end
+        map
+      end
+      cache[id]?
+    end
+
     # Modern Generic Theme Color Accessors
     def bg_color : String
       @colors["bg_color"]? || "#0f172a"
@@ -157,42 +177,40 @@ module Sunstone
 
     # Emits CSS declaration block for custom palettes
     def css_rule(theme_name : String) : String
-      if theme_name.downcase.includes?("sol.vin")
-        <<-CSS
-        .slide[data-palette="#{@id}"], .solvin-slide.#{@id} {
-          --bg-color: #{bg_color};
-          --bg-window: #{bg_window};
-          --text-color: #{text_primary};
-          --text-dim: #{text_muted};
-          --link-color: #{link_color};
-          --border-color: #{border_color};
-          --border-active: #{border_active};
-          --accent-color: #{accent_color};
-          --accent-secondary: #{accent_secondary};
-          --accent-tertiary: #{accent_tertiary};
-          --cube: #{cube_color};
-          --cube-hover: #{cube_hover};
-          --emoji-filter: url(#emoji-filter-#{@id});
-        }
-        CSS
-      else
-        <<-CSS
-        .slide[data-palette="#{@id}"] {
-          --sunstone-bg: #{bg_color};
-          --sunstone-surface: #{surface_color};
-          --sunstone-surface-hover: #{surface_hover};
-          --sunstone-text-primary: #{text_primary};
-          --sunstone-text-secondary: #{text_secondary};
-          --sunstone-text-muted: #{text_muted};
-          --sunstone-accent: #{accent_color};
-          --sunstone-accent-secondary: #{accent_secondary};
-          --sunstone-accent-tertiary: #{accent_tertiary};
-          --sunstone-border: #{border_color};
-          --sunstone-border-active: #{border_active};
-          --sunstone-code-bg: #{code_bg};
-        }
-        CSS
-      end
+      <<-CSS
+      .slide[data-palette="#{@id}"], .solvin-slide.#{@id}, [data-palette="#{@id}"] {
+        /* Sol.vin Theme Variables */
+        --bg-color: #{bg_color};
+        --bg-window: #{bg_window};
+        --text-color: #{text_primary};
+        --text-dim: #{text_muted};
+        --link-color: #{link_color};
+        --border-color: #{border_color};
+        --border-active: #{border_active};
+        --accent-color: #{accent_color};
+        --accent-secondary: #{accent_secondary};
+        --accent-tertiary: #{accent_tertiary};
+        --accent-quaternary: #{@colors["accent_quaternary"]? || text_muted};
+        --shadow-color: #{@colors["shadow_color"]? || "#000000"};
+        --cube: #{cube_color};
+        --cube-hover: #{cube_hover};
+        --emoji-filter: url(#emoji-filter-#{@id});
+
+        /* Sunstone Modern Variables */
+        --sunstone-bg: #{bg_color};
+        --sunstone-surface: #{surface_color};
+        --sunstone-surface-hover: #{surface_hover};
+        --sunstone-text-primary: #{text_primary};
+        --sunstone-text-secondary: #{text_secondary};
+        --sunstone-text-muted: #{text_muted};
+        --sunstone-accent: #{accent_color};
+        --sunstone-accent-secondary: #{accent_secondary};
+        --sunstone-accent-tertiary: #{accent_tertiary};
+        --sunstone-border: #{border_color};
+        --sunstone-border-active: #{border_active};
+        --sunstone-code-bg: #{code_bg};
+      }
+      CSS
     end
   end
 end

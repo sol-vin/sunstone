@@ -36,6 +36,48 @@
   background-color: var(--sunstone-bg);
 }
 
+.slide {
+  background-color: var(--sunstone-bg);
+  color: var(--sunstone-text-secondary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.palette-corner-badge {
+  background: var(--sunstone-surface);
+  color: var(--sunstone-text-primary);
+  border: 1px solid var(--sunstone-border);
+  box-shadow: 0 0 12px rgba(125, 207, 255, 0.2);
+  border-radius: 6px;
+  font-family: var(--sunstone-font-mono);
+  font-size: 0.75rem;
+}
+
+.palette-corner-dot {
+  background: var(--sunstone-accent);
+  box-shadow: 0 0 8px var(--sunstone-accent);
+}
+
+.code-window .window-header .terminal-dots {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.code-window .window-header .terminal-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--sunstone-border);
+}
+
+.code-window .window-header .terminal-dot.red { background: #f7768e; box-shadow: 0 0 6px #f7768e; }
+.code-window .window-header .terminal-dot.yellow { background: #e0af68; box-shadow: 0 0 6px #e0af68; }
+.code-window .window-header .terminal-dot.green { background: #9ece6a; box-shadow: 0 0 6px #9ece6a; }
+
+.code-window .window-header .window-btn {
+  display: none;
+}
+
 .slide-title {
   letter-spacing: -0.02em;
   font-weight: 700;

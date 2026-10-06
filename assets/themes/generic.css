@@ -203,6 +203,21 @@
   border: 1px solid var(--sunstone-border);
 }
 
+/* Palette Corner Badge */
+.palette-corner-badge {
+  background: var(--sunstone-surface);
+  color: var(--sunstone-text-primary);
+  border: 1px solid var(--sunstone-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 9999px;
+  font-family: var(--sunstone-font-sans);
+}
+
+.palette-corner-dot {
+  background: var(--sunstone-accent);
+  box-shadow: 0 0 6px var(--sunstone-accent);
+}
+
 /* Window Containers (Code & Terminal) */
 .code-window, .terminal-window {
   background: var(--sunstone-surface);
@@ -219,6 +234,27 @@
   background: var(--sunstone-code-bg);
   border-bottom: 1px solid var(--sunstone-border);
   color: var(--sunstone-text-muted);
+}
+
+.window-header .terminal-dots {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.window-header .terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.window-header .terminal-dot.red { background-color: #ff5f56; }
+.window-header .terminal-dot.yellow { background-color: #ffbd2e; }
+.window-header .terminal-dot.green { background-color: #27c93f; }
+
+.window-header .window-btn {
+  display: none;
 }
 
 .lang-tag {

@@ -36,6 +36,47 @@
   background-color: var(--sunstone-bg);
 }
 
+.slide {
+  background-color: var(--sunstone-bg);
+  color: var(--sunstone-text-secondary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.palette-corner-badge {
+  background: var(--sunstone-surface);
+  color: var(--sunstone-text-primary);
+  border: 2px solid var(--sunstone-border);
+  box-shadow: 3px 3px 0px var(--sunstone-border);
+  border-radius: 0px !important;
+  font-family: var(--sunstone-font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.palette-corner-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 0px !important;
+  background: var(--sunstone-accent);
+}
+
+.code-window .window-header .terminal-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.code-window .window-header .terminal-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 0px !important;
+  border: 1px solid var(--sunstone-border);
+  background: var(--sunstone-border);
+}
+
+.code-window .window-header .terminal-dot.red { background: #ff0055; }
+.code-window .window-header .terminal-dot.yellow { background: var(--sunstone-accent); }
+.code-window .window-header .terminal-dot.green { background: #00ff66; }
+
 .slide-title {
   font-family: var(--sunstone-font-sans);
   text-transform: uppercase;

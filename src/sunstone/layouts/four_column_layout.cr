@@ -5,7 +5,7 @@ module Sunstone
     def render_html(slide : Slide, deck : Deck, palette : Palette, slide_num : Int32, total_slides : Int32) : String
       body = String.build do |str|
         str << render_slide_header(slide) << "\n"
-        str << "          <div class=\"slide-body\" data-layout=\"four-column\">\n"
+        str << "          <div class=\"slide-body four-cols\" data-layout=\"four-column\">\n"
 
         if columns = slide.raw["columns"]?.try(&.as_a)
           columns.each do |col|

@@ -8,18 +8,35 @@ module Sunstone
       left_data = slide.raw["left"]?
       right_data = slide.raw["right"]?
 
+      # Graceful fallback: synthesize left / right if top-level code or cards are given
+      if left_data.nil? && (slide.raw["code"]? || slide.raw["code_title"]?)
+        left_h = Hash(YAML::Any, YAML::Any).new
+        left_h[YAML::Any.new("type")] = YAML::Any.new("code")
+        left_h[YAML::Any.new("title")] = slide.raw["code_title"]? || YAML::Any.new("Code")
+        left_h[YAML::Any.new("lang")] = slide.raw["code_lang"]? || YAML::Any.new("crystal")
+        left_h[YAML::Any.new("code")] = slide.raw["code"]? || YAML::Any.new("")
+        if tag = slide.raw["code_tag"]?
+          left_h[YAML::Any.new("tag")] = tag
+        end
+        left_data = YAML::Any.new(left_h)
+      end
+
+      if right_data.nil? && slide.raw["cards"]?
+        right_data = slide.raw["cards"]?
+      end
+
       body = String.build do |str|
         str << render_slide_header(slide) << "\n"
         str << "          <div class=\"slide-body\" data-layout=\"two-column\" data-ratio=\"" << ratio << "\">\n"
 
         if left_data
-          str << "            <div class=\"column\" data-slot=\"left\">\n"
+          str << "            <div class=\"column col\" data-slot=\"left\">\n"
           render_column_content(str, left_data, slide)
           str << "            </div>\n"
         end
 
         if right_data
-          str << "            <div class=\"column\" data-slot=\"right\">\n"
+          str << "            <div class=\"column col\" data-slot=\"right\">\n"
           render_column_content(str, right_data, slide)
           str << "            </div>\n"
         end
@@ -54,12 +71,20 @@ module Sunstone
         code = data["code"]?.try(&.as_s) || ""
         density = data["density"]?.try(&.as_s)
         density_attr = density ? " data-density=\"#{density}\"" : ""
-        str << "            <div class=\"terminal-window\"" << density_attr << ">\n"
-        str << "              <div class=\"window-header\">\n"
-        str << "                <span class=\"window-title\">" << LayoutRenderer.escape(title) << "</span>\n"
-        str << "                <span class=\"lang-tag\">BASH</span>\n"
+        str << "            <div class=\"terminal-window col\"" << density_attr << ">\n"
+        str << "              <div class=\"window-header terminal-header\">\n"
+        str << "                <div class=\"terminal-dots\">\n"
+        str << "                  <span class=\"terminal-dot dot-1 red\" title=\"Close\"></span>\n"
+        str << "                  <span class=\"terminal-dot dot-2 yellow\" title=\"Minimize\"></span>\n"
+        str << "                  <span class=\"terminal-dot dot-3 green\" title=\"Maximize\"></span>\n"
+        str << "                </div>\n"
+        str << "                <span class=\"window-title terminal-title\">" << LayoutRenderer.escape(title) << "</span>\n"
+        str << "                <div class=\"window-controls\">\n"
+        str << "                  <span class=\"lang-tag terminal-badge\">BASH</span>\n"
+        str << "                  <span class=\"window-btn close\" title=\"Close\">✕</span>\n"
+        str << "                </div>\n"
         str << "              </div>\n"
-        str << "              <div class=\"window-body\">\n"
+        str << "              <div class=\"window-body terminal-body\">\n"
         str << "                <pre><code class=\"language-bash\">" << LayoutRenderer.escape(code.strip) << "</code></pre>\n"
         str << "              </div>\n"
         str << "            </div>\n"
@@ -89,10 +114,18 @@ module Sunstone
                      cast_rel
                    end
 
-        str << "            <div class=\"terminal-window asciinema-window\">\n"
-        str << "              <div class=\"window-header\">\n"
-        str << "                <span class=\"window-title\">" << LayoutRenderer.escape(title) << "</span>\n"
-        str << "                <span class=\"lang-tag\">REPLAY</span>\n"
+        str << "            <div class=\"terminal-window asciinema-window col\">\n"
+        str << "              <div class=\"window-header terminal-header\">\n"
+        str << "                <div class=\"terminal-dots\">\n"
+        str << "                  <span class=\"terminal-dot dot-1 red\" title=\"Close\"></span>\n"
+        str << "                  <span class=\"terminal-dot dot-2 yellow\" title=\"Minimize\"></span>\n"
+        str << "                  <span class=\"terminal-dot dot-3 green\" title=\"Maximize\"></span>\n"
+        str << "                </div>\n"
+        str << "                <span class=\"window-title terminal-title\">" << LayoutRenderer.escape(title) << "</span>\n"
+        str << "                <div class=\"window-controls\">\n"
+        str << "                  <span class=\"lang-tag code-lang-tag terminal-badge\">REPLAY</span>\n"
+        str << "                  <span class=\"window-btn close\" title=\"Close\">✕</span>\n"
+        str << "                </div>\n"
         str << "              </div>\n"
         str << "              <div class=\"window-body asciinema-body\">\n"
         str << "                <div class=\"asciinema-player-mount\" data-cast-url=\"" << LayoutRenderer.escape(cast_rel) << "\" data-cast-src=\"" << LayoutRenderer.escape(cast_src) << "\""

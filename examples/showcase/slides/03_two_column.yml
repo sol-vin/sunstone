@@ -1,33 +1,54 @@
 id: "two_column"
 layout: "two-column"
-badge: "LAYOUT: TWO-COLUMN"
-badge_color: "indigo"
-palette: "midnight_indigo"
-ratio: "3:2"
-title: "Split Code & Informational Cards"
-subtitle: "Configurable column ratios (1:1, 3:2, 2:3, 1:2, 2:1) via data-ratio"
-code_title: "deck.yml"
-code_lang: "yaml"
-code: |
-  title: "Modern Slides"
-  theme: "generic"
-  resolution:
-    width: 1920
-    height: 1080
-  slides:
-    - slides/01_intro.yml
-    - slides/02_features.yml
-cards:
-  - title: "Pure Separation of Concerns"
-    color: "accent"
-    items:
-      - "No style='...' attributes generated anywhere in DOM"
-      - "Grid proportions computed through CSS data-ratio rules"
-      - "Terminal window chrome provided by CSS ::before dots"
-  - title: "Developer Velocity"
-    color: "emerald"
-    items:
-      - "Live preview server with automatic browser launch"
-      - "Full Crystal type safety across models and layouts"
+ratio: "1:1"
+badge: "RUBY QUIRKS • EXPRESSION RETURNS"
+badge_color: "blue"
+palette: "amigo"
+title: "Implicit Returns: The Last Evaluated Expression"
+subtitle: "Expression-Oriented Design, Functional Flow & High-Signal Early Returns"
+left:
+  type: "code"
+  title: "implicit_returns.rb — Expressions Over Rituals"
+  tag: "Ruby"
+  lang: "ruby"
+  code: |
+    # 1. Methods return their last evaluated expression:
+    def calculate_damage(base_power, defense)
+      multiplier = critical_hit? ? 2.0 : 1.0
+      [base_power * multiplier - defense, 1].max # No "return" needed!
+    end
+
+    # 2. Blocks in pipelines return values effortlessly:
+    healed_party = party.map do |player|
+      player.heal(25) # Return value of heal() becomes mapped element!
+    end
+
+    # 3. Branching returns naturally from whichever branch ran:
+    def player_rank(score)
+      if score >= 10_000
+        :grandmaster
+      elsif score >= 5_000
+        :diamond
+      else
+        :challenger
+      end # Entire if returns the resulting symbol to the caller!
+    end
+
+    # 4. Explicit "return" is reserved strictly for early bailouts:
+    def process_turn(actor)
+      return unless actor.alive? # High-signal guard clause!
+      actor.take_action
+    end
+right:
+  type: "card"
+  title: "Why Outsiders Hesitate vs Why It's Brilliant"
+  color: "blue"
+  items:
+    - "<strong>The Outsider's Worry:</strong> In C, Java, and Python, developers are trained that omitting <code>return</code> means the routine is <code>void</code> or returns <code>None</code>. Seeing no return looks like an accidental omission."
+    - "<strong>Expression-Oriented Semantics:</strong> Routines evaluate naturally to their resulting value rather than requiring procedural return statements. Mandating a <code>return</code> keyword on every single function is ritualistic syntax noise."
+    - "<strong>Crucial for Blocks & Closures:</strong> Functional pipelines (<code>map</code>, <code>select</code>) rely on implicit returns. In Ruby, writing an explicit <code>return</code> inside a block aborts the <em>enclosing method</em>, not just the block!"
+    - "<strong>High-Signal Guard Clauses:</strong> Because ordinary returns are implicit, an explicit <code>return</code> stands out vividly on code review as an intentional early bailout (<code>return if dead?</code>)."
+    - "<strong>Crystal Flow Typing:</strong> Crystal infers the static union type across all branch exit expressions at compile time—delivering functional elegance with zero runtime dispatch cost."
 notes: |
-  Point out how code blocks and cards are aligned in a 3:2 ratio.
+  In traditional imperative programming languages like C, Java, or Python, every function that computes a value must conclude with the keyword 'return'.
+  In Ruby, methods, blocks, and conditionals naturally evaluate to the result of their last executed expression.

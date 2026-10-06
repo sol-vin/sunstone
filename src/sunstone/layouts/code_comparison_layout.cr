@@ -103,7 +103,7 @@ module Sunstone
           str << render_code_container(title, lang, code, tag, density) << "\n"
           if points && !points.empty?
             items = points.map { |p| LayoutRenderer.extract_item_text(p) }
-            str << render_card("Critique", "danger", items, badge: "ANTI-PATTERN", compact: true) << "\n"
+            str << render_card("Critique", "coral antipattern", items, badge: "ANTI-PATTERN", compact: true) << "\n"
           end
           str << "            </div>\n"
         end
@@ -120,7 +120,7 @@ module Sunstone
           str << render_code_container(title, lang, code, tag, density) << "\n"
           if points && !points.empty?
             items = points.map { |p| LayoutRenderer.extract_item_text(p) }
-            str << render_card("Advantages", "emerald", items, badge: "CLEAN SOLUTION", compact: true) << "\n"
+            str << render_card("Advantages", "emerald solution", items, badge: "CLEAN SOLUTION", compact: true) << "\n"
           end
           str << "            </div>\n"
         end

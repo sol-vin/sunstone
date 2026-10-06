@@ -76,7 +76,10 @@ module Sunstone
 
       String.build do |str|
         str << "      <!-- Slide " << slide_num << ": " << palette.name << " (" << slide.title << ") -->\n"
-        str << "      <section class=\"slide\" data-layout=\"" << slide.layout << "\" data-palette=\"" << palette.id << "\" data-slide-id=\"" << slide.id << "\" id=\"slide-" << slide.id << "\">\n"
+        str << "      <section class=\"slide solvin-slide " << palette.id << "\" data-layout=\"" << slide.layout << "\" data-palette=\"" << palette.id << "\" data-background-color=\"" << palette.bg_color << "\" data-palette-name=\"" << HTML.escape(palette.name) << "\" data-slide-id=\"" << slide.id << "\" id=\"slide-" << slide.id << "\">\n"
+        str << "        <div class=\"palette-corner-badge\" title=\"Theme: " << HTML.escape(palette.name) << "\">\n"
+        str << "          <span class=\"palette-corner-dot\"></span> PALETTE: " << HTML.escape(palette.name) << "\n"
+        str << "        </div>\n"
         str << "        <div class=\"slide-container\">\n"
         str << inner_body << "\n"
         str << "          <footer class=\"slide-footer\">\n"
@@ -97,10 +100,11 @@ module Sunstone
     # Semantic Slide Header with ZERO Inline Styles
     def render_slide_header(slide : Slide, right_element : String? = nil) : String
       split_attr = right_element ? " data-align=\"split\"" : ""
+      badge_color = slide.badge_color.empty? ? "accent" : slide.badge_color
       String.build do |str|
         str << "          <header class=\"slide-header\"" << split_attr << ">\n"
         str << "            <div class=\"slide-meta\">\n"
-        str << "              <span class=\"badge\" data-color=\"" << slide.badge_color << "\">" << LayoutRenderer.tint_emojis(HTML.escape(slide.badge)) << "</span>\n"
+        str << "              <span class=\"badge badge-pill " << badge_color << "\" data-color=\"" << badge_color << "\">" << LayoutRenderer.tint_emojis(HTML.escape(slide.badge)) << "</span>\n"
         if right_element
           str << "              " << right_element << "\n"
         end
@@ -113,14 +117,23 @@ module Sunstone
       end
     end
 
-    # Semantic Code Container with Window Header (dots rendered via CSS ::before)
+    # Semantic Code Container with Window Header (dots and window controls)
     def render_code_container(title : String, lang : String, code : String, tag : String? = nil, density : String? = nil) : String
       density_attr = density ? " data-density=\"#{density}\"" : ""
+      lang_display = tag || lang.upcase
       String.build do |str|
-        str << "            <div class=\"code-window\" data-lang=\"" << lang.downcase << "\"" << density_attr << ">\n"
-        str << "              <div class=\"window-header\">\n"
-        str << "                <span class=\"window-title\">" << LayoutRenderer.tint_emojis(HTML.escape(title)) << "</span>\n"
-        str << "                <span class=\"lang-tag\">" << (tag || lang.upcase) << "</span>\n"
+        str << "            <div class=\"code-window code-container col\" data-lang=\"" << lang.downcase << "\"" << density_attr << ">\n"
+        str << "              <div class=\"window-header code-header\">\n"
+        str << "                <div class=\"terminal-dots\">\n"
+        str << "                  <span class=\"terminal-dot dot-1 red\" title=\"Close\"></span>\n"
+        str << "                  <span class=\"terminal-dot dot-2 yellow\" title=\"Minimize\"></span>\n"
+        str << "                  <span class=\"terminal-dot dot-3 green\" title=\"Maximize\"></span>\n"
+        str << "                </div>\n"
+        str << "                <span class=\"window-title code-title\">" << LayoutRenderer.tint_emojis(HTML.escape(title)) << "</span>\n"
+        str << "                <div class=\"window-controls\">\n"
+        str << "                  <span class=\"lang-tag code-lang-tag\">" << HTML.escape(lang_display) << "</span>\n"
+        str << "                  <span class=\"window-btn close\" title=\"Close\">✕</span>\n"
+        str << "                </div>\n"
         str << "              </div>\n"
         str << "              <pre><code class=\"language-" << lang.downcase << "\">" << HTML.escape(code.strip) << "</code></pre>\n"
         str << "            </div>"
@@ -130,12 +143,13 @@ module Sunstone
     # Semantic Card with ZERO Inline Styles
     def render_card(title : String, color : String, items : Array(String), badge : String? = nil, compact : Bool = false) : String
       compact_attr = compact ? " data-density=\"compact\"" : ""
+      compact_cls = compact ? " compact" : ""
       String.build do |str|
-        str << "            <div class=\"card\" data-color=\"" << color << "\"" << compact_attr << ">\n"
-        str << "              <div class=\"card-header\">\n"
-        str << "                <span class=\"card-title\">" << LayoutRenderer.tint_emojis(HTML.escape(title)) << "</span>\n"
+        str << "            <div class=\"card col " << color << compact_cls << "\" data-color=\"" << color << "\"" << compact_attr << ">\n"
+        str << "              <div class=\"card-header card-title " << color << "\">\n"
+        str << "                <span>" << LayoutRenderer.tint_emojis(HTML.escape(title)) << "</span>\n"
         if badge
-          str << "                <span class=\"badge\" data-color=\"" << color << "\">" << HTML.escape(badge) << "</span>\n"
+          str << "                <span class=\"badge " << color << "\" data-color=\"" << color << "\">" << HTML.escape(badge) << "</span>\n"
         end
         str << "              </div>\n"
         str << "              <ul class=\"card-list\">\n"

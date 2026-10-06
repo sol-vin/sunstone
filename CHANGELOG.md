@@ -1,8 +1,26 @@
 # CARBON CHANGELOG
+## [0.1.8] - 2026-10-06
+### ✨ Features & Improvements
+- ✦ **[THEMES]** add nordic, brutalist, academic, and tokyo-night themes with custom theme authoring and developer pressure points guides ([`6e31826`](https://github.com/sol-vin/sunstone/commit/6e31826))
+- ✦ **[GALLERY]** add interactive multi-theme landing page and --all-themes build support ([`1e87150`](https://github.com/sol-vin/sunstone/commit/1e87150))
+
+### 🛠️ Chores & Tooling
+- ✦ **[GALLERY]** simplify homepage to clean minimal list linking directly to theme demos ([`fd3b7ac`](https://github.com/sol-vin/sunstone/commit/fd3b7ac))
+
+---
 ## [0.1.7] - 2026-10-06
 ### ✨ Features & Improvements
 - ✦ **[THEMES]** add nordic, brutalist, academic, and tokyo-night themes with custom theme authoring and developer pressure points guides ([`6e31826`](https://github.com/sol-vin/sunstone/commit/6e31826))
 - ✦ **[GALLERY]** add interactive multi-theme landing page and --all-themes build support ([`1e87150`](https://github.com/sol-vin/sunstone/commit/1e87150))
+- ✦ **[PALETTES]** universal dual-variable CSS emission for both sol.vin and modern sunstone themes
+- ✦ **[THEMES]** refine generic, nordic, brutalist, academic, and tokyo-night themes with distinct visual identities
+
+### 🐛 Bug Fixes
+- ✓ **[THEMING]** restore authentic sol.vin theme styling with Quicksand typography, dashed headers, hard drop shadows, retro terminal chrome, and upper-right palette badge
+- ✓ **[LAYOUTS]** resolve two-column, three-column, and four-column layout grid styling and top-level code/cards fallbacks
+
+### 📚 Documentation
+- ✦ **[SHOWCASE]** update showcase slide 03 to feature iconic Ruby expression returns demo matching original sol.vin presentation
 
 ---
 ## [0.1.6] - 2026-10-06

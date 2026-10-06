@@ -1055,7 +1055,8 @@ ul.card-list li strong {
   font-style: italic;
 }
 
-.solvin-slide .badge-pill {
+.solvin-slide .badge-pill,
+.solvin-slide .badge {
   background-color: var(--bg-window) !important;
   color: var(--accent-color) !important;
   border: 1.5px solid var(--border-color) !important;
