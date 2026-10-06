@@ -3,7 +3,7 @@
 <!-- carbon:badges -->
 [![CI](https://github.com/sol-vin/sunstone/actions/workflows/ci.yml/badge.svg)](https://github.com/sol-vin/sunstone/actions/workflows/ci.yml)
 [![Crystal](https://img.shields.io/badge/crystal-%3E%3D%201.10.0-black.svg)](https://crystal-lang.org)
-[![Version](https://img.shields.io/badge/version-0.1.5-blue.svg)](https://github.com/sol-vin/sunstone/releases)
+[![Version](https://img.shields.io/badge/version-0.1.6-blue.svg)](https://github.com/sol-vin/sunstone/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://sol-vin.github.io/sunstone/)
 <!-- /carbon:badges -->
@@ -175,8 +175,8 @@ theme: ./themes/brand.css
 
 | Command | Description |
 | :--- | :--- |
-| `sunstone build [options]` | Compile deck into HTML, Markdown, and static assets |
-| `sunstone serve [options]` | Build deck and launch local preview server with auto-browser launch |
+| `sunstone build [options]` | Compile deck into HTML, Markdown, and static assets. Supports `--theme <name>` and `--all-themes` (generates multi-theme gallery & landing page) |
+| `sunstone serve [options]` | Build deck and launch local preview server with auto-browser launch. Supports `--theme <name>` override |
 | `sunstone validate [options]` | Verify syntax, slide references, layouts, and palettes |
 | `sunstone new <name>` | Create a new slide presentation project |
 | `sunstone new-theme <name>` | Scaffold a custom theme CSS and companion palettes JSON |

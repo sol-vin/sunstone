@@ -9,8 +9,10 @@ module Sunstone
   class Generator
     getter deck : Deck
     getter palettes : Hash(String, Palette)
+    property gallery_nav : Bool = false
+    property landing_url : String = "../../index.html"
 
-    def initialize(@deck : Deck, palettes : Hash(String, Palette)? = nil)
+    def initialize(@deck : Deck, palettes : Hash(String, Palette)? = nil, @gallery_nav : Bool = false, @landing_url : String = "../../index.html")
       @palettes = palettes || Palette.load_for_theme(@deck.theme, @deck.palettes)
     end
 
@@ -112,6 +114,49 @@ module Sunstone
         ""
       end
 
+      nav_bar_html = if @gallery_nav
+        active_theme = if @deck.theme.ends_with?(".css")
+                         File.basename(@deck.theme, ".css")
+                       else
+                         @deck.theme
+                       end
+        buttons = Assets.available_themes.map do |t|
+          cls = (t == active_theme) ? "nav-theme-btn active" : "nav-theme-btn"
+          %(<a href="../#{t}/index.html" class="#{cls}">#{t}</a>)
+        end.join("\n        ")
+
+        <<-NAV
+          <!-- Sunstone In-Deck Theme Switcher & Gallery Navigation Bar -->
+          <nav class="sunstone-nav-bar" aria-label="Sunstone Theme Navigation">
+            <a href="#{@landing_url}" class="nav-brand" title="Back to Sunstone Theme Gallery">
+              <span>☀️</span> <span>Gallery</span>
+            </a>
+            <span class="nav-label">Theme:</span>
+            #{buttons}
+          </nav>
+        NAV
+      else
+        ""
+      end
+
+      nav_script = if @gallery_nav
+        <<-JS
+        <script>
+          // Preserve slide hash when switching themes via nav bar
+          document.querySelectorAll('.sunstone-nav-bar a.nav-theme-btn').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+              if (window.location.hash) {
+                e.preventDefault();
+                window.location.href = link.getAttribute('href') + window.location.hash;
+              }
+            });
+          });
+        </script>
+        JS
+      else
+        ""
+      end
+
       full_html = <<-HTML
       <!DOCTYPE html>
       <html lang="en">
@@ -135,6 +180,7 @@ module Sunstone
 
       <body>
       #{palette_filters_svg}
+      #{nav_bar_html}
         <div class="reveal">
       #{deck_header}
           <div class="slides">
@@ -359,6 +405,7 @@ module Sunstone
             }
           })();
         </script>
+        #{nav_script}
       </body>
       </html>
       HTML

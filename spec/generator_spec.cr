@@ -73,5 +73,46 @@ describe Sunstone::Generator do
 
     FileUtils.rm_rf(custom_dir)
   end
+
+  it "renders in-deck navigation bar when gallery_nav is enabled" do
+    deck = Sunstone::Deck.load("examples/showcase/deck.yml")
+    deck.theme = "nordic"
+    generator = Sunstone::Generator.new(deck, gallery_nav: true, landing_url: "../../index.html")
+
+    sub_dir = File.join(Dir.tempdir, "sunstone_nav_spec_#{Time.utc.to_unix_ms}")
+    html_path, _ = generator.build(sub_dir, copy_vendor: false)
+
+    html = File.read(html_path)
+    html.should contain("sunstone-nav-bar")
+    html.should contain("../../index.html")
+    html.should contain(%{<a href="../brutalist/index.html"})
+    html.should contain(%{<a href="../nordic/index.html" class="nav-theme-btn active">})
+
+    FileUtils.rm_rf(sub_dir)
+  end
+
+  it "generates an interactive multi-theme landing page gallery" do
+    landing_dir = File.join(Dir.tempdir, "sunstone_landing_spec_#{Time.utc.to_unix_ms}")
+    Dir.mkdir_p(landing_dir)
+    landing_path = File.join(landing_dir, "index.html")
+
+    Sunstone::LandingPage.generate(landing_path)
+
+    File.exists?(landing_path).should be_true
+    content = File.read(landing_path)
+    content.should contain("<!DOCTYPE html>")
+    content.should contain("Sunstone")
+    content.should contain("Interactive Stage")
+    content.should contain("Theme Catalog")
+    content.should contain("15 Semantic Layouts")
+
+    # Check that all 6 themes are listed in the landing page
+    Sunstone::Assets.available_themes.each do |theme_name|
+      content.should contain(%(data-theme="#{theme_name}"))
+      content.should contain(%(themes/#{theme_name}/index.html))
+    end
+
+    FileUtils.rm_rf(landing_dir)
+  end
 end
 

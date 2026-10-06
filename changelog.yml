@@ -23,10 +23,44 @@ settings:
       title: "\U0001F6E0️ Chores & Tooling"
       bullet: •
 releases:
-- version: 0.1.5
+- version: 0.1.6
   date: "2026-10-06"
   status: active
-  entries: []
+  entries:
+  - type: feat
+    description: add nordic, brutalist, academic, and tokyo-night themes with custom
+      theme authoring and developer pressure points guides
+    bullet: ✦
+    badge: '[THEMES]'
+    hash: 6e31826
+    author: Ian Rash
+- version: 0.1.5
+  date: "2026-10-06"
+  status: released
+  entries:
+  - type: features
+    description: Added interactive multi-theme landing page gallery featuring a live
+      16:9 interactive slide preview stage, theme switcher tabs, palette swatches,
+      and 15 layout overviews.
+  - type: features
+    description: Added 'sunstone build --all-themes' flag to compile slide presentations
+      for all 6 themes into dist/themes/<name>/ alongside the root landing page.
+  - type: features
+    description: Added sleek in-deck navigation bar (.sunstone-nav-bar) with 1-click
+      theme switching, slide hash preservation, and gallery return link.
+  - type: features
+    description: Added '--theme <name>' option to 'sunstone build' and 'sunstone serve'
+      to override deck.yml theme dynamically.
+  - type: features
+    description: Updated GitHub Actions workflow to build and deploy the complete
+      multi-theme gallery and demo slideshow to GitHub Pages.
+  - type: feat
+    description: add nordic, brutalist, academic, and tokyo-night themes with custom
+      theme authoring and developer pressure points guides
+    bullet: ✦
+    badge: '[THEMES]'
+    hash: 6e31826
+    author: Ian Rash
 - version: 0.1.4
   date: "2026-10-06"
   status: released

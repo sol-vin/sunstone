@@ -63,9 +63,9 @@ jobs:
           crystal build lib/carbon/src/carbon/cli.cr -o bin/carbon
           bin/carbon doctor
 
-      - name: Compile Showcase Presentation
+      - name: Compile Showcase Presentation & Theme Gallery
         run: |
-          bin/sunstone build --deck examples/showcase/deck.yml --out dist
+          bin/sunstone build --deck examples/showcase/deck.yml --all-themes --out dist
 
       - name: Configure GitHub Pages
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'

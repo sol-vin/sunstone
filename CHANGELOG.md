@@ -1,5 +1,20 @@
 # CARBON CHANGELOG
+## [0.1.6] - 2026-10-06
+### ✨ Features & Improvements
+- ✦ **[THEMES]** add nordic, brutalist, academic, and tokyo-night themes with custom theme authoring and developer pressure points guides ([`6e31826`](https://github.com/sol-vin/sunstone/commit/6e31826))
+
+---
 ## [0.1.5] - 2026-10-06
+### ✨ Features & Improvements
+- ✦ **[THEMES]** add nordic, brutalist, academic, and tokyo-night themes with custom theme authoring and developer pressure points guides ([`6e31826`](https://github.com/sol-vin/sunstone/commit/6e31826))
+
+### 🛠️ Chores & Tooling
+- • Added interactive multi-theme landing page gallery featuring a live 16:9 interactive slide preview stage, theme switcher tabs, palette swatches, and 15 layout overviews.
+- • Added 'sunstone build --all-themes' flag to compile slide presentations for all 6 themes into dist/themes/<name>/ alongside the root landing page.
+- • Added sleek in-deck navigation bar (.sunstone-nav-bar) with 1-click theme switching, slide hash preservation, and gallery return link.
+- • Added '--theme <name>' option to 'sunstone build' and 'sunstone serve' to override deck.yml theme dynamically.
+- • Updated GitHub Actions workflow to build and deploy the complete multi-theme gallery and demo slideshow to GitHub Pages.
+
 ---
 ## [0.1.4] - 2026-10-06
 ### 🐛 Bug Fixes

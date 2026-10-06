@@ -19,6 +19,8 @@ module Sunstone
       command "build", "Compile slide deck into production HTML, Markdown, and static assets" do |cmd|
         cmd.option :deck, "--deck", "-d", "Path to presentation deck.yml", default: "deck.yml"
         cmd.option :out, "--out", "-o", "Output directory for compiled slides", default: "dist"
+        cmd.option :theme, "--theme", "-t", "Override theme specified in deck.yml"
+        cmd.flag :all_themes, "--all-themes", description: "Build showcase for all themes and emit an interactive landing page gallery at index.html"
         cmd.flag :no_vendor, "--no-vendor", description: "Skip extracting vendor assets (Reveal.js, Highlight.js, Asciinema)"
 
         cmd.run do |ctx|
@@ -32,6 +34,37 @@ module Sunstone
           end
 
           deck = Deck.load(deck_file)
+
+          if ctx.flag?(:all_themes)
+            puts "\e[36m☀️  Sunstone v#{Sunstone::VERSION} — Multi-Theme Showcase & Landing Page\e[0m"
+            puts "  Deck:           \e[1m#{deck.title}\e[0m"
+            puts "  Output Dir:     #{File.expand_path(out_dir)}"
+
+            themes_list = Assets.available_themes
+            themes_list.each do |theme_name|
+              theme_deck = Deck.load(deck_file)
+              theme_deck.theme = theme_name
+              theme_out_dir = File.join(out_dir, "themes", theme_name)
+
+              theme_gen = Generator.new(theme_deck, gallery_nav: true, landing_url: "../../index.html")
+              theme_gen.build(theme_out_dir, copy_vendor: !no_vendor)
+              puts "  • Compiled theme '\e[33m#{theme_name}\e[0m' -> #{theme_out_dir}"
+            end
+
+            # Generate Root Landing Page
+            landing_html_path = File.join(out_dir, "index.html")
+            LandingPage.generate(landing_html_path, themes_list)
+            puts "  • Generated Landing Page Gallery -> #{landing_html_path}"
+
+            puts "\e[32m✓ Multi-theme gallery build complete!\e[0m"
+            puts "  Open #{landing_html_path} to explore all #{themes_list.size} theme options."
+            next 0
+          end
+
+          if theme_override = ctx.string?(:theme)
+            deck.theme = theme_override
+          end
+
           generator = Generator.new(deck)
 
           puts "\e[36m☀️  Sunstone v#{Sunstone::VERSION}\e[0m"
@@ -55,6 +88,7 @@ module Sunstone
       command "serve", "Build deck and launch local live preview web server" do |cmd|
         cmd.option :deck, "--deck", "-d", "Path to presentation deck.yml", default: "deck.yml"
         cmd.option :out, "--out", "-o", "Temporary compilation directory", default: "dist"
+        cmd.option :theme, "--theme", "-t", "Override theme specified in deck.yml"
         cmd.option :port, "--port", "-p", "Server port", default: 8000
         cmd.flag :no_browser, "--no-browser", description: "Do not automatically launch web browser"
 
@@ -70,6 +104,10 @@ module Sunstone
           end
 
           deck = Deck.load(deck_file)
+          if theme_override = ctx.string?(:theme)
+            deck.theme = theme_override
+          end
+
           generator = Generator.new(deck)
           generator.build(out_dir)
 
