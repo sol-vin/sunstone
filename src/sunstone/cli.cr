@@ -46,8 +46,7 @@ module Sunstone
               theme_deck.theme = theme_name
               theme_out_dir = File.join(out_dir, "themes", theme_name)
 
-              theme_gen = Generator.new(theme_deck, gallery_nav: true, landing_url: "../../index.html")
-              theme_gen.build(theme_out_dir, copy_vendor: !no_vendor)
+              Generator.new(theme_deck).build(theme_out_dir, copy_vendor: !no_vendor)
               puts "  • Compiled theme '\e[33m#{theme_name}\e[0m' -> #{theme_out_dir}"
             end
 
