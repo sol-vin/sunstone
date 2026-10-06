@@ -6,7 +6,7 @@
 {% unless flag?(:release) %}
 module Sunstone
   module Docs
-    module GENERAL
+    module A_GETTING_STARTED
       # # Introduction to Sunstone
       #
       # ### Executive Summary & Key Topics
@@ -33,7 +33,7 @@ module Sunstone
       #   </tbody>
       # </table>
       #
-      module introduction
+      module Introduction
         # **The Sunstone Philosophy**: Why presentation slides should have zero inline style attributes.
         #
         # Most presentation generators emit messy HTML bloated with inline `style="..."` attributes.

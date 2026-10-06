@@ -1,4 +1,5 @@
-id: "introduction"
+id: Introduction
+track: 01_getting_started
 title: "Introduction to Sunstone"
 summary: "An overview of Sunstone, its architecture, and the philosophy of zero-inline-style presentations."
 sections:

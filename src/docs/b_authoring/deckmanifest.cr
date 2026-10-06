@@ -6,7 +6,7 @@
 {% unless flag?(:release) %}
 module Sunstone
   module Docs
-    module GENERAL
+    module B_AUTHORING
       # # Deck Manifest Specification
       #
       # ### Executive Summary & Key Topics
@@ -33,7 +33,7 @@ module Sunstone
       #   </tbody>
       # </table>
       #
-      module deck_manifest
+      module DeckManifest
         # **Structure of deckyml**: Root fields and global options in deck manifests.
         #
         # The `deck.yml` file defines your presentation's identity, resolution, footer templates, theme, and slide sequence:

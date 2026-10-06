@@ -6,7 +6,7 @@
 {% unless flag?(:release) %}
 module Sunstone
   module Docs
-    module GENERAL
+    module D_DEPLOYMENT
       # # Continuous Integration & GitHub Pages
       #
       # ### Executive Summary & Key Topics
@@ -28,7 +28,7 @@ module Sunstone
       #   </tbody>
       # </table>
       #
-      module ci_cd
+      module CiCd
         # **Automated Deployment Workflow**: Publishing presentations to GitHub Pages on git push.
         #
         # Every presentation scaffolded with `sunstone new` includes `.github/workflows/deploy.yml`:
@@ -54,7 +54,6 @@ module Sunstone
         #   deploy:
         #     environment:
         #       name: github-pages
-        #       url: ${{ steps.deployment.outputs.page_url }}
         #     runs-on: ubuntu-latest
         #     steps:
         #       - name: Checkout Presentation Source
@@ -63,7 +62,7 @@ module Sunstone
         #       - name: Install Crystal
         #         uses: crystal-lang/install-crystal@v1
         #         with:
-        #           crystal: 1.12.0
+        #           crystal: latest
         #
         #       - name: Install Sunstone CLI
         #         run: |

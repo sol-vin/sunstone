@@ -6,7 +6,7 @@
 {% unless flag?(:release) %}
 module Sunstone
   module Docs
-    module GENERAL
+    module C_THEMING
       # # Zero Inline Styles Architecture
       #
       # ### Executive Summary & Key Topics
@@ -33,7 +33,7 @@ module Sunstone
       #   </tbody>
       # </table>
       #
-      module zero_inline_styles
+      module ZeroInlineStyles
         # **How Zero-Inline-Styles Works**: Mapping semantic attributes to CSS grid and flex rules.
         #
         # Rather than injecting `style="grid-template-columns: 3fr 2fr;"` into HTML tags, Sunstone emits semantic data attributes:

@@ -1,4 +1,10 @@
 # CARBON CHANGELOG
+## [0.1.4] - 2026-10-06
+### 🐛 Bug Fixes
+- ✓ **[CI]** use latest Crystal and shards build for jasper ([`90db9a8`](https://github.com/sol-vin/sunstone/commit/90db9a8))
+- ✓ **[CI]** ensure bin directory exists before crystal build ([`239e8e7`](https://github.com/sol-vin/sunstone/commit/239e8e7))
+
+---
 ## [0.1.3] - 2026-10-06
 ### 🐛 Bug Fixes
 - ✓ **[CI]** use latest Crystal and shards build for jasper ([`90db9a8`](https://github.com/sol-vin/sunstone/commit/90db9a8))

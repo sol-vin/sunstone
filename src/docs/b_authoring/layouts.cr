@@ -6,7 +6,7 @@
 {% unless flag?(:release) %}
 module Sunstone
   module Docs
-    module GENERAL
+    module B_AUTHORING
       # # Semantic Slide Layouts
       #
       # ### Executive Summary & Key Topics
@@ -33,7 +33,7 @@ module Sunstone
       #   </tbody>
       # </table>
       #
-      module layouts
+      module Layouts
         # **Layout Gallery**: Overview of layout types and their use cases.
         #
         # Sunstone provides 15 specialized layout renderers:

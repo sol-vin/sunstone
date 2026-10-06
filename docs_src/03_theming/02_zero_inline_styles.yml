@@ -1,4 +1,5 @@
-id: "zero_inline_styles"
+id: ZeroInlineStyles
+track: 03_theming
 title: "Zero Inline Styles Architecture"
 summary: "Technical guide to how Sunstone implements zero inline styles using semantic CSS and pseudo-elements."
 sections:

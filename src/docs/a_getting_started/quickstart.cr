@@ -6,7 +6,7 @@
 {% unless flag?(:release) %}
 module Sunstone
   module Docs
-    module GENERAL
+    module A_GETTING_STARTED
       # # Quickstart Guide
       #
       # ### Executive Summary & Key Topics
@@ -38,7 +38,7 @@ module Sunstone
       #   </tbody>
       # </table>
       #
-      module quickstart
+      module Quickstart
         # **Installation & Setup**: How to install Sunstone or compile it from source.
         #
         # Clone the Sunstone repository or install via shards:

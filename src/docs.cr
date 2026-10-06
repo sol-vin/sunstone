@@ -9,7 +9,7 @@ module Sunstone
   #
   # ## Learning Tracks & Topic Index
   #
-  # The documentation is paced into 2 distinct tracks:
+  # The documentation is paced into 4 distinct tracks:
   #
   # ### 1. Getting started (`A_GETTING_STARTED`)
   # <table>
@@ -22,14 +22,19 @@ module Sunstone
   #   </thead>
   #   <tbody>
   #     <tr>
-  #       <td><code>OVERVIEW</code></td>
-  #       <td><strong>Getting Started & System Overview</strong></td>
-  #       <td>Complete introduction to the architecture and core concepts.</td>
+  #       <td><code>Introduction</code></td>
+  #       <td><strong>Introduction to Sunstone</strong></td>
+  #       <td>An overview of Sunstone, its architecture, and the philosophy of zero-inline-style presentations.</td>
+  #     </tr>
+  #     <tr>
+  #       <td><code>Quickstart</code></td>
+  #       <td><strong>Quickstart Guide</strong></td>
+  #       <td>Get started building and presenting slides with Sunstone in minutes.</td>
   #     </tr>
   #   </tbody>
   # </table>
   #
-  # ### 2. General (`GENERAL`)
+  # ### 2. Authoring (`B_AUTHORING`)
   # <table>
   #   <thead>
   #     <tr>
@@ -40,37 +45,53 @@ module Sunstone
   #   </thead>
   #   <tbody>
   #     <tr>
-  #       <td><code>introduction</code></td>
-  #       <td><strong>Introduction to Sunstone</strong></td>
-  #       <td>An overview of Sunstone, its architecture, and the philosophy of zero-inline-style presentations.</td>
-  #     </tr>
-  #     <tr>
-  #       <td><code>quickstart</code></td>
-  #       <td><strong>Quickstart Guide</strong></td>
-  #       <td>Get started building and presenting slides with Sunstone in minutes.</td>
-  #     </tr>
-  #     <tr>
-  #       <td><code>deck_manifest</code></td>
+  #       <td><code>DeckManifest</code></td>
   #       <td><strong>Deck Manifest Specification</strong></td>
   #       <td>Comprehensive guide to authoring deck.yml and configuring presentation-wide settings.</td>
   #     </tr>
   #     <tr>
-  #       <td><code>layouts</code></td>
+  #       <td><code>Layouts</code></td>
   #       <td><strong>Semantic Slide Layouts</strong></td>
   #       <td>Catalog of all 15 semantic slide layouts supported by Sunstone.</td>
   #     </tr>
+  #   </tbody>
+  # </table>
+  #
+  # ### 3. Theming (`C_THEMING`)
+  # <table>
+  #   <thead>
   #     <tr>
-  #       <td><code>themes</code></td>
+  #       <th>Submodule</th>
+  #       <th>Title</th>
+  #       <th>Description</th>
+  #     </tr>
+  #   </thead>
+  #   <tbody>
+  #     <tr>
+  #       <td><code>Themes</code></td>
   #       <td><strong>Themes & Theme-Scoped Palettes</strong></td>
   #       <td>How Sunstone themes, palettes, and CSS custom properties work.</td>
   #     </tr>
   #     <tr>
-  #       <td><code>zero_inline_styles</code></td>
+  #       <td><code>ZeroInlineStyles</code></td>
   #       <td><strong>Zero Inline Styles Architecture</strong></td>
   #       <td>Technical guide to how Sunstone implements zero inline styles using semantic CSS and pseudo-elements.</td>
   #     </tr>
+  #   </tbody>
+  # </table>
+  #
+  # ### 4. Deployment (`D_DEPLOYMENT`)
+  # <table>
+  #   <thead>
   #     <tr>
-  #       <td><code>ci_cd</code></td>
+  #       <th>Submodule</th>
+  #       <th>Title</th>
+  #       <th>Description</th>
+  #     </tr>
+  #   </thead>
+  #   <tbody>
+  #     <tr>
+  #       <td><code>CiCd</code></td>
   #       <td><strong>Continuous Integration & GitHub Pages</strong></td>
   #       <td>Automating slide compilation and web publishing via GitHub Actions.</td>
   #     </tr>
@@ -94,16 +115,19 @@ module Sunstone
     # #### Structured Learning Tracks
     #
     # ##### 1. Getting started (`A_GETTING_STARTED`)
-    # - `A_GETTING_STARTED::OVERVIEW`: **Getting Started & System Overview** &mdash; Complete introduction to the architecture and core concepts.
+    # - `A_GETTING_STARTED::Introduction`: **Introduction to Sunstone** &mdash; An overview of Sunstone, its architecture, and the philosophy of zero-inline-style presentations.
+    # - `A_GETTING_STARTED::Quickstart`: **Quickstart Guide** &mdash; Get started building and presenting slides with Sunstone in minutes.
     #
-    # ##### 2. General (`GENERAL`)
-    # - `GENERAL::introduction`: **Introduction to Sunstone** &mdash; An overview of Sunstone, its architecture, and the philosophy of zero-inline-style presentations.
-    # - `GENERAL::quickstart`: **Quickstart Guide** &mdash; Get started building and presenting slides with Sunstone in minutes.
-    # - `GENERAL::deck_manifest`: **Deck Manifest Specification** &mdash; Comprehensive guide to authoring deck.yml and configuring presentation-wide settings.
-    # - `GENERAL::layouts`: **Semantic Slide Layouts** &mdash; Catalog of all 15 semantic slide layouts supported by Sunstone.
-    # - `GENERAL::themes`: **Themes & Theme-Scoped Palettes** &mdash; How Sunstone themes, palettes, and CSS custom properties work.
-    # - `GENERAL::zero_inline_styles`: **Zero Inline Styles Architecture** &mdash; Technical guide to how Sunstone implements zero inline styles using semantic CSS and pseudo-elements.
-    # - `GENERAL::ci_cd`: **Continuous Integration & GitHub Pages** &mdash; Automating slide compilation and web publishing via GitHub Actions.
+    # ##### 2. Authoring (`B_AUTHORING`)
+    # - `B_AUTHORING::DeckManifest`: **Deck Manifest Specification** &mdash; Comprehensive guide to authoring deck.yml and configuring presentation-wide settings.
+    # - `B_AUTHORING::Layouts`: **Semantic Slide Layouts** &mdash; Catalog of all 15 semantic slide layouts supported by Sunstone.
+    #
+    # ##### 3. Theming (`C_THEMING`)
+    # - `C_THEMING::Themes`: **Themes & Theme-Scoped Palettes** &mdash; How Sunstone themes, palettes, and CSS custom properties work.
+    # - `C_THEMING::ZeroInlineStyles`: **Zero Inline Styles Architecture** &mdash; Technical guide to how Sunstone implements zero inline styles using semantic CSS and pseudo-elements.
+    #
+    # ##### 4. Deployment (`D_DEPLOYMENT`)
+    # - `D_DEPLOYMENT::CiCd`: **Continuous Integration & GitHub Pages** &mdash; Automating slide compilation and web publishing via GitHub Actions.
     #
     def self.topic_02_reading_paths : Nil; end
 
@@ -112,16 +136,19 @@ module Sunstone
     # #### Complete Documentation Index
     #
     # ##### `A_GETTING_STARTED`
-    # - `A_GETTING_STARTED::OVERVIEW`: **Getting Started & System Overview** &mdash; Complete introduction to the architecture and core concepts.
+    # - `A_GETTING_STARTED::Introduction`: **Introduction to Sunstone** &mdash; An overview of Sunstone, its architecture, and the philosophy of zero-inline-style presentations.
+    # - `A_GETTING_STARTED::Quickstart`: **Quickstart Guide** &mdash; Get started building and presenting slides with Sunstone in minutes.
     #
-    # ##### `GENERAL`
-    # - `GENERAL::introduction`: **Introduction to Sunstone** &mdash; An overview of Sunstone, its architecture, and the philosophy of zero-inline-style presentations.
-    # - `GENERAL::quickstart`: **Quickstart Guide** &mdash; Get started building and presenting slides with Sunstone in minutes.
-    # - `GENERAL::deck_manifest`: **Deck Manifest Specification** &mdash; Comprehensive guide to authoring deck.yml and configuring presentation-wide settings.
-    # - `GENERAL::layouts`: **Semantic Slide Layouts** &mdash; Catalog of all 15 semantic slide layouts supported by Sunstone.
-    # - `GENERAL::themes`: **Themes & Theme-Scoped Palettes** &mdash; How Sunstone themes, palettes, and CSS custom properties work.
-    # - `GENERAL::zero_inline_styles`: **Zero Inline Styles Architecture** &mdash; Technical guide to how Sunstone implements zero inline styles using semantic CSS and pseudo-elements.
-    # - `GENERAL::ci_cd`: **Continuous Integration & GitHub Pages** &mdash; Automating slide compilation and web publishing via GitHub Actions.
+    # ##### `B_AUTHORING`
+    # - `B_AUTHORING::DeckManifest`: **Deck Manifest Specification** &mdash; Comprehensive guide to authoring deck.yml and configuring presentation-wide settings.
+    # - `B_AUTHORING::Layouts`: **Semantic Slide Layouts** &mdash; Catalog of all 15 semantic slide layouts supported by Sunstone.
+    #
+    # ##### `C_THEMING`
+    # - `C_THEMING::Themes`: **Themes & Theme-Scoped Palettes** &mdash; How Sunstone themes, palettes, and CSS custom properties work.
+    # - `C_THEMING::ZeroInlineStyles`: **Zero Inline Styles Architecture** &mdash; Technical guide to how Sunstone implements zero inline styles using semantic CSS and pseudo-elements.
+    #
+    # ##### `D_DEPLOYMENT`
+    # - `D_DEPLOYMENT::CiCd`: **Continuous Integration & GitHub Pages** &mdash; Automating slide compilation and web publishing via GitHub Actions.
     #
     def self.topic_03_table_of_contents : Nil; end
 
@@ -134,12 +161,11 @@ module Sunstone
   end
 end
 
-require "./docs/general/introduction"
-require "./docs/general/quickstart"
-require "./docs/general/deck_manifest"
-require "./docs/general/layouts"
-require "./docs/general/themes"
-require "./docs/general/zero_inline_styles"
-require "./docs/general/ci_cd"
-require "./docs/a_getting_started/overview"
+require "./docs/a_getting_started/introduction"
+require "./docs/a_getting_started/quickstart"
+require "./docs/b_authoring/deckmanifest"
+require "./docs/b_authoring/layouts"
+require "./docs/c_theming/themes"
+require "./docs/c_theming/zeroinlinestyles"
+require "./docs/d_deployment/cicd"
 {% end %}

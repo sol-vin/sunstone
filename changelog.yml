@@ -23,9 +23,25 @@ settings:
       title: "\U0001F6E0️ Chores & Tooling"
       bullet: •
 releases:
-- version: 0.1.3
+- version: 0.1.4
   date: "2026-10-06"
   status: active
+  entries:
+  - type: fix
+    description: use latest Crystal and shards build for jasper
+    bullet: ✓
+    badge: '[CI]'
+    hash: 90db9a8
+    author: Ian Rash
+  - type: fix
+    description: ensure bin directory exists before crystal build
+    bullet: ✓
+    badge: '[CI]'
+    hash: 239e8e7
+    author: Ian Rash
+- version: 0.1.3
+  date: "2026-10-06"
+  status: released
   entries:
   - type: fix
     description: use latest Crystal and shards build for jasper

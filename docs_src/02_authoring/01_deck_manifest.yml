@@ -1,4 +1,5 @@
-id: "deck_manifest"
+id: DeckManifest
+track: 02_authoring
 title: "Deck Manifest Specification"
 summary: "Comprehensive guide to authoring deck.yml and configuring presentation-wide settings."
 sections:

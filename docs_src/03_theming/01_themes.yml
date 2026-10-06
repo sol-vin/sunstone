@@ -1,4 +1,5 @@
-id: "themes"
+id: Themes
+track: 03_theming
 title: "Themes & Theme-Scoped Palettes"
 summary: "How Sunstone themes, palettes, and CSS custom properties work."
 sections:

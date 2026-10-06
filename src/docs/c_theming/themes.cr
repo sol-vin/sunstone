@@ -6,7 +6,7 @@
 {% unless flag?(:release) %}
 module Sunstone
   module Docs
-    module GENERAL
+    module C_THEMING
       # # Themes & Theme-Scoped Palettes
       #
       # ### Executive Summary & Key Topics
@@ -33,7 +33,7 @@ module Sunstone
       #   </tbody>
       # </table>
       #
-      module themes
+      module Themes
         # **Built-In Themes**: Differences between the generic and sol.vin themes.
         #
         # Sunstone ships with two built-in themes:

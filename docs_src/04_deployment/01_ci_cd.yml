@@ -1,4 +1,5 @@
-id: "ci_cd"
+id: CiCd
+track: 04_deployment
 title: "Continuous Integration & GitHub Pages"
 summary: "Automating slide compilation and web publishing via GitHub Actions."
 sections:
@@ -29,7 +30,6 @@ sections:
         deploy:
           environment:
             name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
           runs-on: ubuntu-latest
           steps:
             - name: Checkout Presentation Source
@@ -38,7 +38,7 @@ sections:
             - name: Install Crystal
               uses: crystal-lang/install-crystal@v1
               with:
-                crystal: 1.12.0
+                crystal: latest
 
             - name: Install Sunstone CLI
               run: |
