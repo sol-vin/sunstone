@@ -1044,7 +1044,6 @@ ul.card-list li strong {
 }
 
 .solvin-slide .slide-body {
-  display: flex !important;
   gap: 1.2rem !important;
   align-items: stretch !important;
   flex: 1 !important;
@@ -3935,6 +3934,28 @@ ul.card-list li strong {
 }
 
 /* Sol.vin Feature Bento Grid */
+.solvin-slide .slide-body[data-layout*="feature-grid"],
+.solvin-slide[data-layout*="feature-grid"] .slide-body,
+[data-layout*="feature-grid"] .slide-body {
+  display: grid !important;
+  grid-template-columns: 1.25fr 1fr !important;
+  gap: 1.2rem !important;
+  align-items: stretch !important;
+}
+
+.solvin-slide .bento-hero-column {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+}
+
+.solvin-slide .bento-side-column {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+  min-height: 0 !important;
+}
+
 .solvin-slide .bento-hero-card,
 .solvin-slide .bento-subcard {
   background: var(--bg-window) !important;

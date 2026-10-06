@@ -939,6 +939,8 @@
 }
 
 /* 6. Asymmetrical Feature Bento Grid Layout (NEW) */
+.slide .slide-body[data-layout*="feature-grid"],
+.slide[data-layout*="feature-grid"] .slide-body,
 .slide-body[data-layout*="feature-grid"],
 [data-layout*="feature-grid"] .slide-body {
   display: grid !important;

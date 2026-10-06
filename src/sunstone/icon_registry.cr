@@ -117,6 +117,17 @@ module Sunstone
       "info"         => "circle-check",
       "arrow"        => "arrow-right",
       "next"         => "arrow-right",
+      "book"         => "scroll",
+      "docs"         => "scroll",
+      "documentation"=> "scroll",
+      "comments"     => "comment-dots",
+      "chat"         => "comment-dots",
+      "desktop"      => "terminal",
+      "display"      => "terminal",
+      "monitor"      => "terminal",
+      "paper-plane"  => "rocket",
+      "send"         => "rocket",
+      "deploy"       => "rocket",
     }
 
     def self.normalize_icon_name(name : String) : String?
