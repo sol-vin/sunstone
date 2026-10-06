@@ -1020,7 +1020,17 @@ ul.card-list li strong {
   box-shadow: 0 0 6px var(--accent-color, #fd971f);
 }
 
+/* Sol.vin Hidden Palette SVG Filter Engine */
+.solvin-palette-filters {
+  position: absolute !important;
+  width: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+}
+
 /* Sol.vin Slide Component Scoping */
+.reveal .slides section.solvin-slide,
 .solvin-slide {
   position: absolute !important;
   top: 0 !important;
@@ -1028,9 +1038,28 @@ ul.card-list li strong {
   width: 100% !important;
   height: 100% !important;
   overflow: hidden !important;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: 'Quicksand', sans-serif;
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.solvin-slide .slide-body {
+  display: flex !important;
+  gap: 1.2rem !important;
+  align-items: stretch !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.solvin-slide .col,
+.solvin-slide .column {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.8rem !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
 }
 
 .solvin-slide .slide-header {
@@ -1062,6 +1091,11 @@ ul.card-list li strong {
   border: 1.5px solid var(--border-color) !important;
   box-shadow: 2px 2px 0px var(--shadow-color) !important;
   border-radius: 4px !important;
+}
+
+.solvin-slide .badge-pill::before,
+.solvin-slide .badge::before {
+  display: none !important;
 }
 
 .solvin-slide .card {
@@ -1402,6 +1436,12 @@ ul.card-list li strong {
   transition: all 0.15s ease !important;
 }
 
+.solvin-slide .window-btn svg {
+  width: 9px !important;
+  height: 9px !important;
+  display: block !important;
+}
+
 .solvin-slide .window-btn:hover {
   background-color: var(--border-active) !important;
   color: var(--bg-color) !important;
@@ -1642,15 +1682,21 @@ ul.card-list li strong {
 }
 
 .code-container.code-dense pre code,
-.code-container pre code.code-dense {
+.code-container pre code.code-dense,
+.code-container[data-density="dense"] pre code,
+.solvin-slide .code-container[data-density="dense"] pre code {
   font-size: 0.76rem !important;
   line-height: 1.32 !important;
 }
 
 .code-container.code-compact pre code,
-.code-container pre code.code-compact {
-  font-size: 0.68rem !important;
-  line-height: 1.24 !important;
+.code-container pre code.code-compact,
+.code-container[data-density="compact"] pre code,
+.solvin-slide .code-container[data-density="compact"] pre code,
+.solvin-slide .code-container.code-compact pre code,
+.solvin-slide pre code.code-compact {
+  font-size: 0.72rem !important;
+  line-height: 1.25 !important;
 }
 
 .code-container pre code .hljs-keyword,

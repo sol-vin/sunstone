@@ -18,6 +18,9 @@ module Sunstone
         if tag = slide.raw["code_tag"]?
           left_h[YAML::Any.new("tag")] = tag
         end
+        if density = slide.raw["code_density"]? || slide.raw["density"]?
+          left_h[YAML::Any.new("density")] = density
+        end
         left_data = YAML::Any.new(left_h)
       end
 
@@ -81,7 +84,7 @@ module Sunstone
         str << "                <span class=\"window-title terminal-title\">" << LayoutRenderer.escape(title) << "</span>\n"
         str << "                <div class=\"window-controls\">\n"
         str << "                  <span class=\"lang-tag terminal-badge\">BASH</span>\n"
-        str << "                  <span class=\"window-btn close\" title=\"Close\">✕</span>\n"
+        str << "                  <span class=\"window-btn close\" title=\"Close\"><svg class=\"fa-icon fa-xmark\" viewBox=\"0 0 384 512\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z\"/></svg></span>\n"
         str << "                </div>\n"
         str << "              </div>\n"
         str << "              <div class=\"window-body terminal-body\">\n"

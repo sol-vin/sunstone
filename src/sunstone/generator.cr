@@ -30,12 +30,40 @@ module Sunstone
 
       # Write consolidated theme.css (base structural layout + chosen theme styling + palette CSS rules)
       theme_file = File.join(output_dir, "theme.css")
+
+      theme_raw = Assets.theme_css_for(@deck.theme)
+      user_raw = if !@deck.theme_css.strip.empty? && File.exists?(@deck.theme_css)
+                   File.read(@deck.theme_css)
+                 else
+                   ""
+                 end
+
+      # Extract all @import rules from base, theme, and user CSS so they are hoisted to the VERY TOP of theme.css (required by CSS specification)
+      imports = [] of String
+      filter_imports = ->(css : String) {
+        String.build do |io|
+          css.each_line do |line|
+            if line.strip.starts_with?("@import")
+              imports << line.strip
+            else
+              io << line << "\n"
+            end
+          end
+        end
+      }
+
+      clean_theme = filter_imports.call(theme_raw)
+      clean_user = filter_imports.call(user_raw)
+      clean_base = filter_imports.call(Assets::BASE_CSS)
+
       theme_css_content = String.build do |str|
-        str << Assets::BASE_CSS << "\n\n"
-        str << Assets.theme_css_for(@deck.theme) << "\n"
-        if !@deck.theme_css.strip.empty? && File.exists?(@deck.theme_css)
+        imports.uniq.each { |imp| str << imp << "\n" }
+        str << "\n" unless imports.empty?
+        str << clean_base << "\n\n"
+        str << clean_theme << "\n"
+        if !clean_user.strip.empty?
           str << "\n/* Custom User Deck CSS */\n"
-          str << File.read(@deck.theme_css) << "\n"
+          str << clean_user << "\n"
         end
         str << "\n/* Theme-Scoped Palette CSS Rules */\n"
         all_deck_palettes = Hash(String, Palette).new
@@ -129,6 +157,11 @@ module Sunstone
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>#{HTML.escape(@deck.title)} — #{HTML.escape(@deck.subtitle)}</title>
+
+        <!-- High-Performance Web Font Preloading for Sunstone Themes -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Quicksand:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
 
         <!-- Reveal.js Core CSS -->
         <link rel="stylesheet" href="vendor/reveal/reveal.min.css">

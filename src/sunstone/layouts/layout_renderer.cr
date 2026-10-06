@@ -76,7 +76,7 @@ module Sunstone
 
       String.build do |str|
         str << "      <!-- Slide " << slide_num << ": " << palette.name << " (" << slide.title << ") -->\n"
-        str << "      <section class=\"slide solvin-slide " << palette.id << "\" data-layout=\"" << slide.layout << "\" data-palette=\"" << palette.id << "\" data-background-color=\"" << palette.bg_color << "\" data-palette-name=\"" << HTML.escape(palette.name) << "\" data-slide-id=\"" << slide.id << "\" id=\"slide-" << slide.id << "\">\n"
+        str << "      <section class=\"slide solvin-slide " << palette.id << "\" data-layout=\"" << slide.layout << "\" data-palette=\"" << palette.id << "\" data-background-color=\"" << palette.bg_color << "\" data-palette-name=\"" << HTML.escape(palette.name) << "\" data-palette-cube=\"" << palette.cube << "\" data-palette-cube-hover=\"" << palette.cube_hover << "\" data-slide-id=\"" << slide.id << "\" id=\"slide-" << slide.id << "\">\n"
         str << "        <div class=\"palette-corner-badge\" title=\"Theme: " << HTML.escape(palette.name) << "\">\n"
         str << "          <span class=\"palette-corner-dot\"></span> PALETTE: " << HTML.escape(palette.name) << "\n"
         str << "        </div>\n"
@@ -119,10 +119,17 @@ module Sunstone
 
     # Semantic Code Container with Window Header (dots and window controls)
     def render_code_container(title : String, lang : String, code : String, tag : String? = nil, density : String? = nil) : String
-      density_attr = density ? " data-density=\"#{density}\"" : ""
+      line_count = code.strip.lines.size
+      effective_density = density || (line_count >= 16 ? "compact" : nil)
+      density_attr = effective_density ? " data-density=\"#{effective_density}\"" : ""
+      density_cls = case effective_density
+                    when "compact" then " code-compact"
+                    when "dense" then " code-dense"
+                    else ""
+                    end
       lang_display = tag || lang.upcase
       String.build do |str|
-        str << "            <div class=\"code-window code-container col\" data-lang=\"" << lang.downcase << "\"" << density_attr << ">\n"
+        str << "            <div class=\"code-window code-container col" << density_cls << "\" data-lang=\"" << lang.downcase << "\"" << density_attr << ">\n"
         str << "              <div class=\"window-header code-header\">\n"
         str << "                <div class=\"terminal-dots\">\n"
         str << "                  <span class=\"terminal-dot dot-1 red\" title=\"Close\"></span>\n"
@@ -132,18 +139,19 @@ module Sunstone
         str << "                <span class=\"window-title code-title\">" << LayoutRenderer.tint_emojis(HTML.escape(title)) << "</span>\n"
         str << "                <div class=\"window-controls\">\n"
         str << "                  <span class=\"lang-tag code-lang-tag\">" << HTML.escape(lang_display) << "</span>\n"
-        str << "                  <span class=\"window-btn close\" title=\"Close\">✕</span>\n"
+        str << "                  <span class=\"window-btn close\" title=\"Close\"><svg class=\"fa-icon fa-xmark\" viewBox=\"0 0 384 512\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z\"/></svg></span>\n"
         str << "                </div>\n"
         str << "              </div>\n"
-        str << "              <pre><code class=\"language-" << lang.downcase << "\">" << HTML.escape(code.strip) << "</code></pre>\n"
+        str << "              <pre><code class=\"language-" << lang.downcase << density_cls << "\">" << HTML.escape(code.strip) << "</code></pre>\n"
         str << "            </div>"
       end
     end
 
     # Semantic Card with ZERO Inline Styles
     def render_card(title : String, color : String, items : Array(String), badge : String? = nil, compact : Bool = false) : String
-      compact_attr = compact ? " data-density=\"compact\"" : ""
-      compact_cls = compact ? " compact" : ""
+      is_compact = compact || items.size >= 5
+      compact_attr = is_compact ? " data-density=\"compact\"" : ""
+      compact_cls = is_compact ? " compact" : ""
       String.build do |str|
         str << "            <div class=\"card col " << color << compact_cls << "\" data-color=\"" << color << "\"" << compact_attr << ">\n"
         str << "              <div class=\"card-header card-title " << color << "\">\n"

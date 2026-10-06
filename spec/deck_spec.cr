@@ -5,8 +5,8 @@ describe Sunstone::Deck do
     deck = Sunstone::Deck.load("examples/showcase/deck.yml")
     deck.title.should eq("Sunstone Showcase")
     deck.theme.should eq("generic")
-    deck.width.should eq(1920)
-    deck.height.should eq(1080)
+    deck.width.should eq(1280)
+    deck.height.should eq(720)
     deck.slides.size.should eq(16)
 
     intro = deck.slides.first

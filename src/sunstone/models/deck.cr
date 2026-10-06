@@ -40,8 +40,8 @@ module Sunstone
       end
 
       res = @raw["resolution"]?
-      @width = res.try(&.["width"]?.try(&.as_i)) || @raw["width"]?.try(&.as_i) || 1920
-      @height = res.try(&.["height"]?.try(&.as_i)) || @raw["height"]?.try(&.as_i) || 1080
+      @width = res.try(&.["width"]?.try(&.as_i)) || @raw["width"]?.try(&.as_i) || 1280
+      @height = res.try(&.["height"]?.try(&.as_i)) || @raw["height"]?.try(&.as_i) || 720
 
       header = @raw["header"]?
       @header_enabled = header.try(&.["enabled"]?.try(&.as_bool)) != false

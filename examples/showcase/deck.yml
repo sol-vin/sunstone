@@ -3,8 +3,8 @@ subtitle: "Interactive Tour of Modern Semantic Slides"
 author: "Sol.vin Team"
 author_url: "https://github.com/sol-vin/sunstone"
 theme: "generic"
-width: 1920
-height: 1080
+width: 1280
+height: 720
 
 header:
   enabled: true

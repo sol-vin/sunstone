@@ -145,8 +145,20 @@ module Sunstone
       @colors["cube"]? || text_primary
     end
 
+    def cube : String
+      cube_color
+    end
+
     def cube_hover : String
       @colors["cube_hover"]? || border_active
+    end
+
+    def bg : String
+      bg_color
+    end
+
+    def window : String
+      bg_window
     end
 
     def hex_to_rgb(hex : String) : Tuple(Float64, Float64, Float64)

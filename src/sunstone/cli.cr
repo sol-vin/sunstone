@@ -149,8 +149,12 @@ module Sunstone
 
             # Validate palette
             unless palettes.has_key?(slide.palette)
-              STDERR.puts "  \e[33m[WARN]\e[0m Slide #{idx + 1} ('#{slide.id}'): Palette '#{slide.palette}' not found in theme '#{deck.theme}' (will fall back to default palette)"
-              warnings += 1
+              if found = Palette.find_palette(slide.palette)
+                # Valid palette resolved across catalogs
+              else
+                STDERR.puts "  \e[33m[WARN]\e[0m Slide #{idx + 1} ('#{slide.id}'): Palette '#{slide.palette}' not found in theme '#{deck.theme}' (will fall back to default palette)"
+                warnings += 1
+              end
             end
           end
 

@@ -37,9 +37,11 @@
   letter-spacing: -0.01em;
 }
 
+.reveal .slides section.slide,
 .slide {
-  background-color: var(--sunstone-bg);
-  color: var(--sunstone-text-secondary);
+  background-color: var(--sunstone-bg) !important;
+  color: var(--sunstone-text-secondary) !important;
+  font-family: var(--sunstone-font-sans) !important;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
