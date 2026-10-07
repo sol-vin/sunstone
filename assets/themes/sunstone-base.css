@@ -465,26 +465,102 @@
 }
 
 .takeaway-banner {
-  grid-column: 1 / -1;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  padding: 0.6rem 1rem;
-  border-radius: var(--sunstone-radius-sm, 6px);
-  font-size: 0.88rem;
+  gap: 0.85rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: var(--sunstone-radius-md, 8px);
+  border: 1px solid var(--sunstone-border, #334155);
+  background: var(--sunstone-surface, #1e293b);
+  font-size: 0.84rem;
+  color: var(--sunstone-text-secondary, #cbd5e1);
+  flex-shrink: 0;
 }
 
-/* Matrix Layout */
-[data-layout="matrix"] .matrix-table {
+.takeaway-banner .badge {
+  flex-shrink: 0;
+}
+
+.takeaway-text {
+  line-height: 1.35;
+}
+
+/* Matrix Layout (Scorecard / Comparison Quadrant) */
+.slide-body[data-layout*="matrix"],
+[data-layout*="matrix"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.matrix-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--sunstone-radius-md, 8px);
+  border: 1px solid var(--sunstone-border, #334155);
+  background: var(--sunstone-surface, #1e293b);
+  box-shadow: var(--sunstone-shadow, 0 4px 12px rgba(0, 0, 0, 0.2));
+}
+
+.matrix-table {
   width: 100%;
+  height: 100%;
   border-collapse: collapse;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   text-align: left;
 }
 
-[data-layout="matrix"] .matrix-table th,
-[data-layout="matrix"] .matrix-table td {
-  padding: 0.6rem 0.9rem;
+.matrix-table thead tr {
+  border-bottom: 2px solid var(--sunstone-border, #334155);
+  background: var(--sunstone-code-bg, #090d16);
+}
+
+.matrix-table th {
+  padding: 0.85rem 1.1rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  color: var(--sunstone-text-primary, #f8fafc);
+}
+
+.matrix-table th.highlight,
+.matrix-table th.highlight-col {
+  color: var(--sunstone-accent, #38bdf8);
+}
+
+.matrix-table tbody tr {
+  border-bottom: 1px solid var(--sunstone-border, #334155);
+  transition: background-color 0.15s ease;
+}
+
+.matrix-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.matrix-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.matrix-table td {
+  padding: 0.75rem 1.1rem;
+  color: var(--sunstone-text-secondary, #94a3b8);
+  line-height: 1.35;
+  vertical-align: middle;
+}
+
+.matrix-table td.dim-header {
+  font-weight: 700;
+  color: var(--sunstone-text-primary, #f8fafc);
+}
+
+.matrix-table td.highlight-col,
+.matrix-table td.lapis-col {
+  color: var(--sunstone-accent, #38bdf8);
+  font-weight: 600;
 }
 
 /* Timeline Layout (Rail & Dots via CSS Pseudo-elements) */

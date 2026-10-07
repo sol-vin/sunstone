@@ -1560,10 +1560,38 @@ ul.card-list li strong {
 }
 
 /* Matrix Table Scoping under Sol.vin */
+.solvin-slide .matrix-container {
+  background-color: var(--bg-window) !important;
+  border: 2px solid var(--border-color) !important;
+  box-shadow: 4px 4px 0px var(--shadow-color) !important;
+  border-radius: 6px !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.solvin-slide .matrix-container:hover {
+  border-color: var(--border-active) !important;
+  box-shadow: 4px 4px 0px var(--border-active) !important;
+}
+
+.solvin-slide .matrix-table {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 .solvin-slide .matrix-table th {
   background-color: var(--bg-window) !important;
   color: var(--text-color) !important;
   border: 1.5px solid var(--border-color) !important;
+}
+
+.solvin-slide .matrix-table th.highlight,
+.solvin-slide .matrix-table th.highlight-col {
+  border-color: var(--border-active) !important;
+  color: var(--border-active) !important;
 }
 
 .solvin-slide .matrix-table td {
@@ -1575,9 +1603,18 @@ ul.card-list li strong {
   background-color: rgba(128, 128, 128, 0.08) !important;
 }
 
-.solvin-slide .matrix-table td.lapis-col {
+.solvin-slide .matrix-table td.lapis-col,
+.solvin-slide .matrix-table td.highlight-col {
   color: var(--accent-color) !important;
   font-weight: 700 !important;
+}
+
+.solvin-slide .takeaway-banner {
+  background-color: var(--bg-window) !important;
+  border: 1.5px solid var(--border-color) !important;
+  box-shadow: 2px 2px 0px var(--shadow-color) !important;
+  border-radius: 6px !important;
+  color: var(--text-color) !important;
 }
 
 /* ==========================================================================

@@ -115,7 +115,7 @@ module Sunstone
           "fjord_deep"
         when "nordic_ice", "nord_frost", "ocean_blue", "default", "accent"
           "fjord_deep"
-        when "emerald_matrix", "neon", "aurora", "green"
+        when "emerald_matrix", "neon", "cyber_neon", "aurora", "green"
           "aurora_night"
         when "paper_light", "computer_modern", "warm_paper", "light", "snow", "white"
           "glacier_frost"

@@ -1,4 +1,26 @@
 # CARBON CHANGELOG
+## [0.1.17] - 2026-10-06
+### ✨ Features & Improvements
+- ✦ **[MATRIX]** overhaul matrix layout with semantic matrix-container, column highlighting, and Nordic frosted arctic glass scorecard styling
+- ✦ **[THEMES]** add nordic, brutalist, academic, and tokyo-night themes with custom theme authoring and developer pressure points guides ([`6e31826`](https://github.com/sol-vin/sunstone/commit/6e31826))
+- ✦ **[GALLERY]** add interactive multi-theme landing page and --all-themes build support ([`1e87150`](https://github.com/sol-vin/sunstone/commit/1e87150))
+- ✦ **[LAYOUT]** complete layout overhaul with universal Grid/Flexbox engine and 5 new layouts ([`6017be5`](https://github.com/sol-vin/sunstone/commit/6017be5))
+- ✦ **[THEME]** scope palettes per theme, import 102 sol.vin palettes, overhaul theme styles, and fix bento layout ([`a2fff17`](https://github.com/sol-vin/sunstone/commit/a2fff17))
+- ✦ integrate celestine SVG charts, overhaul intro layout spacing, and showcase all 20 layouts ([`e18c582`](https://github.com/sol-vin/sunstone/commit/e18c582))
+- ✦ **[LAYOUT]** add chapter cube, center profile stats, fix timeline hover clipping, and overhaul slide layouts ([`13c0ce6`](https://github.com/sol-vin/sunstone/commit/13c0ce6))
+
+### 🐛 Bug Fixes
+- ✓ **[LAYOUT]** eliminate vertical void on matrix slides, add 6 comprehensive comparison rows, and map cyber_neon to aurora_night in nordic theme
+- ✓ **[THEME]** restore authentic sol.vin theme aesthetic and harmonize multi-theme layouts ([`448030a`](https://github.com/sol-vin/sunstone/commit/448030a))
+- ✓ **[THEME]** complete overhaul of authentic sol.vin styling and multi-theme rendering ([`4c62c5e`](https://github.com/sol-vin/sunstone/commit/4c62c5e))
+- ✓ **[THEME]** remove duplicate pseudo-element dots in generic code window header ([`9767d58`](https://github.com/sol-vin/sunstone/commit/9767d58))
+- ✓ **[LAYOUT]** resolve bento feature-grid multi-column layout override and expand icon registry aliases ([`11893f8`](https://github.com/sol-vin/sunstone/commit/11893f8))
+- ✓ resolve borked slide-media layout, style media window, and embed Wikimedia Sunstone image ([`4edde82`](https://github.com/sol-vin/sunstone/commit/4edde82))
+
+### 🛠️ Chores & Tooling
+- ✦ **[GALLERY]** simplify homepage to clean minimal list linking directly to theme demos ([`fd3b7ac`](https://github.com/sol-vin/sunstone/commit/fd3b7ac))
+
+---
 ## [0.1.16] - 2026-10-06
 ### ✨ Features & Improvements
 - ✦ **[LAYOUT]** add 3D isometric spinning cube to chapter architecture slide with dynamic theme cube resolver and semantic badge wrappers

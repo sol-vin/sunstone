@@ -11,10 +11,12 @@ headers:
   - "Marp / Markdown"
   - "Sunstone"
 rows:
-  - ["Inline Styles", "Pervasive inline styles", "Limited styling control", "Strictly Zero Inline Styles"]
-  - ["Theme Scoping", "Manual theme hunting", "Single global theme", "Theme-Scoped Palettes per Slide"]
-  - ["Git Diffs", "Opaque binary XML", "Flat markdown only", "Line-by-line semantic YAML"]
-  - ["Chrome Controls", "Bloated HTML elements", "Minimal / None", "CSS Pseudo-Elements (::before/::after)"]
-summary: "Sunstone provides uncompromised styling freedom with rock-solid semantic architecture."
+  - ["Inline Styles", "Pervasive inline CSS & absolute coords", "Limited styling / inline <style> hacks", "Strictly Zero Inline Styles (data-* driven)"]
+  - ["Theme Scoping", "Manual color hunting per slide", "Single global stylesheet per deck", "Theme-Scoped Palettes per Slide"]
+  - ["Git Diffs & VCS", "Opaque binary XML / zip archives", "Flat markdown without spatial metadata", "Semantic line-by-line YAML with Carbon VCS"]
+  - ["Window Chrome", "Static screenshots or grouped shapes", "Plain code blocks without window chrome", "CSS Pseudo-Element window chrome & dots"]
+  - ["Multi-Screen UX", "Proprietary heavy presenter mode", "Basic detached notes popup", "Synchronized dual-screen presenter display"]
+  - ["Asset Toolchain", "Local binary bloat (>500MB)", "Node.js / npm runtime dependencies", "Single native binary with zero npm dependencies"]
+summary: "Sunstone provides uncompromised styling freedom with rock-solid semantic architecture and zero build dependencies."
 notes: |
   Walk through the row-by-row matrix comparison with other tools.

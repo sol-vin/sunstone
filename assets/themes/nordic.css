@@ -236,3 +236,143 @@
   font-weight: 600;
   color: var(--sunstone-text-primary);
 }
+
+/* ==========================================================================
+   Nordic Matrix Comparison Layout (Frosted Arctic Scorecard)
+   ========================================================================== */
+.reveal .slide-body[data-layout*="matrix"],
+.slide-body[data-layout*="matrix"],
+[data-layout*="matrix"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+}
+
+.reveal [data-layout*="matrix"] .matrix-container,
+[data-layout*="matrix"] .matrix-container,
+.matrix-container {
+  background: rgba(17, 24, 39, 0.65) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: var(--sunstone-radius-lg, 12px) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35) !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.reveal [data-layout*="matrix"] .matrix-table,
+[data-layout*="matrix"] .matrix-table,
+.matrix-table {
+  width: 100% !important;
+  height: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  font-family: var(--sunstone-font-sans) !important;
+  font-size: 0.85rem !important;
+  text-align: left !important;
+}
+
+.matrix-table thead tr {
+  background: rgba(17, 24, 39, 0.85) !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.matrix-table th {
+  padding: 0.85rem 1.15rem !important;
+  font-family: var(--sunstone-font-sans) !important;
+  font-weight: 700 !important;
+  font-size: 0.88rem !important;
+  color: var(--sunstone-text-primary) !important;
+  letter-spacing: -0.01em !important;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.matrix-table th.highlight,
+.matrix-table th.highlight-col {
+  color: var(--sunstone-accent) !important;
+  background: rgba(56, 189, 248, 0.08) !important;
+  border-bottom: 2px solid var(--sunstone-accent) !important;
+}
+
+.matrix-table th.highlight-col::after {
+  content: "★ RECOMMENDED";
+  display: block;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--sunstone-accent);
+  margin-top: 3px;
+}
+
+.matrix-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.matrix-table tbody tr:hover {
+  background-color: rgba(56, 189, 248, 0.04) !important;
+}
+
+.matrix-table td {
+  padding: 0.75rem 1.15rem !important;
+  color: var(--sunstone-text-secondary) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  line-height: 1.35 !important;
+  vertical-align: middle !important;
+}
+
+.matrix-table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+.matrix-table td.dim-header {
+  font-weight: 700 !important;
+  color: var(--sunstone-text-primary) !important;
+  font-size: 0.88rem !important;
+  background: rgba(17, 24, 39, 0.3) !important;
+}
+
+.matrix-table td.highlight-col,
+.matrix-table td.lapis-col {
+  color: var(--sunstone-accent) !important;
+  font-weight: 600 !important;
+  background: rgba(56, 189, 248, 0.06) !important;
+}
+
+.matrix-table tbody tr:hover td.highlight-col,
+.matrix-table tbody tr:hover td.lapis-col {
+  background: rgba(56, 189, 248, 0.12) !important;
+}
+
+/* Nordic Takeaway Banner */
+[data-layout*="matrix"] .takeaway-banner,
+.takeaway-banner {
+  background: rgba(17, 24, 39, 0.75) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: var(--sunstone-radius-md, 8px) !important;
+  padding: 0.65rem 1.25rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+[data-layout*="matrix"] .takeaway-banner .badge {
+  background: var(--sunstone-accent) !important;
+  color: var(--sunstone-bg) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  border-radius: 9999px !important;
+}
+
+[data-layout*="matrix"] .takeaway-banner .takeaway-text {
+  color: var(--sunstone-text-primary) !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+}
