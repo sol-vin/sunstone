@@ -35,7 +35,7 @@ module Sunstone
             str << "                    <source src=\"" << HTML.escape(m_src) << "\" type=\"video/mp4\">\n"
             str << "                  </video>\n"
           else
-            str << "                  <img src=\"" << HTML.escape(m_src) << "\" alt=\"" << HTML.escape(m_title) << "\" class=\"slide-media\">\n"
+            str << "                  <img src=\"" << HTML.escape(m_src) << "\" alt=\"" << HTML.escape(m_title) << "\" class=\"slide-media\" referrerpolicy=\"no-referrer\" loading=\"lazy\">\n"
           end
           str << "                </div>\n"
 

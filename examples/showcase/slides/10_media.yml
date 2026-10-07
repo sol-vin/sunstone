@@ -4,23 +4,25 @@ badge: "LAYOUT: MEDIA"
 badge_color: "indigo"
 palette: "midnight_indigo"
 title: "Rich Media & Visual Assets"
-subtitle: "Embedded images, video, and Asciinema terminal recordings"
+subtitle: "High-resolution imagery, video streams, and Asciinema terminal recordings"
 media:
   type: "image"
-  src: "vendor/reveal/reveal.min.css"
-  title: "Architecture Visualizer"
-  tag: "DIAGRAM"
+  src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Sunstone1.jpg/960px-Sunstone1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  title: "Natural Sunstone Feldspar Specimen"
+  tag: "COMMONS CC-BY-SA"
   caption:
-    speaker: "Presenter"
-    quote: "Rich visual diagrams provide instant structural clarity."
+    speaker: "Mineralogy"
+    quote: "A translucent plagioclase feldspar displaying radiant aventurescence, the optical namesake of Sunstone."
 card:
-  title: "Supported Formats"
+  title: "Media Engine Capabilities"
   color: "accent"
-  badge: "MEDIA"
+  badge: "ZERO-BLOAT"
   items:
-    - "PNG, JPEG, WebP, and SVG images"
-    - "MP4 and WebM video streams"
-    - "Asciinema .cast terminal session recordings"
-    - "Synchronized playback on slide focus"
+    - "<strong>Remote & Local Images:</strong> Supports high-res WebP, PNG, JPEG, and SVG vector illustrations with responsive fitting."
+    - "<strong>Wikimedia Commons Integration:</strong> Direct hotlinking to CC0 and open-licensed scientific diagrams and photography."
+    - "<strong>Terminal Cast Replays:</strong> Native Asciinema player embedding with interactive play, pause, seek, and auto-focus sync."
+    - "<strong>Video Streams:</strong> HTML5 video playback with hardware-accelerated H.264/MP4 and WebM decoders."
+    - "<strong>Window Chrome:</strong> macOS-style window header dots, titlebar labels, tag pills, and integrated quote captions."
 notes: |
-  Explain how Asciinema terminal casts play automatically when advancing to the slide.
+  Sunstone supports rich visual media embedding with zero manual CSS hacks.
+  Demonstrates responsive image fitting, caption formatting, and window framing.
