@@ -15,7 +15,6 @@ module Sunstone
     getter height : Int32
     getter header_enabled : Bool
     getter header_label : String
-    getter header_cube : Bool
     getter header_logo : String?
     getter footer_left : String
     getter footer_center : String
@@ -45,7 +44,6 @@ module Sunstone
       header = @raw["header"]?
       @header_enabled = header.try(&.["enabled"]?.try(&.as_bool)) != false
       @header_label = header.try(&.["label"]?.try(&.as_s)) || "SUNSTONE PRESENTATION"
-      @header_cube = header.try(&.["cube"]?.try(&.as_bool)) || (@theme.downcase.includes?("sol.vin"))
       @header_logo = header.try(&.["logo"]?.try(&.as_s))
 
       footer = @raw["footer"]?
@@ -102,6 +100,13 @@ module Sunstone
 
     def theme_css : String
       @custom_css.first? || ""
+    end
+
+    def header_cube : Bool
+      if explicit = @raw["header"]?.try(&.["cube"]?.try(&.as_bool))
+        return explicit
+      end
+      @theme.downcase.includes?("sol.vin")
     end
 
     def self.load(deck_file : String, slides_dir : String? = nil) : Deck

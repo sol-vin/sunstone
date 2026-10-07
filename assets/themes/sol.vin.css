@@ -2125,6 +2125,7 @@ ul.card-list li strong {
   height: 100%;
   justify-content: flex-start;
   gap: 0.50rem;
+  overflow: visible !important;
 }
 
 .timeline-rail-wrap {
@@ -2203,6 +2204,8 @@ ul.card-list li strong {
   gap: 0.85rem;
   flex: 1;
   align-items: stretch;
+  padding: 4px 6px 8px 6px !important;
+  box-sizing: border-box !important;
 }
 
 .timeline-card {
@@ -2210,7 +2213,7 @@ ul.card-list li strong {
   border: 1.5px solid var(--border-color);
   box-shadow: 2px 2px 0px var(--shadow-color);
   border-radius: 4px;
-  padding: 0.55rem 0.70rem;
+  padding: 0.65rem 0.80rem;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
@@ -2218,9 +2221,9 @@ ul.card-list li strong {
 }
 
 .timeline-card:hover {
-  transform: translate(-1px, -2px);
-  border-color: var(--border-active);
-  box-shadow: 3px 3px 0px var(--border-active);
+  transform: translateY(-3px) !important;
+  border-color: var(--border-active) !important;
+  box-shadow: 2px 4px 0px var(--border-active) !important;
 }
 
 .timeline-card-header {
@@ -2645,24 +2648,35 @@ ul.card-list li strong {
 /* ==========================================================================
    Four-Column Layout Tight Card Proportions
    ========================================================================== */
-.four-cols .card {
-  padding: 0.75rem 0.85rem !important;
-  gap: 0.45rem !important;
+.four-cols .card,
+.four-cols .card.compact {
+  padding: 1.05rem 1.15rem !important;
+  gap: 0.6rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
 }
 
 .four-cols .card .card-title {
-  font-size: 0.95rem !important;
-  margin-bottom: 0.15rem !important;
+  font-size: 1.02rem !important;
+  margin-bottom: 0.2rem !important;
 }
 
-.four-cols .card ul.card-list {
-  gap: 0.35rem !important;
+.four-cols .card ul.card-list,
+.four-cols .card.compact ul.card-list {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 0 1 auto !important;
+  gap: 0.85rem !important;
+  justify-content: flex-start !important;
+  margin-top: 0.4rem !important;
 }
 
-.four-cols .card ul.card-list li {
-  font-size: 0.73rem !important;
-  line-height: 1.34 !important;
-  padding-left: 0.95rem !important;
+.four-cols .card ul.card-list li,
+.four-cols .card.compact ul.card-list li {
+  font-size: 0.84rem !important;
+  line-height: 1.42 !important;
+  padding-left: 1.1rem !important;
 }
 
 /* ==========================================================================
@@ -2673,25 +2687,29 @@ ul.card-list li strong {
 [data-layout*="profile"] .slide-body {
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.75rem !important;
+  gap: 1.1rem !important;
   flex: 1 !important;
   min-height: 0 !important;
   width: 100% !important;
 }
 
 .profile-stats-ribbon {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: 0.75rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
   width: 100% !important;
+  margin: 0.25rem 0 0.85rem 0 !important;
   flex-shrink: 0 !important;
 }
 
 .profile-stat-chip {
   display: flex !important;
   align-items: center !important;
-  gap: 0.70rem !important;
-  padding: 0.48rem 0.95rem !important;
+  justify-content: center !important;
+  gap: 0.85rem !important;
+  padding: 0.65rem 1.6rem !important;
+  min-width: 220px !important;
   background: var(--bg-window) !important;
   border: 1.5px solid var(--border-color) !important;
   box-shadow: 2.5px 2.5px 0px var(--shadow-color) !important;
@@ -2702,11 +2720,11 @@ ul.card-list li strong {
 .profile-stat-chip:hover {
   border-color: var(--border-active) !important;
   box-shadow: 2.5px 2.5px 0px var(--border-active) !important;
-  transform: translateY(-1px) !important;
+  transform: translateY(-2px) !important;
 }
 
 .profile-stat-chip .stat-icon {
-  font-size: 1.45rem !important;
+  font-size: 1.5rem !important;
   line-height: 1 !important;
   display: flex !important;
   align-items: center !important;
@@ -2718,11 +2736,11 @@ ul.card-list li strong {
   display: flex !important;
   flex-direction: column !important;
   min-width: 0 !important;
-  gap: 0.05rem !important;
+  gap: 0.1rem !important;
 }
 
 .profile-stat-chip .stat-value {
-  font-size: 0.88rem !important;
+  font-size: 0.96rem !important;
   font-weight: 800 !important;
   color: var(--text-color) !important;
   line-height: 1.15 !important;
@@ -2730,7 +2748,7 @@ ul.card-list li strong {
 }
 
 .profile-stat-chip .stat-label {
-  font-size: 0.67rem !important;
+  font-size: 0.72rem !important;
   font-weight: 600 !important;
   color: var(--text-dim, var(--accent-tertiary, #545458)) !important;
   line-height: 1.15 !important;
@@ -2742,22 +2760,24 @@ ul.card-list li strong {
 .profile-bento-grid {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
-  grid-template-rows: 1fr 1fr !important;
-  gap: 0.75rem !important;
+  grid-template-rows: auto !important;
+  gap: 1.5rem !important;
   flex: 1 !important;
   min-height: 0 !important;
   width: 100% !important;
+  height: 100% !important;
 }
 
 .card.profile-card {
-  padding: 0.75rem 1.10rem !important;
+  padding: 1.4rem 1.6rem !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.28rem !important;
+  gap: 0.65rem !important;
   border-radius: 6px !important;
   box-shadow: 3px 3px 0px var(--shadow-color) !important;
   box-sizing: border-box !important;
-  min-height: 0 !important;
+  height: 100% !important;
+  justify-content: flex-start !important;
 }
 
 .card.profile-card:hover {
@@ -2765,43 +2785,44 @@ ul.card-list li strong {
 }
 
 .card.profile-card .card-title {
-  font-size: 0.94rem !important;
+  font-size: 1.1rem !important;
   font-weight: 700 !important;
-  padding-bottom: 0.30rem !important;
-  margin-bottom: 0.28rem !important;
+  padding-bottom: 0.45rem !important;
+  margin-bottom: 0.35rem !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
   line-height: 1.2 !important;
+  border-bottom: 1px dashed var(--border-color) !important;
 }
 
 .card.profile-card .card-title > span:first-child {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 0.35rem !important;
+  gap: 0.45rem !important;
 }
 
-.card.profile-card .badge-pill {
-  font-size: 0.60rem !important;
-  padding: 0.12rem 0.50rem !important;
-  letter-spacing: 0.04em !important;
+.card.profile-card .badge-pill,
+.card.profile-card .badge {
+  font-size: 0.68rem !important;
+  padding: 0.16rem 0.65rem !important;
+  letter-spacing: 0.05em !important;
   margin-bottom: 0 !important;
-  box-shadow: none !important;
 }
 
 .card.profile-card ul.card-list {
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.28rem !important;
+  gap: 0.85rem !important;
   margin: 0 !important;
-  padding: 0 0 0 1.05rem !important;
+  padding: 0 0 0 1.2rem !important;
   flex: 1 !important;
-  justify-content: space-evenly !important;
+  justify-content: flex-start !important;
 }
 
 .card.profile-card ul.card-list li {
-  font-size: 0.78rem !important;
-  line-height: 1.34 !important;
+  font-size: 0.90rem !important;
+  line-height: 1.45 !important;
   color: var(--text-color) !important;
   word-break: normal !important;
   overflow-wrap: break-word !important;
@@ -3048,7 +3069,7 @@ ul.card-list li strong {
 .dual-mode-specs {
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.3rem !important;
+  gap: 0.45rem !important;
   flex: 1 !important;
 }
 
@@ -3056,9 +3077,9 @@ ul.card-list li strong {
   display: flex !important;
   align-items: baseline !important;
   justify-content: space-between !important;
-  font-size: 0.68rem !important;
-  line-height: 1.3 !important;
-  padding: 0.12rem 0 !important;
+  font-size: 0.78rem !important;
+  line-height: 1.4 !important;
+  padding: 0.28rem 0 !important;
   border-bottom: 1px dashed rgba(255, 255, 255, 0.08) !important;
 }
 
@@ -3070,8 +3091,8 @@ ul.card-list li strong {
 }
 
 .spec-icon {
-  font-size: 0.72rem !important;
-  margin-right: 0.2rem !important;
+  font-size: 0.85rem !important;
+  margin-right: 0.35rem !important;
 }
 
 .spec-value {
@@ -3081,21 +3102,22 @@ ul.card-list li strong {
 
 .spec-value code {
   font-family: var(--code-font) !important;
-  font-size: 0.62rem !important;
+  font-size: 0.68rem !important;
   background: var(--bg-color) !important;
   color: var(--text-color) !important;
-  padding: 0.05rem 0.25rem !important;
+  padding: 0.08rem 0.32rem !important;
   border-radius: 3px !important;
 }
 
 .dual-mode-desc {
-  font-size: 0.66rem !important;
+  font-size: 0.76rem !important;
   color: var(--text-dim) !important;
-  line-height: 1.3 !important;
+  line-height: 1.4 !important;
   font-style: italic !important;
-  background: rgba(0, 0, 0, 0.1) !important;
-  padding: 0.3rem 0.5rem !important;
+  background: rgba(0, 0, 0, 0.15) !important;
+  padding: 0.45rem 0.75rem !important;
   border-radius: 4px !important;
+  margin-top: 0.4rem !important;
 }
 
 .dual-mode-summary {
@@ -3133,11 +3155,11 @@ ul.card-list li strong {
   border: 1.5px solid var(--border-color) !important;
   border-top: 3.5px solid var(--border-active) !important;
   border-radius: 8px !important;
-  padding: 0.45rem 0.5rem !important;
-  box-shadow: 2px 2px 0px var(--shadow-color) !important;
+  padding: 0.9rem 1.1rem !important;
+  box-shadow: 2.5px 2.5px 0px var(--shadow-color) !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.38rem !important;
+  gap: 0.55rem !important;
   min-width: 0 !important;
 }
 
@@ -3157,87 +3179,54 @@ ul.card-list li strong {
   border-top: 3.5px solid var(--accent-color, #c88e00) !important;
 }
 
-.demo-step-header {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.15rem !important;
-  border-bottom: 1px solid var(--border-color) !important;
-  padding-bottom: 0.25rem !important;
-}
-
-.demo-step-title {
-  font-size: 0.76rem !important;
+.demo-step-card .card-header .card-title {
+  font-size: 1.02rem !important;
   font-weight: 800 !important;
   color: var(--text-color) !important;
-  line-height: 1.2 !important;
-  white-space: nowrap !important;
+}
+
+.demo-step-card .terminal-window,
+.demo-step-card .code-window {
+  height: auto !important;
+  flex: 0 0 auto !important;
+  margin: 0.35rem 0 !important;
+  border-radius: 6px !important;
+  background-color: var(--bg-window) !important;
+  border: 1.5px solid var(--border-color) !important;
+  box-shadow: 2px 2px 0px var(--shadow-color) !important;
   overflow: hidden !important;
-  text-overflow: ellipsis !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.demo-step-box {
-  background: var(--bg-color) !important;
-  border: 1px solid var(--border-color) !important;
-  border-radius: 5px !important;
-  padding: 0.28rem 0.35rem !important;
-  overflow: hidden !important;
+.demo-step-card .terminal-window:hover,
+.demo-step-card .code-window:hover {
+  border-color: var(--border-active) !important;
+  box-shadow: 2px 2px 0px var(--border-active) !important;
 }
 
-.demo-step-box pre {
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  scrollbar-width: none !important;
+.demo-step-card .window-body {
+  padding: 0.55rem 0.75rem !important;
 }
 
-.demo-step-box pre::-webkit-scrollbar,
-.demo-step-box::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
+.demo-step-card .window-body pre code {
+  font-size: 0.76rem !important;
+  line-height: 1.35 !important;
 }
 
-.demo-step-box code {
-  font-family: var(--code-font) !important;
-  font-size: 0.54rem !important;
-  line-height: 1.25 !important;
-  display: block !important;
-  white-space: pre !important;
-  overflow: hidden !important;
-}
-
-.demo-step-box.terminal-box code {
-  color: var(--border-active, var(--link-color)) !important;
-}
-
-.demo-step-box.code-box code {
-  color: var(--accent-color, #c88e00) !important;
-}
-
-.demo-step-list {
-  list-style: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
+.demo-step-card ul.card-list {
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.2rem !important;
+  justify-content: flex-start !important;
+  gap: 0.65rem !important;
   flex: 1 !important;
+  margin: 0.35rem 0 0 0 !important;
+  padding: 0 0 0 1.05rem !important;
 }
 
-.demo-step-list li {
-  font-size: 0.59rem !important;
-  line-height: 1.26 !important;
-  color: var(--text-dim, var(--accent-tertiary)) !important;
-  position: relative !important;
-  padding-left: 0.7rem !important;
-}
-
-.demo-step-list li::before {
-  content: "•" !important;
-  position: absolute !important;
-  left: 0 !important;
-  color: var(--border-active, var(--accent-color)) !important;
-  font-weight: bold !important;
+.demo-step-card ul.card-list li {
+  font-size: 0.82rem !important;
+  line-height: 1.4 !important;
+  color: var(--text-color) !important;
 }
 
 .demo-step-list li code {
@@ -3273,6 +3262,71 @@ ul.card-list li strong {
   border-radius: 6px !important;
   padding: 0.3rem 0.65rem !important;
   line-height: 1.35 !important;
+}
+
+/* ==========================================================================
+   Quote Layout - Sol.vin Keynote Typography
+   ========================================================================== */
+.quote-content {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  height: 100% !important;
+  max-width: 980px !important;
+  margin: 0 auto !important;
+  padding: 1.5rem 2rem !important;
+  gap: 1.8rem !important;
+}
+
+.quote-text {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 2.35rem !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  line-height: 1.35 !important;
+  color: var(--text-color) !important;
+  margin: 0 !important;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.quote-text p {
+  margin: 0 !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+.quote-attribution {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+  padding-top: 1rem !important;
+  border-top: 2px dashed var(--border-color) !important;
+  min-width: 320px !important;
+}
+
+.quote-author {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
+  color: var(--accent-color, var(--border-active)) !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+.quote-role {
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: var(--text-muted, #94a3b8) !important;
+}
+
+.quote-source {
+  font-size: 0.82rem !important;
+  color: var(--text-dim, #64748b) !important;
+  font-style: italic !important;
 }
 
 /* ==========================================================================
@@ -3323,8 +3377,8 @@ ul.card-list li strong {
 .closing-cards-grid {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
-  column-gap: 15rem !important;
-  row-gap: 1.1rem !important;
+  column-gap: 1.5rem !important;
+  row-gap: 1.2rem !important;
   flex: 1 !important;
   align-content: center !important;
 }
@@ -3334,7 +3388,7 @@ ul.card-list li strong {
   backdrop-filter: blur(6px) !important;
   border: 1.5px solid var(--border-color) !important;
   border-radius: 8px !important;
-  padding: 0.75rem 0.95rem !important;
+  padding: 1.05rem 1.35rem !important;
   box-shadow: 3px 3px 0px var(--shadow-color) !important;
   display: flex !important;
   flex-direction: column !important;
@@ -3998,6 +4052,15 @@ ul.card-list li strong {
   border: 1.5px solid var(--border-color) !important;
   box-shadow: 3px 3px 0px var(--shadow-color) !important;
   border-radius: 8px !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.solvin-slide .sunstone-table {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .solvin-slide .sunstone-table th {
@@ -4005,11 +4068,15 @@ ul.card-list li strong {
   border-bottom: 2px solid var(--border-color) !important;
   color: var(--text-color) !important;
   font-family: var(--code-font, monospace) !important;
+  padding: 0.85rem 1.1rem !important;
+  font-size: 0.88rem !important;
 }
 
 .solvin-slide .sunstone-table td {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
   color: var(--text-color) !important;
+  padding: 0.85rem 1.1rem !important;
+  font-size: 0.88rem !important;
 }
 
 .solvin-slide .sunstone-table tr.highlight-row {
@@ -4017,24 +4084,48 @@ ul.card-list li strong {
 }
 
 /* Sol.vin FAQ Grid */
+.solvin-slide .faq-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1.2rem !important;
+  flex: 1 !important;
+}
+
 .solvin-slide .faq-card {
   background: var(--bg-window) !important;
   border: 1.5px solid var(--border-color) !important;
   box-shadow: 3px 3px 0px var(--shadow-color) !important;
   border-radius: 8px !important;
+  padding: 1.25rem 1.45rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.65rem !important;
+  justify-content: flex-start !important;
 }
 
 .solvin-slide .faq-q-badge {
   background: var(--accent-color, var(--border-active)) !important;
   color: var(--bg-color) !important;
+  font-size: 0.68rem !important;
+  font-weight: 800 !important;
+  padding: 0.16rem 0.65rem !important;
+  border-radius: 9999px !important;
 }
 
 .solvin-slide .faq-question {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
   color: var(--text-color) !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
 }
 
 .solvin-slide .faq-answer {
   color: var(--text-dim, #94a3b8) !important;
+  font-size: 0.88rem !important;
+  line-height: 1.55 !important;
 }
 
 .asciinema-player-mount:hover .ap-control-bar {

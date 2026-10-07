@@ -7,11 +7,17 @@ module Sunstone
       cube_size = slide.raw["cube_size"]?.try(&.as_i) || 160
       pillars = slide.raw["pillars"]?.try(&.as_a)
 
+      has_cube = if slide_cube = slide.raw["cube"]?.try(&.as_bool)
+                   slide_cube
+                 else
+                   deck.theme.downcase.includes?("sol.vin") || deck.header_cube
+                 end
+
       body = String.build do |str|
         str << "          <div class=\"chapter-content\">\n"
         str << "            <div class=\"chapter-top\">\n"
         if !act_label.strip.empty?
-          str << "              <span class=\"badge\" data-color=\"" << slide.badge_color << "\">" << LayoutRenderer.tint_emojis(HTML.escape(act_label)) << "</span>\n"
+          str << "              <div class=\"chapter-badge-wrap\"><span class=\"badge chapter-act-badge\" data-color=\"" << slide.badge_color << "\">" << LayoutRenderer.tint_emojis(HTML.escape(act_label)) << "</span></div>\n"
         end
         str << "              <h1 class=\"chapter-title\">" << LayoutRenderer.tint_emojis(HTML.escape(slide.title)) << "</h1>\n"
         if !slide.subtitle.strip.empty?
@@ -19,8 +25,8 @@ module Sunstone
         end
         str << "            </div>\n"
 
-        if deck.header_cube
-          str << "            <div class=\"chapter-cube-wrap\"><div class=\"hero-cube chapter-cube\" data-size=\"" << cube_size << "\"></div></div>\n"
+        if has_cube
+          str << "            <div class=\"chapter-cube-wrap\"><div class=\"hero-cube chapter-cube\" data-size=\"" << cube_size << "\" title=\"Spinning 3D Isometric Cube • Click or Drag to Spin!\"></div></div>\n"
         end
 
         if pillars && !pillars.empty?

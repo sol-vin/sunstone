@@ -9,11 +9,13 @@ steps:
   - title: "1. Project Scaffold"
     phase: "STEP 1"
     color: "accent"
-    cmd: "sunstone new my-talk --theme generic"
+    cmd: |
+      sunstone new my-talk --theme sol.vin
+      cd my-talk && ls slides/
     items:
-      - "Generates deck.yml manifest"
-      - "Scaffolds starter slide deck"
-      - "Installs GitHub Pages CI"
+      - "Generates declarative deck.yml manifest"
+      - "Scaffolds starter slide definitions"
+      - "Preconfigures automated GitHub Pages CI"
   - title: "2. Author Slides"
     phase: "STEP 2"
     color: "emerald"
@@ -22,17 +24,19 @@ steps:
       layout: "architecture"
       palette: "emerald_matrix"
     items:
-      - "Configure semantic YAML"
-      - "Select theme-scoped palettes"
-      - "Embed code and terminal logs"
+      - "Author semantic slides in human-friendly YAML"
+      - "Select per-slide theme palettes dynamically"
+      - "Embed interactive code and terminal blocks"
   - title: "3. Local Preview"
     phase: "STEP 3"
     color: "amber"
-    cmd: "sunstone serve --port 8000"
+    cmd: |
+      sunstone serve --port 8000
+      # Auto-opens http://localhost:8000
     items:
-      - "Port-hunting web server"
-      - "Synchronized speaker notes"
-      - "Automatic browser launch"
+      - "Instant-feedback port-hunting web server"
+      - "Synchronized dual-screen speaker notes"
+      - "Single-command production static compilation"
 summary: "Three simple commands take you from blank canvas to deployed interactive presentation."
 notes: |
   Highlight the live demonstration steps during the presentation.

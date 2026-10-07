@@ -9,7 +9,7 @@ height: 720
 header:
   enabled: true
   label: "SUNSTONE // FEATURE TOUR"
-  cube: false
+  cube: true
 
 footer_left: "☀️ {title} • {subtitle}"
 footer_center: "{author} ({palette})"

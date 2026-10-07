@@ -13,6 +13,7 @@ columns:
       - "Human-authored slide decks"
       - "Git-friendly line-by-line diffs"
       - "Zero markup boilerplate"
+      - "Clean speaker notes integration"
   - title: "2. Crystal Engine"
     color: "emerald"
     badge: "PROCESS"
@@ -20,6 +21,7 @@ columns:
       - "Blazing-fast native execution"
       - "Strong type validation"
       - "Zero runtime dependencies"
+      - "Sub-300ms compile latency"
   - title: "3. Semantic HTML & CSS"
     color: "amber"
     badge: "OUTPUT"
@@ -27,5 +29,6 @@ columns:
       - "Zero inline style attributes"
       - "Theme-scoped CSS variables"
       - "Clean Reveal.js presentations"
+      - "Accessible semantic HTML5 markup"
 notes: |
   Highlight how cleanly three columns fit in standard 16:9 viewports.

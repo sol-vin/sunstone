@@ -22,6 +22,9 @@ modes:
       - icon: "desktop"
         label: "Browser Launch"
         value: "OS Native"
+      - icon: "terminal"
+        label: "Dev Server"
+        value: "Built-in Crystal HTTP"
   - title: "Production Static Build"
     badge: "CI / CD"
     color: "emerald"
@@ -36,7 +39,10 @@ modes:
         value: "Pure HTML/CSS/JS"
       - icon: "paper-plane"
         label: "Deployment"
-        value: "GitHub Actions"
+        value: "GitHub Actions CI"
+      - icon: "code"
+        label: "Build Velocity"
+        value: "< 300ms Compile"
 summary: "Seamlessly transition from local slide drafting to production GitHub Pages deployment."
 notes: |
   Contrast development ergonomics with production CI deployment efficiency.

@@ -20,15 +20,17 @@ cards:
     color: "accent"
     badge: "EXPERTISE"
     items:
-      - "High-performance systems programming"
-      - "Compiler design and AST transformations"
-      - "Developer tooling and command-line interfaces"
+      - "High-performance systems programming & native code generation"
+      - "Compiler architecture, AST pipelines, and macro metaprogramming"
+      - "Developer ergonomics, command-line interfaces, and terminal TUIs"
+      - "Deterministic memory architecture and bare-metal concurrency"
   - title: "Community & Open Source"
     color: "emerald"
     badge: "COMMUNITY"
     items:
-      - "Author of Opal, Carbon, and Jasper"
-      - "Active contributor across Crystal ecosystem"
-      - "Passionate about zero-dependency tooling"
+      - "Creator of Opal (CLI/TUI), Carbon (VCS/doctor), and Jasper (docs compiler)"
+      - "Active contributor and maintainer across the Crystal shard ecosystem"
+      - "Architect of zero-dependency and zero-inline-style design patterns"
+      - "Speaker on reproducible presentation engineering and systems design"
 notes: |
   Introduce the presenter and outline background experience.

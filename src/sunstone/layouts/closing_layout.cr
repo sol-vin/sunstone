@@ -8,9 +8,15 @@ module Sunstone
       signature = slide.raw["signature"]?.try(&.as_s)
       cube_size = slide.raw["cube_size"]?.try(&.as_i) || 280
 
+      has_cube = if slide_cube = slide.raw["cube"]?.try(&.as_bool)
+                   slide_cube
+                 else
+                   deck.theme.downcase.includes?("sol.vin") || deck.header_cube
+                 end
+
       body = String.build do |str|
-        if deck.header_cube
-          str << "          <div class=\"hero-cube closing-cube\" data-size=\"" << cube_size << "\"></div>\n"
+        if has_cube
+          str << "          <div class=\"hero-cube closing-cube\" data-size=\"" << cube_size << "\" title=\"Spinning 3D Isometric Cube • Click or Drag to Spin!\"></div>\n"
         end
 
         str << render_slide_header(slide) << "\n"

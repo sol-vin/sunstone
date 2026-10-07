@@ -24,6 +24,12 @@ cards:
     color: "amber"
     link: "sol.vin"
     desc: "Built alongside Opal, Carbon, and Jasper in the Sol.vin shard family."
+  - title: "Automated Releases"
+    badge: "CARBON VCS"
+    icon: "shield"
+    color: "purple"
+    link: "github.com/sol-vin/carbon"
+    desc: "Deterministic versioning, changelog compilation, and release doctor."
 quickstart: "shards install && bin/sunstone build --out dist"
 signature: "☀️ Crafted with pride by the Sol.vin team."
 notes: |

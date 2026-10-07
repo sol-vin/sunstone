@@ -6,9 +6,20 @@ palette: "emerald_matrix"
 chapter_number: "01"
 title: "Semantic Layout Architecture"
 subtitle: "Separating content structure from presentation styles"
+cube: true
+cube_size: 160
 pillars:
-  - "Zero Inline Styles"
-  - "CSS Pseudo Chrome"
-  - "Theme Variable Cascading"
+  - title: "Zero Inline Styles"
+    desc: "Strict semantic HTML governed exclusively by data-* attributes"
+    icon: "code"
+    color: "emerald"
+  - title: "CSS Pseudo Chrome"
+    desc: "Window controls and track accents rendered via CSS ::before & ::after"
+    icon: "sparkles"
+    color: "cyan"
+  - title: "Dynamic Palettes"
+    desc: "Runtime theme cascading with per-slide CSS variable scopes"
+    icon: "terminal"
+    color: "amber"
 notes: |
   Introduce the design principles behind Sunstone's semantic HTML engine.
