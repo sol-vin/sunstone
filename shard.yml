@@ -1,5 +1,5 @@
 name: sunstone
-version: 0.1.13
+version: 0.1.14
 
 authors:
   - sol-vin <sol@sol.vin>
@@ -11,6 +11,9 @@ description: |
 dependencies:
   opal:
     github: sol-vin/opal
+    branch: main
+  celestine:
+    github: celestinecr/celestine
     branch: main
 
 development_dependencies:

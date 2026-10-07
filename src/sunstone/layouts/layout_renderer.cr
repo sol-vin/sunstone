@@ -3,6 +3,7 @@ require "../models/slide"
 require "../models/deck"
 require "../models/palette"
 require "../icon_registry"
+require "../chart"
 
 module Sunstone
   abstract class LayoutRenderer

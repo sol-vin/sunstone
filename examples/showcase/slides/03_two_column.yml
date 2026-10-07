@@ -1,54 +1,48 @@
 id: "two_column"
 layout: "two-column"
 ratio: "1:1"
-badge: "RUBY QUIRKS • EXPRESSION RETURNS"
-badge_color: "blue"
-palette: "amigo"
-title: "Implicit Returns: The Last Evaluated Expression"
-subtitle: "Expression-Oriented Design, Functional Flow & High-Signal Early Returns"
+badge: "AOT ENGINE • PERFORMANCE"
+badge_color: "emerald"
+palette: "slate_dark"
+title: "AOT Compilation & Pipeline Velocity"
+subtitle: "Sub-50ms slide generation with zero Node.js runtime baggage"
 left:
   type: "code"
-  title: "implicit_returns.rb — Expressions Over Rituals"
-  tag: "Ruby"
-  lang: "ruby"
+  title: "pipeline.cr — Native Shard Architecture"
+  tag: "Crystal"
+  lang: "crystal"
   code: |
-    # 1. Methods return their last evaluated expression:
-    def calculate_damage(base_power, defense)
-      multiplier = critical_hit? ? 2.0 : 1.0
-      [base_power * multiplier - defense, 1].max # No "return" needed!
-    end
+    # 1. Parse declarative deck manifest:
+    deck = Sunstone::Deck.from_yaml(File.read("deck.yml"))
 
-    # 2. Blocks in pipelines return values effortlessly:
-    healed_party = party.map do |player|
-      player.heal(25) # Return value of heal() becomes mapped element!
-    end
+    # 2. Resolve layout renderer via static router:
+    renderer = Sunstone::LayoutRouter.resolve("stats")
 
-    # 3. Branching returns naturally from whichever branch ran:
-    def player_rank(score)
-      if score >= 10_000
-        :grandmaster
-      elsif score >= 5_000
-        :diamond
-      else
-        :challenger
-      end # Entire if returns the resulting symbol to the caller!
-    end
+    # 3. Compile vector Celestine chart & theme CSS:
+    chart = Sunstone::Chart.sparkline(metrics, stroke: "#10b981")
+    html  = renderer.render_html(slide, deck, palette, 1, 20)
 
-    # 4. Explicit "return" is reserved strictly for early bailouts:
-    def process_turn(actor)
-      return unless actor.alive? # High-signal guard clause!
-      actor.take_action
-    end
+    # 4. Emit zero-inline-style artifact:
+    File.write("dist/index.html", html)
 right:
-  type: "card"
-  title: "Why Outsiders Hesitate vs Why It's Brilliant"
-  color: "blue"
-  items:
-    - "<strong>The Outsider's Worry:</strong> In C, Java, and Python, developers are trained that omitting <code>return</code> means the routine is <code>void</code> or returns <code>None</code>. Seeing no return looks like an accidental omission."
-    - "<strong>Expression-Oriented Semantics:</strong> Routines evaluate naturally to their resulting value rather than requiring procedural return statements. Mandating a <code>return</code> keyword on every single function is ritualistic syntax noise."
-    - "<strong>Crucial for Blocks & Closures:</strong> Functional pipelines (<code>map</code>, <code>select</code>) rely on implicit returns. In Ruby, writing an explicit <code>return</code> inside a block aborts the <em>enclosing method</em>, not just the block!"
-    - "<strong>High-Signal Guard Clauses:</strong> Because ordinary returns are implicit, an explicit <code>return</code> stands out vividly on code review as an intentional early bailout (<code>return if dead?</code>)."
-    - "<strong>Crystal Flow Typing:</strong> Crystal infers the static union type across all branch exit expressions at compile time—delivering functional elegance with zero runtime dispatch cost."
+  type: "chart"
+  chart_type: "bar"
+  title: "Cold Slide Build Time (ms)"
+  badge: "LOWER IS BETTER"
+  color: "#38bdf8"
+  highlight_color: "#10b981"
+  highlight_index: 0
+  labels:
+    - "Sunstone"
+    - "Marp"
+    - "Reveal-MD"
+    - "Pandoc"
+  values:
+    - 42.0
+    - 380.0
+    - 520.0
+    - 640.0
 notes: |
-  In traditional imperative programming languages like C, Java, or Python, every function that computes a value must conclude with the keyword 'return'.
-  In Ruby, methods, blocks, and conditionals naturally evaluate to the result of their last executed expression.
+  Sunstone is built from the ground up in Crystal as a compiled, single-binary slide engine.
+  Unlike JavaScript slide toolchains that incur heavy V8 boot times and npm dependency trees,
+  Sunstone processes AST transforms and renders Celestine vector SVGs in under 50ms.

@@ -9,7 +9,9 @@ module Sunstone
       cube_size = slide.raw["cube_size"]?.try(&.as_i) || 280
 
       body = String.build do |str|
-        if deck.theme.downcase.includes?("sol.vin") || deck.header_cube
+        has_cube = deck.theme.downcase.includes?("sol.vin") || deck.header_cube
+
+        if has_cube
           str << "          <div class=\"hero-cube intro-cube\" data-size=\"" << cube_size << "\" title=\"Spinning 3D Isometric Cube • Click or Drag to Spin!\"></div>\n"
         end
 
@@ -26,8 +28,16 @@ module Sunstone
         end
         str << "            </div>\n"
 
-        if deck.theme.downcase.includes?("sol.vin") || deck.header_cube
+        if has_cube
           str << "            <div class=\"intro-cube-spacer\" data-spacer-height=\"" << cube_size << "\"></div>\n"
+        elsif pills && !pills.empty?
+          str << "            <div class=\"intro-middle-block\">\n"
+          str << "              <div class=\"intro-pills-row\">\n"
+          pills.each do |p|
+            str << "                <span class=\"intro-pill\">" << LayoutRenderer.tint_emojis(p.as_s) << "</span>\n"
+          end
+          str << "              </div>\n"
+          str << "            </div>\n"
         end
 
         str << "            <div class=\"intro-bottom-block\">\n"
@@ -40,7 +50,7 @@ module Sunstone
           str << "              </div>\n"
         end
 
-        if pills && !pills.empty?
+        if has_cube && pills && !pills.empty?
           str << "              <div class=\"intro-pills-row\">\n"
           pills.each do |p|
             str << "                <span class=\"intro-pill\">" << LayoutRenderer.tint_emojis(p.as_s) << "</span>\n"

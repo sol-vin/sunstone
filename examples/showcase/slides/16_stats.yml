@@ -11,24 +11,28 @@ metrics:
     delta: "+950%"
     color: "accent"
     icon: "bolt"
+    sparkline: [15, 25, 38, 55, 78, 92, 120]
     desc: "AOT compilation eliminates JVM/V8 warm-up penalties"
   - value: "0 ms"
     label: "Stop-The-World GC"
     delta: "DETERMINISTIC"
     color: "emerald"
     icon: "shield"
+    progress: 100.0
     desc: "Careful reference counting and value semantics"
   - value: "100%"
-    label: "Compile-Time Type Safety"
+    label: "Compile-Time Safety"
     delta: "ZERO NILS"
     color: "amber"
     icon: "terminal"
-    desc: "Exhaustive flow-sensitive type checking and union unwrapping"
+    progress: 100.0
+    desc: "Exhaustive flow-sensitive static type checking"
   - value: "18 MB"
     label: "Stripped Binary Size"
     delta: "-85% VS NODE"
     color: "purple"
     icon: "code"
+    sparkline: [95, 80, 55, 38, 24, 18]
     desc: "Single standalone executable without runtime dependencies"
 notes: |
   Present key architectural metrics demonstrating Crystal and Sunstone's efficiency.

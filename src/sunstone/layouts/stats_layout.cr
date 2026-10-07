@@ -33,6 +33,37 @@ module Sunstone
             str << "                </div>\n"
             str << "                <div class=\"stat-kpi-value " << color << "\">" << LayoutRenderer.tint_emojis(HTML.escape(val)) << "</div>\n"
             str << "                <div class=\"stat-kpi-label\">" << LayoutRenderer.tint_emojis(HTML.escape(lbl)) << "</div>\n"
+
+            chart_color = case color
+                          when "emerald", "green" then "#10b981"
+                          when "amber", "yellow"  then "#f59e0b"
+                          when "purple", "violet" then "#a855f7"
+                          when "blue"             then "#3b82f6"
+                          when "red", "rose"      then "#f43f5e"
+                          when "cyan"             then "#06b6d4"
+                          else                         "#38bdf8"
+                          end
+
+            chart_svg : String? = nil
+            if chart_node = m["chart"]?
+              chart_svg = Sunstone::Chart.from_yaml(chart_node, chart_color)
+            elsif spark_node = m["sparkline"]?
+              spark_data = Array(Float64).new
+              if spark_arr = spark_node.as_a?
+                spark_arr.each { |d| spark_data << (d.as_f? || d.as_i?.try(&.to_f64) || 0.0) }
+              end
+              chart_svg = Sunstone::Chart.sparkline(spark_data, stroke: chart_color) unless spark_data.empty?
+            elsif prog_node = m["progress"]?
+              prog_val = (prog_node.as_f? || prog_node.as_i?.try(&.to_f64) || 0.0)
+              chart_svg = Sunstone::Chart.progress_ring(prog_val, color: chart_color)
+            end
+
+            if chart_svg
+              str << "                <div class=\"stat-kpi-chart\">\n"
+              str << "                  " << chart_svg << "\n"
+              str << "                </div>\n"
+            end
+
             if desc
               str << "                <div class=\"stat-kpi-desc\">" << LayoutRenderer.tint_emojis(HTML.escape(desc)) << "</div>\n"
             end

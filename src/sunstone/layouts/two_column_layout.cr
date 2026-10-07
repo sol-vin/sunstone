@@ -136,6 +136,23 @@ module Sunstone
         str << " data-theme=\"" << LayoutRenderer.escape(theme) << "\" data-cols=\"" << cols << "\" data-rows=\"" << rows << "\"></div>\n"
         str << "              </div>\n"
         str << "            </div>\n"
+      when "chart", "svg_chart"
+        title = data["title"]?.try(&.as_s) || "Performance Chart"
+        badge = data["badge"]?.try(&.as_s)
+        color = data["color"]?.try(&.as_s) || "#38bdf8"
+        chart_svg = Sunstone::Chart.from_yaml(data, color) || ""
+
+        str << "            <div class=\"card chart-card col\">\n"
+        str << "              <div class=\"card-header\">\n"
+        str << "                <span class=\"card-title\">" << LayoutRenderer.tint_emojis(LayoutRenderer.escape(title)) << "</span>\n"
+        if badge
+          str << "                <span class=\"badge\">" << LayoutRenderer.escape(badge) << "</span>\n"
+        end
+        str << "              </div>\n"
+        str << "              <div class=\"chart-container\">\n"
+        str << "                " << chart_svg << "\n"
+        str << "              </div>\n"
+        str << "            </div>\n"
       when "barchart"
         title = data["title"]?.try(&.as_s) || "Benchmark Comparison"
         badge = data["badge"]?.try(&.as_s) || "LOWER IS BETTER"

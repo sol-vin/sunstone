@@ -4,14 +4,14 @@ badge: "SHOWCASE DECK"
 badge_color: "accent"
 palette: "slate_dark"
 title: "Sunstone Presentation Engine"
-subtitle: "YAML-driven slide generation with strict zero-inline-style semantic HTML"
-author: "Sol.vin Engineering"
-author_role: "Core Framework Architecture"
+subtitle: "Declarative YAML slide generation, zero-inline-style semantic HTML, and Celestine SVG charts"
+author: "Sol.vin Architecture Team"
+author_role: "Core Engine & Slide Architecture"
 pills:
-  - "⚡ YAML Syntax"
-  - "🎨 Theme Palettes"
-  - "📦 15 Layouts"
-  - "🚀 Pure CSS Chrome"
+  - "⚡ Native Crystal AOT"
+  - "🎨 Scoped Palettes"
+  - "📦 20 Semantic Layouts"
+  - "📊 Celestine SVG Charts"
 notes: |
   Welcome to the Sunstone interactive showcase!
   This presentation demonstrates every semantic layout, palette switching,

@@ -4,6 +4,10 @@ shards:
     git: https://github.com/sol-vin/carbon.git
     version: 0.1.14+git.commit.5aa9727e76850daec397f83d5ccc0a97746c6278
 
+  celestine:
+    git: https://github.com/celestinecr/celestine.git
+    version: 0.9.2+git.commit.273fe7e7db1d9843ceeca07b279a544254b4a5fa
+
   jasper:
     git: https://github.com/sol-vin/jasper.git
     version: 0.1.0+git.commit.84f01e6ca1cf9bbbd5333faba30a823eddea7cec
