@@ -23,9 +23,114 @@ settings:
       title: "\U0001F6E0️ Chores & Tooling"
       bullet: •
 releases:
-- version: 0.1.17
+- version: 0.1.18
   date: "2026-10-06"
   status: active
+  entries:
+  - type: fix
+    description: fix invisible chapter layout text colors in light themes by replacing
+      invalid --sunstone-text variable with --sunstone-text-primary/muted
+    bullet: ✓
+    badge: '[CHAPTER]'
+  - type: feat
+    description: add classical LaTeX section page and booktabs comparison scorecard
+      styling in academic theme
+    bullet: ✦
+    badge: '[ACADEMIC]'
+  - type: fix
+    description: center chapter layout content when 3D cube is inactive and restrict
+      cube container to sol.vin or explicit header_cube decks
+    bullet: ✓
+    badge: '[LAYOUT]'
+  - type: feat
+    description: add nordic, brutalist, academic, and tokyo-night themes with custom
+      theme authoring and developer pressure points guides
+    bullet: ✦
+    badge: '[THEMES]'
+    hash: 6e31826
+    author: Ian Rash
+  - type: feat
+    description: add interactive multi-theme landing page and --all-themes build support
+    bullet: ✦
+    badge: '[GALLERY]'
+    hash: 1e87150
+    author: Ian Rash
+  - type: refactor
+    description: simplify homepage to clean minimal list linking directly to theme
+      demos
+    bullet: ✦
+    badge: '[GALLERY]'
+    hash: fd3b7ac
+    author: Ian Rash
+  - type: fix
+    description: restore authentic sol.vin theme aesthetic and harmonize multi-theme
+      layouts
+    bullet: ✓
+    badge: '[THEME]'
+    hash: 448030a
+    author: Ian Rash
+  - type: fix
+    description: complete overhaul of authentic sol.vin styling and multi-theme rendering
+    bullet: ✓
+    badge: '[THEME]'
+    hash: 4c62c5e
+    author: Ian Rash
+  - type: fix
+    description: remove duplicate pseudo-element dots in generic code window header
+    bullet: ✓
+    badge: '[THEME]'
+    hash: 9767d58
+    author: Ian Rash
+  - type: feat
+    description: complete layout overhaul with universal Grid/Flexbox engine and 5
+      new layouts
+    bullet: ✦
+    badge: '[LAYOUT]'
+    hash: 6017be5
+    author: Ian Rash
+  - type: fix
+    description: resolve bento feature-grid multi-column layout override and expand
+      icon registry aliases
+    bullet: ✓
+    badge: '[LAYOUT]'
+    hash: 11893f8
+    author: Ian Rash
+  - type: feat
+    description: scope palettes per theme, import 102 sol.vin palettes, overhaul theme
+      styles, and fix bento layout
+    bullet: ✦
+    badge: '[THEME]'
+    hash: a2fff17
+    author: Ian Rash
+  - type: feat
+    description: integrate celestine SVG charts, overhaul intro layout spacing, and
+      showcase all 20 layouts
+    bullet: ✦
+    hash: e18c582
+    author: Ian Rash
+  - type: fix
+    description: resolve borked slide-media layout, style media window, and embed
+      Wikimedia Sunstone image
+    bullet: ✓
+    hash: 4edde82
+    author: Ian Rash
+  - type: feat
+    description: add chapter cube, center profile stats, fix timeline hover clipping,
+      and overhaul slide layouts
+    bullet: ✦
+    badge: '[LAYOUT]'
+    hash: 13c0ce6
+    author: Ian Rash
+  - type: feat
+    description: overhaul matrix layout with frosted arctic glass scorecard and balanced
+      grid
+    bullet: ✦
+    badge: '[LAYOUT]'
+    hash: 9f5eb04
+    author: Ian Rash
+- version: 0.1.17
+  date: "2026-10-06"
+  status: released
   entries:
   - type: feat
     description: overhaul matrix layout with semantic matrix-container, column highlighting,

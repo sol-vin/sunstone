@@ -204,3 +204,263 @@
   font-weight: 700;
   font-style: italic;
 }
+
+/* ==========================================================================
+   Academic Chapter & Section Divider Layout (LaTeX Section Page)
+   ========================================================================== */
+.chapter-content {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 2.5rem !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+}
+
+.chapter-top {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  position: relative !important;
+}
+
+.chapter-act-badge {
+  font-family: var(--sunstone-font-sans) !important;
+  font-variant: small-caps !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  background: var(--sunstone-surface) !important;
+  color: var(--sunstone-accent) !important;
+  border: 1px solid var(--sunstone-border) !important;
+  border-radius: 3px !important;
+  padding: 0.25rem 0.9rem !important;
+}
+
+.chapter-title {
+  font-family: var(--sunstone-font-sans) !important;
+  font-size: 3rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--sunstone-text-primary) !important;
+  text-align: center !important;
+  position: relative !important;
+}
+
+/* Classical hairline rule under title in LaTeX aesthetic */
+.chapter-title::after {
+  content: "";
+  display: block;
+  width: 140px;
+  height: 2px;
+  background: var(--sunstone-accent);
+  margin: 0.75rem auto 0 auto;
+}
+
+.chapter-subtitle {
+  font-family: var(--sunstone-font-sans) !important;
+  font-size: 1.15rem !important;
+  font-style: italic !important;
+  color: var(--sunstone-text-muted) !important;
+  max-width: 780px !important;
+  text-align: center !important;
+}
+
+.chapter-pillars-row {
+  display: flex !important;
+  gap: 1.5rem !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 1040px !important;
+}
+
+.chapter-pillar-card {
+  flex: 1 1 0 !important;
+  background: var(--sunstone-surface) !important;
+  border: 1px solid var(--sunstone-border) !important;
+  border-top: 3.5px solid var(--sunstone-accent) !important;
+  border-radius: 4px !important;
+  padding: 1.1rem 1.3rem !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.chapter-pillar-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08) !important;
+}
+
+.chapter-pillar-icon {
+  color: var(--sunstone-accent) !important;
+}
+
+.chapter-pillar-title {
+  font-family: var(--sunstone-font-sans) !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: var(--sunstone-text-primary) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.chapter-pillar-desc {
+  font-family: var(--sunstone-font-sans) !important;
+  font-size: 0.82rem !important;
+  color: var(--sunstone-text-muted) !important;
+  line-height: 1.4 !important;
+}
+
+/* ==========================================================================
+   Academic Matrix Comparison Layout (LaTeX Booktabs Scorecard)
+   ========================================================================== */
+.reveal .slide-body[data-layout*="matrix"],
+.slide-body[data-layout*="matrix"],
+[data-layout*="matrix"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.95rem !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+}
+
+.reveal [data-layout*="matrix"] .matrix-container,
+[data-layout*="matrix"] .matrix-container,
+.matrix-container {
+  background: var(--sunstone-surface) !important;
+  border: 1px solid var(--sunstone-border) !important;
+  border-radius: var(--sunstone-radius-md, 4px) !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06) !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.reveal [data-layout*="matrix"] .matrix-table,
+[data-layout*="matrix"] .matrix-table,
+.matrix-table {
+  width: 100% !important;
+  height: 100% !important;
+  border-collapse: collapse !important;
+  font-family: var(--sunstone-font-sans) !important;
+  font-size: 0.88rem !important;
+  text-align: left !important;
+  /* LaTeX Booktabs: \toprule & \bottomrule */
+  border-top: 2.5px solid var(--sunstone-text-primary) !important;
+  border-bottom: 2.5px solid var(--sunstone-text-primary) !important;
+}
+
+.matrix-table thead tr {
+  background: var(--sunstone-surface) !important;
+  /* LaTeX \midrule */
+  border-bottom: 2px solid var(--sunstone-text-primary) !important;
+}
+
+.matrix-table th {
+  padding: 0.95rem 1.25rem !important;
+  font-family: var(--sunstone-font-sans) !important;
+  font-variant: small-caps !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.06em !important;
+  color: var(--sunstone-text-primary) !important;
+  border-bottom: 2px solid var(--sunstone-text-primary) !important;
+}
+
+.matrix-table th.dim-header {
+  color: var(--sunstone-text-primary) !important;
+  font-weight: 800 !important;
+}
+
+.matrix-table th.highlight,
+.matrix-table th.highlight-col {
+  color: var(--sunstone-accent) !important;
+  background: rgba(30, 58, 138, 0.05) !important;
+  border-bottom: 2.5px solid var(--sunstone-accent) !important;
+}
+
+.matrix-table th.highlight-col::after {
+  content: "[PROPOSED / OPTIMAL]";
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  font-variant: small-caps;
+  font-weight: 700;
+  color: var(--sunstone-accent);
+  margin-top: 3px;
+}
+
+.matrix-table tbody tr {
+  border-bottom: 1px solid var(--sunstone-border) !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.matrix-table tbody tr:last-child {
+  border-bottom: none !important;
+}
+
+.matrix-table tbody tr:hover {
+  background-color: var(--sunstone-surface-hover) !important;
+}
+
+.matrix-table td {
+  padding: 0.8rem 1.25rem !important;
+  color: var(--sunstone-text-secondary) !important;
+  line-height: 1.45 !important;
+  vertical-align: middle !important;
+  font-family: var(--sunstone-font-sans) !important;
+}
+
+.matrix-table td.dim-header {
+  font-weight: 700 !important;
+  color: var(--sunstone-text-primary) !important;
+  font-size: 0.92rem !important;
+  border-right: 1.5px solid var(--sunstone-border) !important;
+  background: rgba(0, 0, 0, 0.015) !important;
+}
+
+.matrix-table td.highlight-col,
+.matrix-table td.lapis-col {
+  color: var(--sunstone-accent) !important;
+  font-weight: 700 !important;
+  background: rgba(30, 58, 138, 0.04) !important;
+  border-left: 1.5px dashed var(--sunstone-border) !important;
+}
+
+.matrix-table tbody tr:hover td.highlight-col,
+.matrix-table tbody tr:hover td.lapis-col {
+  background: rgba(30, 58, 138, 0.08) !important;
+}
+
+/* Academic Takeaway / Theorem Note */
+[data-layout*="matrix"] .takeaway-banner,
+.takeaway-banner {
+  background: var(--sunstone-surface) !important;
+  border: 1px solid var(--sunstone-border) !important;
+  border-left: 4px solid var(--sunstone-accent) !important;
+  border-radius: var(--sunstone-radius-sm, 2px) !important;
+  padding: 0.65rem 1.25rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.1rem !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-layout*="matrix"] .takeaway-banner .badge {
+  background: var(--sunstone-accent) !important;
+  color: #ffffff !important;
+  font-variant: small-caps !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  border-radius: 2px !important;
+  padding: 0.2rem 0.6rem !important;
+}
+
+[data-layout*="matrix"] .takeaway-banner .takeaway-text {
+  font-family: var(--sunstone-font-sans) !important;
+  font-style: italic !important;
+  color: var(--sunstone-text-primary) !important;
+  font-size: 0.88rem !important;
+  line-height: 1.35 !important;
+}

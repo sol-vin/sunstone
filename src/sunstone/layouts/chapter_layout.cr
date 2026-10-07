@@ -7,10 +7,10 @@ module Sunstone
       cube_size = slide.raw["cube_size"]?.try(&.as_i) || 160
       pillars = slide.raw["pillars"]?.try(&.as_a)
 
-      has_cube = if slide_cube = slide.raw["cube"]?.try(&.as_bool)
-                   slide_cube
+      has_cube = if deck.theme.downcase.includes?("sol.vin") || deck.header_cube
+                   slide.raw["cube"]?.try(&.as_bool) != false
                  else
-                   deck.theme.downcase.includes?("sol.vin") || deck.header_cube
+                   false
                  end
 
       body = String.build do |str|

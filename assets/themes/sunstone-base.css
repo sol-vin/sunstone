@@ -681,12 +681,18 @@
 .chapter-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   text-align: center;
+  gap: 2rem;
   height: 100%;
   box-sizing: border-box;
   padding: 1.5rem 2rem 1.2rem;
+}
+
+.chapter-content:has(.chapter-cube-wrap) {
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .chapter-top {
@@ -715,7 +721,7 @@
   font-weight: 800;
   margin: 0;
   line-height: 1.15;
-  color: var(--sunstone-text, #ffffff);
+  color: var(--sunstone-text-primary, #ffffff);
 }
 
 .chapter-subtitle {
@@ -723,7 +729,7 @@
   opacity: 0.85;
   margin: 0;
   max-width: 860px;
-  color: var(--sunstone-muted, #94a3b8);
+  color: var(--sunstone-text-muted, #94a3b8);
 }
 
 .chapter-cube-wrap {
@@ -780,12 +786,12 @@
 .chapter-pillar-title {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--sunstone-text, #ffffff);
+  color: var(--sunstone-text-primary, #ffffff);
 }
 
 .chapter-pillar-desc {
   font-size: 0.78rem;
-  color: var(--sunstone-muted, #94a3b8);
+  color: var(--sunstone-text-muted, #94a3b8);
   line-height: 1.3;
 }
 
