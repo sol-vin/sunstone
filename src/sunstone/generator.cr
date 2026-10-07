@@ -66,16 +66,7 @@ module Sunstone
           str << clean_user << "\n"
         end
         str << "\n/* Theme-Scoped Palette CSS Rules */\n"
-        all_deck_palettes = Hash(String, Palette).new
-        @palettes.each { |k, v| all_deck_palettes[k] = v }
-        @deck.slides.each do |s|
-          if !all_deck_palettes.has_key?(s.palette)
-            if found = Palette.find_palette(s.palette)
-              all_deck_palettes[s.palette] = found
-            end
-          end
-        end
-        all_deck_palettes.each_value do |pal|
+        @palettes.each_value do |pal|
           str << pal.css_rule(@deck.theme) << "\n"
         end
       end
@@ -104,7 +95,7 @@ module Sunstone
       slides_html = String.build do |str|
         @deck.slides.each do |slide|
           renderer = LayoutRouter.resolve(slide.layout)
-          palette = @palettes[slide.palette]? || Palette.find_palette(slide.palette) || @palettes.values.first
+          palette = Palette.resolve_for_theme(slide.palette, @deck.theme, @palettes, @deck.default_palette)
           str << renderer.render_html_all(slide, @deck, palette, current_num, total) << "\n\n"
           current_num += renderer.slide_count(slide)
         end
@@ -421,7 +412,7 @@ module Sunstone
         current_num = 1
         @deck.slides.each do |slide|
           renderer = LayoutRouter.resolve(slide.layout)
-          palette = @palettes[slide.palette]? || Palette.find_palette(slide.palette) || @palettes.values.first
+          palette = Palette.resolve_for_theme(slide.palette, @deck.theme, @palettes, @deck.default_palette)
           str << renderer.render_markdown_all(slide, @deck, palette, current_num, total)
           current_num += renderer.slide_count(slide)
         end

@@ -358,3 +358,105 @@
   border-color: var(--sunstone-accent);
   transform: translateY(-2px);
 }
+
+/* Generic KPI Dashboard */
+.stat-kpi-card {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  border-radius: var(--sunstone-radius-md);
+  box-shadow: var(--sunstone-shadow);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.stat-kpi-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--sunstone-accent);
+}
+
+.stat-kpi-value {
+  font-family: var(--sunstone-font-sans);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--sunstone-accent);
+}
+
+.stat-kpi-label {
+  font-family: var(--sunstone-font-sans);
+  color: var(--sunstone-text-muted);
+  font-size: 0.85rem;
+}
+
+/* Bento Feature Grid */
+.feature-grid-main {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  border-radius: var(--sunstone-radius-lg);
+  box-shadow: var(--sunstone-shadow);
+}
+
+.feature-grid-side {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  border-radius: var(--sunstone-radius-md);
+  box-shadow: var(--sunstone-shadow);
+}
+
+/* Pipeline Process Flow */
+.process-step {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  border-radius: var(--sunstone-radius-md);
+  box-shadow: var(--sunstone-shadow);
+}
+
+.process-step-num {
+  font-family: var(--sunstone-font-mono);
+  font-weight: 700;
+  color: var(--sunstone-accent);
+  background: var(--sunstone-code-bg);
+  border-radius: var(--sunstone-radius-sm);
+  padding: 0.1rem 0.45rem;
+}
+
+/* Modern Comparative Table */
+.sunstone-table {
+  border-collapse: collapse;
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  border-radius: var(--sunstone-radius-md);
+  overflow: hidden;
+  box-shadow: var(--sunstone-shadow);
+}
+
+.sunstone-table th {
+  background: var(--sunstone-code-bg);
+  color: var(--sunstone-text-primary);
+  font-family: var(--sunstone-font-sans);
+  font-weight: 600;
+  border-bottom: 2px solid var(--sunstone-border);
+  padding: 0.65rem 1.2rem;
+}
+
+.sunstone-table td {
+  border-bottom: 1px solid var(--sunstone-border);
+  padding: 0.6rem 1.2rem;
+}
+
+.sunstone-table tr.highlighted-row {
+  background-color: var(--sunstone-surface-hover);
+  border-left: 3px solid var(--sunstone-accent);
+}
+
+/* Q&A Grid Cards */
+.faq-card {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  border-radius: var(--sunstone-radius-md);
+  box-shadow: var(--sunstone-shadow);
+}
+
+.faq-q {
+  font-family: var(--sunstone-font-sans);
+  font-weight: 700;
+  color: var(--sunstone-text-primary);
+}

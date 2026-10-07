@@ -1,4 +1,24 @@
 # CARBON CHANGELOG
+## [0.1.13] - 2026-10-06
+### ✨ Features & Improvements
+- ✦ **[PALETTES]** enforce strict theme-scoped palette isolation, import 102 authentic sol.vin palettes, and add theme-native semantic alias mapping
+- ✦ **[THEMES]** complete visual styling overhaul across Academic (LaTeX Booktabs), Brutalist (neo-brutalist solid borders & hard shadows), Nordic (frosted glass), and Tokyo Night (cyberpunk IDE)
+- ✦ **[CLI]** support positional deck argument across CLI build, serve, and validate commands
+- ✦ **[THEMES]** add nordic, brutalist, academic, and tokyo-night themes with custom theme authoring and developer pressure points guides ([`6e31826`](https://github.com/sol-vin/sunstone/commit/6e31826))
+- ✦ **[GALLERY]** add interactive multi-theme landing page and --all-themes build support ([`1e87150`](https://github.com/sol-vin/sunstone/commit/1e87150))
+- ✦ **[LAYOUT]** complete layout overhaul with universal Grid/Flexbox engine and 5 new layouts ([`6017be5`](https://github.com/sol-vin/sunstone/commit/6017be5))
+
+### 🐛 Bug Fixes
+- ✓ **[LAYOUTS]** eliminate duplicate window header and controls on bento feature-grid hero cards and balance margin geometry
+- ✓ **[THEME]** restore authentic sol.vin theme aesthetic and harmonize multi-theme layouts ([`448030a`](https://github.com/sol-vin/sunstone/commit/448030a))
+- ✓ **[THEME]** complete overhaul of authentic sol.vin styling and multi-theme rendering ([`4c62c5e`](https://github.com/sol-vin/sunstone/commit/4c62c5e))
+- ✓ **[THEME]** remove duplicate pseudo-element dots in generic code window header ([`9767d58`](https://github.com/sol-vin/sunstone/commit/9767d58))
+- ✓ **[LAYOUT]** resolve bento feature-grid multi-column layout override and expand icon registry aliases ([`11893f8`](https://github.com/sol-vin/sunstone/commit/11893f8))
+
+### 🛠️ Chores & Tooling
+- ✦ **[GALLERY]** simplify homepage to clean minimal list linking directly to theme demos ([`fd3b7ac`](https://github.com/sol-vin/sunstone/commit/fd3b7ac))
+
+---
 ## [0.1.12] - 2026-10-06
 ### ✨ Features & Improvements
 - ✦ **[THEMES]** add nordic, brutalist, academic, and tokyo-night themes with custom theme authoring and developer pressure points guides ([`6e31826`](https://github.com/sol-vin/sunstone/commit/6e31826))

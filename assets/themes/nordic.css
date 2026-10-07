@@ -129,3 +129,110 @@
 .arch-tier {
   border: 1px solid var(--sunstone-border);
 }
+
+/* Nordic Frosted KPI Dashboard */
+.stat-kpi-card {
+  background: rgba(17, 24, 39, 0.65);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--sunstone-radius-md, 8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.stat-kpi-value {
+  font-family: var(--sunstone-font-sans);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--sunstone-accent);
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+}
+
+.stat-kpi-label {
+  font-family: var(--sunstone-font-sans);
+  letter-spacing: 0.04em;
+  font-size: 0.82rem;
+  color: var(--sunstone-text-muted);
+}
+
+/* Frosted Glass Bento Grid */
+.feature-grid-main {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--sunstone-radius-lg, 12px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.feature-grid-side {
+  background: rgba(17, 24, 39, 0.55);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--sunstone-radius-md, 8px);
+}
+
+/* Minimal Arctic Pipeline */
+.process-step {
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  padding: 0.8rem 1.4rem;
+}
+
+.process-step-num {
+  font-family: var(--sunstone-font-sans);
+  font-weight: 700;
+  background: var(--sunstone-accent);
+  color: var(--sunstone-bg);
+  border-radius: 9999px;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Minimal Nordic Table */
+.sunstone-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  background: rgba(17, 24, 39, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--sunstone-radius-md, 8px);
+  overflow: hidden;
+}
+
+.sunstone-table th {
+  background: rgba(17, 24, 39, 0.8);
+  color: var(--sunstone-text-primary);
+  font-family: var(--sunstone-font-sans);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.65rem 1.2rem;
+}
+
+.sunstone-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.6rem 1.2rem;
+}
+
+.sunstone-table tr.highlighted-row {
+  background-color: rgba(56, 189, 248, 0.12);
+  color: var(--sunstone-accent);
+  font-weight: 600;
+}
+
+/* Frosted Accordion FAQ Cards */
+.faq-card {
+  background: rgba(17, 24, 39, 0.65);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--sunstone-radius-md, 8px);
+}
+
+.faq-q {
+  font-family: var(--sunstone-font-sans);
+  font-weight: 600;
+  color: var(--sunstone-text-primary);
+}

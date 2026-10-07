@@ -30,9 +30,11 @@ module Sunstone
           str << "                </div>\n"
 
           if h_code
-            str << render_code_container(h_title, h_lang, h_code, h_badge, "compact") << "\n"
+            str << "                <div class=\"code-window bento-code-window\" data-lang=\"" << h_lang.downcase << "\">\n"
+            str << "                  <pre><code class=\"language-" << h_lang.downcase << " code-compact\">" << HTML.escape(h_code.strip) << "</code></pre>\n"
+            str << "                </div>\n"
           elsif h_cmd
-            str << "                <div class=\"terminal-window\" data-density=\"compact\">\n"
+            str << "                <div class=\"terminal-window bento-code-window\" data-density=\"compact\">\n"
             str << "                  <div class=\"window-body\"><pre><code class=\"language-bash\">" << HTML.escape(h_cmd.strip) << "</code></pre></div>\n"
             str << "                </div>\n"
           end

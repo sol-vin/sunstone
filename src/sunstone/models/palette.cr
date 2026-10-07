@@ -63,6 +63,150 @@ module Sunstone
       palettes
     end
 
+    # Maps generic/semantic palette names to the native equivalent in the target theme
+    def self.map_theme_palette_alias(requested_id : String, theme_name : String) : String?
+      norm_theme = theme_name.downcase.gsub("_", "-")
+      norm_id = requested_id.downcase.gsub("-", "_")
+
+      case norm_theme
+      when "academic", "latex", "beamer", "scholarly"
+        case norm_id
+        when "slate_dark", "monolith", "storm", "inversion", "dark", "black"
+          "gothic_dark"
+        when "nordic_ice", "nord_frost", "ocean_blue", "accent", "cambridge"
+          "cambridge_blue"
+        when "emerald_matrix", "aurora", "green", "emerald_manuscript"
+          "emerald_manuscript"
+        when "candy", "amber", "sunset_amber", "crimson", "crimson_obsidian", "oxford"
+          "oxford_crimson"
+        when "chalkboard", "blackboard", "blackboard_latex"
+          "blackboard_latex"
+        when "paper_light", "snow_storm", "warm_paper", "light", "default"
+          "computer_modern"
+        else
+          "computer_modern"
+        end
+
+      when "sol.vin", "solvin", "retro"
+        case norm_id
+        when "slate_dark", "monolith", "storm", "dark"
+          "inversion"
+        when "nordic_ice"
+          "nord_frost"
+        when "emerald_matrix", "aurora"
+          "fos"
+        when "ocean_blue"
+          "amigo"
+        when "amber", "sunset_amber"
+          "a64_pal"
+        when "neon", "cyber_neon"
+          "pico_8"
+        when "midnight_indigo", "black"
+          "black_cube"
+        when "paper_light", "computer_modern", "light", "default"
+          "warm_paper"
+        else
+          nil
+        end
+
+      when "nordic", "scandinavian", "ice"
+        case norm_id
+        when "slate_dark", "monolith", "storm", "inversion", "dark", "polar"
+          "fjord_deep"
+        when "nordic_ice", "nord_frost", "ocean_blue", "default", "accent"
+          "fjord_deep"
+        when "emerald_matrix", "neon", "aurora", "green"
+          "aurora_night"
+        when "paper_light", "computer_modern", "warm_paper", "light", "snow", "white"
+          "glacier_frost"
+        when "candy", "amber", "sunset_amber", "yellow"
+          "midnight_sun"
+        when "crimson_obsidian", "twilight", "purple"
+          "arctic_twilight"
+        else
+          "fjord_deep"
+        end
+
+      when "brutalist", "neo-brutalist", "swiss"
+        case norm_id
+        when "slate_dark", "inversion", "storm", "dark", "black", "default", "yellow"
+          "yellow_hazard"
+        when "paper_light", "light", "warm_paper", "white", "clean_light"
+          "paper_ink"
+        when "emerald_matrix", "neon", "green"
+          "electric_lime"
+        when "amber", "sunset_amber", "orange"
+          "orange_warning"
+        when "nordic_ice", "ocean_blue", "blue"
+          "cobalt_blueprint"
+        when "crimson_obsidian", "magenta", "cyber_neon", "pink", "accent"
+          "hot_magenta"
+        else
+          "yellow_hazard"
+        end
+
+      when "tokyo-night", "tokyonight", "cyberpunk", "ide"
+        case norm_id
+        when "slate_dark", "inversion", "default"
+          "tokyo_night"
+        when "nordic_ice", "ocean_blue", "storm"
+          "tokyo_storm"
+        when "cyber_neon", "accent", "neon"
+          "cyber_pulse"
+        when "midnight_indigo", "dark", "black"
+          "catppuccin_mocha"
+        when "crimson_obsidian", "dracula"
+          "dracula_vampire"
+        when "paper_light", "warm_paper", "light", "sunset_amber", "sakura"
+          "sakura_bloom"
+        else
+          "tokyo_night"
+        end
+
+      else # Generic
+        case norm_id
+        when "default", "dark"
+          "slate_dark"
+        when "light", "paper_light", "computer_modern", "warm_paper"
+          "paper_light"
+        when "accent", "amigo", "blue", "cyan"
+          "ocean_blue"
+        else
+          nil
+        end
+      end
+    end
+
+    def self.resolve_for_theme(requested_id : String, theme_name : String, theme_palettes : Hash(String, Palette), default_palette_id : String? = nil) : Palette
+      norm_id = requested_id.strip
+      
+      # 1. Exact match in the theme's own catalog
+      if p = theme_palettes[norm_id]?
+        return p
+      end
+
+      # 2. Case-insensitive or underscore/hyphen match in theme catalog
+      clean_id = norm_id.downcase.gsub("-", "_")
+      if p = theme_palettes[clean_id]?
+        return p
+      end
+
+      # 3. Theme-specific semantic alias mapping
+      if mapped = map_theme_palette_alias(norm_id, theme_name)
+        if p = theme_palettes[mapped]?
+          return p
+        end
+      end
+
+      # 4. Fall back to theme's designated default palette
+      if default_palette_id && (p = theme_palettes[default_palette_id]?)
+        return p
+      end
+
+      # 5. Fall back to first palette in the theme's catalog
+      theme_palettes.values.first? || Palette.new("fallback", "Default", Hash(String, String).new)
+    end
+
     @@all_palettes_cache : Hash(String, Palette)? = nil
 
     # Finds a palette by ID across all built-in theme catalogs

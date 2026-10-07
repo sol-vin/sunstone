@@ -24,7 +24,7 @@ module Sunstone
         cmd.flag :no_vendor, "--no-vendor", description: "Skip extracting vendor assets (Reveal.js, Highlight.js, Asciinema)"
 
         cmd.run do |ctx|
-          deck_file = ctx.string(:deck)
+          deck_file = Sunstone::CLI.resolve_deck_path(ctx)
           out_dir = ctx.string(:out)
           no_vendor = ctx.flag?(:no_vendor)
 
@@ -92,7 +92,7 @@ module Sunstone
         cmd.flag :no_browser, "--no-browser", description: "Do not automatically launch web browser"
 
         cmd.run do |ctx|
-          deck_file = ctx.string(:deck)
+          deck_file = Sunstone::CLI.resolve_deck_path(ctx)
           out_dir = ctx.string(:out)
           port = ctx.int?(:port) || 8000
           no_browser = ctx.flag?(:no_browser)
@@ -122,7 +122,7 @@ module Sunstone
         cmd.option :deck, "--deck", "-d", "Path to presentation deck.yml", default: "deck.yml"
 
         cmd.run do |ctx|
-          deck_file = ctx.string(:deck)
+          deck_file = Sunstone::CLI.resolve_deck_path(ctx)
           unless File.exists?(deck_file)
             STDERR.puts "\e[31mError:\e[0m Deck file '#{deck_file}' not found."
             exit 1
@@ -147,14 +147,10 @@ module Sunstone
               errors += 1
             end
 
-            # Validate palette
-            unless palettes.has_key?(slide.palette)
-              if found = Palette.find_palette(slide.palette)
-                # Valid palette resolved across catalogs
-              else
-                STDERR.puts "  \e[33m[WARN]\e[0m Slide #{idx + 1} ('#{slide.id}'): Palette '#{slide.palette}' not found in theme '#{deck.theme}' (will fall back to default palette)"
-                warnings += 1
-              end
+            # Validate palette within theme scope
+            unless palettes.has_key?(slide.palette) || Palette.map_theme_palette_alias(slide.palette, deck.theme)
+              STDERR.puts "  \e[33m[WARN]\e[0m Slide #{idx + 1} ('#{slide.id}'): Palette '#{slide.palette}' not in theme '#{deck.theme}' (will resolve to #{deck.default_palette})"
+              warnings += 1
             end
           end
 
@@ -344,6 +340,13 @@ module Sunstone
           0
         end
       end
+    end
+
+    def self.resolve_deck_path(ctx : Opal::CLI::Context) : String
+      if (first_arg = ctx.args.first?) && File.exists?(first_arg)
+        return first_arg
+      end
+      ctx.string(:deck)
     end
 
     def self.run(args = ARGV)

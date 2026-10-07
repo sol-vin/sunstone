@@ -974,6 +974,32 @@
   box-sizing: border-box;
 }
 
+.bento-code-window {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  margin: 0.5rem 0;
+  border-radius: var(--sunstone-radius-sm, 4px);
+  background: var(--sunstone-code-bg);
+  border: 1px solid var(--sunstone-border);
+}
+
+.bento-code-window pre {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.bento-desc {
+  margin-top: 0.45rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
 .bento-subcard {
   display: flex;
   flex-direction: column;

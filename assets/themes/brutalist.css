@@ -155,3 +155,103 @@
   border-radius: 0px !important;
   transform: rotate(45deg);
 }
+
+/* Brutalist KPI Dashboard */
+.stat-kpi-card {
+  background: var(--sunstone-surface);
+  border: 2.5px solid var(--sunstone-border);
+  box-shadow: 4px 4px 0px var(--sunstone-border);
+  border-radius: 0px !important;
+  padding: 1.2rem;
+}
+
+.stat-kpi-value {
+  font-family: var(--sunstone-font-sans);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--sunstone-accent);
+}
+
+.stat-kpi-label {
+  font-family: var(--sunstone-font-mono);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+}
+
+/* Neo-Brutalist Bento / Feature Grid */
+.feature-grid-main {
+  background: var(--sunstone-surface);
+  border: 3px solid var(--sunstone-border);
+  box-shadow: 5px 5px 0px var(--sunstone-border);
+  border-radius: 0px !important;
+}
+
+.feature-grid-side {
+  background: var(--sunstone-surface);
+  border: 2px solid var(--sunstone-border);
+  box-shadow: 3px 3px 0px var(--sunstone-border);
+  border-radius: 0px !important;
+}
+
+/* Harsh Directional Pipeline */
+.process-step {
+  background: var(--sunstone-surface);
+  border: 2.5px solid var(--sunstone-border);
+  box-shadow: 4px 4px 0px var(--sunstone-border);
+  border-radius: 0px !important;
+}
+
+.process-step-num {
+  font-family: var(--sunstone-font-mono);
+  font-weight: 900;
+  background: var(--sunstone-border);
+  color: var(--sunstone-bg);
+  padding: 0.1rem 0.4rem;
+}
+
+/* Stark Brutalist Table */
+.sunstone-table {
+  border: 2.5px solid var(--sunstone-border);
+  border-collapse: collapse;
+  box-shadow: 4px 4px 0px var(--sunstone-border);
+  border-radius: 0px !important;
+}
+
+.sunstone-table th {
+  background: var(--sunstone-border);
+  color: var(--sunstone-bg);
+  font-family: var(--sunstone-font-mono);
+  font-weight: 800;
+  text-transform: uppercase;
+  border: 1.5px solid var(--sunstone-bg);
+  padding: 0.6rem 1rem;
+}
+
+.sunstone-table td {
+  border: 1.5px solid var(--sunstone-border);
+  padding: 0.6rem 1rem;
+  font-family: var(--sunstone-font-mono);
+}
+
+.sunstone-table tr.highlighted-row {
+  background-color: var(--sunstone-accent-secondary);
+  color: var(--sunstone-bg);
+  font-weight: 700;
+}
+
+/* Stark FAQ Cards */
+.faq-card {
+  background: var(--sunstone-surface);
+  border: 2.5px solid var(--sunstone-border);
+  box-shadow: 4px 4px 0px var(--sunstone-border);
+  border-radius: 0px !important;
+}
+
+.faq-q {
+  font-family: var(--sunstone-font-sans);
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}

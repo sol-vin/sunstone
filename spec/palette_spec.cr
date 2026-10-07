@@ -100,5 +100,33 @@ describe Sunstone::Palette do
     css.should contain("--sunstone-bg: #0f172a;")
     css.should contain("--sunstone-accent: #38bdf8;")
   end
+
+  it "strictly scopes palettes to theme and resolves semantic aliases" do
+    academic_palettes = Sunstone::Palette.load_for_theme("academic")
+
+    # Generic palette 'slate_dark' resolves to academic 'gothic_dark'
+    resolved = Sunstone::Palette.resolve_for_theme("slate_dark", "academic", academic_palettes, "computer_modern")
+    resolved.id.should eq("gothic_dark")
+
+    # Native academic palette resolves directly
+    resolved = Sunstone::Palette.resolve_for_theme("cambridge_blue", "academic", academic_palettes, "computer_modern")
+    resolved.id.should eq("cambridge_blue")
+
+    # Unknown palette falls back to theme default
+    resolved = Sunstone::Palette.resolve_for_theme("non_existent_palette", "academic", academic_palettes, "computer_modern")
+    resolved.id.should eq("computer_modern")
+  end
+
+  it "loads all 102 sol.vin palettes without cross-leaking into other themes" do
+    solvin_palettes = Sunstone::Palette.load_for_theme("sol.vin")
+    solvin_palettes.size.should be >= 100
+    solvin_palettes.has_key?("amigo").should be_true
+    solvin_palettes.has_key?("inversion").should be_true
+    solvin_palettes.has_key?("black_cube").should be_true
+
+    academic_palettes = Sunstone::Palette.load_for_theme("academic")
+    academic_palettes.has_key?("amigo").should be_false
+    academic_palettes.has_key?("inversion").should be_false
+  end
 end
 

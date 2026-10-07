@@ -20,7 +20,6 @@ module Sunstone
     getter footer_left : String
     getter footer_center : String
     getter footer_right : String
-    getter default_palette : String
     getter custom_css : Array(String)
     getter custom_palettes : Hash(String, Palette)
     getter slides : Array(Slide)
@@ -53,9 +52,6 @@ module Sunstone
       @footer_left = footer.try(&.["left"]?.try(&.as_s)) || @raw["footer_left"]?.try(&.as_s) || "{title} • {subtitle}"
       @footer_center = footer.try(&.["center"]?.try(&.as_s)) || @raw["footer_center"]?.try(&.as_s) || "{author} ({palette})"
       @footer_right = footer.try(&.["right"]?.try(&.as_s)) || @raw["footer_right"]?.try(&.as_s) || "Slide {slide_num} / {total_slides}"
-
-      @default_palette = @raw["default_palette"]?.try(&.as_s) || (@theme.downcase.includes?("sol.vin") ? "warm_paper" : "slate_dark")
-
       @custom_css = Array(String).new
       if css_nodes = @raw["custom_css"]?.try(&.as_a)
         css_nodes.each { |node| @custom_css << node.as_s }
@@ -76,6 +72,27 @@ module Sunstone
           end
           @custom_palettes[id] = Palette.new(id, name, colors)
         end
+      end
+    end
+
+    def default_palette : String
+      if explicit = @raw["default_palette"]?.try(&.as_s)
+        return explicit
+      end
+
+      case @theme.downcase.gsub("_", "-")
+      when "sol.vin", "solvin", "retro"
+        "warm_paper"
+      when "academic", "latex", "beamer", "scholarly"
+        "computer_modern"
+      when "nordic", "scandinavian", "ice"
+        "fjord_deep"
+      when "brutalist", "neo-brutalist", "swiss"
+        "yellow_hazard"
+      when "tokyo-night", "tokyonight", "cyberpunk", "ide"
+        "tokyo_night"
+      else
+        "slate_dark"
       end
     end
 

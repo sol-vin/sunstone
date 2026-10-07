@@ -112,16 +112,95 @@
 
 /* Academic Stat Counters & Tables */
 .stat-kpi-card {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
   border-left: 4px solid var(--sunstone-accent);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 .stat-kpi-value {
-  font-family: var(--sunstone-font-mono);
+  font-family: var(--sunstone-font-sans);
+  font-weight: 700;
   color: var(--sunstone-accent);
+  letter-spacing: -0.02em;
+}
+
+.stat-kpi-label {
+  font-family: var(--sunstone-font-sans);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+}
+
+/* Classical LaTeX Booktabs Tables */
+.sunstone-table {
+  border-top: 2px solid var(--sunstone-text-primary);
+  border-bottom: 2px solid var(--sunstone-text-primary);
+  border-collapse: collapse;
+}
+
+.sunstone-table thead tr {
+  border-bottom: 1px solid var(--sunstone-text-primary);
 }
 
 .sunstone-table th {
   font-family: var(--sunstone-font-sans);
   font-variant: small-caps;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  padding: 0.6rem 1rem;
+  background: transparent;
+  color: var(--sunstone-text-primary);
+}
+
+.sunstone-table td {
+  border: none;
+  border-bottom: 1px solid var(--sunstone-border);
+  padding: 0.55rem 1rem;
+}
+
+.sunstone-table tr.highlighted-row {
+  background-color: var(--sunstone-surface-hover);
+  font-weight: 600;
+}
+
+/* Scholarly Feature Grid & Bento Cards */
+.feature-grid-main {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  border-top: 3px solid var(--sunstone-accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.feature-grid-side {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+}
+
+/* Formal Step Pipeline */
+.process-step {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  border-radius: 2px;
+}
+
+.process-step-num {
+  font-family: var(--sunstone-font-sans);
+  font-variant: small-caps;
+  font-weight: 700;
+  color: var(--sunstone-accent);
+}
+
+/* Scholarly Inquiry FAQ Cards */
+.faq-card {
+  background: var(--sunstone-surface);
+  border: 1px solid var(--sunstone-border);
+  border-left: 3px solid var(--sunstone-accent);
+  border-radius: 2px;
+}
+
+.faq-q {
+  font-family: var(--sunstone-font-sans);
+  font-weight: 700;
+  font-style: italic;
 }
