@@ -22,6 +22,7 @@ module Sunstone
 
     # Builds all artifacts (HTML, Markdown, vendor assets, theme CSS) into output_dir
     def build(output_dir : String, copy_vendor : Bool = true) : Tuple(String, String)
+      IconRegistry.current_theme = @deck.theme
       Dir.mkdir_p(output_dir)
 
       if copy_vendor
@@ -72,8 +73,11 @@ module Sunstone
       end
       File.write(theme_file, theme_css_content)
 
+      theme_lower = @deck.theme.downcase
+      is_solvin = theme_lower.includes?("sol.vin") || theme_lower.includes?("solvin") || theme_lower == "retro"
+
       # Scaffold Sol.vin cube.js only if theme is sol.vin
-      if @deck.theme.downcase.includes?("sol.vin")
+      if is_solvin
         cube_file = File.join(output_dir, "cube.js")
         File.write(cube_file, Assets::SOLVIN_CUBE_JS)
       end
@@ -88,6 +92,7 @@ module Sunstone
     end
 
     def generate_html(output_file : String)
+      IconRegistry.current_theme = @deck.theme
       total = total_slides
 
       # Generate slide sections
@@ -101,8 +106,8 @@ module Sunstone
         end
       end
 
-
-      is_solvin = @deck.theme.downcase.includes?("sol.vin")
+      theme_lower = @deck.theme.downcase
+      is_solvin = theme_lower.includes?("sol.vin") || theme_lower.includes?("solvin") || theme_lower == "retro"
 
       # Dynamic SVG Palette Color Matrix Filters for Sol.vin retro emojis
       palette_filters_svg = if is_solvin
@@ -127,7 +132,7 @@ module Sunstone
           <!-- Sol.vin Deck Header with 3D Spinning Isometric Cube -->
           <div class="solvin-deck-header">
             <div id="header-cube-app" class="deck-cube-app" title="Spinning 3D Isometric Cube • Click or Drag to Spin!"></div>
-            <span class="deck-solvin-label">#{HTML.escape(@deck.title.upcase)}</span>
+            <span class="deck-solvin-label">#{LayoutRenderer.tint_emojis(HTML.escape(@deck.title.upcase), is_solvin: is_solvin)}</span>
           </div>
         HTML
       else
@@ -401,6 +406,7 @@ module Sunstone
     end
 
     def generate_markdown(output_file : String)
+      IconRegistry.current_theme = @deck.theme
       total = total_slides
 
       md_content = String.build do |str|

@@ -33,8 +33,8 @@ module Sunstone
       IconRegistry.render(name, extra_class)
     end
 
-    def self.tint_emojis(text : String) : String
-      IconRegistry.replace_icons(text)
+    def self.tint_emojis(text : String, is_solvin : Bool? = nil) : String
+      IconRegistry.replace_icons(text, is_solvin: is_solvin)
     end
 
     def self.extract_item_text(node : YAML::Any) : String

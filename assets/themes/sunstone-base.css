@@ -2561,5 +2561,10 @@
   border: 1px solid var(--sunstone-border, rgba(255, 255, 255, 0.15));
 }
 
-
-
+/* Sunstone Emoji Tinting Base */
+.emoji-tint {
+  display: inline-block;
+  vertical-align: -0.12em;
+  margin: 0 0.12em;
+  filter: var(--emoji-filter, none);
+}

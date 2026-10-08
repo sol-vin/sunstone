@@ -3,6 +3,13 @@
 
 module Sunstone
   module IconRegistry
+    class_property current_theme : String = "generic"
+
+    def self.solvin_theme? : Bool
+      norm = @@current_theme.downcase
+      norm.includes?("sol.vin") || norm.includes?("solvin") || norm == "retro"
+    end
+
     ICONS = {
       "arrow-right"          => {"0 0 512 512", "M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"},
       "ban"                  => {"0 0 512 512", "M367.2 412.5L99.5 144.8c-22.4 31.4-35.5 69.8-35.5 111.2 0 106 86 192 192 192 41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3c22.4-31.4 35.5-69.8 35.5-111.2 0-106-86-192-192-192-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0z"},
@@ -161,7 +168,9 @@ module Sunstone
     TAG_REGEX   = /:([a-z0-9_-]+):/
     EMOJI_REGEX = /((\p{Extended_Pictographic}|\p{Emoji_Presentation}|[\x{2600}-\x{27BF}\x{1F300}-\x{1FAFF}★■▲●✖✕])[\x{FE00}-\x{FE0F}\x{200D}]*)/
 
-    def self.replace_icons(text : String) : String
+    def self.replace_icons(text : String, is_solvin : Bool? = nil) : String
+      solvin = is_solvin.nil? ? solvin_theme? : is_solvin
+
       result = text.gsub(TAG_REGEX) do |m, match|
         tag_name = match[1]
         if norm = normalize_icon_name(tag_name)
@@ -171,11 +180,16 @@ module Sunstone
         end
       end
 
-      result.gsub(EMOJI_REGEX) do |m|
-        if norm = normalize_icon_name(m)
+      # Strip existing emoji-tint wrapper if re-processing to avoid nesting
+      clean = result.gsub(%r{<span class="emoji-tint">([\s\S]*?)</span>}) { |_, match| match[1] }
+
+      clean.gsub(EMOJI_REGEX) do |m|
+        if solvin
+          %(<span class="emoji-tint">#{m}</span>)
+        elsif norm = normalize_icon_name(m)
           render(norm)
         else
-          m
+          %(<span class="emoji-tint">#{m}</span>)
         end
       end
     end

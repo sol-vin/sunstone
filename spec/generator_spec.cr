@@ -93,5 +93,56 @@ describe Sunstone::Generator do
 
     FileUtils.rm_rf(landing_dir)
   end
+
+  it "applies ColorMatrix filters to emojis and wraps emojis in .emoji-tint for sol.vin theme" do
+    custom_dir = File.join(Dir.tempdir, "sunstone_solvin_spec_#{Time.utc.to_unix_ms}")
+    Dir.mkdir_p(custom_dir)
+
+    deck_yaml_path = File.join(custom_dir, "deck.yml")
+    deck_content = <<-YAML
+      title: Solvin Emojis 🚀
+      theme: sol.vin
+      slides:
+        - title: Hello Retro ⚡
+          layout: intro
+          palette: warm_paper
+      YAML
+    File.write(deck_yaml_path, deck_content)
+
+    deck = Sunstone::Deck.load(deck_yaml_path)
+    generator = Sunstone::Generator.new(deck)
+    html_path, _ = generator.build(custom_dir, copy_vendor: false)
+
+    html = File.read(html_path)
+    # Check that SVG feColorMatrix filter is rendered
+    html.should contain("<svg class=\"solvin-palette-filters\"")
+    html.should contain("<filter id=\"emoji-filter-warm_paper\"")
+    html.should contain("<feColorMatrix type=\"matrix\"")
+
+    # Check that emoji is wrapped in .emoji-tint
+    html.should contain(%(<span class="emoji-tint">⚡</span>))
+    html.should contain(%(<span class="emoji-tint">🚀</span>))
+
+    # Check theme.css contains --emoji-filter mapping
+    theme_css = File.read(File.join(custom_dir, "theme.css"))
+    theme_css.should contain("--emoji-filter: url(#emoji-filter-warm_paper);")
+    theme_css.should contain(".emoji-tint")
+
+    FileUtils.rm_rf(custom_dir)
+  end
+
+  it "verifies that sol.vin.css adheres strictly to palette variables" do
+    css = Sunstone::Assets.theme_css_for("sol.vin")
+    lines = css.lines
+
+    # Verify no hardcoded hex or rgba colors exist outside of the root fallback definitions (lines 1-40)
+    lines.each_with_index do |line, idx|
+      next if idx < 40 # Skip :root fallback declarations
+      clean = line.gsub(%r{/\*.*?\*/}, "").strip
+      clean.should_not match(/#[0-9a-fA-F]{3,8}\b/)
+      clean.should_not match(/\brgba?\s*\(/)
+    end
+  end
 end
+
 
