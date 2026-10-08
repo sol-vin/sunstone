@@ -2,7 +2,7 @@ id: "table"
 layout: "table"
 badge: "LAYOUT: TABLE"
 badge_color: "accent"
-palette: "slate_dark"
+palette: "indiglo_light"
 title: "Runtime & Language Benchmark Comparison"
 subtitle: "Empirical comparison across execution velocity, binary weight, and safety models"
 headers:

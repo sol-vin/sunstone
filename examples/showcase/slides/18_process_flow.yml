@@ -2,7 +2,7 @@ id: "process-flow"
 layout: "process-flow"
 badge: "LAYOUT: PROCESS-FLOW"
 badge_color: "accent"
-palette: "slate_dark"
+palette: "boom_bap_16"
 title: "End-to-End Pipeline & Distribution"
 subtitle: "Four-stage sequential workflow with directional chevrons"
 steps:

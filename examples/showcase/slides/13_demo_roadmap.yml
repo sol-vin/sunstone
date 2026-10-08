@@ -2,7 +2,7 @@ id: "demo_roadmap"
 layout: "demo-roadmap"
 badge: "LAYOUT: ROADMAP"
 badge_color: "emerald"
-palette: "emerald_matrix"
+palette: "playdate"
 title: "Live Walkthrough Agenda"
 subtitle: "Step-by-step interactive command execution flow"
 steps:

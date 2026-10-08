@@ -2,7 +2,7 @@ id: "four_column"
 layout: "four-column"
 badge: "LAYOUT: FOUR-COLUMN"
 badge_color: "amber"
-palette: "sunset_amber"
+palette: "pico_8"
 title: "Four Architectural Tiers"
 subtitle: "Compact quadrant or multi-column layout for comprehensive overviews"
 columns:

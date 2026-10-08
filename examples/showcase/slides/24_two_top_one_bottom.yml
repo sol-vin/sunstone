@@ -3,7 +3,7 @@ layout: "two-top-one-bottom"
 ratio: "2:1"
 badge: "ROW SPLIT"
 badge_color: "amber"
-palette: "sunset_amber"
+palette: "kanto_red"
 title: "Architectural Trade-Offs & Unified Synthesis"
 subtitle: "Balancing compile-time guarantees against runtime operational velocity"
 top_left:

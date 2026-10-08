@@ -2,7 +2,7 @@ id: "matrix"
 layout: "matrix"
 badge: "LAYOUT: MATRIX"
 badge_color: "cyber"
-palette: "cyber_neon"
+palette: "fos"
 title: "Presentation Engine Comparison"
 subtitle: "Evaluating architectures across styling, ergonomics, and reproducibility"
 headers:

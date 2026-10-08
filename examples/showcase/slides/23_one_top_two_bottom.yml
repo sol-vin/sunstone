@@ -3,7 +3,7 @@ layout: "one-top-two-bottom"
 ratio: "1:1"
 badge: "ROW SPLIT"
 badge_color: "emerald"
-palette: "emerald_matrix"
+palette: "hero_of_time"
 title: "Memory Allocation & Zero-Copy Subsystems"
 subtitle: "Heap minimization across high-frequency packet processing pipelines"
 top:

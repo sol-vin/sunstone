@@ -2,7 +2,7 @@ id: "architecture"
 layout: "architecture"
 badge: "LAYOUT: ARCHITECTURE"
 badge_color: "emerald"
-palette: "emerald_matrix"
+palette: "silicon_indigo"
 title: "Multi-Tier Sunstone Engine"
 subtitle: "Structured technology layers with CSS pseudo-element flow indicators"
 tiers:

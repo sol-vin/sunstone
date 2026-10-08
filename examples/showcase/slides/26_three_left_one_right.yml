@@ -3,7 +3,7 @@ layout: "three-left-one-right"
 ratio: "2:3"
 badge: "ASYMMETRIC STACK"
 badge_color: "rose"
-palette: "crimson_obsidian"
+palette: "mineshaft"
 title: "Core Engine Tenets & Benchmark Verification"
 subtitle: "Three design philosophies backed by real-time execution telemetry"
 left:

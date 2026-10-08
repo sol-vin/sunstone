@@ -2,7 +2,7 @@ id: "convergence_demo"
 layout: "convergence"
 badge: "ARTISTIC • CONVERGENCE"
 badge_color: "accent"
-palette: "slate_dark"
+palette: "inversion"
 title: "The Tri-Pillar Convergence"
 subtitle: "Where bare-metal speed, static type safety, and developer ergonomics meet"
 pillars:

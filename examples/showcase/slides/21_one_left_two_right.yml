@@ -3,7 +3,7 @@ layout: "one-left-two-right"
 ratio: "3:2"
 badge: "ASYMMETRIC SPLIT"
 badge_color: "accent"
-palette: "slate_dark"
+palette: "nord_frost"
 title: "Fiber Scheduling & Event Loop Execution"
 subtitle: "Cooperative fiber work-stealing paired with low-overhead telemetry"
 left:

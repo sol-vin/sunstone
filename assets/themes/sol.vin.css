@@ -1045,6 +1045,7 @@ ul.card-list li strong {
   background-color: var(--bg-color) !important;
   color: var(--text-color) !important;
   font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  padding: 2.8rem 2.4rem 1.2rem 2.4rem !important;
 }
 
 .solvin-slide .slide-body {
@@ -1164,38 +1165,55 @@ ul.card-list li strong {
 
 /* Palette-Scoped Badge Variants */
 .solvin-slide .badge-pill.coral,
-.solvin-slide .badge-pill.antipattern {
+.solvin-slide .badge-pill.antipattern,
+.solvin-slide .badge.coral,
+.solvin-slide .badge.antipattern,
+.solvin-slide .badge[data-color="coral"] {
   border-color: var(--border-color) !important;
   color: var(--text-dim, var(--text-color)) !important;
   background-color: var(--bg-window) !important;
 }
 
 .solvin-slide .badge-pill.emerald,
-.solvin-slide .badge-pill.solution {
-  border-color: var(--border-color) !important;
-  color: var(--accent-color) !important;
-  background-color: var(--bg-window) !important;
-}
-
-.solvin-slide .badge-pill.cyan {
-  border-color: var(--border-active) !important;
-  color: var(--border-active) !important;
-  background-color: var(--bg-window) !important;
-}
-
-.solvin-slide .badge-pill.purple {
+.solvin-slide .badge-pill.solution,
+.solvin-slide .badge.emerald,
+.solvin-slide .badge.solution,
+.solvin-slide .badge[data-color="emerald"] {
   border-color: var(--accent-color) !important;
   color: var(--accent-color) !important;
   background-color: var(--bg-window) !important;
 }
 
-.solvin-slide .badge-pill.amber {
+.solvin-slide .badge-pill.cyan,
+.solvin-slide .badge.cyan,
+.solvin-slide .badge.accent,
+.solvin-slide .badge-pill.accent,
+.solvin-slide .badge[data-color="cyan"],
+.solvin-slide .badge[data-color="accent"] {
+  border-color: var(--border-active) !important;
+  color: var(--border-active) !important;
+  background-color: var(--bg-window) !important;
+}
+
+.solvin-slide .badge-pill.purple,
+.solvin-slide .badge.purple,
+.solvin-slide .badge[data-color="purple"] {
+  border-color: var(--accent-secondary) !important;
+  color: var(--accent-secondary) !important;
+  background-color: var(--bg-window) !important;
+}
+
+.solvin-slide .badge-pill.amber,
+.solvin-slide .badge.amber,
+.solvin-slide .badge[data-color="amber"] {
   border-color: var(--accent-tertiary, var(--accent-color)) !important;
   color: var(--accent-tertiary, var(--accent-color)) !important;
   background-color: var(--bg-window) !important;
 }
 
-.solvin-slide .badge-pill.blue {
+.solvin-slide .badge-pill.blue,
+.solvin-slide .badge.blue,
+.solvin-slide .badge[data-color="blue"] {
   border-color: var(--link-color, var(--border-active)) !important;
   color: var(--link-color, var(--border-active)) !important;
   background-color: var(--bg-window) !important;
@@ -4008,13 +4026,56 @@ ul.card-list li strong {
 }
 
 .solvin-slide .stat-kpi-badge {
-  background: var(--border-color) !important;
-  color: var(--bg-color) !important;
+  background: var(--bg-window) !important;
+  border: 1.5px solid var(--border-color) !important;
+  color: var(--accent-color) !important;
+  box-shadow: 2px 2px 0px var(--shadow-color) !important;
+  border-radius: 4px !important;
+}
+
+.solvin-slide .stat-kpi-badge.emerald,
+.solvin-slide .stat-kpi-badge[data-color="emerald"] {
+  border-color: var(--accent-color) !important;
+  color: var(--accent-color) !important;
+}
+
+.solvin-slide .stat-kpi-badge.accent,
+.solvin-slide .stat-kpi-badge[data-color="accent"],
+.solvin-slide .stat-kpi-badge.cyan,
+.solvin-slide .stat-kpi-badge[data-color="cyan"] {
+  border-color: var(--border-active) !important;
+  color: var(--border-active) !important;
+}
+
+.solvin-slide .stat-kpi-badge.purple,
+.solvin-slide .stat-kpi-badge[data-color="purple"] {
+  border-color: var(--accent-secondary) !important;
+  color: var(--accent-secondary) !important;
+}
+
+.solvin-slide .stat-kpi-badge.amber,
+.solvin-slide .stat-kpi-badge[data-color="amber"] {
+  border-color: var(--accent-tertiary) !important;
+  color: var(--accent-tertiary) !important;
 }
 
 .solvin-slide .stat-kpi-value {
   color: var(--accent-color, var(--border-active)) !important;
   font-family: var(--code-font, monospace) !important;
+}
+
+.solvin-slide .stat-kpi-value.emerald {
+  color: var(--accent-color) !important;
+}
+.solvin-slide .stat-kpi-value.accent,
+.solvin-slide .stat-kpi-value.cyan {
+  color: var(--border-active) !important;
+}
+.solvin-slide .stat-kpi-value.purple {
+  color: var(--accent-secondary) !important;
+}
+.solvin-slide .stat-kpi-value.amber {
+  color: var(--accent-tertiary) !important;
 }
 
 .solvin-slide .stat-kpi-label {
@@ -4170,5 +4231,319 @@ ul.card-list li strong {
 .asciinema-player-mount:hover .ap-control-bar {
   opacity: 1;
 }
+
+/* ==============================================================================
+   Sol.vin Vertical Timeline (Milestones, Spine Rail & Dots)
+   ============================================================================== */
+.solvin-slide .vtimeline-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.55rem !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+}
+
+.solvin-slide .vtimeline-dot {
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 50% !important;
+  border: 3px solid var(--bg-window) !important;
+  background: var(--accent-color) !important;
+  box-shadow: none !important;
+}
+
+.solvin-slide .vtimeline-dot[data-status="done"],
+.solvin-slide .vtimeline-dot.done {
+  background: var(--accent-color) !important;
+  box-shadow: none !important;
+}
+
+.solvin-slide .vtimeline-dot[data-status="active"],
+.solvin-slide .vtimeline-dot.active {
+  background: var(--border-active) !important;
+  box-shadow: 0 0 8px var(--border-active) !important;
+}
+
+.solvin-slide .vtimeline-dot[data-status="pending"],
+.solvin-slide .vtimeline-dot.pending {
+  background: var(--text-dim) !important;
+  opacity: 0.6 !important;
+  box-shadow: none !important;
+}
+
+/* Palette-scoped dot color overrides */
+.solvin-slide .vtimeline-dot.emerald,
+.solvin-slide .vtimeline-item[data-color="emerald"] .vtimeline-dot {
+  background: var(--accent-color) !important;
+}
+
+.solvin-slide .vtimeline-dot.accent,
+.solvin-slide .vtimeline-dot.cyan,
+.solvin-slide .vtimeline-item[data-color="accent"] .vtimeline-dot {
+  background: var(--border-active) !important;
+}
+
+.solvin-slide .vtimeline-dot.purple,
+.solvin-slide .vtimeline-item[data-color="purple"] .vtimeline-dot {
+  background: var(--accent-secondary) !important;
+}
+
+.solvin-slide .vtimeline-dot.amber,
+.solvin-slide .vtimeline-item[data-color="amber"] .vtimeline-dot {
+  background: var(--accent-tertiary) !important;
+}
+
+.solvin-slide .vtimeline-line {
+  background: var(--border-color) !important;
+}
+
+.solvin-slide .vtimeline-time-pill {
+  background: var(--bg-window) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-dim) !important;
+  border-radius: 4px !important;
+}
+
+.solvin-slide .vtimeline-time-pill.emerald,
+.solvin-slide .vtimeline-item[data-color="emerald"] .vtimeline-time-pill {
+  border-color: var(--accent-color) !important;
+  color: var(--accent-color) !important;
+}
+
+.solvin-slide .vtimeline-time-pill.accent,
+.solvin-slide .vtimeline-time-pill.cyan,
+.solvin-slide .vtimeline-item[data-color="accent"] .vtimeline-time-pill {
+  border-color: var(--border-active) !important;
+  color: var(--border-active) !important;
+}
+
+.solvin-slide .vtimeline-time-pill.purple,
+.solvin-slide .vtimeline-item[data-color="purple"] .vtimeline-time-pill {
+  border-color: var(--accent-secondary) !important;
+  color: var(--accent-secondary) !important;
+}
+
+.solvin-slide .vtimeline-time-pill.amber,
+.solvin-slide .vtimeline-item[data-color="amber"] .vtimeline-time-pill {
+  border-color: var(--accent-tertiary) !important;
+  color: var(--accent-tertiary) !important;
+}
+
+.solvin-slide .vtimeline-card {
+  background: var(--bg-window) !important;
+  border: 1.5px solid var(--border-color) !important;
+  box-shadow: 2px 2px 0px var(--shadow-color) !important;
+  border-radius: 6px !important;
+}
+
+.solvin-slide .vtimeline-card:hover {
+  border-color: var(--border-active) !important;
+  box-shadow: 3px 3px 0px var(--border-active) !important;
+}
+
+.solvin-slide .vtimeline-card.emerald,
+.solvin-slide .vtimeline-item[data-color="emerald"] .vtimeline-card {
+  border-left: 3px solid var(--accent-color) !important;
+}
+
+.solvin-slide .vtimeline-card.accent,
+.solvin-slide .vtimeline-card.cyan,
+.solvin-slide .vtimeline-item[data-color="accent"] .vtimeline-card {
+  border-left: 3px solid var(--border-active) !important;
+}
+
+.solvin-slide .vtimeline-card.purple,
+.solvin-slide .vtimeline-item[data-color="purple"] .vtimeline-card {
+  border-left: 3px solid var(--accent-secondary) !important;
+}
+
+.solvin-slide .vtimeline-card.amber,
+.solvin-slide .vtimeline-item[data-color="amber"] .vtimeline-card {
+  border-left: 3px solid var(--accent-tertiary) !important;
+}
+
+.solvin-slide .vtimeline-card ul.card-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0.2rem 0 0 0 !important;
+}
+
+.solvin-slide .vtimeline-card ul.card-list li {
+  position: relative !important;
+  padding: 0 0 0 1.15rem !important;
+  font-size: 0.76rem !important;
+  line-height: 1.35 !important;
+  color: var(--text-color) !important;
+}
+
+.solvin-slide .vtimeline-card ul.card-list li::before {
+  content: "•" !important;
+  position: absolute !important;
+  left: 0 !important;
+  color: var(--border-active) !important;
+  font-weight: bold !important;
+  font-size: 1rem !important;
+  line-height: 1.2 !important;
+}
+
+.solvin-slide .vtimeline-card.emerald ul.card-list li::before,
+.solvin-slide .vtimeline-item[data-color="emerald"] .vtimeline-card ul.card-list li::before {
+  color: var(--accent-color) !important;
+}
+
+.solvin-slide .vtimeline-card.accent ul.card-list li::before,
+.solvin-slide .vtimeline-card.cyan ul.card-list li::before,
+.solvin-slide .vtimeline-item[data-color="accent"] .vtimeline-card ul.card-list li::before {
+  color: var(--border-active) !important;
+}
+
+.solvin-slide .vtimeline-card.purple ul.card-list li::before,
+.solvin-slide .vtimeline-item[data-color="purple"] .vtimeline-card ul.card-list li::before {
+  color: var(--accent-secondary) !important;
+}
+
+.solvin-slide .vtimeline-card.amber ul.card-list li::before,
+.solvin-slide .vtimeline-item[data-color="amber"] .vtimeline-card ul.card-list li::before {
+  color: var(--accent-tertiary) !important;
+}
+
+/* ==============================================================================
+   Sol.vin Roadmap Timeline (Gantt Multi-Track)
+   ============================================================================== */
+.solvin-slide .slide-body[data-layout*="roadmap-timeline"],
+.solvin-slide[data-layout*="roadmap-timeline"] .slide-body,
+[data-layout*="roadmap-timeline"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+}
+
+.solvin-slide .roadmap-board {
+  background: var(--bg-window) !important;
+  border: 1.5px solid var(--border-color) !important;
+  border-radius: 8px !important;
+  box-shadow: 3px 3px 0px var(--shadow-color) !important;
+  padding: 0.85rem !important;
+}
+
+.solvin-slide .roadmap-header-row {
+  border-bottom: 2px solid var(--border-color) !important;
+}
+
+.solvin-slide .roadmap-track-label-cell {
+  color: var(--text-dim) !important;
+  font-family: var(--code-font, monospace) !important;
+  letter-spacing: 0.06em !important;
+}
+
+.solvin-slide .roadmap-period-cell {
+  background: var(--bg-color) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-color) !important;
+  border-radius: 4px !important;
+  font-weight: 700 !important;
+}
+
+.solvin-slide .roadmap-track-row {
+  border-bottom: 1px dashed var(--border-color) !important;
+}
+
+.solvin-slide .track-name {
+  color: var(--text-color) !important;
+  font-weight: 700 !important;
+}
+
+.solvin-slide .roadmap-bar {
+  background: var(--bg-window) !important;
+  border: 1.5px solid var(--border-color) !important;
+  box-shadow: 2px 2px 0px var(--shadow-color) !important;
+  border-radius: 6px !important;
+  color: var(--text-color) !important;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.solvin-slide .roadmap-bar:hover {
+  border-color: var(--border-active) !important;
+  box-shadow: 3px 3px 0px var(--border-active) !important;
+  transform: translateY(-1px) !important;
+}
+
+.solvin-slide .roadmap-bar.emerald {
+  border-left: 3px solid var(--accent-color) !important;
+}
+.solvin-slide .roadmap-bar.accent,
+.solvin-slide .roadmap-bar.cyan {
+  border-left: 3px solid var(--border-active) !important;
+}
+.solvin-slide .roadmap-bar.purple {
+  border-left: 3px solid var(--accent-secondary) !important;
+}
+.solvin-slide .roadmap-bar.amber {
+  border-left: 3px solid var(--accent-tertiary) !important;
+}
+
+.solvin-slide .bar-label {
+  color: var(--text-color) !important;
+}
+
+.solvin-slide .bar-badge.badge {
+  font-size: 0.65rem !important;
+  padding: 0.12rem 0.45rem !important;
+}
+
+.solvin-slide .bar-badge.badge.emerald,
+.solvin-slide .bar-badge.badge[data-color="emerald"] {
+  border-color: var(--accent-color) !important;
+  color: var(--accent-color) !important;
+}
+.solvin-slide .bar-badge.badge.accent,
+.solvin-slide .bar-badge.badge[data-color="accent"],
+.solvin-slide .bar-badge.badge.cyan,
+.solvin-slide .bar-badge.badge[data-color="cyan"] {
+  border-color: var(--border-active) !important;
+  color: var(--border-active) !important;
+}
+.solvin-slide .bar-badge.badge.purple,
+.solvin-slide .bar-badge.badge[data-color="purple"] {
+  border-color: var(--accent-secondary) !important;
+  color: var(--accent-secondary) !important;
+}
+.solvin-slide .bar-badge.badge.amber,
+.solvin-slide .bar-badge.badge[data-color="amber"] {
+  border-color: var(--accent-tertiary) !important;
+  color: var(--accent-tertiary) !important;
+}
+
+/* ==============================================================================
+   Sol.vin Global Card-List Bullet Color Scoping
+   ============================================================================== */
+.solvin-slide .card.emerald ul.card-list li::before,
+.solvin-slide .card[data-color="emerald"] ul.card-list li::before,
+.solvin-slide [data-color="emerald"] .card ul.card-list li::before {
+  color: var(--accent-color) !important;
+}
+
+.solvin-slide .card.accent ul.card-list li::before,
+.solvin-slide .card.cyan ul.card-list li::before,
+.solvin-slide .card[data-color="accent"] ul.card-list li::before,
+.solvin-slide [data-color="accent"] .card ul.card-list li::before {
+  color: var(--border-active) !important;
+}
+
+.solvin-slide .card.purple ul.card-list li::before,
+.solvin-slide .card[data-color="purple"] ul.card-list li::before,
+.solvin-slide [data-color="purple"] .card ul.card-list li::before {
+  color: var(--accent-secondary) !important;
+}
+
+.solvin-slide .card.amber ul.card-list li::before,
+.solvin-slide .card[data-color="amber"] ul.card-list li::before,
+.solvin-slide [data-color="amber"] .card ul.card-list li::before {
+  color: var(--accent-tertiary) !important;
+}
+
 
 

@@ -2,7 +2,7 @@ id: "calendar_schedule_demo"
 layout: "calendar-schedule"
 badge: "SUMMIT AGENDA"
 badge_color: "accent"
-palette: "midnight_indigo"
+palette: "atomic_purple"
 title: "Systems Engineering Summit 2026"
 subtitle: "Three-day technical conference schedule across architecture, systems, and deployment tracks"
 columns:

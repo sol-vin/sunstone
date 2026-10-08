@@ -2,7 +2,7 @@ id: "code_comparison"
 layout: "code-comparison"
 badge: "LAYOUT: COMPARISON"
 badge_color: "crimson"
-palette: "crimson_obsidian"
+palette: "monokai"
 title: "Imperative vs Declarative Slides"
 subtitle: "Two-step progressive disclosure: raw code first, then critique analysis"
 before:

@@ -2,7 +2,7 @@ id: "radial_cycle_demo"
 layout: "radial-cycle"
 badge: "ARTISTIC • FLYWHEEL"
 badge_color: "accent"
-palette: "slate_dark"
+palette: "phosphor_vector"
 title: "Continuous Compiler Optimization Flywheel"
 subtitle: "Iterative feedback loop driving sub-50ms slide generation latency"
 hub:

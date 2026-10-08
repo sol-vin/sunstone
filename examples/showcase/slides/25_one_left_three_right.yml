@@ -3,7 +3,7 @@ layout: "one-left-three-right"
 ratio: "3:2"
 badge: "ASYMMETRIC STACK"
 badge_color: "cyan"
-palette: "nordic_ice"
+palette: "overworld_85"
 title: "HTTP Server Kernel & Triple Invariants"
 subtitle: "Non-blocking connection handlers guarded by invariant checkpoints"
 left:

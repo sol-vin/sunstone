@@ -2,7 +2,7 @@ id: "vertical_timeline_demo"
 layout: "vertical-timeline"
 badge: "TIMELINE"
 badge_color: "emerald"
-palette: "slate_dark"
+palette: "retro_groove"
 title: "Sunstone Evolution & Release Milestones"
 subtitle: "Chronological engineering progress from initial prototype to universal presentation engine"
 events:

@@ -2,7 +2,7 @@ id: "profile"
 layout: "profile"
 badge: "LAYOUT: PROFILE"
 badge_color: "accent"
-palette: "slate_dark"
+palette: "smile_os"
 title: "Presenter Profile & Credentials"
 subtitle: "Speaker biography, key career metrics, and core areas of focus"
 stats:

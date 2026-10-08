@@ -2,7 +2,7 @@ id: "faq"
 layout: "faq"
 badge: "LAYOUT: FAQ"
 badge_color: "accent"
-palette: "slate_dark"
+palette: "hazard_suit"
 title: "Frequently Addressed Questions"
 subtitle: "Architectural decisions, workflow integration, and customization capabilities"
 questions:

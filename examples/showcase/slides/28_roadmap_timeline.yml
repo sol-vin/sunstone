@@ -2,7 +2,7 @@ id: "roadmap_timeline_demo"
 layout: "roadmap-timeline"
 badge: "GANTT ROADMAP"
 badge_color: "accent"
-palette: "midnight_indigo"
+palette: "tokyo_midnight"
 title: "2026 Systems Engineering Roadmap"
 subtitle: "Cross-stream feature delivery schedule spanning quarterly milestones"
 periods:

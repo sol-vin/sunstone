@@ -2,7 +2,7 @@ id: "stats"
 layout: "stats"
 badge: "LAYOUT: STATS"
 badge_color: "accent"
-palette: "slate_dark"
+palette: "rhythm_808"
 title: "Key Performance & Architecture Metrics"
 subtitle: "Deterministic speed, zero runtime overhead, and bare-metal compilation"
 metrics:

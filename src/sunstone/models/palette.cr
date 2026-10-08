@@ -352,6 +352,14 @@ module Sunstone
         --cube-hover: #{cube_hover};
         --emoji-filter: url(#emoji-filter-#{@id});
 
+        /* Semantic Palette Aliases */
+        --cyan-accent: #{border_active};
+        --godot-blue: #{link_color};
+        --crystal-purp: #{accent_secondary};
+        --emerald-green: #{accent_color};
+        --coral-red: #{accent_secondary};
+        --amber-gold: #{accent_tertiary};
+
         /* Sunstone Modern Variables */
         --sunstone-bg: #{bg_color};
         --sunstone-surface: #{surface_color};

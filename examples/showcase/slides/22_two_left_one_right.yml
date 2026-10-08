@@ -3,7 +3,7 @@ layout: "two-left-one-right"
 ratio: "2:3"
 badge: "ASYMMETRIC SPLIT"
 badge_color: "purple"
-palette: "midnight_indigo"
+palette: "night_city"
 title: "Compiler Pipeline & Live Verification"
 subtitle: "Declarative type inference constraints validating terminal outputs"
 left_top:

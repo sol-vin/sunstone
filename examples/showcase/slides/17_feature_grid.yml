@@ -2,7 +2,7 @@ id: "feature-grid"
 layout: "feature-grid"
 badge: "LAYOUT: FEATURE-GRID"
 badge_color: "accent"
-palette: "slate_dark"
+palette: "acid_303"
 title: "Compiler Pipeline & Optimization Passes"
 subtitle: "Asymmetrical Bento Grid showcasing primary engine capabilities"
 hero_feature:

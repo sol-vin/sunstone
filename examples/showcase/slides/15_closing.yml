@@ -2,7 +2,7 @@ id: "closing"
 layout: "closing"
 badge: "THANK YOU"
 badge_color: "accent"
-palette: "slate_dark"
+palette: "catppuccin_mocha"
 title: "Start Building with Sunstone"
 subtitle: "High-impact, reproducible presentations in minutes"
 cards:

@@ -2,7 +2,7 @@ id: "theme_ecosystem"
 layout: "three-column"
 badge: "THEME ECOSYSTEM"
 badge_color: "accent"
-palette: "slate_dark"
+palette: "candy"
 title: "Six Production Themes & Custom Theming"
 subtitle: "From minimalist Scandi palettes to cyberpunk terminal aesthetics"
 columns:

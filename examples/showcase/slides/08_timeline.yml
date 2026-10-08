@@ -2,7 +2,7 @@ id: "timeline"
 layout: "timeline"
 badge: "LAYOUT: TIMELINE"
 badge_color: "accent"
-palette: "slate_dark"
+palette: "game_station_2"
 title: "Project Evolution Roadmap"
 subtitle: "Horizontal milestone rail with status indicators and delivery phases"
 cards:

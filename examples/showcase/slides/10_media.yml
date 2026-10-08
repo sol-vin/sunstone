@@ -2,7 +2,7 @@ id: "media"
 layout: "media"
 badge: "LAYOUT: MEDIA"
 badge_color: "indigo"
-palette: "midnight_indigo"
+palette: "speccy_48k"
 title: "Rich Media & Visual Assets"
 subtitle: "High-resolution imagery, video streams, and Asciinema terminal recordings"
 media:

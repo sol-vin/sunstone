@@ -2,7 +2,7 @@ id: "three_column"
 layout: "three-column"
 badge: "LAYOUT: THREE-COLUMN"
 badge_color: "nordic"
-palette: "nordic_ice"
+palette: "a64_pal"
 title: "Tri-Pillar Analysis"
 subtitle: "Three equal cards or code snippets side by side"
 columns:

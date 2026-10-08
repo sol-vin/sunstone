@@ -35,13 +35,13 @@ module Sunstone
             str << "                <div class=\"stat-kpi-label\">" << LayoutRenderer.tint_emojis(HTML.escape(lbl)) << "</div>\n"
 
             chart_color = case color
-                          when "emerald", "green" then "#10b981"
-                          when "amber", "yellow"  then "#f59e0b"
-                          when "purple", "violet" then "#a855f7"
-                          when "blue"             then "#3b82f6"
-                          when "red", "rose"      then "#f43f5e"
-                          when "cyan"             then "#06b6d4"
-                          else                         "#38bdf8"
+                          when "emerald", "green" then palette.accent_color
+                          when "amber", "yellow"  then palette.accent_tertiary
+                          when "purple", "violet" then palette.accent_secondary
+                          when "blue"             then palette.link_color
+                          when "red", "rose"      then palette.accent_secondary
+                          when "cyan", "accent"   then palette.border_active
+                          else                         palette.accent_color
                           end
 
             chart_svg : String? = nil
@@ -55,7 +55,7 @@ module Sunstone
               chart_svg = Sunstone::Chart.sparkline(spark_data, stroke: chart_color) unless spark_data.empty?
             elsif prog_node = m["progress"]?
               prog_val = (prog_node.as_f? || prog_node.as_i?.try(&.to_f64) || 0.0)
-              chart_svg = Sunstone::Chart.progress_ring(prog_val, color: chart_color)
+              chart_svg = Sunstone::Chart.progress_ring(prog_val, color: chart_color, track_color: palette.border_color)
             end
 
             if chart_svg

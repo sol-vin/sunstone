@@ -3,7 +3,7 @@ layout: "two-column"
 ratio: "1:1"
 badge: "AOT ENGINE • PERFORMANCE"
 badge_color: "emerald"
-palette: "slate_dark"
+palette: "amigo"
 title: "AOT Compilation & Pipeline Velocity"
 subtitle: "Sub-50ms slide generation with zero Node.js runtime baggage"
 left:

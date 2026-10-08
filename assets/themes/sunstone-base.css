@@ -1857,21 +1857,21 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  border: 3px solid var(--sunstone-bg, #0f172a);
-  background: var(--sunstone-accent, #38bdf8);
+  border: 3px solid var(--sunstone-bg, var(--bg-color, #0f172a));
+  background: var(--sunstone-accent, var(--accent-color, #38bdf8));
   flex-shrink: 0;
   z-index: 2;
   margin-top: 0.45rem;
 }
 .vtimeline-dot[data-status="done"] {
-  background: #10b981;
+  background: var(--sunstone-accent-secondary, var(--accent-color, #10b981));
 }
 .vtimeline-dot[data-status="active"] {
-  background: #38bdf8;
-  box-shadow: 0 0 10px #38bdf8;
+  background: var(--sunstone-border-active, var(--border-active, #38bdf8));
+  box-shadow: 0 0 10px var(--sunstone-border-active, var(--border-active, #38bdf8));
 }
 .vtimeline-dot[data-status="pending"] {
-  background: #64748b;
+  background: var(--sunstone-text-muted, var(--text-dim, #64748b));
   opacity: 0.7;
 }
 .vtimeline-line {
@@ -1917,14 +1917,24 @@
 }
 .vtimeline-card ul.card-list {
   margin: 0.15rem 0 0 0 !important;
-  padding: 0 0 0 1rem !important;
+  padding: 0 !important;
   gap: 0.2rem !important;
   flex: 0 1 auto !important;
+  list-style: none !important;
 }
 .vtimeline-card ul.card-list li {
   font-size: 0.75rem !important;
   line-height: 1.3 !important;
-  padding: 0 !important;
+  position: relative !important;
+  padding: 0 0 0 1.1rem !important;
+}
+.vtimeline-card ul.card-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  font-size: 0.95rem;
+  line-height: 1.2;
 }
 
 /* ==============================================================================
