@@ -1,0 +1,43 @@
+id: "one_top_two_bottom_demo"
+layout: "one-top-two-bottom"
+ratio: "1:1"
+badge: "ROW SPLIT"
+badge_color: "emerald"
+palette: "emerald_matrix"
+title: "Memory Allocation & Zero-Copy Subsystems"
+subtitle: "Heap minimization across high-frequency packet processing pipelines"
+top:
+  type: "code"
+  title: "buffer_pool.cr — Direct Slice Ingestion"
+  lang: "crystal"
+  tag: "Zero-Alloc"
+  density: "compact"
+  code: |
+    # Ingest network payload directly into static ring buffer slice:
+    def process_frame(io : IO, buffer : Bytes) : Header
+      bytes_read = io.read_fully?(buffer) || raise "Truncated frame stream"
+      # Zero-copy header interpretation via pointer reinterpretation:
+      header = buffer[0, 16].to_unsafe.as(Pointer(Header)).value
+      header.validate!
+      header
+    end
+bottom_left:
+  type: "card"
+  title: "Stack Allocation Bounds"
+  color: "emerald"
+  badge: "STACK FIRST"
+  items:
+    - "Primitive structures allocate entirely within stack boundaries"
+    - "Escape analysis identifies non-escaping allocations automatically"
+    - "Eliminates GC tracking overhead for temporary parser objects"
+bottom_right:
+  type: "card"
+  title: "Buffer Pool Recycling"
+  color: "accent"
+  badge: "RING POOL"
+  items:
+    - "Pre-allocated 64KB slabs eliminate heap reallocation churn"
+    - "Thread-safe pointer rotation across concurrent fiber queues"
+    - "Zero-fragmentation guarantees sustained long-running stability"
+notes: |
+  Present the One-Top-Two-Bottom layout. The full-width hero code block spans the top half, while two deep-dive analysis cards share the bottom row equally.

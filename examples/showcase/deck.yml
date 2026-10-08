@@ -19,20 +19,33 @@ slides:
   - slides/01_intro.yml
   - slides/02_chapter_architecture.yml
   - slides/03_two_column.yml
+  - slides/21_one_left_two_right.yml
+  - slides/22_two_left_one_right.yml
+  - slides/23_one_top_two_bottom.yml
+  - slides/24_two_top_one_bottom.yml
+  - slides/25_one_left_three_right.yml
+  - slides/26_three_left_one_right.yml
   - slides/04_code_comparison.yml
   - slides/05_three_column.yml
   - slides/06_four_column.yml
-  - slides/07_matrix.yml
+  - slides/17_feature_grid.yml
   - slides/08_timeline.yml
+  - slides/27_vertical_timeline.yml
+  - slides/28_roadmap_timeline.yml
+  - slides/29_calendar_month.yml
+  - slides/30_calendar_schedule.yml
+  - slides/18_process_flow.yml
+  - slides/31_radial_cycle.yml
+  - slides/32_editorial_split.yml
+  - slides/33_convergence.yml
   - slides/09_architecture.yml
   - slides/10_media.yml
   - slides/11_profile.yml
   - slides/12_dual_mode.yml
+  - slides/07_matrix.yml
+  - slides/19_table.yml
+  - slides/16_stats.yml
   - slides/13_demo_roadmap.yml
   - slides/14_quote.yml
-  - slides/16_stats.yml
-  - slides/17_feature_grid.yml
-  - slides/18_process_flow.yml
-  - slides/19_table.yml
   - slides/20_faq.yml
   - slides/15_closing.yml

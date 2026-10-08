@@ -1596,4 +1596,937 @@
   line-height: 1.4;
 }
 
+/* ==============================================================================
+   10. Asymmetric Container Stacking Layout Family
+   ============================================================================== */
+
+/* 10a. One-Left-Two-Right Stacking Layout */
+.slide-body[data-layout*="one-left-two-right"],
+[data-layout*="one-left-two-right"] .slide-body {
+  display: grid !important;
+  gap: 1.2rem;
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
+}
+.slide-body[data-layout*="one-left-two-right"][data-ratio="1:1"],
+[data-layout*="one-left-two-right"] .slide-body[data-ratio="1:1"] {
+  grid-template-columns: 1fr 1fr !important;
+}
+.slide-body[data-layout*="one-left-two-right"][data-ratio="3:2"],
+[data-layout*="one-left-two-right"] .slide-body[data-ratio="3:2"] {
+  grid-template-columns: 3fr 2fr !important;
+}
+.slide-body[data-layout*="one-left-two-right"][data-ratio="2:3"],
+[data-layout*="one-left-two-right"] .slide-body[data-ratio="2:3"] {
+  grid-template-columns: 2fr 3fr !important;
+}
+.slide-body[data-layout*="one-left-two-right"][data-ratio="2:1"],
+[data-layout*="one-left-two-right"] .slide-body[data-ratio="2:1"] {
+  grid-template-columns: 2fr 1fr !important;
+}
+.slide-body[data-layout*="one-left-two-right"][data-ratio="1:2"],
+[data-layout*="one-left-two-right"] .slide-body[data-ratio="1:2"] {
+  grid-template-columns: 1fr 2fr !important;
+}
+
+.column-stack {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem;
+  min-height: 0;
+  flex: 1;
+}
+.stack-slot {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 0;
+  min-height: 0;
+}
+.stack-slot > .card,
+.stack-slot > .code-window,
+.stack-slot > .terminal-window {
+  height: 100% !important;
+  flex: 1;
+}
+
+/* 10b. Two-Left-One-Right Stacking Layout */
+.slide-body[data-layout*="two-left-one-right"],
+[data-layout*="two-left-one-right"] .slide-body {
+  display: grid !important;
+  gap: 1.2rem;
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
+}
+.slide-body[data-layout*="two-left-one-right"][data-ratio="1:1"],
+[data-layout*="two-left-one-right"] .slide-body[data-ratio="1:1"] {
+  grid-template-columns: 1fr 1fr !important;
+}
+.slide-body[data-layout*="two-left-one-right"][data-ratio="2:3"],
+[data-layout*="two-left-one-right"] .slide-body[data-ratio="2:3"] {
+  grid-template-columns: 2fr 3fr !important;
+}
+.slide-body[data-layout*="two-left-one-right"][data-ratio="3:2"],
+[data-layout*="two-left-one-right"] .slide-body[data-ratio="3:2"] {
+  grid-template-columns: 3fr 2fr !important;
+}
+.slide-body[data-layout*="two-left-one-right"][data-ratio="1:2"],
+[data-layout*="two-left-one-right"] .slide-body[data-ratio="1:2"] {
+  grid-template-columns: 1fr 2fr !important;
+}
+.slide-body[data-layout*="two-left-one-right"][data-ratio="2:1"],
+[data-layout*="two-left-one-right"] .slide-body[data-ratio="2:1"] {
+  grid-template-columns: 2fr 1fr !important;
+}
+
+/* 10c. One-Top-Two-Bottom Split Layout */
+.slide-body[data-layout*="one-top-two-bottom"],
+[data-layout*="one-top-two-bottom"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.95rem;
+  flex: 1;
+  min-height: 0;
+}
+.slide-body[data-layout*="one-top-two-bottom"] .row-hero {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.slide-body[data-layout*="one-top-two-bottom"][data-ratio="1:2"] .row-hero {
+  flex: 0 0 auto;
+  max-height: 38%;
+}
+.slide-body[data-layout*="one-top-two-bottom"][data-ratio="2:1"] .row-hero {
+  flex: 2 1 0;
+}
+.slide-body[data-layout*="one-top-two-bottom"] .row-split {
+  flex: 1 1 0;
+  min-height: 0;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1rem;
+}
+.slide-body[data-layout*="one-top-two-bottom"] .row-hero > .card,
+.slide-body[data-layout*="one-top-two-bottom"] .row-hero > .code-window,
+.slide-body[data-layout*="one-top-two-bottom"] .row-hero > .terminal-window {
+  height: 100% !important;
+  flex: 1;
+}
+
+/* 10d. Two-Top-One-Bottom Split Layout */
+.slide-body[data-layout*="two-top-one-bottom"],
+[data-layout*="two-top-one-bottom"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.95rem;
+  flex: 1;
+  min-height: 0;
+}
+.slide-body[data-layout*="two-top-one-bottom"] .row-split {
+  flex: 1 1 0;
+  min-height: 0;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1rem;
+}
+.slide-body[data-layout*="two-top-one-bottom"] .row-hero {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.slide-body[data-layout*="two-top-one-bottom"][data-ratio="2:1"] .row-hero {
+  flex: 0 0 auto;
+  max-height: 35%;
+}
+.slide-body[data-layout*="two-top-one-bottom"] .row-hero > .card,
+.slide-body[data-layout*="two-top-one-bottom"] .row-hero > .code-window,
+.slide-body[data-layout*="two-top-one-bottom"] .row-hero > .terminal-window {
+  height: 100% !important;
+  flex: 1;
+}
+
+/* 10e. One-Left-Three-Right & Three-Left-One-Right Layouts */
+.slide-body[data-layout*="one-left-three-right"],
+[data-layout*="one-left-three-right"] .slide-body {
+  display: grid !important;
+  grid-template-columns: 3fr 2fr !important;
+  gap: 1.2rem;
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
+}
+.slide-body[data-layout*="one-left-three-right"][data-ratio="1:1"] {
+  grid-template-columns: 1fr 1fr !important;
+}
+.slide-body[data-layout*="one-left-three-right"][data-ratio="2:1"] {
+  grid-template-columns: 2fr 1fr !important;
+}
+
+.slide-body[data-layout*="three-left-one-right"],
+[data-layout*="three-left-one-right"] .slide-body {
+  display: grid !important;
+  grid-template-columns: 2fr 3fr !important;
+  gap: 1.2rem;
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
+}
+.slide-body[data-layout*="three-left-one-right"][data-ratio="1:1"] {
+  grid-template-columns: 1fr 1fr !important;
+}
+.slide-body[data-layout*="three-left-one-right"][data-ratio="1:2"] {
+  grid-template-columns: 1fr 2fr !important;
+}
+
+.column-stack-three {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.65rem;
+  min-height: 0;
+  flex: 1;
+}
+.column-stack-three .stack-slot {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.column-stack-three .card {
+  padding: 0.65rem 0.95rem;
+  flex: 1;
+}
+.column-stack-three .card-list {
+  gap: 0.25rem;
+  font-size: 0.8rem;
+}
+
+/* ==============================================================================
+   11. Vertical Timeline Layout
+   ============================================================================== */
+.slide-body[data-layout*="vertical-timeline"],
+[data-layout*="vertical-timeline"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+}
+.vtimeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+.vtimeline-item {
+  display: grid;
+  grid-template-columns: 110px 24px 1fr;
+  gap: 0.85rem;
+  align-items: stretch;
+  min-height: 0;
+}
+.vtimeline-time-col {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-top: 0.4rem;
+}
+.vtimeline-time-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background: var(--sunstone-surface, #1e293b);
+  border: 1px solid var(--sunstone-border, #334155);
+  white-space: nowrap;
+}
+.vtimeline-spine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.vtimeline-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 3px solid var(--sunstone-bg, #0f172a);
+  background: var(--sunstone-accent, #38bdf8);
+  flex-shrink: 0;
+  z-index: 2;
+  margin-top: 0.45rem;
+}
+.vtimeline-dot[data-status="done"] {
+  background: #10b981;
+}
+.vtimeline-dot[data-status="active"] {
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+}
+.vtimeline-dot[data-status="pending"] {
+  background: #64748b;
+  opacity: 0.7;
+}
+.vtimeline-line {
+  flex: 1;
+  width: 2px;
+  background: var(--sunstone-border, #334155);
+  margin-top: -2px;
+  margin-bottom: -4px;
+}
+.vtimeline-item:last-child .vtimeline-line {
+  display: none;
+}
+.vtimeline-card {
+  padding: 0.6rem 0.9rem !important;
+  margin: 0 !important;
+}
+.vtimeline-desc {
+  font-size: 0.82rem;
+  opacity: 0.88;
+  margin: 0.25rem 0 0 0;
+  line-height: 1.35;
+}
+
+/* ==============================================================================
+   12. Roadmap Timeline (Gantt Multi-Track)
+   ============================================================================== */
+.slide-body[data-layout*="roadmap-timeline"],
+[data-layout*="roadmap-timeline"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+}
+.roadmap-board {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-height: 0;
+  background: var(--sunstone-surface, #1e293b);
+  border: 1px solid var(--sunstone-border, #334155);
+  border-radius: var(--sunstone-radius-md, 8px);
+  padding: 0.85rem;
+  box-shadow: var(--sunstone-shadow, 0 4px 6px rgba(0,0,0,0.1));
+}
+.roadmap-header-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--sunstone-border, #334155);
+}
+.roadmap-track-label-cell {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  opacity: 0.75;
+}
+.roadmap-periods-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 0.5rem;
+  text-align: center;
+}
+.roadmap-periods-grid[data-cols="3"] { grid-template-columns: repeat(3, 1fr); }
+.roadmap-periods-grid[data-cols="4"] { grid-template-columns: repeat(4, 1fr); }
+.roadmap-periods-grid[data-cols="5"] { grid-template-columns: repeat(5, 1fr); }
+.roadmap-period-cell {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--sunstone-text-primary, #f8fafc);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.roadmap-tracks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex: 1;
+  min-height: 0;
+  justify-content: space-around;
+}
+.roadmap-track-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+.roadmap-track-row:last-child {
+  border-bottom: none;
+}
+.roadmap-track-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.track-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--sunstone-text-primary, #f8fafc);
+}
+.roadmap-track-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 0.5rem;
+  position: relative;
+  align-items: center;
+}
+.roadmap-track-grid[data-cols="3"] { grid-template-columns: repeat(3, 1fr); }
+.roadmap-track-grid[data-cols="4"] { grid-template-columns: repeat(4, 1fr); }
+.roadmap-track-grid[data-cols="5"] { grid-template-columns: repeat(5, 1fr); }
+
+/* Semantic Grid Spanning for duration bars with ZERO inline styles */
+.roadmap-bar[data-col-start="1"] { grid-column-start: 1; }
+.roadmap-bar[data-col-start="2"] { grid-column-start: 2; }
+.roadmap-bar[data-col-start="3"] { grid-column-start: 3; }
+.roadmap-bar[data-col-start="4"] { grid-column-start: 4; }
+.roadmap-bar[data-col-start="5"] { grid-column-start: 5; }
+
+.roadmap-bar[data-col-span="1"] { grid-column-end: span 1; }
+.roadmap-bar[data-col-span="2"] { grid-column-end: span 2; }
+.roadmap-bar[data-col-span="3"] { grid-column-end: span 3; }
+.roadmap-bar[data-col-span="4"] { grid-column-end: span 4; }
+.roadmap-bar[data-col-span="5"] { grid-column-end: span 5; }
+
+.roadmap-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--sunstone-radius-sm, 6px);
+  border: 1px solid var(--sunstone-border, #334155);
+  background: var(--sunstone-surface, #1e293b);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  min-width: 0;
+}
+.bar-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bar-badge {
+  font-size: 0.65rem;
+  flex-shrink: 0;
+}
+
+/* ==============================================================================
+   13. Monthly Sprint & Release Calendar
+   ============================================================================== */
+.slide-body[data-layout*="calendar-month"],
+[data-layout*="calendar-month"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.65rem;
+  flex: 1;
+  min-height: 0;
+}
+.calendar-month-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-height: 0;
+  background: var(--sunstone-surface, #1e293b);
+  border: 1px solid var(--sunstone-border, #334155);
+  border-radius: var(--sunstone-radius-md, 8px);
+  padding: 0.75rem 1rem;
+  box-shadow: var(--sunstone-shadow, 0 4px 6px rgba(0,0,0,0.1));
+}
+.calendar-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--sunstone-border, #334155);
+}
+.calendar-month-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--sunstone-accent, #38bdf8);
+}
+.calendar-legend-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.legend-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+.legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.calendar-grid-table {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  gap: 0.3rem;
+}
+.calendar-day-headers {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.35rem;
+  text-align: center;
+}
+.day-header-cell {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+  padding: 0.2rem 0;
+}
+.calendar-cells-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 0.35rem;
+  flex: 1;
+  min-height: 0;
+}
+.day-cell {
+  background: var(--sunstone-code-bg, #090d16);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--sunstone-radius-sm, 6px);
+  padding: 0.3rem 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-height: 0;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+.day-cell.cell-dimmed {
+  opacity: 0.25;
+  background: transparent;
+}
+.day-cell.cell-active {
+  border-color: var(--sunstone-accent, #38bdf8);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+.cell-header {
+  display: flex;
+  justify-content: flex-end;
+}
+.day-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  opacity: 0.85;
+}
+.cell-events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.calendar-event-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.18rem 0.4rem;
+  border-radius: 4px;
+  background: var(--sunstone-surface, #1e293b);
+  border: 1px solid var(--sunstone-border, #334155);
+  font-size: 0.68rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chip-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: currentColor;
+}
+.chip-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chip-badge {
+  font-size: 0.6rem;
+  opacity: 0.8;
+  margin-left: auto;
+}
+
+/* ==============================================================================
+   14. Multi-Day / Multi-Track Conference Timetable
+   ============================================================================== */
+.slide-body[data-layout*="calendar-schedule"],
+[data-layout*="calendar-schedule"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+}
+.schedule-grid {
+  display: grid !important;
+  gap: 1rem;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+.schedule-grid[data-cols="2"] { grid-template-columns: repeat(2, 1fr) !important; }
+.schedule-grid[data-cols="3"] { grid-template-columns: repeat(3, 1fr) !important; }
+.schedule-grid[data-cols="4"] { grid-template-columns: repeat(4, 1fr) !important; }
+
+.schedule-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-height: 0;
+  flex: 1;
+}
+.schedule-col-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--sunstone-radius-sm, 6px);
+  background: var(--sunstone-surface, #1e293b);
+  border: 1px solid var(--sunstone-border, #334155);
+}
+.schedule-col-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.schedule-session-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+.schedule-session-card {
+  padding: 0.75rem 0.95rem !important;
+  gap: 0.35rem;
+  border-radius: var(--sunstone-radius-md, 8px);
+}
+.session-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+.session-time-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--sunstone-accent, #38bdf8);
+}
+.session-room-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  opacity: 0.75;
+}
+.session-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.session-speaker {
+  font-size: 0.78rem;
+  font-style: italic;
+  opacity: 0.85;
+}
+.session-desc {
+  font-size: 0.74rem;
+  opacity: 0.8;
+  line-height: 1.3;
+}
+
+/* ==============================================================================
+   15. Radial Cycle & Flywheel Process
+   ============================================================================== */
+.slide-body[data-layout*="radial-cycle"],
+[data-layout*="radial-cycle"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+}
+.radial-cycle-arena {
+  display: grid;
+  grid-template-columns: 1fr 280px 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.2rem;
+  flex: 1;
+  min-height: 0;
+  align-items: center;
+}
+.radial-center-hub {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 220px;
+  width: 220px;
+  margin: auto;
+}
+.hub-pulse-ring {
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 2px dashed var(--sunstone-accent, #38bdf8);
+  opacity: 0.4;
+}
+.hub-core {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.4rem;
+  padding: 1.5rem;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  background: var(--sunstone-surface, #1e293b);
+  border: 2px solid var(--sunstone-border, #334155);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+}
+.hub-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.hub-subtitle {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+.radial-orbit-grid {
+  display: contents;
+}
+.radial-orbit-card {
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--sunstone-radius-md, 8px);
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.radial-orbit-card.node-1 { grid-column: 1; grid-row: 1; }
+.radial-orbit-card.node-2 { grid-column: 3; grid-row: 1; }
+.radial-orbit-card.node-3 { grid-column: 3; grid-row: 2; }
+.radial-orbit-card.node-4 { grid-column: 1; grid-row: 2; }
+.radial-node-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.35rem;
+}
+.node-step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.1);
+}
+.node-desc {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* ==============================================================================
+   16. Editorial Magazine Split Layout
+   ============================================================================== */
+.slide-body[data-layout*="editorial-split"],
+[data-layout*="editorial-split"] .slide-body {
+  display: grid !important;
+  grid-template-columns: 1.1fr 1fr !important;
+  gap: 2rem;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+.editorial-lead-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 0.5rem 0;
+  border-right: 1px solid var(--sunstone-border, #334155);
+}
+.editorial-numeral-wrap {
+  margin-bottom: 0.2rem;
+}
+.editorial-huge-numeral {
+  font-size: 4.8rem;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--sunstone-accent, #38bdf8);
+  opacity: 0.9;
+}
+.editorial-lead-headline {
+  font-size: 1.95rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0.4rem 0;
+  letter-spacing: -0.02em;
+  color: var(--sunstone-text-primary, #f8fafc);
+}
+.editorial-pull-quote {
+  border-left: 3px solid var(--sunstone-accent, #38bdf8);
+  padding-left: 1.2rem;
+  margin-top: auto;
+}
+.editorial-pull-quote p {
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.4;
+  margin: 0 0 0.4rem 0;
+  color: var(--sunstone-text-secondary, #cbd5e1);
+}
+.editorial-attribution {
+  font-size: 0.85rem;
+  font-weight: 700;
+  opacity: 0.75;
+}
+.editorial-cards-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+.editorial-card {
+  padding: 1.1rem 1.3rem;
+  border-radius: var(--sunstone-radius-md, 8px);
+}
+.editorial-card-desc {
+  font-size: 0.85rem;
+  opacity: 0.88;
+  margin: 0.3rem 0;
+  line-height: 1.4;
+}
+
+/* ==============================================================================
+   17. Multi-Pillar Convergence Layout
+   ============================================================================== */
+.slide-body[data-layout*="convergence"],
+[data-layout*="convergence"] .slide-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+}
+.convergence-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+}
+.convergence-inputs-row {
+  display: grid;
+  gap: 1.1rem;
+  width: 100%;
+}
+.convergence-inputs-row[data-count="2"] { grid-template-columns: repeat(2, 1fr); }
+.convergence-inputs-row[data-count="3"] { grid-template-columns: repeat(3, 1fr); }
+.convergence-inputs-row[data-count="4"] { grid-template-columns: repeat(4, 1fr); }
+
+.convergence-pillar-card {
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--sunstone-radius-md, 8px);
+}
+.pillar-desc {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin: 0.3rem 0;
+  line-height: 1.35;
+}
+.convergence-connector-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sunstone-accent, #38bdf8);
+  font-size: 1rem;
+  margin: -0.2rem 0;
+}
+.convergence-arrow-down {
+  display: inline-block;
+}
+.convergence-core-card {
+  width: 100%;
+  max-width: 900px;
+  padding: 1rem 1.3rem;
+  border-radius: var(--sunstone-radius-lg, 12px);
+  position: relative;
+  background: var(--sunstone-surface, #1e293b);
+  border: 2px solid var(--sunstone-accent, #38bdf8);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+}
+.core-title {
+  font-size: 1.2rem !important;
+  font-weight: 800 !important;
+}
+.core-desc {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0.3rem 0 0.5rem 0;
+}
+.core-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.core-pill {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+
 

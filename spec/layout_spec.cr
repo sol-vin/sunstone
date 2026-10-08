@@ -37,6 +37,19 @@ describe "Sunstone Layouts (Strict Zero-Inline-Styles)" do
     Sunstone::LayoutRouter.resolve("pipeline").should be_a(Sunstone::ProcessFlowLayout)
     Sunstone::LayoutRouter.resolve("benchmark").should be_a(Sunstone::TableLayout)
     Sunstone::LayoutRouter.resolve("q-and-a").should be_a(Sunstone::FaqLayout)
+    Sunstone::LayoutRouter.resolve("1l-2r").should be_a(Sunstone::OneLeftTwoRightLayout)
+    Sunstone::LayoutRouter.resolve("2l-1r").should be_a(Sunstone::TwoLeftOneRightLayout)
+    Sunstone::LayoutRouter.resolve("1t-2b").should be_a(Sunstone::OneTopTwoBottomLayout)
+    Sunstone::LayoutRouter.resolve("2t-1b").should be_a(Sunstone::TwoTopOneBottomLayout)
+    Sunstone::LayoutRouter.resolve("1l-3r").should be_a(Sunstone::OneLeftThreeRightLayout)
+    Sunstone::LayoutRouter.resolve("3l-1r").should be_a(Sunstone::ThreeLeftOneRightLayout)
+    Sunstone::LayoutRouter.resolve("timeline-vertical").should be_a(Sunstone::VerticalTimelineLayout)
+    Sunstone::LayoutRouter.resolve("gantt").should be_a(Sunstone::RoadmapTimelineLayout)
+    Sunstone::LayoutRouter.resolve("calendar").should be_a(Sunstone::CalendarMonthLayout)
+    Sunstone::LayoutRouter.resolve("schedule").should be_a(Sunstone::CalendarScheduleLayout)
+    Sunstone::LayoutRouter.resolve("flywheel").should be_a(Sunstone::RadialCycleLayout)
+    Sunstone::LayoutRouter.resolve("magazine").should be_a(Sunstone::EditorialSplitLayout)
+    Sunstone::LayoutRouter.resolve("venn").should be_a(Sunstone::ConvergenceLayout)
   end
 
   it "renders window headers with exactly one set of terminal dots and suppresses pseudo-element duplicate dots" do

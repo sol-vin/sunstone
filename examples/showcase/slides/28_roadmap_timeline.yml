@@ -1,0 +1,62 @@
+id: "roadmap_timeline_demo"
+layout: "roadmap-timeline"
+badge: "GANTT ROADMAP"
+badge_color: "accent"
+palette: "midnight_indigo"
+title: "2026 Systems Engineering Roadmap"
+subtitle: "Cross-stream feature delivery schedule spanning quarterly milestones"
+periods:
+  - "Q1 2026"
+  - "Q2 2026"
+  - "Q3 2026"
+  - "Q4 2026"
+tracks:
+  - name: "Core Compiler"
+    badge: "BACKEND"
+    color: "accent"
+    bars:
+      - title: "Zero-Alloc Parser"
+        start: 1
+        span: 2
+        color: "emerald"
+        badge: "SHIPPED"
+      - title: "LLVM AOT Pipeline"
+        start: 3
+        span: 2
+        color: "accent"
+        badge: "ACTIVE"
+  - name: "Layout Engine"
+    badge: "FRONTEND"
+    color: "purple"
+    bars:
+      - title: "Stacking Family (1L-2R)"
+        start: 1
+        span: 1
+        color: "emerald"
+        badge: "DONE"
+      - title: "Timelines & Calendars"
+        start: 2
+        span: 2
+        color: "accent"
+        badge: "CURRENT"
+      - title: "Artistic Keynote Suite"
+        start: 4
+        span: 1
+        color: "purple"
+        badge: "PLANNED"
+  - name: "Developer Tooling"
+    badge: "TOOLING"
+    color: "amber"
+    bars:
+      - title: "Live HTTP Preview Engine"
+        start: 1
+        span: 2
+        color: "emerald"
+        badge: "GA"
+      - title: "LSP Syntax Diagnostics"
+        start: 3
+        span: 2
+        color: "amber"
+        badge: "IN DEV"
+notes: |
+  Present the Roadmap Timeline (Gantt) layout. Emphasize that all duration bars and column spans are governed purely by CSS grid data attributes without a single inline style.

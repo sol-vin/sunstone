@@ -1,0 +1,41 @@
+id: "convergence_demo"
+layout: "convergence"
+badge: "ARTISTIC • CONVERGENCE"
+badge_color: "accent"
+palette: "slate_dark"
+title: "The Tri-Pillar Convergence"
+subtitle: "Where bare-metal speed, static type safety, and developer ergonomics meet"
+pillars:
+  - title: "Bare-Metal Speed"
+    badge: "LLVM AOT"
+    color: "accent"
+    desc: "Direct machine code generation produces sub-50ms slide compilation."
+    items:
+      - "Zero Node.js dependency overhead"
+      - "Instant cold start & live preview"
+  - title: "Static Type Safety"
+    badge: "NIL SAFETY"
+    color: "emerald"
+    desc: "Compile-time guarantees audit slide schemas and layout constraints."
+    items:
+      - "Deterministic layout resolution"
+      - "No runtime TypeError surprises"
+  - title: "Developer Ergonomics"
+    badge: "HUMAN FIRST"
+    color: "purple"
+    desc: "Clean YAML authoring and intuitive Opal CLI scaffolding workflows."
+    items:
+      - "Git-friendly PR review diffs"
+      - "Automated GitHub Pages publishing"
+core:
+  title: "Sunstone: The Modern Slide Presentation Engine"
+  badge: "THE SYNTHESIS"
+  color: "accent"
+  desc: "Combining high-performance systems engineering with elegant, responsive semantic presentations."
+  items:
+    - "⚡ 33 Semantic Layouts"
+    - "🎨 6 Production Themes"
+    - "🛡️ Strict Zero-Inline-Styles"
+    - "📦 Self-Contained 6MB Binary"
+notes: |
+  Present the Convergence layout. Three distinct engineering pillars channel inward toward the glowing central synthesis card.

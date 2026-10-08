@@ -36,7 +36,7 @@ module Sunstone
       module Layouts
         # **Layout Gallery**: Overview of layout types and their use cases.
         #
-        # Sunstone provides 20 specialized layout renderers:
+        # Sunstone provides 33 specialized layout renderers:
         #
         # 1. **intro:** Hero title slide with large badges, subtitle, author credentials, and strategic pillar pills.
         # 2. **chapter:** Section divider featuring a chapter number and topic pillars.
@@ -58,6 +58,19 @@ module Sunstone
         # 18. **process-flow:** Sequential multi-stage pipeline connected with directional chevrons.
         # 19. **table:** Comparative benchmark data table with highlighted rows and sticky headers.
         # 20. **faq:** Two-column Q&A grid cards for addressable audience clarifications.
+        # 21. **one-left-two-right:** Left full-height column + two vertically stacked right containers.
+        # 22. **two-left-one-right:** Two vertically stacked left containers + right full-height column.
+        # 23. **one-top-two-bottom:** Top full-width hero container + two bottom side-by-side columns.
+        # 24. **two-top-one-bottom:** Two top side-by-side columns + bottom full-width container.
+        # 25. **one-left-three-right:** Left showcase column + three vertically stacked checkpoint cards.
+        # 26. **three-left-one-right:** Three stacked principle cards on left + right showcase column.
+        # 27. **vertical-timeline:** Continuous vertical milestone rail with status indicators and cards.
+        # 28. **roadmap-timeline:** Gantt-style quarterly/phase multi-track roadmap with duration bars.
+        # 29. **calendar-month:** 7-day monthly sprint/release grid with day numbers and event chips.
+        # 30. **calendar-schedule:** Multi-day or multi-track conference/event timetable with time slots.
+        # 31. **radial-cycle:** Circular flywheel / continuous feedback loop with central hub and orbital nodes.
+        # 32. **editorial-split:** High-impact magazine layout with giant numeral, quote & offset cards.
+        # 33. **convergence:** Converging multi-pillar streams meeting at a central synthesis core.
         #
         def self.topic_01_layout_gallery : Nil; end
 

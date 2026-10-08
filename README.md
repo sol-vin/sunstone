@@ -3,7 +3,7 @@
 <!-- carbon:badges -->
 [![CI](https://github.com/sol-vin/sunstone/actions/workflows/ci.yml/badge.svg)](https://github.com/sol-vin/sunstone/actions/workflows/ci.yml)
 [![Crystal](https://img.shields.io/badge/crystal-%3E%3D%201.10.0-black.svg)](https://crystal-lang.org)
-[![Version](https://img.shields.io/badge/version-0.1.18-blue.svg)](https://github.com/sol-vin/sunstone/releases)
+[![Version](https://img.shields.io/badge/version-0.1.19-blue.svg)](https://github.com/sol-vin/sunstone/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://sol-vin.github.io/sunstone/)
 <!-- /carbon:badges -->
@@ -18,7 +18,7 @@ Sunstone transforms human-authored YAML slide definitions into high-impact, pres
 
 - 📦 **Strict Zero-Inline-Styles**: Every HTML element produced is clean and semantic. No `style="..."` attributes on presentation DOM elements — making custom theming, overrides, and responsive design effortless.
 - 🎨 **Theme-Scoped Palettes**: 6 built-in themes (`generic`, `sol.vin`, `nordic`, `brutalist`, `academic`, `tokyo-night`) or author custom ones. Each theme provides its own catalog of palettes (8 modern dark/light palettes in `generic`, 102 authentic retro palettes in `sol.vin`, 6 in `academic`, `nordic`, `brutalist`, and `tokyo-night`), switchable on a **per-slide basis** via `palette: <id>` with zero cross-theme pollution.
-- 📐 **20 Semantic Layouts**:
+- 📐 **33 Semantic Layouts**:
   - `intro`: Hero / Title slide with badges, subtitle, speaker bio, and pillars
   - `chapter`: Section divider with chapter numbers and topic pillars
   - `two-column`: Split code and cards with customizable grid ratios (`1:1`, `3:2`, `2:3`, `1:2`, `2:1`)
@@ -39,6 +39,19 @@ Sunstone transforms human-authored YAML slide definitions into high-impact, pres
   - `process-flow`: Step-by-step pipeline with directional chevron connectors
   - `table`: Classical Booktabs and comparative benchmark data tables
   - `faq`: Two-column Q&A inquiry cards for questions and clarifications
+  - `one-left-two-right`: Single full-height column on left, two stacked containers on right
+  - `two-left-one-right`: Two vertically stacked containers on left, single full-height column on right
+  - `one-top-two-bottom`: Full-width hero container across top, two side-by-side columns below
+  - `two-top-one-bottom`: Two side-by-side columns across top, full-width container below
+  - `one-left-three-right`: Dominant showcase column on left, three stacked checkpoint cards on right
+  - `three-left-one-right`: Three stacked principle cards on left, dominant showcase column on right
+  - `vertical-timeline`: Continuous vertical railway track with milestone status dots & cards
+  - `roadmap-timeline`: Gantt-style quarterly/phase roadmap with semantic duration bars
+  - `calendar-month`: 7-day monthly sprint & release grid with event chips and legend
+  - `calendar-schedule`: Multi-day or multi-track conference timetable with time slots
+  - `radial-cycle`: Circular flywheel / feedback loop with central hub and orbital nodes
+  - `editorial-split`: High-impact magazine layout with giant numeral, pull-quote & offset cards
+  - `convergence`: Converging multi-pillar streams meeting at a central synthesis core
 - 🔮 **Opal CLI App**: Fast, type-safe command-line interface with subcommands, validation, and ANSI color formatting.
 - 🌐 **Live Preview Server**: Built-in HTTP server with automatic port hunting (`8000`..`8020`) and OS browser launching.
 - 📖 **Jasper Documentation**: Complete multi-track documentation book in `docs_src/` compiled into native Crystal doc modules.
@@ -187,7 +200,7 @@ theme: ./themes/brand.css
 | `sunstone new-theme <name>` | Scaffold a custom theme CSS and companion palettes JSON |
 | `sunstone init` | Initialize a Sunstone presentation in the current directory |
 | `sunstone add-slide <id>` | Generate a boilerplate slide YAML file |
-| `sunstone list-layouts` | Display all 15 supported semantic layouts |
+| `sunstone list-layouts` | Display all 33 supported semantic layouts |
 | `sunstone list-themes` | Display available presentation themes |
 | `sunstone list-palettes` | List available palettes for a given theme |
 

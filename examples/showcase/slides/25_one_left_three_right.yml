@@ -1,0 +1,46 @@
+id: "one_left_three_right_demo"
+layout: "one-left-three-right"
+ratio: "3:2"
+badge: "ASYMMETRIC STACK"
+badge_color: "cyan"
+palette: "nordic_ice"
+title: "HTTP Server Kernel & Triple Invariants"
+subtitle: "Non-blocking connection handlers guarded by invariant checkpoints"
+left:
+  type: "code"
+  title: "http_server.cr — Epoll Server Kernel"
+  lang: "crystal"
+  tag: "Core"
+  density: "compact"
+  code: |
+    server = HTTP::Server.new([
+      HTTP::LogHandler.new,
+      HTTP::CompressHandler.new,
+      Sunstone::SlideHandler.new
+    ]) do |ctx|
+      ctx.response.content_type = "text/html; charset=utf-8"
+      ctx.response.headers["Cache-Control"] = "no-cache"
+      ctx.response.print Sunstone::Generator.render_live
+    end
+
+    address = server.bind_tcp("127.0.0.1", 8080)
+    puts "Sunstone preview listening on http://#{address}"
+    server.listen
+right:
+  - title: "1. Non-Blocking Ingestion"
+    color: "accent"
+    badge: "EPOLL"
+    items:
+      - "Kernel epoll dispatches socket readiness directly to sleeping fibers"
+  - title: "2. Zero-Copy Compression"
+    color: "emerald"
+    badge: "GZIP"
+    items:
+      - "Streaming deflate compression executes inline without heap buffers"
+  - title: "3. Live Hot-Reload Loop"
+    color: "purple"
+    badge: "WEBSOCKET"
+    items:
+      - "Instant delta broadcasts refresh presentation state in < 15ms"
+notes: |
+  Present One-Left-Three-Right layout. Demonstrates how a prominent code snippet on the left (60% width) aligns perfectly with three sequenced checkpoint cards on the right.

@@ -1,0 +1,28 @@
+id: "editorial_split_demo"
+layout: "editorial-split"
+badge: "ARTISTIC • EDITORIAL"
+badge_color: "rose"
+palette: "crimson_obsidian"
+title: "Architectural Manifesto & Semantic Purity"
+subtitle: "Why slide presentations should be engineered with the same rigor as production code"
+numeral: "01"
+headline: "Separation of Concerns is Non-Negotiable"
+quote: "When slide structure is entangled with inline styles, engineering teams lose the ability to review and version presentations like code."
+attribution: "The Sunstone Architecture Manifesto"
+cards:
+  - title: "Pristine Semantic Markup"
+    color: "rose"
+    badge: "PRINCIPLE"
+    desc: "HTML defines the meaning and hierarchy of the presentation; CSS governs layout, geometry, and visual expression."
+    items:
+      - "Every layout verified for zero inline styling attributes"
+      - "Clean DOM trees render with lightning speed on any device"
+  - title: "Theme & Palette Decoupling"
+    color: "accent"
+    badge: "ERGONOMICS"
+    desc: "Swap brand palettes or visual styles across thousands of slides without touching a single YAML content file."
+    items:
+      - "Theme-scoped CSS custom properties"
+      - "One-line scaffold for custom corporate designs"
+notes: |
+  Present the Editorial Split layout. Notice the high-contrast magazine aesthetic, giant accent numeral, pull-quote with vertical border rule, and offset informational cards.

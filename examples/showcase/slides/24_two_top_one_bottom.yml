@@ -1,0 +1,35 @@
+id: "two_top_one_bottom_demo"
+layout: "two-top-one-bottom"
+ratio: "2:1"
+badge: "ROW SPLIT"
+badge_color: "amber"
+palette: "sunset_amber"
+title: "Architectural Trade-Offs & Unified Synthesis"
+subtitle: "Balancing compile-time guarantees against runtime operational velocity"
+top_left:
+  type: "card"
+  title: "Static Systems Paradigm"
+  color: "emerald"
+  badge: "PROS"
+  items:
+    - "Exhaustive type checking catches defects before deployment"
+    - "Bare-metal performance matches C and C++ execution speed"
+    - "Self-contained binaries simplify containerization & orchestration"
+top_right:
+  type: "card"
+  title: "Interpreted Systems Burden"
+  color: "amber"
+  badge: "CONS"
+  items:
+    - "Massive node_modules dependencies (often 400MB+ for simple decks)"
+    - "Runtime type errors escape to production presentations"
+    - "High cold-start latency hampers live interactive previewing"
+bottom:
+  type: "card"
+  title: "Sunstone Production Guarantee"
+  color: "accent"
+  badge: "SYNTHESIS"
+  items:
+    - "Single 6MB native binary compiles slide decks in under 50ms with zero runtime dependencies"
+notes: |
+  Present the Two-Top-One-Bottom layout. The top half weighs the trade-offs side-by-side, while the bottom hero bar summarizes the core conclusion.

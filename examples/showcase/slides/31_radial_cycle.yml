@@ -1,0 +1,42 @@
+id: "radial_cycle_demo"
+layout: "radial-cycle"
+badge: "ARTISTIC • FLYWHEEL"
+badge_color: "accent"
+palette: "slate_dark"
+title: "Continuous Compiler Optimization Flywheel"
+subtitle: "Iterative feedback loop driving sub-50ms slide generation latency"
+hub:
+  title: "OPTIMIZATION FLYWHEEL"
+  subtitle: "Zero-Overhead Feedback Loop"
+  badge: "COMPILER CORE"
+steps:
+  - step: "01"
+    title: "Streaming Ingestion"
+    badge: "YAML"
+    color: "accent"
+    desc: "Single-pass parser transforms slide definitions directly into typed AST nodes."
+    items:
+      - "Zero intermediate JSON overhead"
+  - step: "02"
+    title: "Static Routing"
+    badge: "ROUTER"
+    color: "emerald"
+    desc: "Singleton layout instances resolve slide geometries with zero memory allocation."
+    items:
+      - "Constant-time O(1) resolution"
+  - step: "03"
+    title: "Theme Scoping"
+    badge: "PALETTE"
+    color: "purple"
+    desc: "Per-slide palette variables are mapped dynamically to semantic CSS custom properties."
+    items:
+      - "Strict style isolation per slide"
+  - step: "04"
+    title: "Semantic Emission"
+    badge: "EMITTER"
+    color: "amber"
+    desc: "Produces pristine Reveal.js HTML and Markdown notes without any inline styles."
+    items:
+      - "100% test-verified cleanliness"
+notes: |
+  Present the Radial Cycle / Flywheel layout. Highlight the artistic circular composition with its central glowing hub and orbital interconnected stages.

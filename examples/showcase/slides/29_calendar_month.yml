@@ -1,0 +1,43 @@
+id: "calendar_month_demo"
+layout: "calendar-month"
+badge: "CALENDAR"
+badge_color: "emerald"
+palette: "slate_dark"
+title: "Release Sprint & Delivery Calendar"
+subtitle: "October 2026 milestone schedule with color-coded operational events"
+month: "OCTOBER 2026"
+start_day_offset: 3
+total_days: 31
+active_day: 15
+legend:
+  - label: "Releases"
+    color: "emerald"
+  - label: "Code Freezes"
+    color: "rose"
+  - label: "Conferences"
+    color: "accent"
+  - label: "Audits"
+    color: "amber"
+events:
+  - day: 2
+    title: "Feature Freeze"
+    color: "rose"
+    badge: "FREEZE"
+  - day: 8
+    title: "v0.2.0 RC1 Tag"
+    color: "emerald"
+    badge: "RC1"
+  - day: 15
+    title: "Keynote Demo Day"
+    color: "accent"
+    badge: "LIVE"
+  - day: 22
+    title: "Security Audit"
+    color: "amber"
+    badge: "AUDIT"
+  - day: 29
+    title: "v0.2.0 GA Release"
+    color: "emerald"
+    badge: "GA"
+notes: |
+  Present the Calendar Month layout. Show how the 7-column grid cleanly organizes multi-week schedules, event category chips, and today's active day indicator.

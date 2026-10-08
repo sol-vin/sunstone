@@ -1,0 +1,52 @@
+id: "one_left_two_right_demo"
+layout: "one-left-two-right"
+ratio: "3:2"
+badge: "ASYMMETRIC SPLIT"
+badge_color: "accent"
+palette: "slate_dark"
+title: "Fiber Scheduling & Event Loop Execution"
+subtitle: "Cooperative fiber work-stealing paired with low-overhead telemetry"
+left:
+  type: "code"
+  title: "scheduler.cr — Fiber Work-Stealing Engine"
+  lang: "crystal"
+  tag: "Crystal"
+  code: |
+    module Sunstone::Runtime
+      class FiberPool
+        def initialize(@workers : Int32 = System.cpu_count)
+          @queue = Channel(Proc(Void)).new(1024)
+          @workers.times { spawn worker_loop }
+        end
+
+        private def worker_loop
+          while job = @queue.receive?
+            job.call
+          end
+        end
+
+        def dispatch(&block : -> Void)
+          @queue.send(block)
+        end
+      end
+    end
+right_top:
+  type: "card"
+  title: "Multi-Threaded Fiber Work-Stealing"
+  color: "emerald"
+  badge: "ZERO GC PAUSE"
+  items:
+    - "Lightweight green threads allocate just 8KB initial stack frames"
+    - "Fibers yield cooperatively upon socket buffer saturation"
+    - "Work-stealing ring buffer guarantees zero thread starvation"
+right_bottom:
+  type: "card"
+  title: "Deterministic Memory Footprint"
+  color: "accent"
+  badge: "< 18MB RSS"
+  items:
+    - "Zero-overhead non-blocking libevent event loop integration"
+    - "Inlined LLVM native machine instructions across hot paths"
+    - "Predictable execution latency regardless of deck scale"
+notes: |
+  Walk through the One-Left-Two-Right layout. Show how code is cleanly presented on the left with 60% width, while the right stack provides two complementary architectural cards.

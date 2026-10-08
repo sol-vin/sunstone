@@ -259,6 +259,19 @@ module Sunstone
           puts "  • \e[36mprocess-flow\e[0m     Step-by-step pipeline with directional chevron connectors"
           puts "  • \e[36mtable\e[0m            Comparative data and benchmark table with highlighted rows"
           puts "  • \e[36mfaq\e[0m              Two-column Q&A grid cards for questions and clarifications"
+          puts "  • \e[36mone-left-two-right\e[0m  Left full-height column + two vertically stacked right containers"
+          puts "  • \e[36mtwo-left-one-right\e[0m  Two vertically stacked left containers + right full-height column"
+          puts "  • \e[36mone-top-two-bottom\e[0m  Top full-width hero container + two bottom side-by-side columns"
+          puts "  • \e[36mtwo-top-one-bottom\e[0m  Two top side-by-side columns + bottom full-width container"
+          puts "  • \e[36mone-left-three-right\e[0m Left showcase column + three vertically stacked checkpoint cards"
+          puts "  • \e[36mthree-left-one-right\e[0m Three stacked principle cards + right showcase column"
+          puts "  • \e[36mvertical-timeline\e[0m   Vertical milestone spine rail with status dots and detail cards"
+          puts "  • \e[36mroadmap-timeline\e[0m    Gantt-style quarterly/phase multi-track roadmap with duration bars"
+          puts "  • \e[36mcalendar-month\e[0m      7-day monthly sprint/release grid with day numbers and event chips"
+          puts "  • \e[36mcalendar-schedule\e[0m   Multi-day or multi-track conference/event timetable"
+          puts "  • \e[36mradial-cycle\e[0m        Circular flywheel / feedback loop with central hub and orbital nodes"
+          puts "  • \e[36meditorial-split\e[0m     High-impact magazine layout with giant numeral, quote & offset cards"
+          puts "  • \e[36mconvergence\e[0m         Converging multi-pillar streams meeting in a central synthesis core"
           0
         end
       end

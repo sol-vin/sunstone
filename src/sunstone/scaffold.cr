@@ -370,6 +370,230 @@ module Sunstone
         notes: |
           Q&A discussion.
         YAML
+      when "one-left-two-right", "1l-2r"
+        <<-YAML
+        id: "#{id}"
+        layout: "one-left-two-right"
+        badge: "ASYMMETRIC SPLIT"
+        badge_color: "accent"
+        palette: "slate_dark"
+        ratio: "3:2"
+        title: "#{slide_title}"
+        subtitle: "One column on left, two stacked containers on right"
+        left:
+          type: "code"
+          title: "kernel.cr"
+          lang: "crystal"
+          code: |
+            def execute
+              puts "Primary column content"
+            end
+        right_top:
+          title: "Upper Container"
+          color: "emerald"
+          items:
+            - "First stacked element"
+            - "Key architectural point"
+        right_bottom:
+          title: "Lower Container"
+          color: "accent"
+          items:
+            - "Second stacked element"
+            - "Supporting specification"
+        notes: |
+          Speaker notes for #{slide_title}.
+        YAML
+      when "vertical-timeline", "timeline-vertical"
+        <<-YAML
+        id: "#{id}"
+        layout: "vertical-timeline"
+        badge: "TIMELINE"
+        badge_color: "accent"
+        palette: "slate_dark"
+        title: "#{slide_title}"
+        subtitle: "Sequential milestone progression"
+        events:
+          - date: "PHASE 1"
+            title: "Foundation & Prototype"
+            status: "done"
+            color: "emerald"
+            desc: "Core architectural requirements established."
+          - date: "PHASE 2"
+            title: "Production Hardening"
+            status: "active"
+            color: "accent"
+            desc: "Zero-inline style verification."
+          - date: "PHASE 3"
+            title: "General Availability"
+            status: "pending"
+            color: "amber"
+            desc: "Public shard distribution."
+        notes: |
+          Speaker notes for #{slide_title}.
+        YAML
+      when "roadmap-timeline", "gantt"
+        <<-YAML
+        id: "#{id}"
+        layout: "roadmap-timeline"
+        badge: "ROADMAP"
+        badge_color: "accent"
+        palette: "slate_dark"
+        title: "#{slide_title}"
+        subtitle: "Multi-track quarterly deliverable schedule"
+        periods: ["Q1 2026", "Q2 2026", "Q3 2026", "Q4 2026"]
+        tracks:
+          - name: "Core Engine"
+            badge: "BACKEND"
+            color: "accent"
+            bars:
+              - title: "Compiler Pipeline"
+                start: 1
+                span: 2
+                color: "emerald"
+                badge: "DONE"
+          - name: "Layout Design"
+            badge: "FRONTEND"
+            color: "purple"
+            bars:
+              - title: "Semantic Layouts"
+                start: 2
+                span: 2
+                color: "accent"
+                badge: "ACTIVE"
+        notes: |
+          Speaker notes for #{slide_title}.
+        YAML
+      when "calendar-month", "calendar"
+        <<-YAML
+        id: "#{id}"
+        layout: "calendar-month"
+        badge: "CALENDAR"
+        badge_color: "emerald"
+        palette: "slate_dark"
+        title: "#{slide_title}"
+        subtitle: "Monthly release and sprint calendar"
+        month: "OCTOBER 2026"
+        start_day_offset: 3
+        total_days: 31
+        active_day: 15
+        events:
+          - day: 8
+            title: "Release Candidate"
+            color: "emerald"
+            badge: "RC"
+          - day: 15
+            title: "Demo Day"
+            color: "accent"
+            badge: "LIVE"
+        notes: |
+          Speaker notes for #{slide_title}.
+        YAML
+      when "calendar-schedule", "schedule"
+        <<-YAML
+        id: "#{id}"
+        layout: "calendar-schedule"
+        badge: "SCHEDULE"
+        badge_color: "accent"
+        palette: "slate_dark"
+        title: "#{slide_title}"
+        subtitle: "Multi-track conference timetable"
+        columns:
+          - title: "Day 1 • Architecture"
+            color: "accent"
+            sessions:
+              - time: "09:00 - 10:30"
+                title: "Opening Keynote"
+                speaker: "Lead Architect"
+                badge: "KEYNOTE"
+                desc: "Welcome and high-level architectural overview."
+          - title: "Day 2 • Deep Dives"
+            color: "emerald"
+            sessions:
+              - time: "10:00 - 11:30"
+                title: "Systems Workshop"
+                speaker: "Core Engineer"
+                badge: "WORKSHOP"
+                desc: "Hands-on implementation lab."
+        notes: |
+          Speaker notes for #{slide_title}.
+        YAML
+      when "radial-cycle", "cycle", "flywheel"
+        <<-YAML
+        id: "#{id}"
+        layout: "radial-cycle"
+        badge: "FLYWHEEL"
+        badge_color: "accent"
+        palette: "slate_dark"
+        title: "#{slide_title}"
+        subtitle: "Continuous circular refinement loop"
+        hub:
+          title: "CORE PROCESS"
+          subtitle: "Feedback Engine"
+          badge: "FLYWHEEL"
+        steps:
+          - step: "01"
+            title: "Ingest"
+            color: "accent"
+            desc: "Streaming input payload."
+          - step: "02"
+            title: "Transform"
+            color: "emerald"
+            desc: "Type-safe normalization."
+          - step: "03"
+            title: "Emit"
+            color: "purple"
+            desc: "Zero-inline style artifact."
+          - step: "04"
+            title: "Verify"
+            color: "amber"
+            desc: "Automated test assertions."
+        notes: |
+          Speaker notes for #{slide_title}.
+        YAML
+      when "editorial-split", "magazine"
+        <<-YAML
+        id: "#{id}"
+        layout: "editorial-split"
+        badge: "EDITORIAL"
+        badge_color: "rose"
+        palette: "slate_dark"
+        title: "#{slide_title}"
+        subtitle: "Magazine aesthetic with typographic emphasis"
+        numeral: "01"
+        headline: "High-Impact Architectural Statement"
+        quote: "Design is not just what it looks like, it is how it works."
+        attribution: "Design Manifesto"
+        cards:
+          - title: "Core Principle"
+            color: "accent"
+            desc: "Separation of structure and presentation style."
+        notes: |
+          Speaker notes for #{slide_title}.
+        YAML
+      when "convergence", "venn"
+        <<-YAML
+        id: "#{id}"
+        layout: "convergence"
+        badge: "CONVERGENCE"
+        badge_color: "accent"
+        palette: "slate_dark"
+        title: "#{slide_title}"
+        subtitle: "Multiple paradigms meeting at synthesis core"
+        pillars:
+          - title: "Pillar A"
+            color: "accent"
+            desc: "First requirement stream"
+          - title: "Pillar B"
+            color: "emerald"
+            desc: "Second requirement stream"
+        core:
+          title: "The Synthesis"
+          badge: "SWEET SPOT"
+          color: "accent"
+          desc: "Unifying solution satisfying all requirements."
+        notes: |
+          Speaker notes for #{slide_title}.
+        YAML
       else
         <<-YAML
         id: "#{id}"

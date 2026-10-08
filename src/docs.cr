@@ -52,7 +52,7 @@ module Sunstone
   #     <tr>
   #       <td><code>Layouts</code></td>
   #       <td><strong>Semantic Slide Layouts</strong></td>
-  #       <td>Catalog of all 20 semantic slide layouts supported by Sunstone.</td>
+  #       <td>Catalog of all 33 semantic slide layouts supported by Sunstone.</td>
   #     </tr>
   #   </tbody>
   # </table>
@@ -130,7 +130,7 @@ module Sunstone
     #
     # ##### 2. Authoring (`B_AUTHORING`)
     # - `B_AUTHORING::DeckManifest`: **Deck Manifest Specification** &mdash; Comprehensive guide to authoring deck.yml and configuring presentation-wide settings.
-    # - `B_AUTHORING::Layouts`: **Semantic Slide Layouts** &mdash; Catalog of all 20 semantic slide layouts supported by Sunstone.
+    # - `B_AUTHORING::Layouts`: **Semantic Slide Layouts** &mdash; Catalog of all 33 semantic slide layouts supported by Sunstone.
     #
     # ##### 3. Theming (`C_THEMING`)
     # - `C_THEMING::Themes`: **Built-In Themes & Theme-Scoped Palettes** &mdash; Comprehensive guide to Sunstone's built-in themes and per-slide palette catalogs.
@@ -153,7 +153,7 @@ module Sunstone
     #
     # ##### `B_AUTHORING`
     # - `B_AUTHORING::DeckManifest`: **Deck Manifest Specification** &mdash; Comprehensive guide to authoring deck.yml and configuring presentation-wide settings.
-    # - `B_AUTHORING::Layouts`: **Semantic Slide Layouts** &mdash; Catalog of all 20 semantic slide layouts supported by Sunstone.
+    # - `B_AUTHORING::Layouts`: **Semantic Slide Layouts** &mdash; Catalog of all 33 semantic slide layouts supported by Sunstone.
     #
     # ##### `C_THEMING`
     # - `C_THEMING::Themes`: **Built-In Themes & Theme-Scoped Palettes** &mdash; Comprehensive guide to Sunstone's built-in themes and per-slide palette catalogs.

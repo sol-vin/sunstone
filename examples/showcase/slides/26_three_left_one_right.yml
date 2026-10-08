@@ -1,0 +1,46 @@
+id: "three_left_one_right_demo"
+layout: "three-left-one-right"
+ratio: "2:3"
+badge: "ASYMMETRIC STACK"
+badge_color: "rose"
+palette: "crimson_obsidian"
+title: "Core Engine Tenets & Benchmark Verification"
+subtitle: "Three design philosophies backed by real-time execution telemetry"
+left:
+  - title: "1. Zero Inline Styles"
+    color: "accent"
+    badge: "SEMANTIC"
+    items:
+      - "Layouts governed purely by semantic classes & data attributes"
+  - title: "2. Scoped CSS Palettes"
+    color: "rose"
+    badge: "ISOLATION"
+    items:
+      - "Per-slide palette scoping prevents specificity cascading bugs"
+  - title: "3. Git-Friendly Diffs"
+    color: "amber"
+    badge: "VERSIONED"
+    items:
+      - "Pure human-readable YAML slide definitions reviewable in PRs"
+right:
+  type: "terminal"
+  title: "benchmark_runner.sh — Automated Test Rig"
+  density: "compact"
+  code: |
+    # Hyperfine benchmark: 100-slide presentation build comparison
+    $ hyperfine --warmup 3 \
+        'sunstone build --deck deck.yml' \
+        'marp --html deck.md -o dist/index.html' \
+        'npx @slidev/cli build'
+
+    Benchmark 1: sunstone build --deck deck.yml
+      Time (mean ± σ):      41.8 ms ±   2.1 ms    [User: 28.4 ms, System: 12.1 ms]
+      Range (min … max):    38.2 ms …  46.4 ms    100 runs
+
+    Benchmark 2: marp --html deck.md
+      Time (mean ± σ):     382.4 ms ±  14.2 ms    [9.1x slower than Sunstone]
+
+    Benchmark 3: npx @slidev/cli build
+      Time (mean ± σ):    2840.1 ms ± 110.5 ms    [67.9x slower than Sunstone]
+notes: |
+  Present Three-Left-One-Right layout. Three quick philosophical bullets on the left provide context for the benchmark trace on the right.

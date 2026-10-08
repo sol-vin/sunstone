@@ -1,0 +1,42 @@
+id: "two_left_one_right_demo"
+layout: "two-left-one-right"
+ratio: "2:3"
+badge: "ASYMMETRIC SPLIT"
+badge_color: "purple"
+palette: "midnight_indigo"
+title: "Compiler Pipeline & Live Verification"
+subtitle: "Declarative type inference constraints validating terminal outputs"
+left_top:
+  type: "card"
+  title: "Global Type Inference"
+  color: "purple"
+  badge: "TYPE CHECK"
+  items:
+    - "Nil-safety enforced at compile time with zero annotations"
+    - "Union types automatically narrowed within conditional branches"
+    - "Exhaustive pattern matching guarantees complete case coverage"
+left_bottom:
+  type: "card"
+  title: "LLVM Native Codegen"
+  color: "accent"
+  badge: "RELEASE -O3"
+  items:
+    - "Aggressive function inlining across layout renderers"
+    - "Dead code elimination strips unused CSS & icons"
+    - "Direct machine code generation produces single static binary"
+right:
+  type: "terminal"
+  title: "compiler_output.log — Release Verification"
+  density: "compact"
+  code: |
+    $ crystal build --release -o bin/sunstone src/sunstone.cr
+    [1/4] Parsing source tree and macro templates...  (120ms)
+    [2/4] Semantic analysis & type inference...       (310ms)
+    [3/4] LLVM IR generation & target pass: x86_64... (450ms)
+    [4/4] Linking native executable: bin/sunstone...  (180ms)
+
+    ✓ Build complete: bin/sunstone (6.1 MB stripped)
+    ✓ Zero inline style lint passed (33 layouts audited)
+    ✓ Memory footprint verified: 14.2 MB cold start RSS
+notes: |
+  Demonstrate Two-Left-One-Right layout. Show how two stacked informational pillars on the left provide technical context for the terminal execution log on the right.

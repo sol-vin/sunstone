@@ -7,7 +7,7 @@ describe Sunstone::Deck do
     deck.theme.should eq("generic")
     deck.width.should eq(1280)
     deck.height.should eq(720)
-    deck.slides.size.should eq(20)
+    deck.slides.size.should eq(33)
 
     intro = deck.slides.first
     intro.id.should eq("intro")
