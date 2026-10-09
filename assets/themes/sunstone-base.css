@@ -1472,9 +1472,13 @@
   min-height: 0;
 }
 
+.process-pipeline[data-steps="2"] { grid-template-columns: repeat(2, 1fr) !important; }
 .process-pipeline[data-steps="3"] { grid-template-columns: repeat(3, 1fr) !important; }
 .process-pipeline[data-steps="4"] { grid-template-columns: repeat(4, 1fr) !important; }
 .process-pipeline[data-steps="5"] { grid-template-columns: repeat(5, 1fr) !important; }
+.process-pipeline[data-steps="6"] { grid-template-columns: repeat(6, 1fr) !important; }
+.process-pipeline[data-steps="7"] { grid-template-columns: repeat(7, 1fr) !important; }
+.process-pipeline[data-steps="8"] { grid-template-columns: repeat(8, 1fr) !important; }
 
 .process-step-card {
   display: flex;
