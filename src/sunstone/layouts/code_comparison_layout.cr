@@ -82,45 +82,37 @@ module Sunstone
       render_section_wrapper(slide, deck, palette, slide_num, total_slides, body)
     end
 
-    # Step 2: Code with critique notes overlay and takeaway banner
+    # Step 2: Critique analysis cards and takeaway banner (clean zero-duplicate view)
     def render_step2_critique(slide : Slide, deck : Deck, palette : Palette, slide_num : Int32, total_slides : Int32) : String
       left, right = resolve_blocks(slide)
 
       body = String.build do |str|
         badge_header = "<span class=\"badge\" data-color=\"accent\">ANALYSIS</span>"
         str << render_slide_header(slide, badge_header) << "\n"
-        str << "          <div class=\"slide-body\" data-layout=\"code-comparison\" data-step=\"critique-overlay\">\n"
+        str << "          <div class=\"slide-body\" data-layout=\"code-comparison\" data-step=\"critique\">\n"
 
         if left
-          title = left["title"]?.try(&.as_s) || "Existing Pattern"
-          lang = left["lang"]?.try(&.as_s) || "python"
-          code = left["code"]?.try(&.as_s) || ""
-          tag = left["tag"]?.try(&.as_s)
           points = left["points"]?.try(&.as_a) || slide.raw["points"]?.try(&.as_a)
-          density = left["density"]?.try(&.as_s)
+          card_title = left["card_title"]?.try(&.as_s) || left["critique_title"]?.try(&.as_s) || left["title"]?.try(&.as_s) || "Pitfalls & Anti-Patterns"
+          badge_text = left["badge"]?.try(&.as_s) || "ANTI-PATTERN"
 
           str << "            <div class=\"comparison-pane\" data-slot=\"before\">\n"
-          str << render_code_container(title, lang, code, tag, density) << "\n"
           if points && !points.empty?
             items = points.map { |p| LayoutRenderer.extract_item_text(p) }
-            str << render_card("Critique", "coral antipattern", items, badge: "ANTI-PATTERN", compact: true) << "\n"
+            str << render_card(card_title, "coral antipattern", items, badge: badge_text) << "\n"
           end
           str << "            </div>\n"
         end
 
         if right
-          title = right["title"]?.try(&.as_s) || "Improved Solution"
-          lang = right["lang"]?.try(&.as_s) || "crystal"
-          code = right["code"]?.try(&.as_s) || ""
-          tag = right["tag"]?.try(&.as_s)
           points = right["points"]?.try(&.as_a)
-          density = right["density"]?.try(&.as_s)
+          card_title = right["card_title"]?.try(&.as_s) || right["solution_title"]?.try(&.as_s) || right["title"]?.try(&.as_s) || "Advantages & Clean Solution"
+          badge_text = right["badge"]?.try(&.as_s) || "CLEAN SOLUTION"
 
           str << "            <div class=\"comparison-pane\" data-slot=\"after\">\n"
-          str << render_code_container(title, lang, code, tag, density) << "\n"
           if points && !points.empty?
             items = points.map { |p| LayoutRenderer.extract_item_text(p) }
-            str << render_card("Advantages", "emerald solution", items, badge: "CLEAN SOLUTION", compact: true) << "\n"
+            str << render_card(card_title, "emerald solution", items, badge: badge_text) << "\n"
           end
           str << "            </div>\n"
         end
@@ -137,11 +129,17 @@ module Sunstone
         str << "          </div>"
       end
 
-      render_section_wrapper(slide, deck, palette, slide_num, total_slides, body)
+      render_section_wrapper(slide, deck, palette, slide_num, total_slides, body, custom_id: "#{slide.id}-critique")
     end
 
     def render_html(slide : Slide, deck : Deck, palette : Palette, slide_num : Int32, total_slides : Int32) : String
-      render_step2_critique(slide, deck, palette, slide_num, total_slides)
+      left, right = resolve_blocks(slide)
+      has_points = (left && left["points"]?) || (right && right["points"]?) || slide.raw["points"]? || slide.raw["takeaway"]?
+      if has_points && slide.raw["two_step"]?.try(&.as_bool) == false
+        render_step2_critique(slide, deck, palette, slide_num, total_slides)
+      else
+        render_step1_code_only(slide, deck, palette, slide_num, total_slides)
+      end
     end
 
     def render_step1_markdown(slide : Slide, deck : Deck, palette : Palette, slide_num : Int32, total_slides : Int32) : String
@@ -185,7 +183,13 @@ module Sunstone
     end
 
     def render_markdown(slide : Slide, deck : Deck, palette : Palette, slide_num : Int32, total_slides : Int32) : String
-      render_step2_markdown(slide, deck, palette, slide_num, total_slides)
+      left, right = resolve_blocks(slide)
+      has_points = (left && left["points"]?) || (right && right["points"]?) || slide.raw["points"]? || slide.raw["takeaway"]?
+      if has_points && slide.raw["two_step"]?.try(&.as_bool) == false
+        render_step2_markdown(slide, deck, palette, slide_num, total_slides)
+      else
+        render_step1_markdown(slide, deck, palette, slide_num, total_slides)
+      end
     end
   end
 end

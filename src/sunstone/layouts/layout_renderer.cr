@@ -70,15 +70,16 @@ module Sunstone
     end
 
     # Strictly Semantic Section Wrapper with ZERO Inline Styles
-    def render_section_wrapper(slide : Slide, deck : Deck, palette : Palette, slide_num : Int32, total_slides : Int32, inner_body : String, custom_notes : String? = nil) : String
+    def render_section_wrapper(slide : Slide, deck : Deck, palette : Palette, slide_num : Int32, total_slides : Int32, inner_body : String, custom_notes : String? = nil, custom_id : String? = nil) : String
       footer_left = format_footer_template(deck.footer_left, slide, deck, palette, slide_num, total_slides)
       footer_center = format_footer_template(deck.footer_center, slide, deck, palette, slide_num, total_slides)
       footer_right = format_footer_template(deck.footer_right, slide, deck, palette, slide_num, total_slides)
       notes_to_show = custom_notes || slide.notes
+      target_id = custom_id || slide.id
 
       String.build do |str|
         str << "      <!-- Slide " << slide_num << ": " << palette.name << " (" << slide.title << ") -->\n"
-        str << "      <section class=\"slide solvin-slide " << palette.id << "\" data-layout=\"" << slide.layout << "\" data-palette=\"" << palette.id << "\" data-background-color=\"" << palette.bg_color << "\" data-palette-name=\"" << HTML.escape(palette.name) << "\" data-palette-cube=\"" << palette.cube << "\" data-palette-cube-hover=\"" << palette.cube_hover << "\" data-slide-id=\"" << slide.id << "\" id=\"slide-" << slide.id << "\">\n"
+        str << "      <section class=\"slide solvin-slide " << palette.id << "\" data-layout=\"" << slide.layout << "\" data-palette=\"" << palette.id << "\" data-background-color=\"" << palette.bg_color << "\" data-palette-name=\"" << HTML.escape(palette.name) << "\" data-palette-cube=\"" << palette.cube << "\" data-palette-cube-hover=\"" << palette.cube_hover << "\" data-slide-id=\"" << target_id << "\" id=\"slide-" << target_id << "\">\n"
         str << "        <div class=\"palette-corner-badge\" title=\"Theme: " << HTML.escape(palette.name) << "\">\n"
         str << "          <span class=\"palette-corner-dot\"></span> PALETTE: " << HTML.escape(palette.name) << "\n"
         str << "        </div>\n"

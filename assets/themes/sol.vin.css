@@ -357,6 +357,60 @@ ul.card-list li strong {
   justify-content: space-between !important;
 }
 
+/* Narrow column and compact card adaptations */
+[data-ratio="2:1"] .column[data-slot="right"] .card,
+[data-ratio="1:2"] .column[data-slot="left"] .card,
+.card.compact,
+.card[data-density="compact"] {
+  padding: 0.75rem 1rem !important;
+  gap: 0.35rem !important;
+}
+
+[data-ratio="2:1"] .column[data-slot="right"] .card .card-title,
+[data-ratio="1:2"] .column[data-slot="left"] .card .card-title,
+.card.compact .card-title,
+.card[data-density="compact"] .card-title {
+  font-size: 0.95rem !important;
+  padding-bottom: 0.25rem !important;
+  margin-bottom: 0.20rem !important;
+}
+
+[data-ratio="2:1"] .column[data-slot="right"] .card ul.card-list,
+[data-ratio="1:2"] .column[data-slot="left"] .card ul.card-list,
+.card.compact ul.card-list,
+.card[data-density="compact"] ul.card-list {
+  gap: 0.28rem !important;
+  padding-left: 1rem !important;
+}
+
+[data-ratio="2:1"] .column[data-slot="right"] .card ul.card-list li,
+[data-ratio="1:2"] .column[data-slot="left"] .card ul.card-list li,
+.card.compact ul.card-list li,
+.card[data-density="compact"] ul.card-list li {
+  font-size: 0.76rem !important;
+  line-height: 1.32 !important;
+}
+
+[data-ratio="2:1"] .column[data-slot="right"] .card ul.card-list li code,
+[data-ratio="1:2"] .column[data-slot="left"] .card ul.card-list li code,
+.card.compact ul.card-list li code,
+.card[data-density="compact"] ul.card-list li code {
+  font-size: 0.70rem !important;
+  padding: 0.04rem 0.25rem !important;
+}
+
+.solvin-slide .arch-stack {
+  gap: 0.4rem !important;
+}
+
+.solvin-slide .arch-tier {
+  padding: 0.5rem 0.8rem !important;
+}
+
+.solvin-slide .arch-block {
+  padding: 0.35rem 0.5rem !important;
+}
+
 /* Code Display & Highlight.js Integration */
 .code-container {
   display: flex;
@@ -1632,11 +1686,33 @@ ul.card-list li strong {
 }
 
 .solvin-slide .takeaway-banner {
+  grid-column: 1 / -1 !important;
   background-color: var(--bg-window) !important;
   border: 1.5px solid var(--border-color) !important;
   box-shadow: 2px 2px 0px var(--shadow-color) !important;
   border-radius: 6px !important;
   color: var(--text-color) !important;
+}
+
+.solvin-slide .comparison-pane {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+  flex: 1 !important;
+}
+
+.solvin-slide .comparison-pane > .card {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+}
+
+.solvin-slide .comparison-pane > .card ul.card-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+  flex: 1 !important;
 }
 
 /* ==========================================================================
@@ -2337,6 +2413,42 @@ ul.card-list li strong {
   white-space: nowrap;
 }
 
+.solvin-slide .timeline-track {
+  margin: 0.6rem 1.5rem 0.8rem 1.5rem !important;
+}
+
+.solvin-slide .timeline-card .card-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0.35rem !important;
+  margin-bottom: 0.30rem !important;
+  padding-bottom: 0.25rem !important;
+  border-bottom: 1px dashed var(--border-color) !important;
+}
+
+.solvin-slide .timeline-card .card-title {
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.84rem !important;
+  line-height: 1.2 !important;
+  color: var(--text-color) !important;
+}
+
+.solvin-slide .timeline-card ul.card-list {
+  font-size: 0.72rem !important;
+  line-height: 1.3 !important;
+  margin: 0 !important;
+  padding-left: 0.85rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.22rem !important;
+}
+
+.solvin-slide .timeline-card ul.card-list li {
+  font-size: 0.72rem !important;
+  line-height: 1.3 !important;
+}
 
 /* ==========================================================================
    FontAwesome Pro 7.1.0 Inline SVG System
@@ -2818,7 +2930,7 @@ ul.card-list li strong {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
   grid-template-rows: auto !important;
-  gap: 1.5rem !important;
+  gap: 0.9rem !important;
   flex: 1 !important;
   min-height: 0 !important;
   width: 100% !important;
@@ -2826,10 +2938,10 @@ ul.card-list li strong {
 }
 
 .card.profile-card {
-  padding: 1.4rem 1.6rem !important;
+  padding: 0.85rem 1.1rem !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.65rem !important;
+  gap: 0.40rem !important;
   border-radius: 6px !important;
   box-shadow: 3px 3px 0px var(--shadow-color) !important;
   box-sizing: border-box !important;
@@ -2842,10 +2954,10 @@ ul.card-list li strong {
 }
 
 .card.profile-card .card-title {
-  font-size: 1.1rem !important;
+  font-size: 0.98rem !important;
   font-weight: 700 !important;
-  padding-bottom: 0.45rem !important;
-  margin-bottom: 0.35rem !important;
+  padding-bottom: 0.30rem !important;
+  margin-bottom: 0.20rem !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -2861,8 +2973,8 @@ ul.card-list li strong {
 
 .card.profile-card .badge-pill,
 .card.profile-card .badge {
-  font-size: 0.68rem !important;
-  padding: 0.16rem 0.65rem !important;
+  font-size: 0.65rem !important;
+  padding: 0.12rem 0.55rem !important;
   letter-spacing: 0.05em !important;
   margin-bottom: 0 !important;
 }
@@ -2870,16 +2982,16 @@ ul.card-list li strong {
 .card.profile-card ul.card-list {
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.85rem !important;
+  gap: 0.35rem !important;
   margin: 0 !important;
-  padding: 0 0 0 1.2rem !important;
+  padding: 0 0 0 1.1rem !important;
   flex: 1 !important;
   justify-content: flex-start !important;
 }
 
 .card.profile-card ul.card-list li {
-  font-size: 0.90rem !important;
-  line-height: 1.45 !important;
+  font-size: 0.80rem !important;
+  line-height: 1.35 !important;
   color: var(--text-color) !important;
   word-break: normal !important;
   overflow-wrap: break-word !important;
@@ -3262,27 +3374,27 @@ ul.card-list li strong {
 }
 
 .demo-step-card .window-body {
-  padding: 0.55rem 0.75rem !important;
+  padding: 0.35rem 0.55rem !important;
 }
 
 .demo-step-card .window-body pre code {
-  font-size: 0.76rem !important;
-  line-height: 1.35 !important;
+  font-size: 0.68rem !important;
+  line-height: 1.25 !important;
 }
 
 .demo-step-card ul.card-list {
   display: flex !important;
   flex-direction: column !important;
   justify-content: flex-start !important;
-  gap: 0.65rem !important;
+  gap: 0.22rem !important;
   flex: 1 !important;
-  margin: 0.35rem 0 0 0 !important;
-  padding: 0 0 0 1.05rem !important;
+  margin: 0.25rem 0 0 0 !important;
+  padding: 0 0 0 1rem !important;
 }
 
 .demo-step-card ul.card-list li {
-  font-size: 0.82rem !important;
-  line-height: 1.4 !important;
+  font-size: 0.72rem !important;
+  line-height: 1.28 !important;
   color: var(--text-color) !important;
 }
 
