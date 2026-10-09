@@ -119,7 +119,9 @@ module Sunstone
             end
 
       slides = Array(Slide).new
-      effective_slides_dir = slides_dir || File.join(deck_dir, "slides")
+      effective_slides_dir = slides_dir ||
+                             raw["slides_dir"]?.try(&.as_s).try { |d| File.expand_path(d, deck_dir) } ||
+                             (Dir.exists?(File.join(deck_dir, "data", "slides")) ? File.join(deck_dir, "data", "slides") : File.join(deck_dir, "slides"))
 
       if order = raw["slides"]?.try(&.as_a)
         order.each_with_index do |item, idx|
@@ -132,6 +134,8 @@ module Sunstone
               File.join(deck_dir, name.ends_with?(".yml") ? name : "#{name}.yml"),
               File.join(effective_slides_dir, name),
               File.join(effective_slides_dir, name.ends_with?(".yml") ? name : "#{name}.yml"),
+              File.join(deck_dir, "data", "slides", name),
+              File.join(deck_dir, "data", "slides", name.ends_with?(".yml") ? name : "#{name}.yml"),
             ]
 
             found = candidates.find { |c| File.exists?(c) }

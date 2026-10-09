@@ -52,6 +52,18 @@ describe "Sunstone Layouts (Strict Zero-Inline-Styles)" do
     Sunstone::LayoutRouter.resolve("venn").should be_a(Sunstone::ConvergenceLayout)
   end
 
+  it "normalizes -layout suffix and resolves to correct layouts" do
+    Sunstone::LayoutRouter.resolve("two-column-layout").should be_a(Sunstone::TwoColumnLayout)
+    Sunstone::LayoutRouter.resolve("chapter-layout").should be_a(Sunstone::ChapterLayout)
+    Sunstone::LayoutRouter.resolve("code-comparison-layout").should be_a(Sunstone::CodeComparisonLayout)
+    Sunstone::LayoutRouter.resolve("intro-layout").should be_a(Sunstone::IntroLayout)
+    Sunstone::LayoutRouter.resolve("title-card-layout").should be_a(Sunstone::ChapterLayout)
+    Sunstone::LayoutRouter.resolve("antipattern-compare-layout").should be_a(Sunstone::CodeComparisonLayout)
+
+    Sunstone::LayoutRouter.resolve?("non-existent-layout-xyz").should be_nil
+    Sunstone::LayoutRouter.resolve?("two-column-layout").should_not be_nil
+  end
+
   it "renders window headers with exactly one set of terminal dots and suppresses pseudo-element duplicate dots" do
     slide = deck.slides.find { |s| s.layout == "two-column" } || deck.slides.first
     renderer = Sunstone::LayoutRouter.resolve("two-column")

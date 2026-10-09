@@ -107,12 +107,17 @@ module Sunstone
     ]
 
     def self.resolve(layout_name : String) : LayoutRenderer
+      resolve?(layout_name) || TWO_COLUMN
+    end
+
+    def self.resolve?(layout_name : String) : LayoutRenderer?
       normalized = layout_name.strip.downcase.gsub("_", "-")
+      normalized = normalized[0...-7] if normalized.ends_with?("-layout")
 
       case normalized
       when "two-column", "split", "code-notes", "two-col"
         TWO_COLUMN
-      when "code-comparison", "comparison", "critique", "two-step"
+      when "code-comparison", "comparison", "critique", "two-step", "antipattern-compare"
         CODE_COMPARISON
       when "three-column", "three-col", "columns-3", "3col"
         THREE_COLUMN
@@ -120,7 +125,7 @@ module Sunstone
         FOUR_COLUMN
       when "intro", "title", "hero", "welcome"
         INTRO
-      when "chapter", "divider", "section", "transition"
+      when "chapter", "divider", "section", "transition", "title-card"
         CHAPTER
       when "matrix", "quadrant", "2x2", "grid-2x2"
         MATRIX
@@ -177,8 +182,7 @@ module Sunstone
       when "convergence", "tri-pillar", "intersection", "sweet-spot", "venn-layout", "venn"
         CONVERGENCE
       else
-        # Fallback to two-column layout for unknown names
-        TWO_COLUMN
+        nil
       end
     end
   end

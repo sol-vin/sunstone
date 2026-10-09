@@ -120,6 +120,7 @@ module Sunstone
       # -------------------------------------------------------------
       command "validate", "Verify syntax, slide references, layouts, and palettes in a deck" do |cmd|
         cmd.option :deck, "--deck", "-d", "Path to presentation deck.yml", default: "deck.yml"
+        cmd.option :theme, "--theme", "-t", "Override theme specified in deck.yml"
 
         cmd.run do |ctx|
           deck_file = Sunstone::CLI.resolve_deck_path(ctx)
@@ -130,6 +131,9 @@ module Sunstone
 
           puts "Validating presentation: \e[1m#{deck_file}\e[0m"
           deck = Deck.load(deck_file)
+          if theme_override = ctx.string?(:theme)
+            deck.theme = theme_override
+          end
           palettes = Palette.load_for_theme(deck.theme, deck.palettes)
 
           errors = 0
@@ -141,7 +145,7 @@ module Sunstone
 
           deck.slides.each_with_index do |slide, idx|
             # Validate layout
-            layout = LayoutRouter.resolve(slide.layout)
+            layout = LayoutRouter.resolve?(slide.layout)
             if layout.nil?
               STDERR.puts "  \e[31m[ERROR]\e[0m Slide #{idx + 1} ('#{slide.id}'): Unknown layout '#{slide.layout}'"
               errors += 1
@@ -359,7 +363,14 @@ module Sunstone
       if (first_arg = ctx.args.first?) && File.exists?(first_arg)
         return first_arg
       end
-      ctx.string(:deck)
+      deck_arg = ctx.string(:deck)
+      if File.exists?(deck_arg)
+        return deck_arg
+      end
+      if deck_arg == "deck.yml" && File.exists?("data/deck.yml")
+        return "data/deck.yml"
+      end
+      deck_arg
     end
 
     def self.run(args = ARGV)

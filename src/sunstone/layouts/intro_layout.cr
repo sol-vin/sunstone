@@ -42,8 +42,13 @@ module Sunstone
 
         str << "            <div class=\"intro-bottom-block\">\n"
         if !author_name.strip.empty?
+          author_alias = slide.raw["author_alias"]?.try(&.as_s)
           str << "              <div class=\"intro-author-wrap\">\n"
-          str << "                <div class=\"intro-author-name\">" << HTML.escape(author_name) << "</div>\n"
+          str << "                <div class=\"intro-author-name\">" << HTML.escape(author_name)
+          if author_alias && !author_alias.strip.empty?
+            str << " <span class=\"intro-author-alias\">(" << HTML.escape(author_alias) << ")</span>"
+          end
+          str << "</div>\n"
           if !author_role.strip.empty?
             str << "                <div class=\"intro-author-role\">" << LayoutRenderer.tint_emojis(HTML.escape(author_role)) << "</div>\n"
           end

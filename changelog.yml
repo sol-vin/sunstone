@@ -23,9 +23,146 @@ settings:
       title: "\U0001F6E0️ Chores & Tooling"
       bullet: •
 releases:
-- version: 0.1.24
+- version: 0.1.25
   date: "2026-10-08"
   status: active
+  entries:
+  - type: feat
+    description: add nordic, brutalist, academic, and tokyo-night themes with custom
+      theme authoring and developer pressure points guides
+    bullet: ✦
+    badge: '[THEMES]'
+    hash: 6e31826
+    author: Ian Rash
+  - type: feat
+    description: add interactive multi-theme landing page and --all-themes build support
+    bullet: ✦
+    badge: '[GALLERY]'
+    hash: 1e87150
+    author: Ian Rash
+  - type: refactor
+    description: simplify homepage to clean minimal list linking directly to theme
+      demos
+    bullet: ✦
+    badge: '[GALLERY]'
+    hash: fd3b7ac
+    author: Ian Rash
+  - type: fix
+    description: restore authentic sol.vin theme aesthetic and harmonize multi-theme
+      layouts
+    bullet: ✓
+    badge: '[THEME]'
+    hash: 448030a
+    author: Ian Rash
+  - type: fix
+    description: complete overhaul of authentic sol.vin styling and multi-theme rendering
+    bullet: ✓
+    badge: '[THEME]'
+    hash: 4c62c5e
+    author: Ian Rash
+  - type: fix
+    description: remove duplicate pseudo-element dots in generic code window header
+    bullet: ✓
+    badge: '[THEME]'
+    hash: 9767d58
+    author: Ian Rash
+  - type: feat
+    description: complete layout overhaul with universal Grid/Flexbox engine and 5
+      new layouts
+    bullet: ✦
+    badge: '[LAYOUT]'
+    hash: 6017be5
+    author: Ian Rash
+  - type: fix
+    description: resolve bento feature-grid multi-column layout override and expand
+      icon registry aliases
+    bullet: ✓
+    badge: '[LAYOUT]'
+    hash: 11893f8
+    author: Ian Rash
+  - type: feat
+    description: scope palettes per theme, import 102 sol.vin palettes, overhaul theme
+      styles, and fix bento layout
+    bullet: ✦
+    badge: '[THEME]'
+    hash: a2fff17
+    author: Ian Rash
+  - type: feat
+    description: integrate celestine SVG charts, overhaul intro layout spacing, and
+      showcase all 20 layouts
+    bullet: ✦
+    hash: e18c582
+    author: Ian Rash
+  - type: fix
+    description: resolve borked slide-media layout, style media window, and embed
+      Wikimedia Sunstone image
+    bullet: ✓
+    hash: 4edde82
+    author: Ian Rash
+  - type: feat
+    description: add chapter cube, center profile stats, fix timeline hover clipping,
+      and overhaul slide layouts
+    bullet: ✦
+    badge: '[LAYOUT]'
+    hash: 13c0ce6
+    author: Ian Rash
+  - type: feat
+    description: overhaul matrix layout with frosted arctic glass scorecard and balanced
+      grid
+    bullet: ✦
+    badge: '[LAYOUT]'
+    hash: 9f5eb04
+    author: Ian Rash
+  - type: fix
+    description: restore high-contrast chapter typography, center section layout,
+      and style LaTeX booktabs scorecard
+    bullet: ✓
+    badge: '[ACADEMIC]'
+    hash: 0a1cf91
+    author: Ian Rash
+  - type: feat
+    description: expand layout catalog to 33 layouts with asymmetric, timeline, calendar,
+      and artistic variants
+    bullet: ✦
+    badge: '[LAYOUT]'
+    hash: d449ef6
+    author: Ian Rash
+  - type: docs
+    description: update changelog for v0.1.20 layout engine expansion
+    bullet: "\U0001F4D6"
+    badge: '[CHANGELOG]'
+    hash: 9ac07c4
+    author: Ian Rash
+  - type: fix
+    description: refine vertical-timeline compact card sizing and semantic variables
+      across themes
+    bullet: ✓
+    badge: '[THEME]'
+    hash: 2ec0a9f
+    author: Ian Rash
+  - type: docs
+    description: sync release notes for v0.1.22
+    bullet: "\U0001F4D6"
+    badge: '[CHANGELOG]'
+    hash: e6aa854
+    author: Ian Rash
+  - type: fix
+    description: enforce strict sol.vin palette adherence and apply ColorMatrix filter
+      to emojis
+    bullet: ✓
+    badge: '[THEME]'
+    hash: fa5187b
+    author: Ian Rash
+  - type: fix
+    description: enforce strict palette compliance for bullet points, dots, badges,
+      and assign unique palettes to all 34 showcase slides
+    bullet: ✓
+    badge: '[THEME]'
+    hash: 3cead1b
+    author: Ian Rash
+- version: 0.1.24
+  date: "2026-10-08"
+  status: released
   entries:
   - type: feat
     description: add nordic, brutalist, academic, and tokyo-night themes with custom

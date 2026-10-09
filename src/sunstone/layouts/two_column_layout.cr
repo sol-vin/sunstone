@@ -34,13 +34,13 @@ module Sunstone
 
         if left_data
           str << "            <div class=\"column col\" data-slot=\"left\">\n"
-          render_column_content(str, left_data, slide)
+          render_column_content(str, left_data, slide, deck)
           str << "            </div>\n"
         end
 
         if right_data
           str << "            <div class=\"column col\" data-slot=\"right\">\n"
-          render_column_content(str, right_data, slide)
+          render_column_content(str, right_data, slide, deck)
           str << "            </div>\n"
         end
 
@@ -50,15 +50,15 @@ module Sunstone
       render_section_wrapper(slide, deck, palette, slide_num, total_slides, body)
     end
 
-    private def render_column_content(str : String::Builder, data : YAML::Any, slide : Slide)
+    private def render_column_content(str : String::Builder, data : YAML::Any, slide : Slide, deck : Deck)
       if data.as_a?
-        data.as_a.each { |item| render_single_item(str, item, slide) }
+        data.as_a.each { |item| render_single_item(str, item, slide, deck) }
       else
-        render_single_item(str, data, slide)
+        render_single_item(str, data, slide, deck)
       end
     end
 
-    private def render_single_item(str : String::Builder, data : YAML::Any, slide : Slide)
+    private def render_single_item(str : String::Builder, data : YAML::Any, slide : Slide, deck : Deck)
       item_type = data["type"]?.try(&.as_s) || "card"
 
       case item_type
@@ -102,13 +102,13 @@ module Sunstone
         rows = data["rows"]?.try(&.as_i) || 18
 
         # Inlining cast data as base64 data URI if file exists locally
-        cast_file = if File.exists?(cast_rel)
-                      cast_rel
-                    elsif File.exists?(File.expand_path(cast_rel, Dir.current))
-                      File.expand_path(cast_rel, Dir.current)
-                    else
-                      nil
-                    end
+        candidates = [
+          cast_rel,
+          File.expand_path(cast_rel, deck.deck_dir),
+          File.expand_path(cast_rel, File.join(deck.deck_dir, "..")),
+          File.expand_path(cast_rel, Dir.current),
+        ]
+        cast_file = candidates.find { |c| File.exists?(c) }
 
         cast_src = if cast_file
                      content = File.read(cast_file)
