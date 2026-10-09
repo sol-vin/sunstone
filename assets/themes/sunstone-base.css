@@ -68,9 +68,14 @@
 }
 
 .slide-header[data-align="split"] {
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+}
+
+.slide-header[data-align="split"] .slide-meta {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .slide-meta {
