@@ -33,7 +33,8 @@ module Sunstone
     HLJS_CRYSTAL_JS = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/languages/crystal.min.js") }}
     HLJS_RUST_JS    = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/languages/rust.min.js") }}
     HLJS_CPP_JS     = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/languages/cpp.min.js") }}
-    HLJS_PYTHON_JS  = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/languages/python.min.js") }}
+    HLJS_PYTHON_JS   = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/languages/python.min.js") }}
+    HLJS_GDSCRIPT_JS = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/languages/gdscript.min.js") }}
 
     # Asciinema player assets
     ASCIINEMA_CSS = {{ read_file("#{__DIR__}/../../assets/vendor/asciinema/asciinema-player.css") }}
@@ -74,6 +75,7 @@ module Sunstone
       File.write(File.join(hljs_dir, "languages/rust.min.js"), HLJS_RUST_JS)
       File.write(File.join(hljs_dir, "languages/cpp.min.js"), HLJS_CPP_JS)
       File.write(File.join(hljs_dir, "languages/python.min.js"), HLJS_PYTHON_JS)
+      File.write(File.join(hljs_dir, "languages/gdscript.min.js"), HLJS_GDSCRIPT_JS)
 
       # Asciinema
       asciinema_dir = File.join(vendor_dir, "asciinema")

@@ -194,6 +194,7 @@ module Sunstone
         <script src="vendor/highlight/languages/rust.min.js"></script>
         <script src="vendor/highlight/languages/cpp.min.js"></script>
         <script src="vendor/highlight/languages/python.min.js"></script>
+        <script src="vendor/highlight/languages/gdscript.min.js"></script>
 
         <script>
           // Initialize Reveal.js Presentation Engine
@@ -223,27 +224,32 @@ module Sunstone
             // Highlight plugin configuration
             highlight: {
               beforeHighlight: (internalHljs) => {
-                if (window.hljs && window.hljs.registerAliases) {
-                  try { window.hljs.registerAliases(['gdscript', 'gd'], { languageName: 'python' }); } catch(e) {}
-                  try { window.hljs.registerAliases(['ruby', 'rb'], { languageName: 'crystal' }); } catch(e) {}
-                  try { window.hljs.registerAliases(['csharp', 'cs', 'c#'], { languageName: 'csharp' }); } catch(e) {}
-                  try { window.hljs.registerAliases(['sh', 'shell', 'zsh'], { languageName: 'bash' }); } catch(e) {}
-                }
-                if (internalHljs && internalHljs.registerAliases) {
-                  try { internalHljs.registerAliases(['gdscript', 'gd'], { languageName: 'python' }); } catch(e) {}
-                  try { internalHljs.registerAliases(['ruby', 'rb'], { languageName: 'crystal' }); } catch(e) {}
-                  try { internalHljs.registerAliases(['csharp', 'cs', 'c#'], { languageName: 'csharp' }); } catch(e) {}
-                  try { internalHljs.registerAliases(['sh', 'shell', 'zsh'], { languageName: 'bash' }); } catch(e) {}
-                }
+                // 1. Synchronize pre-registered languages from window.hljs to Reveal's internal hljs
                 if (window.hljs && window.hljs.listLanguages) {
                   window.hljs.listLanguages().forEach((lang) => {
                     const def = window.hljs.getLanguage(lang);
-                    if (def) {
+                    if (def && internalHljs && internalHljs.registerLanguage) {
                       try { internalHljs.unregisterLanguage(lang); } catch(e) {}
                       internalHljs.registerLanguage(lang, def.rawDefinition || (() => def));
                     }
                   });
                 }
+
+                // 2. Register aliases on BOTH window.hljs and internalHljs
+                [window.hljs, internalHljs].forEach((h) => {
+                  if (h && h.registerAliases) {
+                    try {
+                      if (!h.getLanguage('gdscript')) {
+                        h.registerAliases(['gdscript', 'gd'], { languageName: 'python' });
+                      } else {
+                        h.registerAliases(['gd'], { languageName: 'gdscript' });
+                      }
+                    } catch(e) {}
+                    try { h.registerAliases(['ruby', 'rb'], { languageName: 'crystal' }); } catch(e) {}
+                    try { h.registerAliases(['csharp', 'cs', 'c#'], { languageName: 'csharp' }); } catch(e) {}
+                    try { h.registerAliases(['sh', 'shell', 'zsh'], { languageName: 'bash' }); } catch(e) {}
+                  }
+                });
               }
             },
 
