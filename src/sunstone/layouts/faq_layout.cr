@@ -20,9 +20,9 @@ module Sunstone
             str << "              <div class=\"card faq-card col " << color << "\" data-color=\"" << color << "\">\n"
             str << "                <div class=\"faq-question\">\n"
             str << "                  <span class=\"faq-q-badge badge " << color << "\" data-color=\"" << color << "\">" << HTML.escape(badge) << "</span>\n"
-            str << "                  <span>" << LayoutRenderer.tint_emojis(HTML.escape(q_text)) << "</span>\n"
+            str << "                  <span>" << LayoutRenderer.tint_emojis(q_text) << "</span>\n"
             str << "                </div>\n"
-            str << "                <div class=\"faq-answer\">" << LayoutRenderer.tint_emojis(HTML.escape(a_text)) << "</div>\n"
+            str << "                <div class=\"faq-answer\">" << LayoutRenderer.tint_emojis(a_text) << "</div>\n"
             str << "              </div>\n"
           end
           str << "            </div>\n"
