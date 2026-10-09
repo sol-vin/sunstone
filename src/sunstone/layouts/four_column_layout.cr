@@ -15,7 +15,7 @@ module Sunstone
               lang = col["lang"]?.try(&.as_s) || "crystal"
               code = col["code"]?.try(&.as_s) || ""
               tag = col["tag"]?.try(&.as_s)
-              density = col["density"]?.try(&.as_s) || "compact"
+              density = col["density"]?.try(&.as_s)
               str << render_code_container(title, lang, code, tag, density) << "\n"
             else
               title = col["title"]?.try(&.as_s) || ""

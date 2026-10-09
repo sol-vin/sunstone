@@ -48,7 +48,7 @@ module Sunstone
               end
             end
             cls_attr = classes.empty? ? "" : " class=\"#{classes}\""
-            str << "                    <th#{cls_attr}>" << LayoutRenderer.tint_emojis(HTML.escape(h)) << "</th>\n"
+            str << "                    <th#{cls_attr}>" << LayoutRenderer.tint_emojis(h) << "</th>\n"
           end
           str << "                  </tr>\n                </thead>\n"
         end
@@ -65,7 +65,7 @@ module Sunstone
               end
             end
             cls_attr = classes.empty? ? "" : " class=\"#{classes}\""
-            str << "                    <td#{cls_attr}>" << LayoutRenderer.tint_emojis(HTML.escape(cell)) << "</td>\n"
+            str << "                    <td#{cls_attr}>" << LayoutRenderer.tint_emojis(cell) << "</td>\n"
           end
           str << "                  </tr>\n"
         end
