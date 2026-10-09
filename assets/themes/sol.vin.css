@@ -1156,6 +1156,14 @@ ul.card-list li strong {
   display: none !important;
 }
 
+/* Hide Step Badges (Code View & Analysis) in Header */
+.slide-meta > .badge:not(.badge-pill),
+.slide-meta .code-view-badge,
+.slide-meta .analysis-badge,
+.slide-meta .step-badge {
+  display: none !important;
+}
+
 .solvin-slide .card {
   background-color: var(--bg-window) !important;
   color: var(--text-color) !important;

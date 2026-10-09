@@ -50,7 +50,7 @@ module Sunstone
       left, right = resolve_blocks(slide)
 
       body = String.build do |str|
-        badge_header = "<span class=\"badge\">CODE VIEW</span>"
+        badge_header = "<span class=\"badge code-view-badge step-badge\">CODE VIEW</span>"
         str << render_slide_header(slide, badge_header) << "\n"
         str << "          <div class=\"slide-body\" data-layout=\"code-comparison\" data-step=\"code-only\">\n"
 
@@ -87,7 +87,7 @@ module Sunstone
       left, right = resolve_blocks(slide)
 
       body = String.build do |str|
-        badge_header = "<span class=\"badge\" data-color=\"accent\">ANALYSIS</span>"
+        badge_header = "<span class=\"badge analysis-badge step-badge\" data-color=\"accent\">ANALYSIS</span>"
         str << render_slide_header(slide, badge_header) << "\n"
         str << "          <div class=\"slide-body\" data-layout=\"code-comparison\" data-step=\"critique\">\n"
 

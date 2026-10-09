@@ -79,6 +79,14 @@
   gap: 0.6rem;
 }
 
+/* Hide Step Badges (Code View & Analysis) in Header */
+.slide-meta > .badge:not(.badge-pill),
+.slide-meta .code-view-badge,
+.slide-meta .analysis-badge,
+.slide-meta .step-badge {
+  display: none !important;
+}
+
 .badge {
   display: inline-flex;
   align-items: center;
