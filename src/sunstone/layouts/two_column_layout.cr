@@ -154,52 +154,7 @@ module Sunstone
         str << "              </div>\n"
         str << "            </div>\n"
       when "barchart"
-        title = data["title"]?.try(&.as_s) || "Benchmark Comparison"
-        badge = data["badge"]?.try(&.as_s) || "LOWER IS BETTER"
-        unit = data["unit"]?.try(&.as_s) || "ms"
-        str << "            <div class=\"card barchart-card\">\n"
-        str << "              <div class=\"card-header\">\n"
-        str << "                <span class=\"card-title\">" << LayoutRenderer.tint_emojis(LayoutRenderer.escape(title)) << "</span>\n"
-        str << "                <span class=\"badge\">" << LayoutRenderer.escape(badge) << "</span>\n"
-        str << "              </div>\n"
-        str << "              <div class=\"barchart-container\">\n"
-
-        if benchmarks = data["benchmarks"]?.try(&.as_a)
-          benchmarks.each do |b|
-            b_name = b["name"]?.try(&.as_s) || ""
-            bars_data = [] of Tuple(String, String, Float64)
-
-            if raw_bars = b["bars"]?.try(&.as_a)
-              raw_bars.each do |r_bar|
-                p_name = r_bar["platform"]?.try(&.as_s) || "Platform"
-                l_cls = r_bar["lang"]?.try(&.as_s) || p_name.downcase.gsub(/[^a-z0-9]/, "")
-                v_num = r_bar["val"]?.try { |v| v.as_f? || v.as_i?.try(&.to_f) } || 0.0_f64
-                bars_data << {p_name, l_cls, v_num}
-              end
-            end
-
-            max_val = bars_data.empty? ? 1.0_f64 : bars_data.map(&.[2]).max
-            max_val = 1.0_f64 if max_val <= 0.0
-
-            str << "                <div class=\"barchart-row\">\n"
-            str << "                  <div class=\"barchart-row-header\"><span class=\"barchart-name\">" << LayoutRenderer.tint_emojis(LayoutRenderer.escape(b_name)) << "</span></div>\n"
-            str << "                  <div class=\"barchart-bars\">\n"
-            bars_data.each do |(p_name, l_cls, v_num)|
-              pct = [2.0, (v_num / max_val * 100.0)].max.round(1)
-              val_str = v_num < 10.0 ? sprintf("%.2f", v_num) : sprintf("%.1f", v_num)
-              str << "                    <div class=\"barchart-bar-line\">\n"
-              str << "                      <span class=\"bar-platform\">" << LayoutRenderer.escape(p_name) << "</span>\n"
-              str << "                      <div class=\"bar-track\"><div class=\"bar-fill " << l_cls << "\" style=\"width: " << pct << "%;\"></div></div>\n"
-              str << "                      <span class=\"bar-val\">" << val_str << " " << unit << "</span>\n"
-              str << "                    </div>\n"
-            end
-            str << "                  </div>\n"
-            str << "                </div>\n"
-          end
-        end
-
-        str << "              </div>\n"
-        str << "            </div>\n"
+        str << render_barchart(data)
       when "image"
         src = data["src"]?.try(&.as_s) || ""
         alt = data["alt"]?.try(&.as_s) || "Slide Image"

@@ -499,6 +499,107 @@
   border-radius: var(--sunstone-radius-sm, 6px);
 }
 
+/* Barchart Card & Benchmark Visualizations */
+.barchart-card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.65rem !important;
+  padding: 0.95rem 1.15rem !important;
+  border-radius: var(--sunstone-radius-md, 8px);
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.barchart-card .card-title {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.1rem !important;
+  padding-bottom: 0.4rem !important;
+}
+
+.barchart-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.55rem !important;
+  flex: 1 !important;
+  justify-content: space-around !important;
+}
+
+.barchart-row {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.2rem !important;
+}
+
+.barchart-row-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  font-size: 0.80rem !important;
+  font-weight: 700 !important;
+}
+
+.barchart-name {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.barchart-speedup.badge-pill {
+  font-size: 0.66rem !important;
+  padding: 0.1rem 0.45rem !important;
+  font-weight: 800 !important;
+  border-radius: 4px !important;
+  white-space: nowrap !important;
+}
+
+.barchart-bars {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.18rem !important;
+}
+
+.barchart-bar-line {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+  font-size: 0.72rem !important;
+}
+
+.bar-platform {
+  width: 65px !important;
+  font-family: var(--sunstone-font-mono, monospace) !important;
+  font-size: 0.70rem !important;
+  flex-shrink: 0 !important;
+}
+
+.bar-track {
+  flex: 1 !important;
+  height: 12px !important;
+  border-radius: 3px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.bar-fill {
+  height: 100% !important;
+  border-radius: 2px !important;
+  background-color: var(--sunstone-accent, #38bdf8);
+}
+
+.bar-val {
+  width: 68px !important;
+  text-align: right !important;
+  font-family: var(--sunstone-font-mono, monospace) !important;
+  font-size: 0.71rem !important;
+  font-weight: 600 !important;
+  flex-shrink: 0 !important;
+}
+
 .takeaway-banner {
   grid-column: 1 / -1 !important;
   display: flex;
