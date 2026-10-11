@@ -702,23 +702,19 @@
 
 /* Timeline Layout (Rail & Dots via CSS Pseudo-elements) */
 [data-layout="timeline"] .timeline-track {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 0.8rem;
   align-items: center;
   position: relative;
-  margin: 0.6rem 1.5rem 0.8rem 1.5rem;
+  margin: 0.6rem 0 0.8rem 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Horizontal connecting rail */
 [data-layout="timeline"] .timeline-track::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--sunstone-border, #334155);
-  z-index: 1;
+  display: none;
 }
 
 .timeline-step {
@@ -730,6 +726,22 @@
   gap: 0.4rem;
 }
 
+/* Horizontal connecting rail */
+.timeline-step::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: calc(100% + 0.8rem);
+  height: 3px;
+  bottom: 5.5px;
+  background: var(--sunstone-border, #334155);
+  z-index: 1;
+}
+
+.timeline-step:last-child::after {
+  display: none;
+}
+
 /* Milestone Dot */
 .timeline-dot {
   width: 14px;
@@ -737,6 +749,9 @@
   border-radius: 50%;
   background: var(--sunstone-accent, #38bdf8);
   border: 3px solid var(--sunstone-bg, #0f172a);
+  box-shadow: 0 0 0 3px var(--sunstone-bg, #0f172a);
+  position: relative;
+  z-index: 3;
 }
 
 .timeline-cards {
@@ -744,6 +759,8 @@
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
   gap: 0.8rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Architecture Layout */
