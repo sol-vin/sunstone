@@ -12,6 +12,7 @@ require "./sunstone/generator"
 require "./sunstone/landing_page"
 require "./sunstone/server"
 require "./sunstone/scaffold"
+require "./sunstone/adapters/reveal_adapter"
 require "./sunstone/cli"
 
 module Sunstone
