@@ -4,7 +4,7 @@ module Sunstone
   class CalendarScheduleLayout < LayoutRenderer
     def render_html(slide : Slide, deck : Deck, palette : Palette, slide_num : Int32, total_slides : Int32) : String
       cols_raw = slide.raw["columns"]?.try(&.as_a) || slide.raw["days"]?.try(&.as_a) || slide.raw["tracks"]?.try(&.as_a) || [
-        YAML::Any.new("Day 1 • Architecture"), YAML::Any.new("Day 2 • Deep Dives"), YAML::Any.new("Day 3 • Workshops")
+        YAML::Any.new("Day 1 • Architecture"), YAML::Any.new("Day 2 • Deep Dives"), YAML::Any.new("Day 3 • Workshops"),
       ]
       num_cols = cols_raw.size
 

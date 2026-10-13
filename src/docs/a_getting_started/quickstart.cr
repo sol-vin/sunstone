@@ -4,88 +4,88 @@
 # ==============================================================================
 
 {% unless flag?(:release) %}
-module Sunstone
-  module Docs
-    module A_GETTING_STARTED
-      # # Quickstart Guide
-      #
-      # ### Executive Summary & Key Topics
-      #
-      # <table>
-      #   <thead>
-      #     <tr>
-      #       <th>Topic</th>
-      #       <th>Method / Anchor</th>
-      #       <th>Description</th>
-      #     </tr>
-      #   </thead>
-      #   <tbody>
-      #     <tr>
-      #       <td><strong>Installation & Setup</strong></td>
-      #       <td><code>.topic_01_installation</code></td>
-      #       <td>How to install Sunstone or compile it from source.</td>
-      #     </tr>
-      #     <tr>
-      #       <td><strong>Creating Your First Presentation</strong></td>
-      #       <td><code>.topic_02_creating_deck</code></td>
-      #       <td>Scaffolding a new presentation project with sunstone new.</td>
-      #     </tr>
-      #     <tr>
-      #       <td><strong>Previewing and Building Slides</strong></td>
-      #       <td><code>.topic_03_preview_and_build</code></td>
-      #       <td>Live local preview and static production compilation.</td>
-      #     </tr>
-      #   </tbody>
-      # </table>
-      #
-      module Quickstart
-        # **Installation & Setup**: How to install Sunstone or compile it from source.
+  module Sunstone
+    module Docs
+      module A_GETTING_STARTED
+        # # Quickstart Guide
         #
-        # Clone the Sunstone repository or install via shards:
+        # ### Executive Summary & Key Topics
         #
-        # ```bash
-        # git clone https://github.com/sol-vin/sunstone.git
-        # cd sunstone
-        # shards install
-        # crystal build src/sunstone.cr -o bin/sunstone
-        # ```
+        # <table>
+        #   <thead>
+        #     <tr>
+        #       <th>Topic</th>
+        #       <th>Method / Anchor</th>
+        #       <th>Description</th>
+        #     </tr>
+        #   </thead>
+        #   <tbody>
+        #     <tr>
+        #       <td><strong>Installation & Setup</strong></td>
+        #       <td><code>.topic_01_installation</code></td>
+        #       <td>How to install Sunstone or compile it from source.</td>
+        #     </tr>
+        #     <tr>
+        #       <td><strong>Creating Your First Presentation</strong></td>
+        #       <td><code>.topic_02_creating_deck</code></td>
+        #       <td>Scaffolding a new presentation project with sunstone new.</td>
+        #     </tr>
+        #     <tr>
+        #       <td><strong>Previewing and Building Slides</strong></td>
+        #       <td><code>.topic_03_preview_and_build</code></td>
+        #       <td>Live local preview and static production compilation.</td>
+        #     </tr>
+        #   </tbody>
+        # </table>
         #
-        def self.topic_01_installation : Nil; end
+        module Quickstart
+          # **Installation & Setup**: How to install Sunstone or compile it from source.
+          #
+          # Clone the Sunstone repository or install via shards:
+          #
+          # ```bash
+          # git clone https://github.com/sol-vin/sunstone.git
+          # cd sunstone
+          # shards install
+          # crystal build src/sunstone.cr -o bin/sunstone
+          # ```
+          #
+          def self.topic_01_installation : Nil; end
 
-        # **Creating Your First Presentation**: Scaffolding a new presentation project with sunstone new.
-        #
-        # To scaffold a new presentation deck:
-        #
-        # ```bash
-        # sunstone new my-talk --title "High-Performance Systems" --author "Jane Doe"
-        # cd my-talk
-        # ```
-        #
-        # This creates:
-        # - `deck.yml`: Deck configuration and slide order.
-        # - `slides/`: Starter slides showcasing intro, two-column code, and closing layouts.
-        # - `custom.css`: Optional custom styling overrides.
-        # - `.github/workflows/deploy.yml`: Ready-to-go GitHub Pages automated deployment.
-        #
-        def self.topic_02_creating_deck : Nil; end
+          # **Creating Your First Presentation**: Scaffolding a new presentation project with sunstone new.
+          #
+          # To scaffold a new presentation deck:
+          #
+          # ```bash
+          # sunstone new my-talk --title "High-Performance Systems" --author "Jane Doe"
+          # cd my-talk
+          # ```
+          #
+          # This creates:
+          # - `deck.yml`: Deck configuration and slide order.
+          # - `slides/`: Starter slides showcasing intro, two-column code, and closing layouts.
+          # - `custom.css`: Optional custom styling overrides.
+          # - `.github/workflows/deploy.yml`: Ready-to-go GitHub Pages automated deployment.
+          #
+          def self.topic_02_creating_deck : Nil; end
 
-        # **Previewing and Building Slides**: Live local preview and static production compilation.
-        #
-        # To launch a live local preview server with automatic browser launch:
-        #
-        # ```bash
-        # sunstone serve
-        # ```
-        #
-        # To compile static production HTML and Markdown files:
-        #
-        # ```bash
-        # sunstone build --out dist
-        # ```
-        #
-        def self.topic_03_preview_and_build : Nil; end
+          # **Previewing and Building Slides**: Live local preview and static production compilation.
+          #
+          # To launch a live local preview server with automatic browser launch:
+          #
+          # ```bash
+          # sunstone serve
+          # ```
+          #
+          # To compile static production HTML and Markdown files:
+          #
+          # ```bash
+          # sunstone build --out dist
+          # ```
+          #
+          def self.topic_03_preview_and_build : Nil; end
+        end
       end
     end
   end
-end
 {% end %}

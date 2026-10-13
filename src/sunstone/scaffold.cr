@@ -169,8 +169,8 @@ module Sunstone
 
       slide_title = title || id.split(/[-_]/).map(&.capitalize).join(" ")
       content = case layout.downcase.gsub("_", "-")
-      when "intro", "hero", "title"
-        <<-YAML
+                when "intro", "hero", "title"
+                  <<-YAML
         id: "#{id}"
         layout: "intro"
         badge: "INTRO"
@@ -187,8 +187,8 @@ module Sunstone
         notes: |
           Presenter notes for #{slide_title}.
         YAML
-      when "chapter", "divider", "section"
-        <<-YAML
+                when "chapter", "divider", "section"
+                  <<-YAML
         id: "#{id}"
         layout: "chapter"
         badge: "CHAPTER"
@@ -204,8 +204,8 @@ module Sunstone
         notes: |
           Presenter notes for chapter transition.
         YAML
-      when "three-column", "three_col"
-        <<-YAML
+                when "three-column", "three_col"
+                  <<-YAML
         id: "#{id}"
         layout: "three-column"
         badge: "COMPARISON"
@@ -232,8 +232,8 @@ module Sunstone
         notes: |
           Speaker notes.
         YAML
-      when "quote"
-        <<-YAML
+                when "quote"
+                  <<-YAML
         id: "#{id}"
         layout: "quote"
         badge: "QUOTE"
@@ -246,8 +246,8 @@ module Sunstone
         notes: |
           Speaker notes.
         YAML
-      when "stats", "kpi", "numbers", "dashboard"
-        <<-YAML
+                when "stats", "kpi", "numbers", "dashboard"
+                  <<-YAML
         id: "#{id}"
         layout: "stats"
         badge: "METRICS"
@@ -274,8 +274,8 @@ module Sunstone
         notes: |
           Key metrics overview.
         YAML
-      when "feature-grid", "bento"
-        <<-YAML
+                when "feature-grid", "bento"
+                  <<-YAML
         id: "#{id}"
         layout: "feature-grid"
         badge: "ARCHITECTURE"
@@ -304,8 +304,8 @@ module Sunstone
         notes: |
           Feature grid walkthrough.
         YAML
-      when "process-flow", "pipeline", "workflow"
-        <<-YAML
+                when "process-flow", "pipeline", "workflow"
+                  <<-YAML
         id: "#{id}"
         layout: "process-flow"
         badge: "PIPELINE"
@@ -332,8 +332,8 @@ module Sunstone
         notes: |
           Step-by-step pipeline discussion.
         YAML
-      when "table", "benchmark"
-        <<-YAML
+                when "table", "benchmark"
+                  <<-YAML
         id: "#{id}"
         layout: "table"
         badge: "BENCHMARK"
@@ -351,8 +351,8 @@ module Sunstone
         notes: |
           Comparative benchmark matrix.
         YAML
-      when "faq", "q-and-a"
-        <<-YAML
+                when "faq", "q-and-a"
+                  <<-YAML
         id: "#{id}"
         layout: "faq"
         badge: "FAQ"
@@ -370,8 +370,8 @@ module Sunstone
         notes: |
           Q&A discussion.
         YAML
-      when "one-left-two-right", "1l-2r"
-        <<-YAML
+                when "one-left-two-right", "1l-2r"
+                  <<-YAML
         id: "#{id}"
         layout: "one-left-two-right"
         badge: "ASYMMETRIC SPLIT"
@@ -403,8 +403,8 @@ module Sunstone
         notes: |
           Speaker notes for #{slide_title}.
         YAML
-      when "vertical-timeline", "timeline-vertical"
-        <<-YAML
+                when "vertical-timeline", "timeline-vertical"
+                  <<-YAML
         id: "#{id}"
         layout: "vertical-timeline"
         badge: "TIMELINE"
@@ -431,8 +431,8 @@ module Sunstone
         notes: |
           Speaker notes for #{slide_title}.
         YAML
-      when "roadmap-timeline", "gantt"
-        <<-YAML
+                when "roadmap-timeline", "gantt"
+                  <<-YAML
         id: "#{id}"
         layout: "roadmap-timeline"
         badge: "ROADMAP"
@@ -463,8 +463,8 @@ module Sunstone
         notes: |
           Speaker notes for #{slide_title}.
         YAML
-      when "calendar-month", "calendar"
-        <<-YAML
+                when "calendar-month", "calendar"
+                  <<-YAML
         id: "#{id}"
         layout: "calendar-month"
         badge: "CALENDAR"
@@ -488,8 +488,8 @@ module Sunstone
         notes: |
           Speaker notes for #{slide_title}.
         YAML
-      when "calendar-schedule", "schedule"
-        <<-YAML
+                when "calendar-schedule", "schedule"
+                  <<-YAML
         id: "#{id}"
         layout: "calendar-schedule"
         badge: "SCHEDULE"
@@ -517,8 +517,8 @@ module Sunstone
         notes: |
           Speaker notes for #{slide_title}.
         YAML
-      when "radial-cycle", "cycle", "flywheel"
-        <<-YAML
+                when "radial-cycle", "cycle", "flywheel"
+                  <<-YAML
         id: "#{id}"
         layout: "radial-cycle"
         badge: "FLYWHEEL"
@@ -550,8 +550,8 @@ module Sunstone
         notes: |
           Speaker notes for #{slide_title}.
         YAML
-      when "editorial-split", "magazine"
-        <<-YAML
+                when "editorial-split", "magazine"
+                  <<-YAML
         id: "#{id}"
         layout: "editorial-split"
         badge: "EDITORIAL"
@@ -570,8 +570,8 @@ module Sunstone
         notes: |
           Speaker notes for #{slide_title}.
         YAML
-      when "convergence", "venn"
-        <<-YAML
+                when "convergence", "venn"
+                  <<-YAML
         id: "#{id}"
         layout: "convergence"
         badge: "CONVERGENCE"
@@ -594,8 +594,8 @@ module Sunstone
         notes: |
           Speaker notes for #{slide_title}.
         YAML
-      else
-        <<-YAML
+                else
+                  <<-YAML
         id: "#{id}"
         layout: "#{layout}"
         badge: "KEYNOTE"
@@ -619,7 +619,7 @@ module Sunstone
         notes: |
           Speaker notes.
         YAML
-      end
+                end
 
       File.write(file_path, content)
       file_path

@@ -9,7 +9,7 @@ module Sunstone
 
       author = slide.author.presence ||
                slide["author"]?.try(&.as_s?) || ""
-      
+
       role = slide["role"]?.try(&.as_s?) ||
              slide["attribution"]?.try(&.as_s?) ||
              slide["title"]?.try(&.as_s?) || ""

@@ -4,88 +4,88 @@
 # ==============================================================================
 
 {% unless flag?(:release) %}
-module Sunstone
-  module Docs
-    module D_DEPLOYMENT
-      # # Continuous Integration & GitHub Pages
-      #
-      # ### Executive Summary & Key Topics
-      #
-      # <table>
-      #   <thead>
-      #     <tr>
-      #       <th>Topic</th>
-      #       <th>Method / Anchor</th>
-      #       <th>Description</th>
-      #     </tr>
-      #   </thead>
-      #   <tbody>
-      #     <tr>
-      #       <td><strong>Automated Deployment Workflow</strong></td>
-      #       <td><code>.topic_01_github_actions</code></td>
-      #       <td>Publishing presentations to GitHub Pages on git push.</td>
-      #     </tr>
-      #   </tbody>
-      # </table>
-      #
-      module CiCd
-        # **Automated Deployment Workflow**: Publishing presentations to GitHub Pages on git push.
+  module Sunstone
+    module Docs
+      module D_DEPLOYMENT
+        # # Continuous Integration & GitHub Pages
         #
-        # Every presentation scaffolded with `sunstone new` includes `.github/workflows/deploy.yml`:
+        # ### Executive Summary & Key Topics
         #
-        # ```yaml
-        # name: Deploy Presentation to GitHub Pages
+        # <table>
+        #   <thead>
+        #     <tr>
+        #       <th>Topic</th>
+        #       <th>Method / Anchor</th>
+        #       <th>Description</th>
+        #     </tr>
+        #   </thead>
+        #   <tbody>
+        #     <tr>
+        #       <td><strong>Automated Deployment Workflow</strong></td>
+        #       <td><code>.topic_01_github_actions</code></td>
+        #       <td>Publishing presentations to GitHub Pages on git push.</td>
+        #     </tr>
+        #   </tbody>
+        # </table>
         #
-        # on:
-        #   push:
-        #     branches: [ main ]
-        #   workflow_dispatch:
-        #
-        # permissions:
-        #   contents: read
-        #   pages: write
-        #   id-token: write
-        #
-        # concurrency:
-        #   group: "pages"
-        #   cancel-in-progress: false
-        #
-        # jobs:
-        #   deploy:
-        #     environment:
-        #       name: github-pages
-        #     runs-on: ubuntu-latest
-        #     steps:
-        #       - name: Checkout Presentation Source
-        #         uses: actions/checkout@v4
-        #
-        #       - name: Install Crystal
-        #         uses: crystal-lang/install-crystal@v1
-        #         with:
-        #           crystal: latest
-        #
-        #       - name: Install Sunstone CLI
-        #         run: |
-        #           git clone https://github.com/sol-vin/sunstone.git /tmp/sunstone
-        #           cd /tmp/sunstone && shards install && crystal build src/sunstone.cr -o /usr/local/bin/sunstone --release
-        #
-        #       - name: Build Presentation
-        #         run: |
-        #           sunstone build --out dist
-        #
-        #       - name: Upload Pages Artifact
-        #         uses: actions/upload-pages-artifact@v3
-        #         with:
-        #           path: 'dist'
-        #
-        #       - name: Deploy to GitHub Pages
-        #         id: deployment
-        #         uses: actions/deploy-pages@v4
-        # ```
-        #
-        def self.topic_01_github_actions : Nil; end
+        module CiCd
+          # **Automated Deployment Workflow**: Publishing presentations to GitHub Pages on git push.
+          #
+          # Every presentation scaffolded with `sunstone new` includes `.github/workflows/deploy.yml`:
+          #
+          # ```yaml
+          # name: Deploy Presentation to GitHub Pages
+          #
+          # on:
+          #   push:
+          #     branches: [ main ]
+          #   workflow_dispatch:
+          #
+          # permissions:
+          #   contents: read
+          #   pages: write
+          #   id-token: write
+          #
+          # concurrency:
+          #   group: "pages"
+          #   cancel-in-progress: false
+          #
+          # jobs:
+          #   deploy:
+          #     environment:
+          #       name: github-pages
+          #     runs-on: ubuntu-latest
+          #     steps:
+          #       - name: Checkout Presentation Source
+          #         uses: actions/checkout@v4
+          #
+          #       - name: Install Crystal
+          #         uses: crystal-lang/install-crystal@v1
+          #         with:
+          #           crystal: latest
+          #
+          #       - name: Install Sunstone CLI
+          #         run: |
+          #           git clone https://github.com/sol-vin/sunstone.git /tmp/sunstone
+          #           cd /tmp/sunstone && shards install && crystal build src/sunstone.cr -o /usr/local/bin/sunstone --release
+          #
+          #       - name: Build Presentation
+          #         run: |
+          #           sunstone build --out dist
+          #
+          #       - name: Upload Pages Artifact
+          #         uses: actions/upload-pages-artifact@v3
+          #         with:
+          #           path: 'dist'
+          #
+          #       - name: Deploy to GitHub Pages
+          #         id: deployment
+          #         uses: actions/deploy-pages@v4
+          # ```
+          #
+          def self.topic_01_github_actions : Nil; end
+        end
       end
     end
   end
-end
 {% end %}

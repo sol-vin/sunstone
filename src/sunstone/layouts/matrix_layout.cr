@@ -20,16 +20,16 @@ module Sunstone
       end
 
       highlight_idx = if hl = slide.raw["highlight_col"]?
-        if hl_i = hl.as_i?
-          hl_i
-        elsif hl.as_s? == "none"
-          nil
-        else
-          headers.size > 1 ? headers.size - 1 : nil
-        end
-      else
-        headers.size > 1 ? headers.size - 1 : nil
-      end
+                        if hl_i = hl.as_i?
+                          hl_i
+                        elsif hl.as_s? == "none"
+                          nil
+                        else
+                          headers.size > 1 ? headers.size - 1 : nil
+                        end
+                      else
+                        headers.size > 1 ? headers.size - 1 : nil
+                      end
 
       body = String.build do |str|
         str << render_slide_header(slide) << "\n"

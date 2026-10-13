@@ -47,14 +47,14 @@ module Sunstone
 
     def self.clean_text(html : String) : String
       html.gsub(/<[^>]+>/, "")
-          .gsub("&amp;", "&")
-          .gsub("&lt;", "<")
-          .gsub("&gt;", ">")
-          .gsub("&quot;", "\"")
-          .gsub("&#123;", "{")
-          .gsub("&#125;", "}")
-          .gsub("&mdash;", "—")
-          .strip
+        .gsub("&amp;", "&")
+        .gsub("&lt;", "<")
+        .gsub("&gt;", ">")
+        .gsub("&quot;", "\"")
+        .gsub("&#123;", "{")
+        .gsub("&#125;", "}")
+        .gsub("&mdash;", "—")
+        .strip
     end
 
     def format_footer_template(template : String, slide : Slide, deck : Deck, palette : Palette, slide_num : Int32, total_slides : Int32) : String
@@ -127,8 +127,8 @@ module Sunstone
       density_attr = effective_density ? " data-density=\"#{effective_density}\"" : ""
       density_cls = case effective_density
                     when "compact" then " code-compact"
-                    when "dense" then " code-dense"
-                    else ""
+                    when "dense"   then " code-dense"
+                    else                ""
                     end
       lang_display = tag || lang.upcase
       String.build do |str|

@@ -144,5 +144,3 @@ describe Sunstone::Generator do
     end
   end
 end
-
-

@@ -129,4 +129,3 @@ describe Sunstone::Palette do
     academic_palettes.has_key?("inversion").should be_false
   end
 end
-

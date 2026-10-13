@@ -4,73 +4,73 @@
 # ==============================================================================
 
 {% unless flag?(:release) %}
-module Sunstone
-  module Docs
-    module C_THEMING
-      # # Zero Inline Styles Architecture
-      #
-      # ### Executive Summary & Key Topics
-      #
-      # <table>
-      #   <thead>
-      #     <tr>
-      #       <th>Topic</th>
-      #       <th>Method / Anchor</th>
-      #       <th>Description</th>
-      #     </tr>
-      #   </thead>
-      #   <tbody>
-      #     <tr>
-      #       <td><strong>How Zero-Inline-Styles Works</strong></td>
-      #       <td><code>.topic_01_architecture</code></td>
-      #       <td>Mapping semantic attributes to CSS grid and flex rules.</td>
-      #     </tr>
-      #     <tr>
-      #       <td><strong>Chrome and Indicators via CSS</strong></td>
-      #       <td><code>.topic_02_pseudo_elements</code></td>
-      #       <td>Styling semantic window dots and arrows without inline styles.</td>
-      #     </tr>
-      #   </tbody>
-      # </table>
-      #
-      module ZeroInlineStyles
-        # **How Zero-Inline-Styles Works**: Mapping semantic attributes to CSS grid and flex rules.
+  module Sunstone
+    module Docs
+      module C_THEMING
+        # # Zero Inline Styles Architecture
         #
-        # Rather than injecting `style="grid-template-columns: 3fr 2fr;"` into HTML tags, Sunstone emits semantic data attributes:
+        # ### Executive Summary & Key Topics
         #
-        # ```html
-        # <div class="slide-body" data-ratio="3:2" data-density="compact">
-        # ```
+        # <table>
+        #   <thead>
+        #     <tr>
+        #       <th>Topic</th>
+        #       <th>Method / Anchor</th>
+        #       <th>Description</th>
+        #     </tr>
+        #   </thead>
+        #   <tbody>
+        #     <tr>
+        #       <td><strong>How Zero-Inline-Styles Works</strong></td>
+        #       <td><code>.topic_01_architecture</code></td>
+        #       <td>Mapping semantic attributes to CSS grid and flex rules.</td>
+        #     </tr>
+        #     <tr>
+        #       <td><strong>Chrome and Indicators via CSS</strong></td>
+        #       <td><code>.topic_02_pseudo_elements</code></td>
+        #       <td>Styling semantic window dots and arrows without inline styles.</td>
+        #     </tr>
+        #   </tbody>
+        # </table>
         #
-        # In `sunstone-base.css`, attribute selectors map directly to CSS grid definitions:
-        #
-        # ```css
-        # [data-ratio="3:2"] {
-        #   grid-template-columns: 3fr 2fr;
-        # }
-        # ```
-        #
-        def self.topic_01_architecture : Nil; end
+        module ZeroInlineStyles
+          # **How Zero-Inline-Styles Works**: Mapping semantic attributes to CSS grid and flex rules.
+          #
+          # Rather than injecting `style="grid-template-columns: 3fr 2fr;"` into HTML tags, Sunstone emits semantic data attributes:
+          #
+          # ```html
+          # <div class="slide-body" data-ratio="3:2" data-density="compact">
+          # ```
+          #
+          # In `sunstone-base.css`, attribute selectors map directly to CSS grid definitions:
+          #
+          # ```css
+          # [data-ratio="3:2"] {
+          #   grid-template-columns: 3fr 2fr;
+          # }
+          # ```
+          #
+          def self.topic_01_architecture : Nil; end
 
-        # **Chrome and Indicators via CSS**: Styling semantic window dots and arrows without inline styles.
-        #
-        # Terminal dots and indicators are styled cleanly through semantic selectors without inline styles:
-        #
-        # ```css
-        # .terminal-dots {
-        #   display: inline-flex;
-        #   gap: 6px;
-        # }
-        # .terminal-dot.red    { background-color: #ff5f56; }
-        # .terminal-dot.yellow { background-color: #ffbd2e; }
-        # .terminal-dot.green  { background-color: #27c93f; }
-        # ```
-        #
-        # Flow arrows between architectural tiers use `.arch-tier + .arch-tier::before { content: "▼"; }`.
-        #
-        def self.topic_02_pseudo_elements : Nil; end
+          # **Chrome and Indicators via CSS**: Styling semantic window dots and arrows without inline styles.
+          #
+          # Terminal dots and indicators are styled cleanly through semantic selectors without inline styles:
+          #
+          # ```css
+          # .terminal-dots {
+          #   display: inline-flex;
+          #   gap: 6px;
+          # }
+          # .terminal-dot.red    { background-color: #ff5f56; }
+          # .terminal-dot.yellow { background-color: #ffbd2e; }
+          # .terminal-dot.green  { background-color: #27c93f; }
+          # ```
+          #
+          # Flow arrows between architectural tiers use `.arch-tier + .arch-tier::before { content: "▼"; }`.
+          #
+          def self.topic_02_pseudo_elements : Nil; end
+        end
       end
     end
   end
-end
 {% end %}

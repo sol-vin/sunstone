@@ -3,13 +3,13 @@ require "file_utils"
 
 module Sunstone
   module Assets
-    BASE_CSS                 = {{ read_file("#{__DIR__}/../../assets/themes/sunstone-base.css") }}
-    GENERIC_CSS              = {{ read_file("#{__DIR__}/../../assets/themes/generic.css") }}
-    SOLVIN_CSS               = {{ read_file("#{__DIR__}/../../assets/themes/sol.vin.css") }}
-    NORDIC_CSS               = {{ read_file("#{__DIR__}/../../assets/themes/nordic.css") }}
-    BRUTALIST_CSS            = {{ read_file("#{__DIR__}/../../assets/themes/brutalist.css") }}
-    ACADEMIC_CSS             = {{ read_file("#{__DIR__}/../../assets/themes/academic.css") }}
-    TOKYO_NIGHT_CSS          = {{ read_file("#{__DIR__}/../../assets/themes/tokyo-night.css") }}
+    BASE_CSS        = {{ read_file("#{__DIR__}/../../assets/themes/sunstone-base.css") }}
+    GENERIC_CSS     = {{ read_file("#{__DIR__}/../../assets/themes/generic.css") }}
+    SOLVIN_CSS      = {{ read_file("#{__DIR__}/../../assets/themes/sol.vin.css") }}
+    NORDIC_CSS      = {{ read_file("#{__DIR__}/../../assets/themes/nordic.css") }}
+    BRUTALIST_CSS   = {{ read_file("#{__DIR__}/../../assets/themes/brutalist.css") }}
+    ACADEMIC_CSS    = {{ read_file("#{__DIR__}/../../assets/themes/academic.css") }}
+    TOKYO_NIGHT_CSS = {{ read_file("#{__DIR__}/../../assets/themes/tokyo-night.css") }}
 
     GENERIC_PALETTES_JSON     = {{ read_file("#{__DIR__}/../../assets/themes/generic_palettes.json") }}
     SOLVIN_PALETTES_JSON      = {{ read_file("#{__DIR__}/../../assets/themes/solvin_palettes.json") }}
@@ -18,8 +18,8 @@ module Sunstone
     ACADEMIC_PALETTES_JSON    = {{ read_file("#{__DIR__}/../../assets/themes/academic_palettes.json") }}
     TOKYO_NIGHT_PALETTES_JSON = {{ read_file("#{__DIR__}/../../assets/themes/tokyo_night_palettes.json") }}
 
-    SOLVIN_CUBE_JS           = {{ read_file("#{__DIR__}/../../assets/themes/sol.vin/cube.js") }}
-    USER_CI_YML              = {{ read_file("#{__DIR__}/../../assets/user_ci.yml") }}
+    SOLVIN_CUBE_JS = {{ read_file("#{__DIR__}/../../assets/themes/sol.vin/cube.js") }}
+    USER_CI_YML    = {{ read_file("#{__DIR__}/../../assets/user_ci.yml") }}
 
     # Reveal.js assets
     REVEAL_CSS       = {{ read_file("#{__DIR__}/../../assets/vendor/reveal/reveal.min.css") }}
@@ -28,11 +28,11 @@ module Sunstone
     REVEAL_NOTES     = {{ read_file("#{__DIR__}/../../assets/vendor/reveal/plugin/notes/notes.min.js") }}
 
     # Highlight.js assets
-    HLJS_JS         = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/highlight.min.js") }}
-    HLJS_ATOM_CSS   = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/styles/atom-one-dark.min.css") }}
-    HLJS_CRYSTAL_JS = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/languages/crystal.min.js") }}
-    HLJS_RUST_JS    = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/languages/rust.min.js") }}
-    HLJS_CPP_JS     = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/languages/cpp.min.js") }}
+    HLJS_JS          = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/highlight.min.js") }}
+    HLJS_ATOM_CSS    = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/styles/atom-one-dark.min.css") }}
+    HLJS_CRYSTAL_JS  = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/languages/crystal.min.js") }}
+    HLJS_RUST_JS     = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/languages/rust.min.js") }}
+    HLJS_CPP_JS      = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/languages/cpp.min.js") }}
     HLJS_PYTHON_JS   = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/languages/python.min.js") }}
     HLJS_GDSCRIPT_JS = {{ read_file("#{__DIR__}/../../assets/vendor/highlight/languages/gdscript.min.js") }}
 

@@ -11,7 +11,7 @@ module Sunstone
       stroke : String = "#38bdf8",
       stroke_width : Float64 = 2.5,
       fill : String? = nil,
-      smooth : Bool = true
+      smooth : Bool = true,
     ) : String
       svg = Celestine::Svg.new
       svg.view_box(0, 0, width, height)
@@ -34,7 +34,7 @@ module Sunstone
       size : Int32 = 70,
       stroke_width : Float64 = 6.0,
       color : String = "#38bdf8",
-      track_color : String = "rgba(255, 255, 255, 0.12)"
+      track_color : String = "rgba(255, 255, 255, 0.12)",
     ) : String
       svg = Celestine::Svg.new
       svg.view_box(0, 0, size, size)
@@ -63,7 +63,7 @@ module Sunstone
       height : Int32 = 220,
       bar_color : String = "#38bdf8",
       highlight_color : String = "#f59e0b",
-      highlight_index : Int32? = nil
+      highlight_index : Int32? = nil,
     ) : String
       svg = Celestine::Svg.new
       svg.view_box(0, 0, width, height)
@@ -170,7 +170,6 @@ module Sunstone
         fill = node["fill"]?.try(&.as_s)
         smooth = node["smooth"]?.try(&.as_bool) != false
         sparkline(data, width: w, height: h, stroke: stroke, stroke_width: stroke_w, fill: fill, smooth: smooth)
-
       when "ring", "progress_ring", "donut"
         prog = node["progress"]?.try(&.as_f) || node["value"]?.try(&.as_f) || 0.0
         size = node["size"]?.try(&.as_i) || 72
@@ -178,7 +177,6 @@ module Sunstone
         color = node["color"]?.try(&.as_s) || default_color
         track = node["track_color"]?.try(&.as_s) || "rgba(255, 255, 255, 0.12)"
         progress_ring(prog, size: size, stroke_width: stroke_w, color: color, track_color: track)
-
       when "bar", "bars", "bar_chart"
         labels = Array(String).new
         if raw_lbls = node["labels"]?.try(&.as_a)
@@ -197,7 +195,6 @@ module Sunstone
         hl_color = node["highlight_color"]?.try(&.as_s) || "#f59e0b"
         hl_idx = node["highlight_index"]?.try(&.as_i)
         bar_chart(labels, values, width: w, height: h, bar_color: b_color, highlight_color: hl_color, highlight_index: hl_idx)
-
       else
         nil
       end

@@ -4,7 +4,7 @@ module Sunstone
   class RoadmapTimelineLayout < LayoutRenderer
     def render_html(slide : Slide, deck : Deck, palette : Palette, slide_num : Int32, total_slides : Int32) : String
       periods = slide.raw["periods"]?.try(&.as_a) || slide.raw["quarters"]?.try(&.as_a) || slide.raw["columns"]?.try(&.as_a) || [
-        YAML::Any.new("Q1 2026"), YAML::Any.new("Q2 2026"), YAML::Any.new("Q3 2026"), YAML::Any.new("Q4 2026")
+        YAML::Any.new("Q1 2026"), YAML::Any.new("Q2 2026"), YAML::Any.new("Q3 2026"), YAML::Any.new("Q4 2026"),
       ]
       tracks = slide.raw["tracks"]?.try(&.as_a) || slide.raw["streams"]?.try(&.as_a) || slide.raw["rows"]?.try(&.as_a)
       num_periods = periods.size

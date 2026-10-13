@@ -4,111 +4,111 @@
 # ==============================================================================
 
 {% unless flag?(:release) %}
-module Sunstone
-  module Docs
-    module B_AUTHORING
-      # # Semantic Slide Layouts
-      #
-      # ### Executive Summary & Key Topics
-      #
-      # <table>
-      #   <thead>
-      #     <tr>
-      #       <th>Topic</th>
-      #       <th>Method / Anchor</th>
-      #       <th>Description</th>
-      #     </tr>
-      #   </thead>
-      #   <tbody>
-      #     <tr>
-      #       <td><strong>Layout Gallery</strong></td>
-      #       <td><code>.topic_01_layout_gallery</code></td>
-      #       <td>Overview of layout types and their use cases.</td>
-      #     </tr>
-      #     <tr>
-      #       <td><strong>Two-Column Slide Syntax</strong></td>
-      #       <td><code>.topic_02_two_column_syntax</code></td>
-      #       <td>Example YAML syntax for a two-column code and notes slide.</td>
-      #     </tr>
-      #   </tbody>
-      # </table>
-      #
-      module Layouts
-        # **Layout Gallery**: Overview of layout types and their use cases.
+  module Sunstone
+    module Docs
+      module B_AUTHORING
+        # # Semantic Slide Layouts
         #
-        # Sunstone provides 33 specialized layout renderers:
+        # ### Executive Summary & Key Topics
         #
-        # 1. **intro:** Hero title slide with large badges, subtitle, author credentials, and strategic pillar pills.
-        # 2. **chapter:** Section divider featuring a chapter number and topic pillars.
-        # 3. **two-column:** Flexible split layout supporting code, cards, and text in ratios `1:1`, `3:2`, `2:3`, `1:2`, and `2:1`.
-        # 4. **code-comparison:** Side-by-side or two-step critique revealing bad patterns followed by improved solutions.
-        # 5. **three-column:** Three equal or weighted informational cards.
-        # 6. **four-column:** Four-card grid for quadrants or comparisons.
-        # 7. **matrix:** 2x2 quadrant analysis with custom labels and colors.
-        # 8. **timeline:** Horizontal milestone rail with status indicators and dates.
-        # 9. **architecture:** Multi-tier technology stack with CSS flow indicators.
-        # 10. **media:** Images, video, or embedded Asciinema terminal recordings.
-        # 11. **profile:** Speaker or team bio with avatar, stats ribbon, and bento card grid.
-        # 12. **dual-mode:** Comparison between two architectural modes or toolchains.
-        # 13. **demo-roadmap:** Step-by-step live-demo roadmap and execution track.
-        # 14. **closing:** Outro slide with takeaways, quickstart terminal bar, and signature.
-        # 15. **quote:** High-impact typographic quote or testimonial slide.
-        # 16. **stats:** KPI dashboard with prominent metric values, delta badges, and labels.
-        # 17. **feature-grid:** Asymmetrical Bento Grid showcasing a primary hero feature alongside supporting capabilities.
-        # 18. **process-flow:** Sequential multi-stage pipeline connected with directional chevrons.
-        # 19. **table:** Comparative benchmark data table with highlighted rows and sticky headers.
-        # 20. **faq:** Two-column Q&A grid cards for addressable audience clarifications.
-        # 21. **one-left-two-right:** Left full-height column + two vertically stacked right containers.
-        # 22. **two-left-one-right:** Two vertically stacked left containers + right full-height column.
-        # 23. **one-top-two-bottom:** Top full-width hero container + two bottom side-by-side columns.
-        # 24. **two-top-one-bottom:** Two top side-by-side columns + bottom full-width container.
-        # 25. **one-left-three-right:** Left showcase column + three vertically stacked checkpoint cards.
-        # 26. **three-left-one-right:** Three stacked principle cards on left + right showcase column.
-        # 27. **vertical-timeline:** Continuous vertical milestone rail with status indicators and cards.
-        # 28. **roadmap-timeline:** Gantt-style quarterly/phase multi-track roadmap with duration bars.
-        # 29. **calendar-month:** 7-day monthly sprint/release grid with day numbers and event chips.
-        # 30. **calendar-schedule:** Multi-day or multi-track conference/event timetable with time slots.
-        # 31. **radial-cycle:** Circular flywheel / continuous feedback loop with central hub and orbital nodes.
-        # 32. **editorial-split:** High-impact magazine layout with giant numeral, quote & offset cards.
-        # 33. **convergence:** Converging multi-pillar streams meeting at a central synthesis core.
+        # <table>
+        #   <thead>
+        #     <tr>
+        #       <th>Topic</th>
+        #       <th>Method / Anchor</th>
+        #       <th>Description</th>
+        #     </tr>
+        #   </thead>
+        #   <tbody>
+        #     <tr>
+        #       <td><strong>Layout Gallery</strong></td>
+        #       <td><code>.topic_01_layout_gallery</code></td>
+        #       <td>Overview of layout types and their use cases.</td>
+        #     </tr>
+        #     <tr>
+        #       <td><strong>Two-Column Slide Syntax</strong></td>
+        #       <td><code>.topic_02_two_column_syntax</code></td>
+        #       <td>Example YAML syntax for a two-column code and notes slide.</td>
+        #     </tr>
+        #   </tbody>
+        # </table>
         #
-        def self.topic_01_layout_gallery : Nil; end
+        module Layouts
+          # **Layout Gallery**: Overview of layout types and their use cases.
+          #
+          # Sunstone provides 33 specialized layout renderers:
+          #
+          # 1. **intro:** Hero title slide with large badges, subtitle, author credentials, and strategic pillar pills.
+          # 2. **chapter:** Section divider featuring a chapter number and topic pillars.
+          # 3. **two-column:** Flexible split layout supporting code, cards, and text in ratios `1:1`, `3:2`, `2:3`, `1:2`, and `2:1`.
+          # 4. **code-comparison:** Side-by-side or two-step critique revealing bad patterns followed by improved solutions.
+          # 5. **three-column:** Three equal or weighted informational cards.
+          # 6. **four-column:** Four-card grid for quadrants or comparisons.
+          # 7. **matrix:** 2x2 quadrant analysis with custom labels and colors.
+          # 8. **timeline:** Horizontal milestone rail with status indicators and dates.
+          # 9. **architecture:** Multi-tier technology stack with CSS flow indicators.
+          # 10. **media:** Images, video, or embedded Asciinema terminal recordings.
+          # 11. **profile:** Speaker or team bio with avatar, stats ribbon, and bento card grid.
+          # 12. **dual-mode:** Comparison between two architectural modes or toolchains.
+          # 13. **demo-roadmap:** Step-by-step live-demo roadmap and execution track.
+          # 14. **closing:** Outro slide with takeaways, quickstart terminal bar, and signature.
+          # 15. **quote:** High-impact typographic quote or testimonial slide.
+          # 16. **stats:** KPI dashboard with prominent metric values, delta badges, and labels.
+          # 17. **feature-grid:** Asymmetrical Bento Grid showcasing a primary hero feature alongside supporting capabilities.
+          # 18. **process-flow:** Sequential multi-stage pipeline connected with directional chevrons.
+          # 19. **table:** Comparative benchmark data table with highlighted rows and sticky headers.
+          # 20. **faq:** Two-column Q&A grid cards for addressable audience clarifications.
+          # 21. **one-left-two-right:** Left full-height column + two vertically stacked right containers.
+          # 22. **two-left-one-right:** Two vertically stacked left containers + right full-height column.
+          # 23. **one-top-two-bottom:** Top full-width hero container + two bottom side-by-side columns.
+          # 24. **two-top-one-bottom:** Two top side-by-side columns + bottom full-width container.
+          # 25. **one-left-three-right:** Left showcase column + three vertically stacked checkpoint cards.
+          # 26. **three-left-one-right:** Three stacked principle cards on left + right showcase column.
+          # 27. **vertical-timeline:** Continuous vertical milestone rail with status indicators and cards.
+          # 28. **roadmap-timeline:** Gantt-style quarterly/phase multi-track roadmap with duration bars.
+          # 29. **calendar-month:** 7-day monthly sprint/release grid with day numbers and event chips.
+          # 30. **calendar-schedule:** Multi-day or multi-track conference/event timetable with time slots.
+          # 31. **radial-cycle:** Circular flywheel / continuous feedback loop with central hub and orbital nodes.
+          # 32. **editorial-split:** High-impact magazine layout with giant numeral, quote & offset cards.
+          # 33. **convergence:** Converging multi-pillar streams meeting at a central synthesis core.
+          #
+          def self.topic_01_layout_gallery : Nil; end
 
-        # **Two-Column Slide Syntax**: Example YAML syntax for a two-column code and notes slide.
-        #
-        # ```yaml
-        # id: "channels_example"
-        # layout: "two-column"
-        # badge: "CONCURRENCY"
-        # badge_color: "accent"
-        # palette: "emerald_matrix"
-        # ratio: "3:2"
-        # title: "Buffered Channels"
-        # subtitle: "Non-blocking message passing between fibers"
-        # code_title: "channel.cr"
-        # code_lang: "crystal"
-        # code: |
-        #   ch = Channel(Int32).new(capacity: 10)
-        #   spawn do
-        #     10.times { |i| ch.send(i) }
-        #     ch.close
-        #   end
-        #   while val = ch.receive?
-        #     puts val
-        #   end
-        # cards:
-        #   - title: "Key Principles"
-        #     color: "emerald"
-        #     items:
-        #       - "Channel buffers prevent producer backpressure"
-        #       - "Fibers yield cooperatively upon buffer saturation"
-        # notes: |
-        #   Explain how Crystal channels compare with Go channels.
-        # ```
-        #
-        def self.topic_02_two_column_syntax : Nil; end
+          # **Two-Column Slide Syntax**: Example YAML syntax for a two-column code and notes slide.
+          #
+          # ```yaml
+          # id: "channels_example"
+          # layout: "two-column"
+          # badge: "CONCURRENCY"
+          # badge_color: "accent"
+          # palette: "emerald_matrix"
+          # ratio: "3:2"
+          # title: "Buffered Channels"
+          # subtitle: "Non-blocking message passing between fibers"
+          # code_title: "channel.cr"
+          # code_lang: "crystal"
+          # code: |
+          #   ch = Channel(Int32).new(capacity: 10)
+          #   spawn do
+          #     10.times { |i| ch.send(i) }
+          #     ch.close
+          #   end
+          #   while val = ch.receive?
+          #     puts val
+          #   end
+          # cards:
+          #   - title: "Key Principles"
+          #     color: "emerald"
+          #     items:
+          #       - "Channel buffers prevent producer backpressure"
+          #       - "Fibers yield cooperatively upon buffer saturation"
+          # notes: |
+          #   Explain how Crystal channels compare with Go channels.
+          # ```
+          #
+          def self.topic_02_two_column_syntax : Nil; end
+        end
       end
     end
   end
-end
 {% end %}

@@ -86,7 +86,6 @@ module Sunstone
         else
           "computer_modern"
         end
-
       when "sol.vin", "solvin", "retro"
         case norm_id
         when "slate_dark", "monolith", "storm", "dark"
@@ -108,7 +107,6 @@ module Sunstone
         else
           nil
         end
-
       when "nordic", "scandinavian", "ice"
         case norm_id
         when "slate_dark", "monolith", "storm", "inversion", "dark", "polar"
@@ -126,7 +124,6 @@ module Sunstone
         else
           "fjord_deep"
         end
-
       when "brutalist", "neo-brutalist", "swiss"
         case norm_id
         when "slate_dark", "inversion", "storm", "dark", "black", "default", "yellow"
@@ -144,7 +141,6 @@ module Sunstone
         else
           "yellow_hazard"
         end
-
       when "tokyo-night", "tokyonight", "cyberpunk", "ide"
         case norm_id
         when "slate_dark", "inversion", "default"
@@ -162,7 +158,6 @@ module Sunstone
         else
           "tokyo_night"
         end
-
       else # Generic
         case norm_id
         when "default", "dark"
@@ -179,7 +174,7 @@ module Sunstone
 
     def self.resolve_for_theme(requested_id : String, theme_name : String, theme_palettes : Hash(String, Palette), default_palette_id : String? = nil) : Palette
       norm_id = requested_id.strip
-      
+
       # 1. Exact match in the theme's own catalog
       if p = theme_palettes[norm_id]?
         return p

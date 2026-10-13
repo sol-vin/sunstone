@@ -111,40 +111,39 @@ module Sunstone
 
       # Dynamic SVG Palette Color Matrix Filters for Sol.vin retro emojis
       palette_filters_svg = if is_solvin
-        String.build do |str|
-          str << "  <!-- Sol.vin Dynamic SVG Palette Color Matrix Filters for Emojis -->\n"
-          str << "  <svg class=\"solvin-palette-filters\" aria-hidden=\"true\">\n"
-          str << "    <defs>\n"
-          @palettes.each_value do |p|
-            str << "      <filter id=\"emoji-filter-#{p.id}\" color-interpolation-filters=\"sRGB\">\n"
-            str << "        <feColorMatrix type=\"matrix\" values=\"#{p.emoji_color_matrix}\" />\n"
-            str << "      </filter>\n"
-          end
-          str << "    </defs>\n"
-          str << "  </svg>\n"
-        end
-      else
-        ""
-      end
+                              String.build do |str|
+                                str << "  <!-- Sol.vin Dynamic SVG Palette Color Matrix Filters for Emojis -->\n"
+                                str << "  <svg class=\"solvin-palette-filters\" aria-hidden=\"true\">\n"
+                                str << "    <defs>\n"
+                                @palettes.each_value do |p|
+                                  str << "      <filter id=\"emoji-filter-#{p.id}\" color-interpolation-filters=\"sRGB\">\n"
+                                  str << "        <feColorMatrix type=\"matrix\" values=\"#{p.emoji_color_matrix}\" />\n"
+                                  str << "      </filter>\n"
+                                end
+                                str << "    </defs>\n"
+                                str << "  </svg>\n"
+                              end
+                            else
+                              ""
+                            end
 
       deck_header = if is_solvin
-        <<-HTML
+                      <<-HTML
           <!-- Sol.vin Deck Header with 3D Spinning Isometric Cube -->
           <div class="solvin-deck-header">
             <div id="header-cube-app" class="deck-cube-app" title="Spinning 3D Isometric Cube • Click or Drag to Spin!"></div>
             <span class="deck-solvin-label">#{LayoutRenderer.tint_emojis(HTML.escape(@deck.title.upcase), is_solvin: is_solvin)}</span>
           </div>
         HTML
-      else
-        ""
-      end
+                    else
+                      ""
+                    end
 
       cube_script = if is_solvin
-        %(  <!-- Sol.vin 3D Isometric Wireframe Cube Engine -->\n  <script src="cube.js"></script>)
-      else
-        ""
-      end
-
+                      %(  <!-- Sol.vin 3D Isometric Wireframe Cube Engine -->\n  <script src="cube.js"></script>)
+                    else
+                      ""
+                    end
 
       full_html = <<-HTML
       <!DOCTYPE html>
