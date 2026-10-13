@@ -154,5 +154,10 @@ module Sunstone
 
       Deck.new(raw, slides, deck_dir)
     end
+
+    def self.from_yaml_string(yaml_string : String, slides : Array(Slide) = [] of Slide, deck_dir : String = ".") : Deck
+      raw = YAML.parse(yaml_string)
+      Deck.new(raw, slides, deck_dir)
+    end
   end
 end

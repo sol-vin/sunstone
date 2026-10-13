@@ -59,5 +59,10 @@ module Sunstone
       raw = YAML.parse(content)
       Slide.new(raw, file_path)
     end
+
+    def self.from_yaml_string(yaml_string : String, file_path : String = "slide.yml") : Slide
+      raw = YAML.parse(yaml_string)
+      Slide.new(raw, file_path)
+    end
   end
 end
