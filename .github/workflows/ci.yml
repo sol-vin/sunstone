@@ -56,6 +56,7 @@ jobs:
         run: |
           crystal build lib/jasper/src/jasper_cli.cr -o bin/jasper
           bin/jasper build
+          crystal tool format
           crystal docs
 
       - name: Run Carbon Doctor Audit

@@ -1,6 +1,7 @@
 # Shards & Dependencies
 /lib/
 /bin/
+shard.lock
 *.dwarf
 *.pdb
 *.exe
