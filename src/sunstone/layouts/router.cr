@@ -32,6 +32,7 @@ require "./calendar_schedule_layout"
 require "./radial_cycle_layout"
 require "./editorial_split_layout"
 require "./convergence_layout"
+require "./rfc_card_layout"
 
 module Sunstone
   module LayoutRouter
@@ -69,6 +70,7 @@ module Sunstone
     RADIAL_CYCLE         = RadialCycleLayout.new
     EDITORIAL_SPLIT      = EditorialSplitLayout.new
     CONVERGENCE          = ConvergenceLayout.new
+    RFC_CARD             = RfcCardLayout.new
 
     AVAILABLE_LAYOUTS = [
       "two-column",
@@ -104,6 +106,7 @@ module Sunstone
       "radial-cycle",
       "editorial-split",
       "convergence",
+      "rfc-card",
     ]
 
     def self.resolve(layout_name : String) : LayoutRenderer
@@ -181,6 +184,8 @@ module Sunstone
         EDITORIAL_SPLIT
       when "convergence", "tri-pillar", "intersection", "sweet-spot", "venn-layout", "venn"
         CONVERGENCE
+      when "rfc-card", "rfc", "rfc-matrix", "decision-matrix", "as-matrix"
+        RFC_CARD
       else
         nil
       end

@@ -30,6 +30,11 @@
         #       <td><code>.topic_02_two_column_syntax</code></td>
         #       <td>Example YAML syntax for a two-column code and notes slide.</td>
         #     </tr>
+        #     <tr>
+        #       <td><strong>RFC Card & [AS-X] Decision Matrix Builder</strong></td>
+        #       <td><code>.topic_03_rfc_card_component</code></td>
+        #       <td>Declarative Two-Tier rfc_card builder and YAML schema for [AS-X] architectural decisions.</td>
+        #     </tr>
         #   </tbody>
         # </table>
         #
@@ -71,6 +76,7 @@
           # 31. **radial-cycle:** Circular flywheel / continuous feedback loop with central hub and orbital nodes.
           # 32. **editorial-split:** High-impact magazine layout with giant numeral, quote & offset cards.
           # 33. **convergence:** Converging multi-pillar streams meeting at a central synthesis core.
+          # 34. **rfc-card:** `[AS-X]` RFC architectural decision matrix with specialist assignments, repo tags, council deliberations, and approval status pills.
           #
           def self.topic_01_layout_gallery : Nil; end
 
@@ -107,6 +113,39 @@
           # ```
           #
           def self.topic_02_two_column_syntax : Nil; end
+
+          # **RFC Card & [AS-X] Decision Matrix Builder**: Declarative Two-Tier rfc_card builder and YAML schema for [AS-X] architectural decisions.
+          #
+          # Sunstone provides the Two-Tier `Sunstone::RfcCard` (`Sunstone.rfc_card`) slide component builder and `rfc-card` layout for rendering `[AS-X]` architectural decision matrices inside technical presentation decks:
+          #
+          # ```
+          # html = Sunstone.rfc_card do |card|
+          #   card.rfc_id "RFC-112"
+          #   card.discussion 112
+          #   card.title "Interactive User Ticket Approval & [AS-X] Drawer"
+          #   card.author "Beta"
+          #   card.target_repo "sol-vin/sunstone"
+          #   card.summary "All 3 atomic suggestions approved and promoted to tracked work orders."
+          #
+          #   card.suggestion "AS-1" do |s|
+          #     s.title "Implement Two-Tier RFCInspector engine & endpoints"
+          #     s.agent "Delta"
+          #     s.repo "sol-vin/solvin-ai-org"
+          #     s.work_order "WO-067"
+          #     s.approved!
+          #   end
+          #
+          #   card.suggestion "AS-3" do |s|
+          #     s.title "Add declarative rfc_card slide component builder in sol-vin/sunstone"
+          #     s.agent "Sigma"
+          #     s.repo "sol-vin/sunstone"
+          #     s.work_order "WO-069"
+          #     s.approved!
+          #   end
+          # end
+          # ```
+          #
+          def self.topic_03_rfc_card_component : Nil; end
         end
       end
     end

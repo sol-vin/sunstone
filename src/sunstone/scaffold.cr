@@ -594,6 +594,36 @@ module Sunstone
         notes: |
           Speaker notes for #{slide_title}.
         YAML
+                when "rfc-card", "rfc", "rfc-matrix", "decision-matrix"
+                  <<-YAML
+        id: "#{id}"
+        layout: "rfc-card"
+        badge: "RFC DECISION MATRIX"
+        badge_color: "emerald"
+        palette: "slate_dark"
+        title: "#{slide_title}"
+        subtitle: "Atomic Suggestion ([AS-X]) Architectural Decisions"
+        rfc_id: "RFC-112"
+        discussion_number: 112
+        author: "Delta"
+        target_repo: "sol-vin/sunstone"
+        summary: "All atomic suggestions approved and promoted to tracked work orders."
+        suggestions:
+          - id: "AS-1"
+            title: "Implement Two-Tier Core Engine"
+            agent: "Delta"
+            repo: "sol-vin/solvin-ai-org"
+            status: "approved"
+            work_order: "WO-067"
+          - id: "AS-2"
+            title: "Build Declarative DSL Component Builder"
+            agent: "Sigma"
+            repo: "sol-vin/sunstone"
+            status: "approved"
+            work_order: "WO-069"
+        notes: |
+          Speaker notes for #{slide_title}.
+        YAML
                 else
                   <<-YAML
         id: "#{id}"

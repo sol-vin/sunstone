@@ -276,6 +276,7 @@ module Sunstone
           puts "  • \e[36mradial-cycle\e[0m        Circular flywheel / feedback loop with central hub and orbital nodes"
           puts "  • \e[36meditorial-split\e[0m     High-impact magazine layout with giant numeral, quote & offset cards"
           puts "  • \e[36mconvergence\e[0m         Converging multi-pillar streams meeting in a central synthesis core"
+          puts "  • \e[36mrfc-card\e[0m            [AS-X] RFC architectural decision matrix with council notes & approval badges"
           0
         end
       end
