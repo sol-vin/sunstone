@@ -3,7 +3,7 @@
 <!-- carbon:badges -->
 [![CI](https://github.com/sol-vin/sunstone/actions/workflows/ci.yml/badge.svg)](https://github.com/sol-vin/sunstone/actions/workflows/ci.yml)
 [![Crystal](https://img.shields.io/badge/crystal-%3E%3D%201.10.0-black.svg)](https://crystal-lang.org)
-[![Version](https://img.shields.io/badge/version-0.1.44-blue.svg)](https://github.com/sol-vin/sunstone/releases)
+[![Version](https://img.shields.io/badge/version-0.1.45-blue.svg)](https://github.com/sol-vin/sunstone/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://sol-vin.github.io/sunstone/)
 <!-- /carbon:badges -->
@@ -52,6 +52,8 @@ Sunstone transforms human-authored YAML slide definitions into high-impact, pres
   - `radial-cycle`: Circular flywheel / feedback loop with central hub and orbital nodes
   - `editorial-split`: High-impact magazine layout with giant numeral, pull-quote & offset cards
   - `convergence`: Converging multi-pillar streams meeting at a central synthesis core
+  - `rfc-card`: `[AS-X]` RFC architectural decision matrix with specialist assignments, council notes & approval status badges
+- 🏛️ **Declarative `rfc_card` Builder (`Sunstone::RfcCard` / `Sunstone.rfc_card`)**: Two-Tier Core Engine & Declarative DSL for embedding `[AS-X]` architectural decision matrices inside technical presentation decks via Crystal DSL or YAML slot `type: rfc_card`.
 - 🔮 **Opal CLI App**: Fast, type-safe command-line interface with subcommands, validation, and ANSI color formatting.
 - 🌐 **Live Preview Server**: Built-in HTTP server with automatic port hunting (`8000`..`8020`) and OS browser launching.
 - 📖 **Jasper Documentation**: Complete multi-track documentation book in `docs_src/` compiled into native Crystal doc modules.

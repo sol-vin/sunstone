@@ -5,6 +5,7 @@ require "./models/palette"
 require "./layouts/router"
 require "./assets"
 require "./palette_component"
+require "./rfc_card"
 
 module Sunstone
   class Generator
@@ -69,6 +70,8 @@ module Sunstone
         str << clean_theme << "\n"
         str << "\n/* Modular Sol.vin Palette Select Button & Catalog Menu CSS */\n"
         str << clean_palette_component << "\n"
+        str << "\n/* Modular RFC Card & [AS-X] Decision Matrix CSS */\n"
+        str << RfcCard.stylesheet << "\n"
         if !clean_user.strip.empty?
           str << "\n/* Custom User Deck CSS */\n"
           str << clean_user << "\n"

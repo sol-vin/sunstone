@@ -155,6 +155,8 @@ module Sunstone
         str << "            </div>\n"
       when "barchart"
         str << render_barchart(data)
+      when "rfc_card", "rfc-card", "rfc", "rfc_matrix", "rfc-matrix"
+        str << render_rfc_card(data) << "\n"
       when "image"
         src = data["src"]?.try(&.as_s) || ""
         alt = data["alt"]?.try(&.as_s) || "Slide Image"
@@ -200,6 +202,8 @@ module Sunstone
             when "terminal"
               str << "- **Terminal (" << (it["title"]?.try(&.as_s) || "Console") << ")**:\n"
               str << "  ```bash\n  " << (it["code"]?.try(&.as_s) || "").strip.gsub("\n", "\n  ") << "\n  ```\n"
+            when "rfc_card", "rfc-card", "rfc", "rfc_matrix", "rfc-matrix"
+              str << RfcCard.render_markdown(RfcCard.from_yaml(it))
             else
               card_title = it["title"]?.try(&.as_s) || "Details"
               str << "- **" << card_title << "**:\n"

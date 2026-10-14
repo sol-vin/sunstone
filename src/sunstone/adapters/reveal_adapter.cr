@@ -1,6 +1,7 @@
 require "html"
 require "../models/deck"
 require "../models/slide"
+require "../rfc_card"
 
 module Sunstone
   module Adapters
@@ -102,6 +103,11 @@ module Sunstone
           if code_val = slide["code"]?.try(&.as_s)
             lang = slide["code_lang"]?.try(&.as_s) || slide["lang"]?.try(&.as_s) || "crystal"
             io.puts "        <pre><code class=\"language-#{HTML.escape(lang)}\">#{HTML.escape(code_val)}</code></pre>"
+          end
+
+          # RFC decision matrix card if present
+          if rfc_node = slide["rfc_card"]? || slide["rfc-card"]?
+            io.puts RfcCard.render_yaml(rfc_node)
           end
 
           # Speaker notes

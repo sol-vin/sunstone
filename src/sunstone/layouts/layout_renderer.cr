@@ -4,6 +4,7 @@ require "../models/slide"
 require "../models/deck"
 require "../models/palette"
 require "../icon_registry"
+require "../rfc_card"
 require "../chart"
 
 module Sunstone
@@ -255,6 +256,19 @@ module Sunstone
       end
     end
 
+    # Semantic RFC Decision Matrix Card (`[AS-X]`) with ZERO Inline Styles
+    def render_rfc_card(data : YAML::Any) : String
+      RfcCard.render_yaml(data)
+    end
+
+    def render_rfc_card(spec : RfcCard::RfcCardSpec) : String
+      RfcCard.render(spec)
+    end
+
+    def render_rfc_card(&block : RfcCard::DSL::CardBuilder -> Nil) : String
+      RfcCard.render(&block)
+    end
+
     def render_column_content(str : String::Builder, data : YAML::Any, slide : Slide)
       if data.as_a?
         data.as_a.each { |item| render_slot_item(str, item, slide) }
@@ -359,6 +373,8 @@ module Sunstone
         str << "            </div>\n"
       when "barchart"
         str << render_barchart(data)
+      when "rfc_card", "rfc-card", "rfc", "rfc_matrix", "rfc-matrix"
+        str << render_rfc_card(data) << "\n"
       when "image"
         src = data["src"]?.try(&.as_s) || ""
         alt = data["alt"]?.try(&.as_s) || "Slide Image"
