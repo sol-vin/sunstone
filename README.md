@@ -3,7 +3,7 @@
 <!-- carbon:badges -->
 [![CI](https://github.com/sol-vin/sunstone/actions/workflows/ci.yml/badge.svg)](https://github.com/sol-vin/sunstone/actions/workflows/ci.yml)
 [![Crystal](https://img.shields.io/badge/crystal-%3E%3D%201.10.0-black.svg)](https://crystal-lang.org)
-[![Version](https://img.shields.io/badge/version-0.1.41-blue.svg)](https://github.com/sol-vin/sunstone/releases)
+[![Version](https://img.shields.io/badge/version-0.1.43-blue.svg)](https://github.com/sol-vin/sunstone/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://sol-vin.github.io/sunstone/)
 <!-- /carbon:badges -->
@@ -159,14 +159,14 @@ Sunstone cleanly separates themes from palettes. Themes provide layout geometry,
 | **`academic`** | LaTeX / Computer Modern formal typography | 6 scholarly palettes (`computer_modern`, `cambridge_blue`, `oxford_crimson`, `gothic_dark`, `emerald_manuscript`, `blackboard_latex`) | Serif headings, understated hairlines, formal mathematical presentation |
 | **`tokyo-night`** | Cyberpunk dark IDE developer styling | 6 luminous palettes (`tokyo_night`, `tokyo_storm`, `cyber_pulse`, `catppuccin_mocha`, `dracula_vampire`, `monokai_pro`) | Neon luminous accents, dark editor surfaces, syntax-aligned borders |
 
-### Interactive Palette Select Button & Catalog Menu (`Sunstone::PaletteComponent`)
+### Interactive Palette Select Button & Catalog Menu (`Sunstone::PalettePicker` / `Sunstone::PaletteComponent`)
 
-Every compiled Sunstone deck includes the modular `sol.vin` **Palette Select Button** (`#palette-swap-btn`, `[ PALETTE: ● Name ]`) and **102-Palette Catalog Modal** (`#palette-picker-modal-overlay`) powered by `hold_click.js` and `palette_engine.js`:
+Every compiled Sunstone deck toolbar and the multi-theme catalog landing page (`LandingPage`) includes the modular `sol.vin` **Palette Select Button** (`#palette-swap-btn`, `[ PALETTE: ● Name ]`) and **102-Palette Catalog Modal** (`#palette-picker-modal-overlay`) powered by `hold_click.js`, `palette_engine.js`, and compile-time `src/web/svgs/*.svg` FontAwesome icons (`Sunstone::IconRegistry` & `Sunstone::PaletteComponent::Icons`):
 - **Left-Click**: Cycle to the next palette in the catalog.
 - **Right-Click**: Cycle to the previous palette in the catalog.
 - **Left-Hold (2.0s)**: Open the full 102-palette interactive Color Catalog modal with `[ RANDOM // Palette ]` button.
 - **Right-Hold (2.0s)**: Reset to the deck's default palette.
-- **Cross-Tab Sync**: Synchronizes palette selection across open `sol.vin` tabs and Sunstone slide decks via `BroadcastChannel('solvin_palette_channel')` and `localStorage`.
+- **Cross-Tab Sync**: Synchronizes palette selection across open `sol.vin` tabs, theme catalog pages, and Sunstone slide decks via `BroadcastChannel('solvin_palette_channel')` and `localStorage`.
 
 Discover available layouts, themes, and palettes anytime:
 

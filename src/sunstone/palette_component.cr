@@ -167,4 +167,7 @@ module Sunstone
       end
     end
   end
+
+  # Canonical alias exposing `Sunstone::PalettePicker` alongside `Sunstone::PaletteComponent`.
+  alias PalettePicker = PaletteComponent
 end

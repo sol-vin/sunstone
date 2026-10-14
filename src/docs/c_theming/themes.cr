@@ -4,99 +4,113 @@
 # ==============================================================================
 
 {% unless flag?(:release) %}
-  module Sunstone
-    module Docs
-      module C_THEMING
-        # # Built-In Themes & Theme-Scoped Palettes
+module Sunstone
+  module Docs
+    module C_THEMING
+      # # Built-In Themes & Theme-Scoped Palettes
+      #
+      # ### Executive Summary & Key Topics
+      #
+      # <table>
+      #   <thead>
+      #     <tr>
+      #       <th>Topic</th>
+      #       <th>Method / Anchor</th>
+      #       <th>Description</th>
+      #     </tr>
+      #   </thead>
+      #   <tbody>
+      #     <tr>
+      #       <td><strong>Catalog of Built-In Themes</strong></td>
+      #       <td><code>.topic_01_themes_overview</code></td>
+      #       <td>Overview of the 6 production themes included with Sunstone.</td>
+      #     </tr>
+      #     <tr>
+      #       <td><strong>Theme-Scoped Palettes per Slide</strong></td>
+      #       <td><code>.topic_02_palette_per_slide</code></td>
+      #       <td>How slides seamlessly transition colors on slide focus.</td>
+      #     </tr>
+      #     <tr>
+      #       <td><strong>Compile-Time .svg Icon Registry & 102-Palette HoldClick Selector</strong></td>
+      #       <td><code>.topic_03_palette_picker_and_svg_icons</code></td>
+      #       <td>How Sunstone loads FontAwesome .svg icons from disk and exposes the interactive 102-palette selector.</td>
+      #     </tr>
+      #   </tbody>
+      # </table>
+      #
+      module Themes
+        # **Catalog of Built-In Themes**: Overview of the 6 production themes included with Sunstone.
         #
-        # ### Executive Summary & Key Topics
+        # Sunstone includes 6 production-grade presentation themes designed for specific presentation formats and audience expectations:
         #
-        # <table>
-        #   <thead>
-        #     <tr>
-        #       <th>Topic</th>
-        #       <th>Method / Anchor</th>
-        #       <th>Description</th>
-        #     </tr>
-        #   </thead>
-        #   <tbody>
-        #     <tr>
-        #       <td><strong>Catalog of Built-In Themes</strong></td>
-        #       <td><code>.topic_01_themes_overview</code></td>
-        #       <td>Overview of the 6 production themes included with Sunstone.</td>
-        #     </tr>
-        #     <tr>
-        #       <td><strong>Theme-Scoped Palettes per Slide</strong></td>
-        #       <td><code>.topic_02_palette_per_slide</code></td>
-        #       <td>How slides seamlessly transition colors on slide focus.</td>
-        #     </tr>
-        #   </tbody>
-        # </table>
+        # 1. **`generic` (Default):**
+        #    - Modern, clean, high-contrast engineering aesthetic.
+        #    - 8 modern dark and light palettes (`slate_dark`, `clean_light`, `emerald_matrix`, `midnight_indigo`, `nordic_ice`, `cyber_neon`, `sunset_amber`, `crimson_obsidian`).
+        #    - Pure semantic CSS without extraneous decorative elements.
         #
-        module Themes
-          # **Catalog of Built-In Themes**: Overview of the 6 production themes included with Sunstone.
-          #
-          # Sunstone includes 6 production-grade presentation themes designed for specific presentation formats and audience expectations:
-          #
-          # 1. **`generic` (Default):**
-          #    - Modern, clean, high-contrast engineering aesthetic.
-          #    - 8 modern dark and light palettes (`slate_dark`, `clean_light`, `emerald_matrix`, `midnight_indigo`, `nordic_ice`, `cyber_neon`, `sunset_amber`, `crimson_obsidian`).
-          #    - Pure semantic CSS without extraneous decorative elements.
-          #
-          # 2. **`sol.vin`:**
-          #    - Retro terminal engineering aesthetic inspired by early computing and retro desktop OS environments.
-          #    - 102 retro palettes (`spaces_98`, `warm_paper`, `game_station_2`, `dreamcast`, `monokai`, `candy`, etc.).
-          #    - Interactive 3D spinning isometric wireframe cube (`cube.js`), live 102-palette catalog switcher (`#palette-swap-btn`), and SVG chromatic color-matrix filters.
-          #
-          # 3. **`nordic`:**
-          #    - Scandinavian engineering minimalism with airy letter spacing, cool slate backgrounds, and frosted glass cards.
-          #    - 6 curated palettes (`fjord_deep`, `aurora_night`, `glacier_frost`, `arctic_twilight`, `lichen_moss`, `polar_monochrome`).
-          #    - Subtle 1px icy cyan borders and serene, balanced typography.
-          #
-          # 4. **`brutalist`:**
-          #    - Swiss neo-brutalist aesthetic with heavy 2.5px solid borders, hard 4px offset drop shadows, and sharp 0px angular corners.
-          #    - 6 high-contrast palettes (`yellow_hazard`, `paper_ink`, `electric_lime`, `orange_warning`, `cobalt_blueprint`, `hot_magenta`).
-          #    - Engineered specifically to overcome washed-out conference room projectors and harsh ambient lighting.
-          #
-          # 5. **`academic`:**
-          #    - Formal publication and LaTeX / Computer Modern styling featuring classical serif headings and delicate hairline borders.
-          #    - 6 scholarly palettes (`computer_modern`, `cambridge_blue`, `oxford_crimson`, `gothic_dark`, `emerald_manuscript`, `blackboard_latex`).
-          #    - Ideal for scientific papers, thesis defenses, algorithm walkthroughs, and technical lectures.
-          #
-          # 6. **`tokyo-night`:**
-          #    - Sleek developer IDE and cyberpunk aesthetic with velvety midnight backgrounds and luminous neon borders.
-          #    - 6 code-editor palettes (`tokyo_night`, `tokyo_storm`, `cyber_pulse`, `catppuccin_mocha`, `dracula_vampire`, `monokai_pro`).
-          #    - Highly popular for developer tool demonstrations, live-coding sessions, and technical conference keynotes.
-          #
-          def self.topic_01_themes_overview : Nil; end
+        # 2. **`sol.vin`:**
+        #    - Retro terminal engineering aesthetic inspired by early computing and retro desktop OS environments.
+        #    - 102 retro palettes (`spaces_98`, `warm_paper`, `game_station_2`, `dreamcast`, `monokai`, `candy`, etc.).
+        #    - Interactive 3D spinning isometric wireframe cube (`cube.js`), live 102-palette catalog switcher (`#palette-swap-btn`), and SVG chromatic color-matrix filters.
+        #
+        # 3. **`nordic`:**
+        #    - Scandinavian engineering minimalism with airy letter spacing, cool slate backgrounds, and frosted glass cards.
+        #    - 6 curated palettes (`fjord_deep`, `aurora_night`, `glacier_frost`, `arctic_twilight`, `lichen_moss`, `polar_monochrome`).
+        #    - Subtle 1px icy cyan borders and serene, balanced typography.
+        #
+        # 4. **`brutalist`:**
+        #    - Swiss neo-brutalist aesthetic with heavy 2.5px solid borders, hard 4px offset drop shadows, and sharp 0px angular corners.
+        #    - 6 high-contrast palettes (`yellow_hazard`, `paper_ink`, `electric_lime`, `orange_warning`, `cobalt_blueprint`, `hot_magenta`).
+        #    - Engineered specifically to overcome washed-out conference room projectors and harsh ambient lighting.
+        #
+        # 5. **`academic`:**
+        #    - Formal publication and LaTeX / Computer Modern styling featuring classical serif headings and delicate hairline borders.
+        #    - 6 scholarly palettes (`computer_modern`, `cambridge_blue`, `oxford_crimson`, `gothic_dark`, `emerald_manuscript`, `blackboard_latex`).
+        #    - Ideal for scientific papers, thesis defenses, algorithm walkthroughs, and technical lectures.
+        #
+        # 6. **`tokyo-night`:**
+        #    - Sleek developer IDE and cyberpunk aesthetic with velvety midnight backgrounds and luminous neon borders.
+        #    - 6 code-editor palettes (`tokyo_night`, `tokyo_storm`, `cyber_pulse`, `catppuccin_mocha`, `dracula_vampire`, `monokai_pro`).
+        #    - Highly popular for developer tool demonstrations, live-coding sessions, and technical conference keynotes.
+        #
+        def self.topic_01_themes_overview : Nil; end
 
-          # **Theme-Scoped Palettes per Slide**: How slides seamlessly transition colors on slide focus.
-          #
-          # In Sunstone, each theme maintains its own curated catalog of palettes.
-          # Any individual slide can declare a palette using:
-          #
-          # ```yaml
-          # palette: "aurora_night"
-          # ```
-          #
-          # During compilation, Sunstone generates scoped CSS variables for every palette in the theme:
-          #
-          # ```css
-          # .slide[data-palette="aurora_night"] {
-          #   --sunstone-bg: #0a0f18;
-          #   --sunstone-surface: #131d2e;
-          #   --sunstone-accent: #10b981;
-          #   --sunstone-text-primary: #f8fafc;
-          #   --sunstone-border: #1e2e4a;
-          #   --sunstone-code-bg: #070b12;
-          # }
-          # ```
-          #
-          # When Reveal.js transitions between slides, all child elements, cards, and code containers instantly inherit the slide's active palette without DOM manipulation.
-          #
-          def self.topic_02_palette_per_slide : Nil; end
-        end
+        # **Theme-Scoped Palettes per Slide**: How slides seamlessly transition colors on slide focus.
+        #
+        # In Sunstone, each theme maintains its own curated catalog of palettes.
+        # Any individual slide can declare a palette using:
+        #
+        # ```yaml
+        # palette: "aurora_night"
+        # ```
+        #
+        # During compilation, Sunstone generates scoped CSS variables for every palette in the theme:
+        #
+        # ```css
+        # .slide[data-palette="aurora_night"] {
+        #   --sunstone-bg: #0a0f18;
+        #   --sunstone-surface: #131d2e;
+        #   --sunstone-accent: #10b981;
+        #   --sunstone-text-primary: #f8fafc;
+        #   --sunstone-border: #1e2e4a;
+        #   --sunstone-code-bg: #070b12;
+        # }
+        # ```
+        #
+        # When Reveal.js transitions between slides, all child elements, cards, and code containers instantly inherit the slide's active palette without DOM manipulation.
+        #
+        def self.topic_02_palette_per_slide : Nil; end
+
+        # **Compile-Time svg Icon Registry & 102-Palette HoldClick Selector**: How Sunstone loads FontAwesome .svg icons from disk and exposes the interactive 102-palette selector.
+        #
+        # Both the Sunstone slide deck toolbar and the multi-theme catalog landing page (`LandingPage`) integrate `Sunstone::PalettePicker` (`Sunstone::PaletteComponent`) and `Sunstone::IconRegistry`:
+        #
+        # - **Compile-Time & Disk `.svg` Registry (`src/web/svgs/*.svg`):** All FontAwesome UI icons (`palette.svg`, `dice.svg`, `xmark.svg`, `bracket-square.svg`, `bracket-square-right.svg`, `hold-spinner.svg`, `sparkles.svg`, `bolt.svg`, etc.) are loaded at compile-time via `{{ read_file("src/web/svgs/*.svg") }}` with runtime disk resolution.
+        # - **Interactive `HoldClick` 102-Palette Selector:** Left-click cycles to the next palette, right-click cycles to the previous palette, left-hold opens the `#palette-picker-modal-overlay` catalog grid with `[ RANDOM // Palette ]`, and right-hold resets to the default palette while synchronizing across browser tabs via `BroadcastChannel('solvin_palette_channel')`.
+        #
+        def self.topic_03_palette_picker_and_svg_icons : Nil; end
       end
     end
   end
+end
 {% end %}
