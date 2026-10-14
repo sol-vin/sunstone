@@ -63,16 +63,15 @@ module Sunstone
         end
       end
 
-      # Renders the floating HoldClick progress spinner SVG container with zero inline styles.
+      # Renders the floating HoldClick progress spinner SVG container from `src/web/svgs/hold-spinner.svg` with zero inline styles.
       def self.render_hold_spinner(spec : HoldClickSpec = HoldClickSpec.new) : String
+        spinner_svg = Icons.raw("hold-spinner.svg")
+        if spec.spinner_radius != 11.0
+          spinner_svg = spinner_svg.gsub(%(r="11.0"), %(r="#{spec.spinner_radius}"))
+        end
         String.build do |io|
           io << %(<div id="#{HTML.escape(spec.spinner_id)}" class="#{HTML.escape(spec.spinner_class)}">)
-          io << %(<svg width="32" height="32" viewBox="0 0 32 32">)
-          io << %(<circle cx="16" cy="16" r="14" class="spinner-base" />)
-          io << %(<circle cx="16" cy="16" r="#{spec.spinner_radius}" class="spinner-track" />)
-          io << %(<circle cx="16" cy="16" r="#{spec.spinner_radius}" class="spinner-progress" />)
-          io << %(<circle cx="16" cy="16" r="3.5" class="spinner-dot" />)
-          io << %(</svg>)
+          io << spinner_svg
           io << %(</div>)
         end
       end
@@ -125,14 +124,14 @@ module Sunstone
         Assets::PALETTE_COMPONENT_CSS
       end
 
-      # Returns the canonical `HoldClick` interaction controller JS source.
+      # Returns the canonical `HoldClick` interaction controller JS source with `src/web/svgs/*.svg` icon payload.
       def self.hold_click_js : String
-        Assets::HOLD_CLICK_JS
+        "window.SOLVIN_PALETTE_ICONS = Object.assign(window.SOLVIN_PALETTE_ICONS || {}, #{Icons.js_icons_json});\n" + Assets::HOLD_CLICK_JS
       end
 
-      # Returns the canonical `PaletteEngine` JS module source.
+      # Returns the canonical `PaletteEngine` JS module source with `src/web/svgs/*.svg` icon payload.
       def self.palette_engine_js : String
-        Assets::PALETTE_ENGINE_JS
+        "window.SOLVIN_PALETTE_ICONS = Object.assign(window.SOLVIN_PALETTE_ICONS || {}, #{Icons.js_icons_json});\n" + Assets::PALETTE_ENGINE_JS
       end
 
       # Returns a zero-dependency combined JS bundle with `HoldClick`, `PaletteEngine`, and optional embedded catalog.

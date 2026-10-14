@@ -5,12 +5,15 @@
 (function(root) {
   'use strict';
 
-  var SPINNER_SVG = '<svg width="32" height="32" viewBox="0 0 32 32">' +
-                    '<circle cx="16" cy="16" r="14" class="spinner-base" />' +
-                    '<circle cx="16" cy="16" r="11" class="spinner-track" />' +
-                    '<circle cx="16" cy="16" r="11" class="spinner-progress" />' +
-                    '<circle cx="16" cy="16" r="3.5" class="spinner-dot" />' +
-                    '</svg>';
+  function getSpinnerMarkup() {
+    var injected = (root && root.SOLVIN_PALETTE_ICONS) || (typeof window !== 'undefined' && window.SOLVIN_PALETTE_ICONS);
+    if (injected && injected.holdSpinner) {
+      return injected.holdSpinner;
+    }
+    return '<img src="/icons/hold-spinner.svg" data-svg-src="src/web/svgs/hold-spinner.svg" width="32" height="32" alt="" />';
+  }
+
+  var SPINNER_SVG = getSpinnerMarkup();
 
   function HoldClick(target, options) {
     if (!(this instanceof HoldClick)) {
@@ -63,7 +66,7 @@
       this.spinnerEl = document.createElement('div');
       this.spinnerEl.id = spinnerId;
       this.spinnerEl.className = 'palette-hold-spinner hold-click-spinner';
-      this.spinnerEl.innerHTML = SPINNER_SVG;
+      this.spinnerEl.innerHTML = getSpinnerMarkup();
       document.body.appendChild(this.spinnerEl);
     }
     this.progressCircle = this.spinnerEl.querySelector('.spinner-progress');

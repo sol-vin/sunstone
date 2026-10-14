@@ -384,6 +384,10 @@ module Sunstone
         @bundle_js : String,
       )
       end
+
+      def stylesheet : String
+        @css
+      end
     end
   end
 end

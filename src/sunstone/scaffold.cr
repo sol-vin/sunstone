@@ -21,7 +21,7 @@ module Sunstone
       width: 1920
       height: 1080
 
-      footer_left: "☀️ {title}"
+      footer_left: ":sparkles: {title}"
       footer_center: "{author}"
       footer_right: "{slide_num} / {total_slides}"
 
@@ -45,9 +45,9 @@ module Sunstone
       author: "#{deck_author}"
       role: "Lead Architect"
       pillars:
-        - "⚡ YAML-Driven"
-        - "🎨 CSS-Powered"
-        - "📦 Zero Inline Styles"
+        - ":bolt: YAML-Driven"
+        - ":palette: CSS-Powered"
+        - ":box-archive: Zero Inline Styles"
       notes: |
         Welcome to your Sunstone presentation!
         Press Space or Right Arrow to advance through slides.

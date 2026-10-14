@@ -30,6 +30,11 @@
         #       <td><code>.topic_02_palette_per_slide</code></td>
         #       <td>How slides seamlessly transition colors on slide focus.</td>
         #     </tr>
+        #     <tr>
+        #       <td><strong>Compile-Time .svg Icon Registry & 102-Palette HoldClick Selector</strong></td>
+        #       <td><code>.topic_03_palette_picker_and_svg_icons</code></td>
+        #       <td>How Sunstone loads FontAwesome .svg icons from disk and exposes the interactive 102-palette selector.</td>
+        #     </tr>
         #   </tbody>
         # </table>
         #
@@ -95,6 +100,15 @@
           # When Reveal.js transitions between slides, all child elements, cards, and code containers instantly inherit the slide's active palette without DOM manipulation.
           #
           def self.topic_02_palette_per_slide : Nil; end
+
+          # **Compile-Time svg Icon Registry & 102-Palette HoldClick Selector**: How Sunstone loads FontAwesome .svg icons from disk and exposes the interactive 102-palette selector.
+          #
+          # Both the Sunstone slide deck toolbar and the multi-theme catalog landing page (`LandingPage`) integrate `Sunstone::PalettePicker` (`Sunstone::PaletteComponent`) and `Sunstone::IconRegistry`:
+          #
+          # - **Compile-Time & Disk `.svg` Registry (`src/web/svgs/*.svg`):** All FontAwesome UI icons (`palette.svg`, `dice.svg`, `xmark.svg`, `bracket-square.svg`, `bracket-square-right.svg`, `hold-spinner.svg`, `sparkles.svg`, `bolt.svg`, etc.) are loaded at compile-time via `read_file("src/web/svgs/<name>.svg")` macro calls with runtime disk resolution.
+          # - **Interactive `HoldClick` 102-Palette Selector:** Left-click cycles to the next palette, right-click cycles to the previous palette, left-hold opens the `#palette-picker-modal-overlay` catalog grid with `[ RANDOM // Palette ]`, and right-hold resets to the default palette while synchronizing across browser tabs via `BroadcastChannel('solvin_palette_channel')`.
+          #
+          def self.topic_03_palette_picker_and_svg_icons : Nil; end
         end
       end
     end

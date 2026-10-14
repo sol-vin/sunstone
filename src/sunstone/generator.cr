@@ -90,8 +90,8 @@ module Sunstone
       end
 
       # Scaffold Modular Palette Component Client Scripts (hold_click.js & palette_engine.js)
-      File.write(File.join(output_dir, "hold_click.js"), Assets::HOLD_CLICK_JS)
-      File.write(File.join(output_dir, "palette_engine.js"), Assets::PALETTE_ENGINE_JS)
+      File.write(File.join(output_dir, "hold_click.js"), PaletteComponent.hold_click_js)
+      File.write(File.join(output_dir, "palette_engine.js"), PaletteComponent.palette_engine_js)
 
       html_path = File.join(output_dir, "index.html")
       generate_html(html_path)
@@ -153,6 +153,7 @@ module Sunstone
       palette_head_html = String.build do |str|
         str << "  <!-- Sunstone Modular 102-Palette Live Theme Switcher & BroadcastChannel Sync -->\n"
         str << "  <script>\n"
+        str << "    window.SOLVIN_PALETTE_ICONS = #{PaletteComponent::Icons.js_icons_json};\n"
         str << "    window.SITE_PALETTES = #{palette_bundle.palettes_json};\n"
         str << "    window.SUNSTONE_DEFAULT_PALETTE = #{default_pal.id.to_json};\n"
         str << "  </script>\n"

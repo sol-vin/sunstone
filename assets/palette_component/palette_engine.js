@@ -6,13 +6,24 @@
 (function(root) {
   'use strict';
 
-  var FA_ICONS = {
-    palette: '<svg class="project-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M512 256c0 .9 0 1.8 0 2.7-.4 36.5-33.6 61.3-70.1 61.3L344 320c-26.5 0-48 21.5-48 48 0 3.4 .4 6.7 1 9.9 2.1 10.2 6.5 20 10.8 29.9 6.1 13.8 12.1 27.5 12.1 42 0 31.8-21.6 60.7-53.4 62-3.5 .1-7 .2-10.6 .2-141.4 0-256-114.6-256-256S114.6 0 256 0 512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>',
-    dice: '<svg class="project-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M141.4 2.3C103-8 63.5 14.8 53.3 53.2L2.5 242.7C-7.8 281.1 15 320.6 53.4 330.9l189.5 50.8c38.4 10.3 77.9-12.5 88.2-50.9l50.8-189.5c10.3-38.4-12.5-77.9-50.9-88.2L141.4 2.3zm23 205.7a32 32 0 1 1 55.4-32 32 32 0 1 1 -55.4 32zM79.2 220.3a32 32 0 1 1 32 55.4 32 32 0 1 1 -32-55.4zm185 96.4a32 32 0 1 1 -32-55.4 32 32 0 1 1 32 55.4zm9-208.4a32 32 0 1 1 32 55.4 32 32 0 1 1 -32-55.4zm-121 14.4a32 32 0 1 1 -32-55.4 32 32 0 1 1 32 55.4zM418 192L377.4 343.2c-17.2 64-83 102-147 84.9l-38.3-10.3 0 30.2c0 35.3 28.7 64 64 64l192 0c35.3 0 64-28.7 64-64l0-192c0-35.3-28.7-64-64-64L418 192z"/></svg>',
-    xmark: '<svg class="project-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z"/></svg>',
-    bracketLeft: '<svg class="project-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path fill="currentColor" d="M0 96C0 60.7 28.7 32 64 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0 0 320 64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-35.3 0-64-28.7-64-64L0 96z"/></svg>',
-    bracketRight: '<svg class="project-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path fill="currentColor" d="M192 96c0-35.3-28.7-64-64-64L64 32C46.3 32 32 46.3 32 64S46.3 96 64 96l64 0 0 320-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0c35.3 0 64-28.7 64-64l0-320z"/></svg>'
+  function maskIcon(file) {
+    return '<span class="project-icon-svg" data-svg-src="src/web/svgs/' + file + '" style="-webkit-mask-image: url(\'/icons/' + file + '\'); mask-image: url(\'/icons/' + file + '\'); -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center; -webkit-mask-size: contain; mask-size: contain; background-color: currentColor; display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em;"></span>';
+  }
+
+  var DEFAULT_FA_ICONS = {
+    palette: maskIcon('palette.svg'),
+    dice: maskIcon('dice.svg'),
+    xmark: maskIcon('xmark.svg'),
+    bracketLeft: maskIcon('bracket-square.svg'),
+    bracketRight: maskIcon('bracket-square-right.svg')
   };
+
+  function getFaIcons() {
+    var injected = (root && root.SOLVIN_PALETTE_ICONS) || (typeof window !== 'undefined' && window.SOLVIN_PALETTE_ICONS);
+    return Object.assign({}, DEFAULT_FA_ICONS, injected || {});
+  }
+
+  var FA_ICONS = getFaIcons();
 
   function createEngineInstance(customConfig) {
     var cfg = Object.assign({
@@ -82,24 +93,26 @@
        */
       renderModalHtml: function(options) {
         var o = Object.assign({}, this.config, options || {});
+        var icons = getFaIcons();
+        this.ICONS = icons;
         return '<div id="' + o.modalOverlayId + '" class="skill-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="' + o.modalTitleId + '">' +
                '  <div class="terminal-window skill-modal-window palette-picker-window">' +
                '    <div class="window-header window-header-flex">' +
                '      <h1 id="' + o.modalTitleId + '" class="window-title palette-modal-title">' +
-               '        <span class="window-header-icon" title="Theme Palette Selector">' + FA_ICONS.palette + '</span>' + o.modalTitleText +
+               '        <span class="window-header-icon" title="Theme Palette Selector">' + icons.palette + '</span>' + o.modalTitleText +
                '      </h1>' +
                '      <div class="window-controls">' +
                '        <button type="button" id="' + o.modalCloseId + '" class="window-btn window-btn-close" title="Close Catalog">' +
-               '<span class="window-btn-bracket">' + FA_ICONS.bracketLeft + '</span>' +
-               '<span class="window-btn-icon-wrap">' + FA_ICONS.xmark + '</span>' +
-               '<span class="window-btn-bracket">' + FA_ICONS.bracketRight + '</span>' +
+               '<span class="window-btn-bracket">' + icons.bracketLeft + '</span>' +
+               '<span class="window-btn-icon-wrap">' + icons.xmark + '</span>' +
+               '<span class="window-btn-bracket">' + icons.bracketRight + '</span>' +
                '</button>' +
                '      </div>' +
                '    </div>' +
                '    <div class="window-body palette-modal-body">' +
                '      <div class="palette-modal-top-bar">' +
                '        <p class="palette-modal-text">' + o.modalDescriptionText + '</p>' +
-               '        <button id="' + o.modalRandomId + '" type="button" class="export-btn export-btn-bold-sm" title="Pick Random Palette">' + FA_ICONS.dice + ' ' + o.modalRandomLabel + '</button>' +
+               '        <button id="' + o.modalRandomId + '" type="button" class="export-btn export-btn-bold-sm" title="Pick Random Palette">' + icons.dice + ' ' + o.modalRandomLabel + '</button>' +
                '      </div>' +
                '      <div id="' + o.modalGridId + '"></div>' +
                '    </div>' +

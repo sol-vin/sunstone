@@ -1,0 +1,5 @@
+<svg class="pdf-cube-icon" viewBox="0 0 64 64" width="48" height="48" fill="none" stroke="#ffffff" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polygon points="32,8 54,19 32,30 10,19" />
+  <polygon points="10,19 32,30 32,56 10,45" />
+  <polygon points="32,30 54,19 54,45 32,56" />
+</svg>
