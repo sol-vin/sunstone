@@ -318,7 +318,7 @@ module Sunstone
           puts "                      Zero inline styles, pure semantic CSS classes and variables."
           puts ""
           puts "  • \e[33msol.vin\e[0m             Retro Sol.vin aesthetic inspired by terminal engineering."
-          puts "                      Includes 46 retro palettes (spaces_98, warm_paper, neon_cyber, etc.)."
+          puts "                      Includes 102 retro palettes (spaces_98, warm_paper, game_station_2, etc.)."
           puts "                      Embeds 3D spinning isometric wireframe cube (cube.js) and SVG chromatic filters."
           puts ""
           puts "  • \e[36mnordic\e[0m              Airy Scandinavian minimalism with cool slate, frosted glass, and arctic cyan/teal."
