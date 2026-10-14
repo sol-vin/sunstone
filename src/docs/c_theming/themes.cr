@@ -45,8 +45,8 @@
           #
           # 2. **`sol.vin`:**
           #    - Retro terminal engineering aesthetic inspired by early computing and retro desktop OS environments.
-          #    - 46 retro palettes (`spaces_98`, `warm_paper`, `neon_cyber`, `monokai`, `candy`, etc.).
-          #    - Interactive 3D spinning isometric wireframe cube (`cube.js`) and SVG chromatic color-matrix filters.
+          #    - 102 retro palettes (`spaces_98`, `warm_paper`, `game_station_2`, `dreamcast`, `monokai`, `candy`, etc.).
+          #    - Interactive 3D spinning isometric wireframe cube (`cube.js`), live 102-palette catalog switcher (`#palette-swap-btn`), and SVG chromatic color-matrix filters.
           #
           # 3. **`nordic`:**
           #    - Scandinavian engineering minimalism with airy letter spacing, cool slate backgrounds, and frosted glass cards.

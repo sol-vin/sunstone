@@ -3,7 +3,7 @@
 <!-- carbon:badges -->
 [![CI](https://github.com/sol-vin/sunstone/actions/workflows/ci.yml/badge.svg)](https://github.com/sol-vin/sunstone/actions/workflows/ci.yml)
 [![Crystal](https://img.shields.io/badge/crystal-%3E%3D%201.10.0-black.svg)](https://crystal-lang.org)
-[![Version](https://img.shields.io/badge/version-0.1.39-blue.svg)](https://github.com/sol-vin/sunstone/releases)
+[![Version](https://img.shields.io/badge/version-0.1.41-blue.svg)](https://github.com/sol-vin/sunstone/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://sol-vin.github.io/sunstone/)
 <!-- /carbon:badges -->
@@ -153,11 +153,20 @@ Sunstone cleanly separates themes from palettes. Themes provide layout geometry,
 | Theme | Aesthetic | Palettes Included | Special Features |
 | :--- | :--- | :--- | :--- |
 | **`generic`** (Default) | Modern, clean, high-contrast engineering | 8 modern palettes (`slate_dark`, `clean_light`, `emerald_matrix`, `midnight_indigo`, `nordic_ice`, `cyber_neon`, `sunset_amber`, `crimson_obsidian`) | Zero extraneous elements, pure semantic CSS |
-| **`sol.vin`** | Retro terminal & desktop engineering | 46 retro palettes (`spaces_98`, `warm_paper`, `neon_cyber`, `monokai`, `candy`, etc.) | 3D spinning isometric wireframe cube (`cube.js`), SVG chromatic filters |
+| **`sol.vin`** | Retro terminal & desktop engineering | 102 retro palettes (`spaces_98`, `warm_paper`, `game_station_2`, `dreamcast`, `monokai`, `candy`, etc.) | 3D spinning isometric wireframe cube (`cube.js`), SVG chromatic filters, live 102-palette switcher |
 | **`nordic`** | Scandinavian minimalism | 6 cool palettes (`fjord_deep`, `aurora_night`, `glacier_frost`, `arctic_twilight`, `lichen_moss`, `polar_monochrome`) | Clean lines, cool blues and slate surfaces, high clarity |
 | **`brutalist`** | Swiss neo-brutalism | 6 high-contrast palettes (`yellow_hazard`, `paper_ink`, `electric_lime`, `orange_warning`, `cobalt_blueprint`, `hot_magenta`) | 2.5px solid high-contrast borders, hard 4px offset drop shadows, 0px border radii |
 | **`academic`** | LaTeX / Computer Modern formal typography | 6 scholarly palettes (`computer_modern`, `cambridge_blue`, `oxford_crimson`, `gothic_dark`, `emerald_manuscript`, `blackboard_latex`) | Serif headings, understated hairlines, formal mathematical presentation |
 | **`tokyo-night`** | Cyberpunk dark IDE developer styling | 6 luminous palettes (`tokyo_night`, `tokyo_storm`, `cyber_pulse`, `catppuccin_mocha`, `dracula_vampire`, `monokai_pro`) | Neon luminous accents, dark editor surfaces, syntax-aligned borders |
+
+### Interactive Palette Select Button & Catalog Menu (`Sunstone::PaletteComponent`)
+
+Every compiled Sunstone deck includes the modular `sol.vin` **Palette Select Button** (`#palette-swap-btn`, `[ PALETTE: ● Name ]`) and **102-Palette Catalog Modal** (`#palette-picker-modal-overlay`) powered by `hold_click.js` and `palette_engine.js`:
+- **Left-Click**: Cycle to the next palette in the catalog.
+- **Right-Click**: Cycle to the previous palette in the catalog.
+- **Left-Hold (2.0s)**: Open the full 102-palette interactive Color Catalog modal with `[ RANDOM // Palette ]` button.
+- **Right-Hold (2.0s)**: Reset to the deck's default palette.
+- **Cross-Tab Sync**: Synchronizes palette selection across open `sol.vin` tabs and Sunstone slide decks via `BroadcastChannel('solvin_palette_channel')` and `localStorage`.
 
 Discover available layouts, themes, and palettes anytime:
 

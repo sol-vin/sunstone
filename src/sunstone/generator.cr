@@ -4,6 +4,7 @@ require "./models/deck"
 require "./models/palette"
 require "./layouts/router"
 require "./assets"
+require "./palette_component"
 
 module Sunstone
   class Generator
@@ -56,18 +57,24 @@ module Sunstone
       clean_theme = filter_imports.call(theme_raw)
       clean_user = filter_imports.call(user_raw)
       clean_base = filter_imports.call(Assets::BASE_CSS)
+      clean_palette_component = filter_imports.call(Assets::PALETTE_COMPONENT_CSS)
+
+      all_solvin_palettes = Palette.load_for_theme("sol.vin")
+      combined_css_palettes = all_solvin_palettes.merge(@palettes)
 
       theme_css_content = String.build do |str|
         imports.uniq.each { |imp| str << imp << "\n" }
         str << "\n" unless imports.empty?
         str << clean_base << "\n\n"
         str << clean_theme << "\n"
+        str << "\n/* Modular Sol.vin Palette Select Button & Catalog Menu CSS */\n"
+        str << clean_palette_component << "\n"
         if !clean_user.strip.empty?
           str << "\n/* Custom User Deck CSS */\n"
           str << clean_user << "\n"
         end
-        str << "\n/* Theme-Scoped Palette CSS Rules */\n"
-        @palettes.each_value do |pal|
+        str << "\n/* Theme-Scoped & 102-Palette Catalog CSS Rules */\n"
+        combined_css_palettes.each_value do |pal|
           str << pal.css_rule(@deck.theme) << "\n"
         end
       end
@@ -81,6 +88,10 @@ module Sunstone
         cube_file = File.join(output_dir, "cube.js")
         File.write(cube_file, Assets::SOLVIN_CUBE_JS)
       end
+
+      # Scaffold Modular Palette Component Client Scripts (hold_click.js & palette_engine.js)
+      File.write(File.join(output_dir, "hold_click.js"), Assets::HOLD_CLICK_JS)
+      File.write(File.join(output_dir, "palette_engine.js"), Assets::PALETTE_ENGINE_JS)
 
       html_path = File.join(output_dir, "index.html")
       generate_html(html_path)
@@ -110,12 +121,14 @@ module Sunstone
       is_solvin = theme_lower.includes?("sol.vin") || theme_lower.includes?("solvin") || theme_lower == "retro"
 
       # Dynamic SVG Palette Color Matrix Filters for Sol.vin retro emojis
+      all_solvin_palettes = Palette.load_for_theme("sol.vin")
+      filter_palettes = all_solvin_palettes.merge(@palettes)
       palette_filters_svg = if is_solvin
                               String.build do |str|
                                 str << "  <!-- Sol.vin Dynamic SVG Palette Color Matrix Filters for Emojis -->\n"
                                 str << "  <svg class=\"solvin-palette-filters\" aria-hidden=\"true\">\n"
                                 str << "    <defs>\n"
-                                @palettes.each_value do |p|
+                                filter_palettes.each_value do |p|
                                   str << "      <filter id=\"emoji-filter-#{p.id}\" color-interpolation-filters=\"sRGB\">\n"
                                   str << "        <feColorMatrix type=\"matrix\" values=\"#{p.emoji_color_matrix}\" />\n"
                                   str << "      </filter>\n"
@@ -126,6 +139,46 @@ module Sunstone
                             else
                               ""
                             end
+
+      # Render Modular Sol.vin Palette Select Button, Hold Spinner, and 102-Palette Catalog Modal
+      default_pal = Palette.resolve_for_theme(@deck.default_palette, @deck.theme, @palettes, @deck.default_palette)
+      palette_bundle = PaletteComponent.build do |c|
+        c.theme(@deck.theme)
+        c.custom_palettes(@deck.palettes)
+        c.button do |b|
+          b.default_label(default_pal.name)
+        end
+      end
+
+      palette_head_html = String.build do |str|
+        str << "  <!-- Sunstone Modular 102-Palette Live Theme Switcher & BroadcastChannel Sync -->\n"
+        str << "  <script>\n"
+        str << "    window.SITE_PALETTES = #{palette_bundle.palettes_json};\n"
+        str << "    window.SUNSTONE_DEFAULT_PALETTE = #{default_pal.id.to_json};\n"
+        str << "  </script>\n"
+        str << "  <script src=\"hold_click.js\"></script>\n"
+        str << "  <script src=\"palette_engine.js\"></script>\n"
+        str << "  <script>\n"
+        str << "    if (window.PaletteEngine) {\n"
+        str << "      window.PaletteEngine.initHead(window.SITE_PALETTES);\n"
+        str << "    }\n"
+        str << "  </script>"
+      end
+
+      palette_body_html = String.build do |str|
+        str << palette_bundle.spinner_html << "\n"
+        str << palette_bundle.toolbar_html << "\n"
+        str << palette_bundle.modal_html
+      end
+
+      palette_init_html = String.build do |str|
+        str << "  <!-- Initialize Modular Sol.vin Palette Select Button & Catalog Menu -->\n"
+        str << "  <script>\n"
+        str << "    if (window.PaletteEngine) {\n"
+        str << "      window.PaletteEngine.initDom();\n"
+        str << "    }\n"
+        str << "  </script>"
+      end
 
       deck_header = if is_solvin
                       <<-HTML
@@ -169,10 +222,12 @@ module Sunstone
 
         <!-- Sunstone Base & Theme CSS -->
         <link rel="stylesheet" href="theme.css">
+      #{palette_head_html}
       </head>
 
       <body>
       #{palette_filters_svg}
+      #{palette_body_html}
         <div class="reveal">
       #{deck_header}
           <div class="slides">
@@ -403,6 +458,7 @@ module Sunstone
             }
           })();
         </script>
+      #{palette_init_html}
       </body>
       </html>
       HTML

@@ -18,8 +18,11 @@ module Sunstone
     ACADEMIC_PALETTES_JSON    = {{ read_file("#{__DIR__}/../../assets/themes/academic_palettes.json") }}
     TOKYO_NIGHT_PALETTES_JSON = {{ read_file("#{__DIR__}/../../assets/themes/tokyo_night_palettes.json") }}
 
-    SOLVIN_CUBE_JS = {{ read_file("#{__DIR__}/../../assets/themes/sol.vin/cube.js") }}
-    USER_CI_YML    = {{ read_file("#{__DIR__}/../../assets/user_ci.yml") }}
+    SOLVIN_CUBE_JS        = {{ read_file("#{__DIR__}/../../assets/themes/sol.vin/cube.js") }}
+    HOLD_CLICK_JS         = {{ read_file("#{__DIR__}/../../assets/palette_component/hold_click.js") }}
+    PALETTE_ENGINE_JS     = {{ read_file("#{__DIR__}/../../assets/palette_component/palette_engine.js") }}
+    PALETTE_COMPONENT_CSS = {{ read_file("#{__DIR__}/../../assets/palette_component/palette_component.css") }}
+    USER_CI_YML           = {{ read_file("#{__DIR__}/../../assets/user_ci.yml") }}
 
     # Reveal.js assets
     REVEAL_CSS       = {{ read_file("#{__DIR__}/../../assets/vendor/reveal/reveal.min.css") }}
