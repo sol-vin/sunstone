@@ -9,6 +9,25 @@ module Sunstone
       attribution = slide.raw["attribution"]?.try(&.as_s) || slide.raw["author"]?.try(&.as_s)
       cards_raw = slide.raw["cards"]?.try(&.as_a) || slide.raw["pillars"]?.try(&.as_a) || slide.raw["takeaways"]?.try(&.as_a)
 
+      code_node = slide.raw["code"]? || slide.raw["snippet"]?
+      code_str : String? = nil
+      code_title = slide.raw["code_title"]?.try(&.as_s) || "snippet.rb"
+      code_lang = slide.raw["lang"]?.try(&.as_s) || "ruby"
+      code_tag = slide.raw["tag"]?.try(&.as_s)
+      code_density = slide.raw["density"]?.try(&.as_s) || "compact"
+
+      if cn = code_node
+        if ch = cn.as_h?
+          code_str = ch["code"]?.try(&.as_s) || ch["content"]?.try(&.as_s)
+          code_title = ch["title"]?.try(&.as_s) || code_title
+          code_lang = ch["lang"]?.try(&.as_s) || code_lang
+          code_tag = ch["tag"]?.try(&.as_s) || code_tag
+          code_density = ch["density"]?.try(&.as_s) || code_density
+        elsif cs = cn.as_s?
+          code_str = cs
+        end
+      end
+
       body = String.build do |str|
         str << render_slide_header(slide) << "\n"
         str << "          <div class=\"slide-body layout-editorial-split\" data-layout=\"editorial-split\">\n"
@@ -19,6 +38,11 @@ module Sunstone
         str << "                <span class=\"editorial-huge-numeral\">" << HTML.escape(lead_num) << "</span>\n"
         str << "              </div>\n"
         str << "              <h3 class=\"editorial-lead-headline\">" << LayoutRenderer.tint_emojis(HTML.escape(headline)) << "</h3>\n"
+        if cs = code_str
+          str << "              <div class=\"editorial-lead-code\">\n"
+          str << render_code_container(code_title, code_lang, cs, code_tag, code_density) << "\n"
+          str << "              </div>\n"
+        end
         if quote_text
           str << "              <div class=\"editorial-pull-quote\">\n"
           str << "                <p>“" << LayoutRenderer.tint_emojis(HTML.escape(quote_text)) << "”</p>\n"
@@ -72,11 +96,26 @@ module Sunstone
       quote_text = slide.raw["quote"]?.try(&.as_s)
       attribution = slide.raw["attribution"]?.try(&.as_s) || slide.raw["author"]?.try(&.as_s)
       cards_raw = slide.raw["cards"]?.try(&.as_a) || slide.raw["pillars"]?.try(&.as_a)
+      code_node = slide.raw["code"]? || slide.raw["snippet"]?
+      code_str : String? = nil
+      code_lang = slide.raw["lang"]?.try(&.as_s) || "ruby"
+      if cn = code_node
+        if ch = cn.as_h?
+          code_str = ch["code"]?.try(&.as_s) || ch["content"]?.try(&.as_s)
+          code_lang = ch["lang"]?.try(&.as_s) || code_lang
+        elsif cs = cn.as_s?
+          code_str = cs
+        end
+      end
 
       String.build do |str|
         str << "### Slide " << slide_num << ": " << slide.title << " [Editorial Split]\n"
         str << "- **Theme Palette**: `" << palette.id << "` (" << palette.name << ")\n"
         str << "- **Headline**: " << headline << "\n\n"
+
+        if cs = code_str
+          str << "```" << code_lang << "\n" << cs.strip << "\n```\n\n"
+        end
 
         if quote_text
           str << "> " << quote_text
