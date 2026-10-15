@@ -274,9 +274,13 @@
         var cubeColor = colors.cube || colors.cube_stroke_color || textPrimary;
         var cubeHover = colors.cube_hover || borderActive;
         var shadowColor = colors.shadow_color || '#000000';
+        var normSurface = String(surface).trim().toLowerCase();
+        var normBg = String(bg).trim().toLowerCase();
+        var btnBg = ((normSurface === '#ffffff' || normSurface === '#fff') && normBg !== '#ffffff' && normBg !== '#fff') ? bg : surface;
 
         el.style.setProperty('--bg-color', bg);
         el.style.setProperty('--bg-window', surface);
+        el.style.setProperty('--palette-btn-bg', btnBg);
         el.style.setProperty('--text-color', textPrimary);
         el.style.setProperty('--text-dim', textMuted);
         el.style.setProperty('--link-color', linkColor);
@@ -335,6 +339,7 @@
             sec.dataset.originalBgColor = sec.getAttribute('data-background-color') || '';
             sec.dataset.originalCube = sec.getAttribute('data-palette-cube') || '';
             sec.dataset.originalCubeHover = sec.getAttribute('data-palette-cube-hover') || '';
+            sec.dataset.originalStyle = sec.getAttribute('style') || '';
           }
           if (prevPal && prevPal !== palette.id && sec.classList) {
             sec.classList.remove(prevPal);
@@ -531,24 +536,39 @@
       },
 
       /**
-       * Updates the UI button text label and color dot if elements are present in DOM.
+       * Updates the UI button text label, color dot, and button/modal CSS variables if elements are present in DOM.
        */
       updateButtonLabel: function(palette) {
         if (typeof document === 'undefined' || !palette) return;
+        var colors = this.getResolvedColors(palette);
         var label = document.getElementById(this.config.nameLabelId);
         if (label) {
           label.textContent = palette.name || palette.id;
         }
         var preview = document.getElementById(this.config.colorPreviewId);
-        if (preview) {
-          var colors = this.getResolvedColors(palette);
+        if (preview && colors) {
           var secColor = colors.accent_secondary || colors.accent_color || colors.text_color;
           if (secColor) preview.style.color = secColor;
+        }
+        var btn = document.getElementById(this.config.buttonId);
+        if (btn && colors) {
+          this._applyCssVariablesToElement(btn, palette, colors);
+          btn.setAttribute('data-palette', palette.id || '');
+        }
+        var modalOverlay = document.getElementById(this.config.modalOverlayId);
+        if (modalOverlay && colors) {
+          this._applyCssVariablesToElement(modalOverlay, palette, colors);
+          modalOverlay.setAttribute('data-palette', palette.id || '');
+        }
+        var spinner = document.getElementById('palette-hold-spinner');
+        if (spinner && colors) {
+          this._applyCssVariablesToElement(spinner, palette, colors);
+          spinner.setAttribute('data-palette', palette.id || '');
         }
       },
 
       /**
-       * Synchronizes the button display with a specific slide element when not manually overridden.
+       * Synchronizes the button display and root CSS variables with a specific slide element when not manually overridden.
        */
       syncWithSlide: function(slideEl) {
         if (!slideEl || this._userOverridden) return;
@@ -558,7 +578,7 @@
           if (idx >= 0) {
             this.currentIndex = idx;
             this.currentPalette = this.palettes[idx];
-            this.updateButtonLabel(this.currentPalette);
+            this.applyPalette(this.currentPalette);
             return;
           }
         }
@@ -566,6 +586,46 @@
         if (palName) {
           var label = document.getElementById(this.config.nameLabelId);
           if (label) label.textContent = palName;
+        }
+        if (typeof window !== 'undefined' && window.getComputedStyle && typeof document !== 'undefined') {
+          var computed = window.getComputedStyle(slideEl);
+          if (computed) {
+            var readVar = function(prop) {
+              var v = computed.getPropertyValue(prop);
+              return (typeof v === 'string' && v) ? v.trim() : '';
+            };
+            var bg = readVar('--bg-color') || slideEl.getAttribute('data-background-color') || '';
+            var surface = readVar('--bg-window') || bg;
+            var txt = readVar('--text-color') || '';
+            var border = readVar('--border-color') || txt;
+            var borderActive = readVar('--border-active') || border;
+            var shadow = readVar('--shadow-color') || border;
+            var accent = readVar('--accent-color') || txt;
+            var accentSec = readVar('--accent-secondary') || accent;
+            var normSurf = String(surface).trim().toLowerCase();
+            var normBgVal = String(bg).trim().toLowerCase();
+            var btnBg = ((normSurf === '#ffffff' || normSurf === '#fff') && normBgVal && normBgVal !== '#ffffff' && normBgVal !== '#fff') ? bg : (surface || bg);
+            var targets = [document.documentElement, document.getElementById(this.config.buttonId), document.getElementById(this.config.modalOverlayId)];
+            for (var t = 0; t < targets.length; t++) {
+              var el = targets[t];
+              if (el && el.style) {
+                if (bg) el.style.setProperty('--bg-color', bg);
+                if (surface) el.style.setProperty('--bg-window', surface);
+                if (btnBg) el.style.setProperty('--palette-btn-bg', btnBg);
+                if (txt) el.style.setProperty('--text-color', txt);
+                if (border) el.style.setProperty('--border-color', border);
+                if (borderActive) el.style.setProperty('--border-active', borderActive);
+                if (shadow) el.style.setProperty('--shadow-color', shadow);
+                if (accent) el.style.setProperty('--accent-color', accent);
+                if (accentSec) el.style.setProperty('--accent-secondary', accentSec);
+                if (palId) el.setAttribute('data-palette', palId);
+              }
+            }
+            var preview = document.getElementById(this.config.colorPreviewId);
+            if (preview && (accentSec || accent || txt)) {
+              preview.style.color = accentSec || accent || txt;
+            }
+          }
         }
       },
 
@@ -709,7 +769,77 @@
         this.selectIndex(this.currentIndex - 1);
       },
 
+      _hasSlideDeck: function() {
+        if (typeof window !== 'undefined' && window.SUNSTONE_DEFAULT_PALETTE) return true;
+        if (typeof document !== 'undefined' && document.querySelector) {
+          return Boolean(document.querySelector('.reveal .slides section.slide, section.solvin-slide'));
+        }
+        return false;
+      },
+
+      _getActiveSlide: function() {
+        if (typeof document === 'undefined') return null;
+        if (typeof window !== 'undefined' && window.Reveal && typeof window.Reveal.getCurrentSlide === 'function') {
+          try {
+            var revSlide = window.Reveal.getCurrentSlide();
+            if (revSlide) return revSlide;
+          } catch(e) {}
+        }
+        var presentSlide = document.querySelector('.reveal .slides section.present');
+        if (presentSlide) return presentSlide;
+        if (typeof window !== 'undefined' && window.location && window.location.hash) {
+          var rawHash = window.location.hash.replace(/^#\/?/, '').split('/')[0].split('?')[0];
+          if (rawHash) {
+            var byId = document.getElementById(rawHash);
+            if (byId && byId.tagName && byId.tagName.toLowerCase() === 'section') {
+              return byId;
+            }
+            if (/^\d+$/.test(rawHash)) {
+              var allSlides = document.querySelectorAll('.reveal .slides section.slide, section.solvin-slide');
+              var numIdx = parseInt(rawHash, 10);
+              if (numIdx >= 0 && numIdx < allSlides.length) {
+                return allSlides[numIdx];
+              }
+            }
+          }
+        }
+        return document.querySelector('.reveal .slides section.slide, section.solvin-slide');
+      },
+
       resetDefaultPalette: function() {
+        if (this._hasSlideDeck() && typeof document !== 'undefined') {
+          this._userOverridden = false;
+          var slides = document.querySelectorAll('.reveal .slides section.slide, section.solvin-slide');
+          for (var i = 0; i < slides.length; i++) {
+            var sec = slides[i];
+            var origPal = sec.dataset.originalPalette;
+            if (origPal) {
+              var curPal = sec.getAttribute('data-palette');
+              if (curPal && curPal !== origPal && sec.classList) {
+                sec.classList.remove(curPal);
+              }
+              if (sec.classList) sec.classList.add(origPal);
+              sec.setAttribute('data-palette', origPal);
+              if (sec.dataset.originalPaletteName) sec.setAttribute('data-palette-name', sec.dataset.originalPaletteName);
+              if (sec.dataset.originalBgColor) sec.setAttribute('data-background-color', sec.dataset.originalBgColor);
+              if (sec.dataset.originalCube) sec.setAttribute('data-palette-cube', sec.dataset.originalCube);
+              if (sec.dataset.originalCubeHover) sec.setAttribute('data-palette-cube-hover', sec.dataset.originalCubeHover);
+              if (sec.dataset.originalStyle) {
+                sec.setAttribute('style', sec.dataset.originalStyle);
+              } else {
+                sec.removeAttribute('style');
+              }
+            }
+          }
+          if (typeof window !== 'undefined' && window.Reveal && typeof window.Reveal.sync === 'function') {
+            try { window.Reveal.sync(); } catch(e) {}
+          }
+          var activeSlide = this._getActiveSlide();
+          if (activeSlide) {
+            this.syncWithSlide(activeSlide);
+            return;
+          }
+        }
         this._userOverridden = true;
         this.selectIndex(0);
       },
@@ -729,6 +859,7 @@
       },
 
       syncFromStorage: function() {
+        if (this._hasSlideDeck() && !this._userOverridden) return;
         var savedId = this.getSavedPaletteId();
         if (savedId) {
           var idx = this.findPaletteIndexById(savedId);
@@ -741,6 +872,13 @@
 
       initHead: function(palettes) {
         this.palettes = palettes || (typeof window !== 'undefined' && window.SITE_PALETTES) || [];
+        var deckDefaultId = (typeof window !== 'undefined' && window.SUNSTONE_DEFAULT_PALETTE) ? String(window.SUNSTONE_DEFAULT_PALETTE) : '';
+        if (deckDefaultId) {
+          this._userOverridden = false;
+          var defIdx = this.findPaletteIndexById(deckDefaultId);
+          this.selectIndex(defIdx >= 0 ? defIdx : 0, { silentOverride: true, skipPersist: true });
+          return;
+        }
         var savedId = this.getSavedPaletteId();
         var idx = this.findPaletteIndexById(savedId);
         if (idx >= 0) {
@@ -814,7 +952,7 @@
         if (this._userOverridden && this.currentPalette) {
           this.syncSlideDeck(this.currentPalette);
         } else if (typeof document !== 'undefined') {
-          var activeSlide = document.querySelector('.reveal .slides section.present') || document.querySelector('.reveal .slides section.slide');
+          var activeSlide = this._getActiveSlide();
           if (activeSlide) {
             this.syncWithSlide(activeSlide);
           }
@@ -826,18 +964,37 @@
         }
 
         if (typeof window !== 'undefined' && window.Reveal && typeof window.Reveal.on === 'function') {
+          if (typeof window.Reveal.isReady === 'function' && window.Reveal.isReady()) {
+            var readySlide = this._getActiveSlide();
+            if (this._userOverridden && this.currentPalette) {
+              this.syncSlideDeck(this.currentPalette);
+            } else if (readySlide) {
+              this.syncWithSlide(readySlide);
+            }
+          }
           window.Reveal.on('ready', function(event) {
+            var slide = (event && event.currentSlide) || self._getActiveSlide();
             if (self._userOverridden && self.currentPalette) {
               self.syncSlideDeck(self.currentPalette);
-            } else if (event && event.currentSlide) {
-              self.syncWithSlide(event.currentSlide);
+            } else if (slide) {
+              self.syncWithSlide(slide);
             }
           });
           window.Reveal.on('slidechanged', function(event) {
+            var slide = (event && event.currentSlide) || self._getActiveSlide();
             if (self._userOverridden && self.currentPalette) {
               self.syncSlideDeck(self.currentPalette);
-            } else if (event && event.currentSlide) {
-              self.syncWithSlide(event.currentSlide);
+            } else if (slide) {
+              self.syncWithSlide(slide);
+            }
+          });
+        }
+
+        if (typeof window !== 'undefined') {
+          window.addEventListener('hashchange', function() {
+            if (!self._userOverridden) {
+              var slide = self._getActiveSlide();
+              if (slide) self.syncWithSlide(slide);
             }
           });
         }

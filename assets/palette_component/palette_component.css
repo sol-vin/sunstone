@@ -21,32 +21,37 @@ body:has(#palette-swap-btn) .palette-corner-badge {
   display: none !important;
 }
 
+#palette-swap-btn,
 .palette-swap-btn {
-  background: var(--bg-window, var(--sunstone-surface, #faf6ee));
-  color: var(--text-color, var(--sunstone-text-primary, #1c1c1e));
-  border: 1.5px solid var(--border-color, var(--sunstone-border, #1c1c1e));
+  background-color: var(--palette-btn-bg, var(--bg-window, var(--bg-color, var(--sunstone-surface, #faf6ee)))) !important;
+  background: var(--palette-btn-bg, var(--bg-window, var(--bg-color, var(--sunstone-surface, #faf6ee)))) !important;
+  color: var(--text-color, var(--sunstone-text-primary, #1c1c1e)) !important;
+  border: 1.5px solid var(--border-color, var(--sunstone-border, #1c1c1e)) !important;
   padding: 0.35rem 0.75rem;
   font-family: 'Quicksand', var(--sunstone-font-mono, monospace), sans-serif;
   font-weight: bold;
   font-size: 0.82rem;
   cursor: pointer;
-  box-shadow: 3px 3px 0px var(--shadow-color, #1c1c1e);
+  box-shadow: 3px 3px 0px var(--shadow-color, #1c1c1e) !important;
   border-radius: 4px;
   transition: all 0.15s ease;
   white-space: nowrap;
   user-select: none;
 }
 
+#palette-swap-btn:hover,
 .palette-swap-btn:hover {
-  background: var(--border-color, var(--sunstone-border, #1c1c1e));
-  color: var(--bg-color, var(--sunstone-bg, #faf6ee));
-  border-color: var(--border-active, var(--sunstone-border-active, #1c1c1e));
-  box-shadow: 3px 3px 0px var(--border-active, var(--sunstone-border-active, #1c1c1e));
+  background-color: var(--border-color, var(--sunstone-border, #1c1c1e)) !important;
+  background: var(--border-color, var(--sunstone-border, #1c1c1e)) !important;
+  color: var(--bg-color, var(--sunstone-bg, #faf6ee)) !important;
+  border-color: var(--border-active, var(--sunstone-border-active, #1c1c1e)) !important;
+  box-shadow: 3px 3px 0px var(--border-active, var(--sunstone-border-active, #1c1c1e)) !important;
 }
 
+#palette-swap-btn:active,
 .palette-swap-btn:active {
   transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0px var(--border-active, var(--sunstone-border-active, #1c1c1e));
+  box-shadow: 2px 2px 0px var(--border-active, var(--sunstone-border-active, #1c1c1e)) !important;
 }
 
 .palette-color-preview {

@@ -300,6 +300,16 @@ module Sunstone
       bg_window
     end
 
+    def palette_btn_bg : String
+      surf = bg_window.strip.downcase
+      bg_val = bg_color.strip.downcase
+      if (surf == "#ffffff" || surf == "#fff") && bg_val != "#ffffff" && bg_val != "#fff"
+        bg_color
+      else
+        bg_window
+      end
+    end
+
     def hex_to_rgb(hex : String) : Tuple(Float64, Float64, Float64)
       clean = hex.lchop('#')
       if clean.size == 3
@@ -333,6 +343,7 @@ module Sunstone
         /* Sol.vin Theme Variables */
         --bg-color: #{bg_color};
         --bg-window: #{bg_window};
+        --palette-btn-bg: #{palette_btn_bg};
         --text-color: #{text_primary};
         --text-dim: #{text_muted};
         --link-color: #{link_color};
