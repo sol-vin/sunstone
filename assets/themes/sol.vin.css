@@ -1851,6 +1851,23 @@ ul.card-list li strong {
   line-height: 1.25 !important;
 }
 
+.slide-body[data-layout*="three-column"] .code-container pre,
+[data-layout*="three-column"] .slide-body .code-container pre,
+.solvin-slide .slide-body[data-layout*="three-column"] .code-container pre {
+  padding: 0.50rem 0.65rem !important;
+}
+
+.slide-body[data-layout*="three-column"] .code-container pre code,
+[data-layout*="three-column"] .slide-body .code-container pre code,
+.solvin-slide .slide-body[data-layout*="three-column"] .code-container pre code {
+  padding: 0 !important;
+  font-size: 0.64rem !important;
+  line-height: 1.32 !important;
+  white-space: pre !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
 .code-container pre code .hljs-keyword,
 .code-container pre code .hljs-selector-tag {
   color: var(--accent-color) !important;

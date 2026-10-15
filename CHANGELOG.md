@@ -1,4 +1,58 @@
 # CARBON CHANGELOG
+## [0.1.49] - 2026-10-15
+### ✨ Features & Improvements
+- ✦ **[THEMES]** add nordic, brutalist, academic, and tokyo-night themes with custom theme authoring and developer pressure points guides ([`6e31826`](https://github.com/sol-vin/sunstone/commit/6e31826))
+- ✦ **[GALLERY]** add interactive multi-theme landing page and --all-themes build support ([`1e87150`](https://github.com/sol-vin/sunstone/commit/1e87150))
+- ✦ **[LAYOUT]** complete layout overhaul with universal Grid/Flexbox engine and 5 new layouts ([`6017be5`](https://github.com/sol-vin/sunstone/commit/6017be5))
+- ✦ **[THEME]** scope palettes per theme, import 102 sol.vin palettes, overhaul theme styles, and fix bento layout ([`a2fff17`](https://github.com/sol-vin/sunstone/commit/a2fff17))
+- ✦ integrate celestine SVG charts, overhaul intro layout spacing, and showcase all 20 layouts ([`e18c582`](https://github.com/sol-vin/sunstone/commit/e18c582))
+- ✦ **[LAYOUT]** add chapter cube, center profile stats, fix timeline hover clipping, and overhaul slide layouts ([`13c0ce6`](https://github.com/sol-vin/sunstone/commit/13c0ce6))
+- ✦ **[LAYOUT]** overhaul matrix layout with frosted arctic glass scorecard and balanced grid ([`9f5eb04`](https://github.com/sol-vin/sunstone/commit/9f5eb04))
+- ✦ **[LAYOUT]** expand layout catalog to 33 layouts with asymmetric, timeline, calendar, and artistic variants ([`d449ef6`](https://github.com/sol-vin/sunstone/commit/d449ef6))
+- ✦ **[ROUTER, CLI]** normalize -layout suffixes, add aliases, support --theme on validate, and improve path resolution ([`843d16a`](https://github.com/sol-vin/sunstone/commit/843d16a))
+- ✦ **[V0.1.29]** optimize bento card spacing, allow unescaped HTML in FAQ answers ([`d1f0767`](https://github.com/sol-vin/sunstone/commit/d1f0767))
+- ✦ **[HIGHLIGHT]** add GDScript syntax grammar and fix RevealHighlight language sync ([`71bcce8`](https://github.com/sol-vin/sunstone/commit/71bcce8))
+- ✦ **[BARCHART]** add speedup badges, shorthand platform fallbacks, and layout_renderer support ([`2878da4`](https://github.com/sol-vin/sunstone/commit/2878da4))
+- ✦ **[ADAPTER]** add Declarative Reveal.js Presentation Adapter ([`f5316f1`](https://github.com/sol-vin/sunstone/commit/f5316f1))
+- ✦ **[PALETTE]** integrate modular sol.vin 102-palette button & catalog menu (WO-044) ([`18829db`](https://github.com/sol-vin/sunstone/commit/18829db))
+- ✦ **[ICONS]** integrate compile-time src/web/svgs/*.svg registry & PalettePicker across slide toolbar and theme catalog (WO-050) ([`d2aaea2`](https://github.com/sol-vin/sunstone/commit/d2aaea2))
+- ✦ **[RFC]** add declarative rfc_card slide component builder & [AS-X] decision matrix layout (WO-069) ([`0b10892`](https://github.com/sol-vin/sunstone/commit/0b10892))
+- ✦ **[EDITORIAL-SPLIT]** support optional code snippet in left lead column ([`09c09f6`](https://github.com/sol-vin/sunstone/commit/09c09f6))
+
+### 🐛 Bug Fixes
+- ✓ **[THEME]** restore authentic sol.vin theme aesthetic and harmonize multi-theme layouts ([`448030a`](https://github.com/sol-vin/sunstone/commit/448030a))
+- ✓ **[THEME]** complete overhaul of authentic sol.vin styling and multi-theme rendering ([`4c62c5e`](https://github.com/sol-vin/sunstone/commit/4c62c5e))
+- ✓ **[THEME]** remove duplicate pseudo-element dots in generic code window header ([`9767d58`](https://github.com/sol-vin/sunstone/commit/9767d58))
+- ✓ **[LAYOUT]** resolve bento feature-grid multi-column layout override and expand icon registry aliases ([`11893f8`](https://github.com/sol-vin/sunstone/commit/11893f8))
+- ✓ resolve borked slide-media layout, style media window, and embed Wikimedia Sunstone image ([`4edde82`](https://github.com/sol-vin/sunstone/commit/4edde82))
+- ✓ **[ACADEMIC]** restore high-contrast chapter typography, center section layout, and style LaTeX booktabs scorecard ([`0a1cf91`](https://github.com/sol-vin/sunstone/commit/0a1cf91))
+- ✓ **[THEME]** refine vertical-timeline compact card sizing and semantic variables across themes ([`2ec0a9f`](https://github.com/sol-vin/sunstone/commit/2ec0a9f))
+- ✓ **[THEME]** enforce strict sol.vin palette adherence and apply ColorMatrix filter to emojis ([`fa5187b`](https://github.com/sol-vin/sunstone/commit/fa5187b))
+- ✓ **[THEME]** enforce strict palette compliance for bullet points, dots, badges, and assign unique palettes to all 34 showcase slides ([`3cead1b`](https://github.com/sol-vin/sunstone/commit/3cead1b))
+- ✓ clean two-step code comparison critique layout and prevent 720p card overflow ([`210881c`](https://github.com/sol-vin/sunstone/commit/210881c))
+- ✓ **[THEME]** support data-steps 2/6/7/8 in process-pipeline and optimize demo-step-card padding ([`016c2cf`](https://github.com/sol-vin/sunstone/commit/016c2cf))
+- ✓ **[THEME]** hide code-view and analysis step badges via CSS in slide-meta ([`ee18d6a`](https://github.com/sol-vin/sunstone/commit/ee18d6a))
+- ✓ **[LAYOUTS]** allow rich HTML in matrix layout and improve code legibility in four-column layout ([`1847552`](https://github.com/sol-vin/sunstone/commit/1847552))
+- ✓ **[CSS]** maintain flex-direction column on slide-header with data-align split ([`a52f54e`](https://github.com/sol-vin/sunstone/commit/a52f54e))
+- ✓ **[CSS]** enforce minmax(0, 1fr) tracks and min-width 0 on comparison panes and headers ([`16f5124`](https://github.com/sol-vin/sunstone/commit/16f5124))
+- ✓ **[TIMELINE]** prevent milestone track and node overflow by matching card grid columns ([`11dd0b4`](https://github.com/sol-vin/sunstone/commit/11dd0b4))
+- ✓ **[DOCS]** avoid read_file macro interpolation in Jasper theme docs ([`e7866d7`](https://github.com/sol-vin/sunstone/commit/e7866d7))
+- ✓ **[PALETTE]** sync #palette-swap-btn background and CSS vars with active slide palette ([`75c5f4d`](https://github.com/sol-vin/sunstone/commit/75c5f4d))
+
+### 📚 Documentation
+- 📖 **[CHANGELOG]** update changelog for v0.1.20 layout engine expansion ([`9ac07c4`](https://github.com/sol-vin/sunstone/commit/9ac07c4))
+- 📖 **[CHANGELOG]** sync release notes for v0.1.22 ([`e6aa854`](https://github.com/sol-vin/sunstone/commit/e6aa854))
+
+### 🛠️ Chores & Tooling
+- ✦ **[GALLERY]** simplify homepage to clean minimal list linking directly to theme demos ([`fd3b7ac`](https://github.com/sol-vin/sunstone/commit/fd3b7ac))
+- • Merge pull request [#1](https://github.com/sol-vin/sunstone/issues/1) from sol-vin/feat/reveal-adapter-and-declarative-theme-engine ([`5d495f0`](https://github.com/sol-vin/sunstone/commit/5d495f0))
+- • **[CI]** format crystal sources and sync carbon version ([`d0e7ca1`](https://github.com/sol-vin/sunstone/commit/d0e7ca1))
+- • **[CI]** format Jasper docs before Carbon doctor audit and sync version 0.1.39 ([`c55e648`](https://github.com/sol-vin/sunstone/commit/c55e648))
+- • Merge pull request [#2](https://github.com/sol-vin/sunstone/issues/2) from sol-vin/feat/wo-044 ([`d53674e`](https://github.com/sol-vin/sunstone/commit/d53674e))
+- • Merge pull request [#3](https://github.com/sol-vin/sunstone/issues/3) from sol-vin/feat/wo-050 ([`e1a8aea`](https://github.com/sol-vin/sunstone/commit/e1a8aea))
+- • Merge pull request [#4](https://github.com/sol-vin/sunstone/issues/4) from sol-vin/feat/wo-069 ([`65b15f6`](https://github.com/sol-vin/sunstone/commit/65b15f6))
+
+---
 ## [0.1.48] - 2026-10-15
 ### ✨ Features & Improvements
 - ✦ **[THEMES]** add nordic, brutalist, academic, and tokyo-night themes with custom theme authoring and developer pressure points guides ([`6e31826`](https://github.com/sol-vin/sunstone/commit/6e31826))
