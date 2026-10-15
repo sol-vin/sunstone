@@ -1868,6 +1868,49 @@ ul.card-list li strong {
   overflow-wrap: normal !important;
 }
 
+.slide-body[data-layout*="three-column"] .card,
+[data-layout*="three-column"] .slide-body .card,
+.solvin-slide .slide-body[data-layout*="three-column"] .card {
+  padding: 0.70rem 0.90rem !important;
+  gap: 0.45rem !important;
+  justify-content: flex-start !important;
+}
+
+.slide-body[data-layout*="three-column"] .card .card-header,
+[data-layout*="three-column"] .slide-body .card .card-header {
+  margin-bottom: 0.25rem !important;
+  padding-bottom: 0.35rem !important;
+  font-size: 0.88rem !important;
+}
+
+.slide-body[data-layout*="three-column"] .card .card-header .badge,
+[data-layout*="three-column"] .slide-body .card .card-header .badge {
+  font-size: 0.58rem !important;
+  padding: 0.12rem 0.38rem !important;
+}
+
+.slide-body[data-layout*="three-column"] .card ul.card-list,
+[data-layout*="three-column"] .slide-body .card ul.card-list {
+  gap: 0.48rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  justify-content: space-evenly !important;
+}
+
+.slide-body[data-layout*="three-column"] .card ul.card-list li,
+[data-layout*="three-column"] .slide-body .card ul.card-list li {
+  font-size: 0.74rem !important;
+  line-height: 1.32 !important;
+  padding-left: 1.15rem !important;
+  margin: 0 !important;
+}
+
+.slide-body[data-layout*="three-column"] .card ul.card-list li code,
+[data-layout*="three-column"] .slide-body .card ul.card-list li code {
+  font-size: 0.68rem !important;
+  padding: 0.04rem 0.24rem !important;
+}
+
 .code-container pre code .hljs-keyword,
 .code-container pre code .hljs-selector-tag {
   color: var(--accent-color) !important;
