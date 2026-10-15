@@ -1895,6 +1895,7 @@ ul.card-list li strong {
 .code-container pre code .hljs-number,
 .code-container pre code .hljs-literal {
   color: var(--accent-quaternary, var(--accent-color)) !important;
+  font-weight: 600 !important;
 }
 
 .code-container pre code .hljs-comment,

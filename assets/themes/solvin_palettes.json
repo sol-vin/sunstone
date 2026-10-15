@@ -4036,7 +4036,7 @@
       "shadow_color": "#0f1318",
       "accent_secondary": "#ffffff",
       "accent_tertiary": "#80deea",
-      "accent_quaternary": "#266973",
+      "accent_quaternary": "#a7ffeb",
       "cube": "#ffffff",
       "cube_hover": "#80deea",
       "resume_job_role": "#80deea",
@@ -4061,7 +4061,7 @@
       "bezel_black": "#0f1318",
       "pure_white": "#ffffff",
       "glint_cyan": "#80deea",
-      "dim_cyan": "#266973"
+      "dim_cyan": "#a7ffeb"
     },
     "variables": {
       "bg_color": "metallic_aqua",
