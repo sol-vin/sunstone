@@ -1876,6 +1876,29 @@ ul.card-list li strong {
   min-height: 0 !important;
 }
 
+.slide-body[data-layout*="three-column"][data-has-matrix="true"],
+.solvin-slide .slide-body[data-layout*="three-column"][data-has-matrix="true"] {
+  grid-template-rows: auto minmax(0, 1fr) !important;
+  gap: 0.65rem 0.90rem !important;
+}
+
+.slide-body[data-layout*="three-column"] .three-col-matrix,
+.solvin-slide .slide-body[data-layout*="three-column"] .three-col-matrix {
+  grid-column: 1 / -1 !important;
+  min-height: 0 !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
+}
+
+.slide-body[data-layout*="three-column"] .three-col-matrix .matrix-table th,
+.slide-body[data-layout*="three-column"] .three-col-matrix .matrix-table td,
+.solvin-slide .slide-body[data-layout*="three-column"] .three-col-matrix .matrix-table th,
+.solvin-slide .slide-body[data-layout*="three-column"] .three-col-matrix .matrix-table td {
+  padding: 0.30rem 0.65rem !important;
+  font-size: 0.72rem !important;
+  line-height: 1.22 !important;
+}
+
 .slide-body[data-layout*="three-column"] .card,
 [data-layout*="three-column"] .slide-body .card,
 .solvin-slide .slide-body[data-layout*="three-column"] .card,
