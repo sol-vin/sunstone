@@ -19,6 +19,7 @@ module Sunstone
           h_lang = hero["lang"]?.try(&.as_s) || "crystal"
           h_cmd = hero["cmd"]?.try(&.as_s)
           h_items = hero["items"]?.try(&.as_a)
+          h_matrix = hero["matrix"]?.try(&.as_h)
 
           str << "            <div class=\"bento-hero-column\">\n"
           str << "              <div class=\"card bento-hero-card " << h_color << "\" data-color=\"" << h_color << "\">\n"
@@ -36,6 +37,59 @@ module Sunstone
           elsif h_cmd
             str << "                <div class=\"terminal-window bento-code-window\" data-density=\"compact\">\n"
             str << "                  <div class=\"window-body\"><pre><code class=\"language-bash\">" << HTML.escape(h_cmd.strip) << "</code></pre></div>\n"
+            str << "                </div>\n"
+          elsif h_matrix
+            headers = Array(String).new
+            if raw_headers = h_matrix["headers"]?.try(&.as_a)
+              raw_headers.each { |h| headers << h.as_s }
+            end
+            rows = Array(Array(String)).new
+            if raw_rows = h_matrix["rows"]?.try(&.as_a)
+              raw_rows.each do |r|
+                row_items = Array(String).new
+                if r.as_a?
+                  r.as_a.each { |cell| row_items << cell.as_s }
+                end
+                rows << row_items
+              end
+            end
+            highlight_idx = h_matrix["highlight_col"]?.try(&.as_i?) || 1
+
+            str << "                <div class=\"matrix-container bento-matrix-window\">\n"
+            str << "                  <table class=\"matrix-table\">\n"
+            if !headers.empty?
+              str << "                    <thead>\n                      <tr>\n"
+              headers.each_with_index do |h, idx|
+                classes = String.build do |c|
+                  c << "dim-header" if idx == 0
+                  if idx == highlight_idx
+                    c << " " unless c.empty?
+                    c << "highlight highlight-col"
+                  end
+                end
+                cls_attr = classes.empty? ? "" : " class=\"#{classes}\""
+                str << "                        <th#{cls_attr}>" << LayoutRenderer.tint_emojis(h) << "</th>\n"
+              end
+              str << "                      </tr>\n                    </thead>\n"
+            end
+            str << "                    <tbody>\n"
+            rows.each do |row|
+              str << "                      <tr>\n"
+              row.each_with_index do |cell, c_idx|
+                classes = String.build do |c|
+                  c << "dim-header" if c_idx == 0
+                  if c_idx == highlight_idx
+                    c << " " unless c.empty?
+                    c << "lapis-col highlight-col"
+                  end
+                end
+                cls_attr = classes.empty? ? "" : " class=\"#{classes}\""
+                str << "                        <td#{cls_attr}>" << LayoutRenderer.tint_emojis(cell) << "</td>\n"
+              end
+              str << "                      </tr>\n"
+            end
+            str << "                    </tbody>\n"
+            str << "                  </table>\n"
             str << "                </div>\n"
           end
 

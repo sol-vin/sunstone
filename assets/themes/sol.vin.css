@@ -1876,27 +1876,39 @@ ul.card-list li strong {
   min-height: 0 !important;
 }
 
-.slide-body[data-layout*="three-column"][data-has-matrix="true"],
-.solvin-slide .slide-body[data-layout*="three-column"][data-has-matrix="true"] {
-  grid-template-rows: auto minmax(0, 1fr) !important;
-  gap: 0.65rem 0.90rem !important;
+.slide-body[data-layout*="feature-grid"]:has(.bento-matrix-window),
+.solvin-slide .slide-body[data-layout*="feature-grid"]:has(.bento-matrix-window) {
+  grid-template-columns: 1.38fr 1fr !important;
+  gap: 1.05rem !important;
 }
 
-.slide-body[data-layout*="three-column"] .three-col-matrix,
-.solvin-slide .slide-body[data-layout*="three-column"] .three-col-matrix {
-  grid-column: 1 / -1 !important;
+.bento-hero-card .bento-matrix-window,
+.solvin-slide .bento-hero-card .bento-matrix-window {
+  flex: 1 1 auto !important;
   min-height: 0 !important;
-  max-height: 100% !important;
+  margin: 0.25rem 0 !important;
+  border-radius: 6px !important;
   overflow: hidden !important;
 }
 
-.slide-body[data-layout*="three-column"] .three-col-matrix .matrix-table th,
-.slide-body[data-layout*="three-column"] .three-col-matrix .matrix-table td,
-.solvin-slide .slide-body[data-layout*="three-column"] .three-col-matrix .matrix-table th,
-.solvin-slide .slide-body[data-layout*="three-column"] .three-col-matrix .matrix-table td {
-  padding: 0.30rem 0.65rem !important;
+.bento-hero-card .bento-matrix-window .matrix-table th,
+.solvin-slide .bento-hero-card .bento-matrix-window .matrix-table th {
+  padding: 0.42rem 0.55rem !important;
   font-size: 0.72rem !important;
   line-height: 1.22 !important;
+}
+
+.bento-hero-card .bento-matrix-window .matrix-table td,
+.solvin-slide .bento-hero-card .bento-matrix-window .matrix-table td {
+  padding: 0.38rem 0.55rem !important;
+  font-size: 0.69rem !important;
+  line-height: 1.24 !important;
+}
+
+.bento-hero-card .bento-matrix-window .matrix-table td.dim-header,
+.solvin-slide .bento-hero-card .bento-matrix-window .matrix-table td.dim-header {
+  font-weight: 700 !important;
+  font-size: 0.70rem !important;
 }
 
 .slide-body[data-layout*="three-column"] .card,
