@@ -1915,9 +1915,9 @@ ul.card-list li strong {
 [data-layout*="three-column"] .slide-body .card,
 .solvin-slide .slide-body[data-layout*="three-column"] .card,
 .solvin-slide .slide-body[data-layout*="three-column"] .card.col {
-  padding: 0.55rem 0.78rem !important;
-  gap: 0.30rem !important;
-  justify-content: flex-start !important;
+  padding: 0.65rem 0.85rem !important;
+  gap: 0.35rem !important;
+  justify-content: space-between !important;
   max-height: 100% !important;
   min-height: 0 !important;
 }
@@ -1925,9 +1925,9 @@ ul.card-list li strong {
 .slide-body[data-layout*="three-column"] .card .card-header,
 [data-layout*="three-column"] .slide-body .card .card-header,
 .solvin-slide .slide-body[data-layout*="three-column"] .card .card-header {
-  margin-bottom: 0.15rem !important;
-  padding-bottom: 0.25rem !important;
-  font-size: 0.80rem !important;
+  margin-bottom: 0.18rem !important;
+  padding-bottom: 0.28rem !important;
+  font-size: 0.82rem !important;
   white-space: nowrap !important;
   flex-shrink: 0 !important;
 }
@@ -1935,18 +1935,18 @@ ul.card-list li strong {
 .slide-body[data-layout*="three-column"] .card .card-header .badge,
 [data-layout*="three-column"] .slide-body .card .card-header .badge,
 .solvin-slide .slide-body[data-layout*="three-column"] .card .card-header .badge {
-  font-size: 0.54rem !important;
-  padding: 0.10rem 0.34rem !important;
+  font-size: 0.55rem !important;
+  padding: 0.10rem 0.36rem !important;
   flex-shrink: 0 !important;
 }
 
 .slide-body[data-layout*="three-column"] .card ul.card-list,
 [data-layout*="three-column"] .slide-body .card ul.card-list,
 .solvin-slide .slide-body[data-layout*="three-column"] .card ul.card-list {
-  gap: 0.32rem !important;
+  gap: 0.35rem !important;
   margin: 0 !important;
-  padding: 0 !important;
-  justify-content: flex-start !important;
+  padding: 0.10rem 0 !important;
+  justify-content: space-between !important;
   flex: 1 1 auto !important;
   min-height: 0 !important;
 }
@@ -1954,25 +1954,25 @@ ul.card-list li strong {
 .slide-body[data-layout*="three-column"] .card ul.card-list li,
 [data-layout*="three-column"] .slide-body .card ul.card-list li,
 .solvin-slide .slide-body[data-layout*="three-column"] .card ul.card-list li {
-  font-size: 0.68rem !important;
-  line-height: 1.24 !important;
-  padding-left: 1.0rem !important;
+  font-size: 0.72rem !important;
+  line-height: 1.30 !important;
+  padding-left: 1.05rem !important;
   margin: 0 !important;
 }
 
 .slide-body[data-layout*="three-column"] .card ul.card-list li::before,
 [data-layout*="three-column"] .slide-body .card ul.card-list li::before,
 .solvin-slide .slide-body[data-layout*="three-column"] .card ul.card-list li::before {
-  font-size: 0.85rem !important;
-  line-height: 1.2 !important;
+  font-size: 0.90rem !important;
+  line-height: 1.25 !important;
   top: 0 !important;
 }
 
 .slide-body[data-layout*="three-column"] .card ul.card-list li code,
 [data-layout*="three-column"] .slide-body .card ul.card-list li code,
 .solvin-slide .slide-body[data-layout*="three-column"] .card ul.card-list li code {
-  font-size: 0.62rem !important;
-  padding: 0.02rem 0.20rem !important;
+  font-size: 0.66rem !important;
+  padding: 0.03rem 0.22rem !important;
 }
 
 .code-container pre code .hljs-keyword,
